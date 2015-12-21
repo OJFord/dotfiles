@@ -7,3 +7,7 @@ setopt appendhistory autocd
 # Vim-mode
 bindkey -v
 export EDITOR=vim
+
+# Promptline
+source ./.promptline.sh
+ZLE_RPROMPT_INDENT=0

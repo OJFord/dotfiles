@@ -4,3 +4,6 @@
 [submodule "vim/.vim/bundle/vim-airline"]
 	path = vim/.vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
+[submodule "vim/.vim/bundle/promptline.vim"]
+	path = vim/.vim/bundle/promptline.vim
+	url = https://github.com/edkolev/promptline.vim
