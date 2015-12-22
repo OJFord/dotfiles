@@ -26,7 +26,7 @@ let g:airline_solarized_bg='dark'
 let g:airline_powerline_fonts=1
 
 " Run backspace over newlines
-set backspace=2
+set backspace=indent,eol,start
 
 " Cursor
 set ruler
