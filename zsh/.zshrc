@@ -6,7 +6,9 @@ setopt appendhistory autocd
 
 # Vim-mode
 bindkey -v
+set -o vi
 export EDITOR=vim
+export VISUAL=vim
 
 # Promptline
 source ./.promptline.sh
