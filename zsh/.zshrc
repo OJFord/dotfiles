@@ -12,6 +12,9 @@ export EDITOR=vim
 source ./.promptline.sh
 ZLE_RPROMPT_INDENT=0
 
+# No bells
+setopt nobeep
+
 # GPG
 ## start if not running
 if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
