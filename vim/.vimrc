@@ -1,3 +1,6 @@
+" No vi compatibility
+set nocompatible
+
 " Pathogen
 filetype plugin indent off
 execute pathogen#infect()
