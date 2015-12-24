@@ -10,6 +10,11 @@ set -o vi
 export EDITOR=vim
 export VISUAL=vim
 
+# Online help
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/help
+
 # Promptline
 source ./.promptline.sh
 ZLE_RPROMPT_INDENT=0
