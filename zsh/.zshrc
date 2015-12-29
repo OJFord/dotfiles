@@ -45,3 +45,20 @@ alias gz="tar -zcvf"        # zip tar.gz
 ## Git aliases
 alias gitl="git lola"       # lola (pretty log) alias defined in gitconfig
 alias gits="git status"
+## expand on space or return
+expand_cmd_space(){
+    zle _expand_alias
+    zle expand-word
+    zle self-insert
+}
+expand_cmd_return(){
+    zle _expand_alias
+    zle expand-word
+    zle accept-line
+}
+zle -N expand_cmd_space
+zle -N expand_cmd_return
+bindkey " " expand_cmd_space
+bindkey "^M" expand_cmd_return
+bindkey "^ " magic-space           # control-space to bypass completion
+bindkey -M isearch " " magic-space # normal space during searches
