@@ -35,3 +35,13 @@ fi
 ## set GPG TTY
 GPG_TTY=$(tty)
 export GPG_TTY
+
+# Aliases
+autoload -U compinit && compinit
+alias ls="ls -FG"           # colourise and display dir,exec,etc. icons
+alias ll="ls -FGhlo"        # long-list, use KB,MB,etc. sizes, no group id
+alias lla="ls -AFGhl"       # include dotfiles, except ./ and ../
+alias gz="tar -zcvf"        # zip tar.gz
+## Git aliases
+alias gitl="git lola"       # lola (pretty log) alias defined in gitconfig
+alias gits="git status"
