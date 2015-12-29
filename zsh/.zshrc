@@ -16,7 +16,7 @@ autoload run-help
 HELPDIR=/usr/local/share/zsh/help
 
 # Promptline
-source ./.promptline.sh
+source ~/dotfiles/zsh/.promptline.sh
 ZLE_RPROMPT_INDENT=0
 
 # No bells
