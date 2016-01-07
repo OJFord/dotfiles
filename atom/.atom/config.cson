@@ -1,0 +1,35 @@
+"*":
+  core:
+    disabledPackages: [
+      "spell-check"
+    ]
+    excludeVcsIgnoredPath: true
+    projectHome: "~"
+    themes: [
+      "atom-dark-ui"
+      "solarized-dark-syntax"
+    ]
+  editor:
+    autoIndent: true
+    fontSize: 11
+    fontFamily: "Anonymous Pro for Powerline"
+    preferredLineLength: 80
+    showInvisibles: true
+    showIndentGuide: true
+    showLineNumbers: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+    tabLength: 4
+    tabType: "hard"
+    softTabs: false
+  whitespace:
+    ensureSingleTrailingNewline: true
+    removeTrailingWhitespace: true
+  term3:
+    cursorBlink: false
+".gfm.source":
+  editor:
+    softWrap: true
+".md.source":
+  editor:
+    softWrap: true
