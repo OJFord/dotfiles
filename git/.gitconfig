@@ -3,6 +3,7 @@
     email = me@ojford.com
 [core]
     excludesfile = ~/dotfiles/git/.gitignore_global
+    pager = diff-so-fancy | less --tabs=1,5 -R
 [filter "media"]
     required = true
     clean = git media clean %f
