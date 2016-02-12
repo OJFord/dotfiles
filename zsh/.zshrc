@@ -35,8 +35,10 @@ fi
 GPG_TTY=$(tty)
 export GPG_TTY
 
-# Aliases
+# Tab completion
 autoload -U compinit && compinit
+
+# Aliases
 alias ls="ls -FG"           # colourise and display dir,exec,etc. icons
 alias ll="ls -FGhlo"        # long-list, use KB,MB,etc. sizes, no group id
 alias lla="ls -AFGhl"       # include dotfiles, except ./ and ../
