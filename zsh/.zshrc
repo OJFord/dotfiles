@@ -17,7 +17,6 @@ HELPDIR=/usr/local/share/zsh/help
 
 # Promptline
 source ~/dotfiles/zsh/.promptline.sh
-ZLE_RPROMPT_INDENT=0
 
 # No bells
 setopt nobeep
