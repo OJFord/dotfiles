@@ -29,7 +29,8 @@
     cursorBlink: false
 ".gfm.source":
   editor:
+    showIndentGuide: false
+    showLineNumbers: false
     softWrap: true
-".md.source":
-  editor:
-    softWrap: true
+    tabLength: 4
+    tabType: "hard"
