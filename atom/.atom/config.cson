@@ -17,11 +17,11 @@
     showInvisibles: true
     showIndentGuide: true
     showLineNumbers: true
+    softTabs: true
     softWrap: true
     softWrapAtPreferredLineLength: true
     tabLength: 4
-    tabType: "hard"
-    softTabs: false
+    tabType: "auto"
   whitespace:
     ensureSingleTrailingNewline: true
     removeTrailingWhitespace: true
