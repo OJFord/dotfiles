@@ -1,5 +1,6 @@
 "*":
   core:
+    closeEmptyWindows: false
     disabledPackages: [
     ]
     excludeVcsIgnoredPath: true
