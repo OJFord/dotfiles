@@ -1,7 +1,6 @@
 "*":
   core:
     disabledPackages: [
-      "spell-check"
     ]
     excludeVcsIgnoredPath: true
     projectHome: "~"
