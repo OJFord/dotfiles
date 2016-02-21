@@ -12,15 +12,32 @@
     clean = git hawser clean %f
     smudge = git hawser smudge %f
     required = true
+[filter "lfs"]
+     required = true
+     clean = git-lfs clean %f
+     smudge = git-lfs smudge %f
 [alias]
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [color]
-    branch = auto
-    diff = auto
-    interactive = auto
-    status = auto
-[filter "lfs"]
-    required = true
-    clean = git-lfs clean %f
-    smudge = git-lfs smudge %f
+    ui = always
+[color "diff"]
+    meta = yellow bold
+    commit = green bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = 238 bold green
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
