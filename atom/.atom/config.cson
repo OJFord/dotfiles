@@ -117,6 +117,8 @@
     cursorBlink: false
     fontFamily: "Anonymous Pro for Powerline"
     fontSize: "10.5"
+  welcome:
+    showOnStartup: false
   whitespace:
     ensureSingleTrailingNewline: true
     removeTrailingWhitespace: true
