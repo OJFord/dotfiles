@@ -7,3 +7,6 @@
 [submodule "vim/.vim/bundle/promptline.vim"]
 	path = vim/.vim/bundle/promptline.vim
 	url = https://github.com/edkolev/promptline.vim
+[submodule "vim/.vim/bundle/nerdtree"]
+	path = vim/.vim/bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
