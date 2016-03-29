@@ -25,95 +25,95 @@
   term3:
     colors:
       background:
-        red: 0
-        green: 43
-        blue: 54
         alpha: 1
+        blue: 54
+        green: 43
+        red: 0
       brightBlack:
-        red: 0
-        green: 43
+        alpha: 1
         blue: 54
-        alpha: 1
+        green: 43
+        red: 0
       brightBlue:
-        red: 131
-        green: 148
+        alpha: 1
         blue: 150
-        alpha: 1
+        green: 148
+        red: 131
       brightCyan:
-        red: 147
-        green: 161
+        alpha: 1
         blue: 161
-        alpha: 1
-      brightGreen:
-        red: 88
-        green: 110
-        blue: 117
-        alpha: 1
-      brightPurple:
-        red: 108
-        green: 113
-        blue: 196
-        alpha: 1
-      brightRed:
-        red: 203
-        green: 75
-        blue: 22
-        alpha: 1
-      brightWhite:
-        red: 253
-        green: 246
-        blue: 227
-        alpha: 1
-      brightYellow:
-        red: 101
-        green: 123
-        blue: 131
-        alpha: 1
-      foreground:
-        red: 238
-        green: 232
-        blue: 213
-        alpha: 1
-      normalBlack:
-        red: 7
-        green: 54
-        blue: 66
-        alpha: 1
-      normalBlue:
-        red: 38
-        green: 139
-        blue: 210
-        alpha: 1
-      normalCyan:
-        red: 42
         green: 161
-        blue: 152
+        red: 147
+      brightGreen:
         alpha: 1
-      normalGreen:
-        red: 133
-        green: 153
-        blue: 0
+        blue: 117
+        green: 110
+        red: 88
+      brightPurple:
         alpha: 1
-      normalPurple:
-        red: 211
-        green: 54
-        blue: 130
+        blue: 196
+        green: 113
+        red: 108
+      brightRed:
         alpha: 1
-      normalRed:
-        red: 220
-        green: 50
-        blue: 47
+        blue: 22
+        green: 75
+        red: 203
+      brightWhite:
         alpha: 1
-      normalWhite:
-        red: 238
-        green: 232
+        blue: 227
+        green: 246
+        red: 253
+      brightYellow:
+        alpha: 1
+        blue: 131
+        green: 123
+        red: 101
+      foreground:
+        alpha: 1
         blue: 213
+        green: 232
+        red: 238
+      normalBlack:
         alpha: 1
-      normalYellow:
-        red: 181
-        green: 137
+        blue: 66
+        green: 54
+        red: 7
+      normalBlue:
+        alpha: 1
+        blue: 210
+        green: 139
+        red: 38
+      normalCyan:
+        alpha: 1
+        blue: 152
+        green: 161
+        red: 42
+      normalGreen:
+        alpha: 1
         blue: 0
+        green: 153
+        red: 133
+      normalPurple:
         alpha: 1
+        blue: 130
+        green: 54
+        red: 211
+      normalRed:
+        alpha: 1
+        blue: 47
+        green: 50
+        red: 220
+      normalWhite:
+        alpha: 1
+        blue: 213
+        green: 232
+        red: 238
+      normalYellow:
+        alpha: 1
+        blue: 0
+        green: 137
+        red: 181
     cursorBlink: false
     fontFamily: "Anonymous Pro for Powerline"
     fontSize: "10.5"
