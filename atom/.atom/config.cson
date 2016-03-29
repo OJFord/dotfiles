@@ -1,6 +1,7 @@
 "*":
   core:
     closeEmptyWindows: false
+    destroyEmptyPanes: false
     disabledPackages: [
     ]
     excludeVcsIgnoredPath: true
