@@ -120,6 +120,9 @@
   whitespace:
     ensureSingleTrailingNewline: true
     removeTrailingWhitespace: true
+".cson.source":
+  editor:
+    tabLength: 2
 ".gfm.source":
   editor:
     showIndentGuide: false
@@ -127,3 +130,6 @@
     softWrap: true
     tabLength: 4
     tabType: "hard"
+".html.source":
+  editor:
+    tabLength: 2
