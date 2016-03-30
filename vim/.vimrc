@@ -15,6 +15,7 @@ filetype plugin indent on
 
 " Solarized colours
 set background=dark
+set t_Co=256
 let g:solarized_termcolors=256
 color solarized
 
