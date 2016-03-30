@@ -74,3 +74,5 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+" Maintain context when navigating near top/bottom
+set scrolloff=5
