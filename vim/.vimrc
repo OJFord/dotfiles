@@ -31,6 +31,7 @@ set backspace=indent,eol,start
 
 " Cursor
 set ruler
+set cursorline
 
 " Soft tabs, 4sp
 set tabstop=4
