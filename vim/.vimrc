@@ -82,3 +82,7 @@ set scrolloff=5
 
 " Wrap at 80
 set textwidth=80
+
+" Highlight search terms
+set hlsearch
+nnoremap <esc> :noh<return><esc>
