@@ -39,6 +39,9 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
+" Line numbers
+set number
+
 " Tab completion
 "  - will insert tab at beginning of line,
 "  - will use completion if not at beginning
