@@ -79,3 +79,6 @@ set splitright
 
 " Maintain context when navigating near top/bottom
 set scrolloff=5
+
+" Wrap at 80
+set textwidth=80
