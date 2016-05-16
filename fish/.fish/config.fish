@@ -42,3 +42,35 @@ function fish_right_prompt
 end function
 function fish_mode_prompt
 end function
+
+# Use vi bindings
+fish_vi_mode
+
+# Repeat last command as root with `sudo !!`
+function sudo
+    if test $argv[1] = '!!'
+        eval /usr/bin/sudo $history[1]
+    else
+        eval /usr/bin/sudo $argv
+    end
+end function
+
+alias ls            "ls -FG"    # colourise and display dir,exec,etc. icons
+alias ll            "ls -FGhlo" # long-list, use KB,MB,etc. sizes, no group id
+alias lla           "ls -AFGhl" # include dotfiles, except ./ and ../
+alias gz            "tar -zcvf" # zip tar.gz
+alias ping          prettyping  # use prettyping over ping
+alias gitl          "git lola"  # lola (pretty log) alias defined in gitconfig
+alias gits          "git status"
+alias youtube-dl    "youtube-dl --external-downloader=aria2c"
+
+# GPG
+pgrep -x -u "$USER" gpg-agent >/dev/null ^/dev/null; \
+    or gpg-connect-agent /bye >/dev/null ^/dev/null
+## set SSH to use gpg-agent
+set -e SSH_AGENT_PID
+if test "$gnupg_SSH_AUTH_SOCK_by" = %self
+    set SSH_AUTH_SOCK "$HOME/.gnupg/S.gpg-agent.ssh"
+end
+## set GPG TTY
+set -g GPG_TTY (tty)
