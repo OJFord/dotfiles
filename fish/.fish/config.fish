@@ -1,9 +1,8 @@
 # Customise prompt
 set -xg VIRTUAL_ENV_DISABLE_PROMPT 1    # override default venv prompt
 function fish_prompt
-    echo -n (whoami)
     set_color $fish_color_cwd
-    echo -n ' '(echo $PWD | sed "s:$HOME:~:")
+    echo -n (echo $PWD | sed "s:$HOME:~:")
     if test $VIRTUAL_ENV
         echo -n '💼'
     end
@@ -68,9 +67,7 @@ alias gits          "git status"
 alias youtube-dl    "youtube-dl --external-downloader=aria2c"
 
 # GPG
-set -l GPG_AGENT_INFO (
-    gpg-agent --enable-ssh-support --daemon \
-    | sed -e 's/^.*=\(.*\);.*$/\1/'
-)
+set -l GPG_AGENT_INFO (gpg-agent --enable-ssh-support --daemon)
 set -e SSH_AGENT_PID
+set -xg SSH_AUTH_SOCK $HOME/.gnupg/S.gpg-agent.ssh
 set -l GPG_TTY (tty)
