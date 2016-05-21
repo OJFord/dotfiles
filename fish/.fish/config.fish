@@ -65,12 +65,9 @@ alias gits          "git status"
 alias youtube-dl    "youtube-dl --external-downloader=aria2c"
 
 # GPG
-pgrep -x -u "$USER" gpg-agent >/dev/null ^/dev/null; \
-    or gpg-connect-agent /bye >/dev/null ^/dev/null
-## set SSH to use gpg-agent
+set -l GPG_AGENT_INFO (
+    gpg-agent --enable-ssh-support --daemon \
+    | sed -e 's/^.*=\(.*\);.*$/\1/'
+)
 set -e SSH_AGENT_PID
-if test "$gnupg_SSH_AUTH_SOCK_by" = %self
-    set SSH_AUTH_SOCK "$HOME/.gnupg/S.gpg-agent.ssh"
-end
-## set GPG TTY
-set -g GPG_TTY (tty)
+set -l GPG_TTY (tty)
