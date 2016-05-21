@@ -44,7 +44,7 @@ function fish_mode_prompt
 end function
 
 # Use vi bindings
-fish_vi_mode
+fish_vi_key_bindings
 
 # Repeat last command as root with `sudo !!`
 function sudo
