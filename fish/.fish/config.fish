@@ -1,4 +1,5 @@
 # Customise prompt
+set -xg VIRTUAL_ENV_DISABLE_PROMPT 1    # override default venv prompt
 function fish_prompt
     echo -n (whoami)
     set_color $fish_color_cwd
@@ -25,6 +26,8 @@ function fish_right_prompt
         set_color --bold --background magenta white
         echo -n 'VISUAL'
         set_color normal
+    case insert
+        # Nothing here since INS mode is quite 'normal' for a terminal
     end
 
     if test $last_status != 0
