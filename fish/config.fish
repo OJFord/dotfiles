@@ -71,3 +71,6 @@ set -l GPG_AGENT_INFO (gpg-agent --enable-ssh-support --daemon)
 set -e SSH_AGENT_PID
 set -xg SSH_AUTH_SOCK $HOME/.gnupg/S.gpg-agent.ssh
 set -l GPG_TTY (tty)
+
+# Set XDG home for auto-sourcing this config
+set -xU XDG_CONFIG_HOME $HOME/dotfiles
