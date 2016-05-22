@@ -133,9 +133,6 @@
   whitespace:
     ensureSingleTrailingNewline: true
     removeTrailingWhitespace: true
-".cson.source":
-  editor:
-    tabLength: 2
 ".gfm.source":
   editor:
     showIndentGuide: false
@@ -144,6 +141,9 @@
     tabLength: 4
     tabType: "hard"
 ".html.source":
+  editor:
+    tabLength: 2
+".litcoffee.source":
   editor:
     tabLength: 2
 ".yaml.source":
