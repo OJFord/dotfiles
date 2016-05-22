@@ -13,3 +13,6 @@
 [submodule "nylas"]
 	path = nylas
 	url = git@github.com:OJFord/dotfiles-nylas.git
+[submodule "gnupg"]
+	path = gnupg
+	url = git@github.com:OJFord/dotfiles-gnupg.git
