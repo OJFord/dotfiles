@@ -7,7 +7,7 @@
     excludeVcsIgnoredPath: true
     projectHome: "~"
     themes: [
-      "atom-dark-ui"
+      "one-dark-ui"
       "solarized-dark-syntax"
     ]
   editor:
@@ -118,6 +118,15 @@
       fontSize: "10"
   "spell-check": {}
   "tree-view": {}
+  switcheroo:
+    themeOne: [
+      "one-dark-ui"
+      "solarized-dark-syntax"
+    ]
+    themeTwo: [
+      "one-light-ui"
+      "solarized-light-syntax"
+    ]
   welcome:
     showOnStartup: false
   whitespace:
