@@ -74,3 +74,6 @@ set -l GPG_TTY (tty)
 
 # Set XDG home for auto-sourcing this config
 set -xU XDG_CONFIG_HOME $HOME/dotfiles
+
+# Add dotfile binaries to PATH
+set -xg PATH $HOME/dotfiles/bin $PATH

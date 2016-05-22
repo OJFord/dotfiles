@@ -1,0 +1,9 @@
+#!/bin/bash
+git submodule foreach '
+    git fetch origin --tags && git checkout master && git pull \
+    && cd $toplevel && (
+        git add $path \
+        && git commit -m "$name ➠  $sha1" \
+        || echo "No changes to $name@$sha1"
+    )
+'
