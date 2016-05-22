@@ -17,7 +17,11 @@ filetype plugin indent on
 " Solarized colours
 set background=dark
 set t_Co=256
+set term=xterm-256color
 let g:solarized_termcolors=256
+let g:solarized_termtrans=1 " fixes background in iTerm
+let g:solarized_visibility="high"
+let g:solarized_contrast="high"
 colorscheme solarized
 
 " Statusline (lightline)
