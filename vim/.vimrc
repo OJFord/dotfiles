@@ -18,14 +18,17 @@ filetype plugin indent on
 set background=dark
 set t_Co=256
 let g:solarized_termcolors=256
-color solarized
+colorscheme solarized
 
-" Statusline (vim-airline)
+" Statusline (lightline)
 set laststatus=2
 set noshowmode
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
-let g:airline_powerline_fonts=1
+let g:lightline = {
+  \ 'colorscheme': 'solarized_dark',
+  \ 'component': {
+  \   'readonly': '%{&readonly?"x":""}',
+  \ }
+\ }
 
 " Run backspace over newlines
 set backspace=indent,eol,start

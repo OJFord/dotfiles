@@ -1,9 +1,6 @@
 [submodule "vim/.vim/bundle/vim-colors-solarized"]
 	path = vim/.vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized
-[submodule "vim/.vim/bundle/vim-airline"]
-	path = vim/.vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline
 [submodule "vim/.vim/bundle/promptline.vim"]
 	path = vim/.vim/bundle/promptline.vim
 	url = https://github.com/edkolev/promptline.vim
@@ -16,3 +13,6 @@
 [submodule "gnupg"]
 	path = gnupg
 	url = git@github.com:OJFord/dotfiles-gnupg.git
+[submodule "vim/.vim/bundle/lightline.vim"]
+	path = vim/.vim/bundle/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
