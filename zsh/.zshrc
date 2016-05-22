@@ -55,7 +55,7 @@ expand_cmd_space(){
     zle self-insert
 }
 expand_cmd_return(){
-    zle _expand_alias
+    zle _expand_alias      # makes `unalias` hilariously impossible
     zle expand-word
     zle accept-line
 }
