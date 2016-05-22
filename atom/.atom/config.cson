@@ -24,102 +24,96 @@
     tabLength: 4
     tabType: "auto"
   "markdown-preview-plus": {}
+  "platformio-ide-terminal":
+    ansiColors: # solarized dark
+      bright:
+        black:
+          alpha: 1
+          blue: 54
+          green: 43
+          red: 0
+        blue:
+          alpha: 1
+          blue: 150
+          green: 148
+          red: 131
+        cyan:
+          alpha: 1
+          blue: 161
+          green: 161
+          red: 147
+        green:
+          alpha: 1
+          blue: 117
+          green: 110
+          red: 88
+        purple:
+          alpha: 1
+          blue: 196
+          green: 113
+          red: 108
+        red:
+          alpha: 1
+          blue: 22
+          green: 75
+          red: 203
+        white:
+          alpha: 1
+          blue: 227
+          green: 246
+          red: 253
+        yellow:
+          alpha: 1
+          blue: 131
+          green: 123
+          red: 101
+      normal:
+        Black:
+          alpha: 1
+          blue: 66
+          green: 54
+          red: 7
+        blue:
+          red: 38
+          green: 139
+          blue: 210
+          alpha: 1
+        cyan:
+          red: 42
+          green: 161
+          blue: 152
+          alpha: 1
+        green:
+          red: 133
+          green: 153
+          blue: 0
+          alpha: 1
+        purple:
+          alpha: 1
+          blue: 130
+          green: 54
+          red: 211
+        red:
+          red: 220
+          green: 50
+          blue: 47
+          alpha: 1
+        white:
+          red: 238
+          green: 232
+          blue: 213
+          alpha: 1
+        yellow:
+          red: 181
+          green: 137
+          blue: 0
+          alpha: 1
+    core:
+      shell: "/usr/local/bin/fish"
+    style:
+      fontFamily: "Anonymous Pro for Powerline"
+      fontSize: "10"
   "spell-check": {}
-  term3:
-    colors:
-      background:
-        alpha: 1
-        blue: 54
-        green: 43
-        red: 0
-      brightBlack:
-        alpha: 1
-        blue: 54
-        green: 43
-        red: 0
-      brightBlue:
-        alpha: 1
-        blue: 150
-        green: 148
-        red: 131
-      brightCyan:
-        alpha: 1
-        blue: 161
-        green: 161
-        red: 147
-      brightGreen:
-        alpha: 1
-        blue: 117
-        green: 110
-        red: 88
-      brightPurple:
-        alpha: 1
-        blue: 196
-        green: 113
-        red: 108
-      brightRed:
-        alpha: 1
-        blue: 22
-        green: 75
-        red: 203
-      brightWhite:
-        alpha: 1
-        blue: 227
-        green: 246
-        red: 253
-      brightYellow:
-        alpha: 1
-        blue: 131
-        green: 123
-        red: 101
-      foreground:
-        alpha: 1
-        blue: 213
-        green: 232
-        red: 238
-      normalBlack:
-        alpha: 1
-        blue: 66
-        green: 54
-        red: 7
-      normalBlue:
-        alpha: 1
-        blue: 210
-        green: 139
-        red: 38
-      normalCyan:
-        alpha: 1
-        blue: 152
-        green: 161
-        red: 42
-      normalGreen:
-        alpha: 1
-        blue: 0
-        green: 153
-        red: 133
-      normalPurple:
-        alpha: 1
-        blue: 130
-        green: 54
-        red: 211
-      normalRed:
-        alpha: 1
-        blue: 47
-        green: 50
-        red: 220
-      normalWhite:
-        alpha: 1
-        blue: 213
-        green: 232
-        red: 238
-      normalYellow:
-        alpha: 1
-        blue: 0
-        green: 137
-        red: 181
-    cursorBlink: false
-    fontFamily: "Anonymous Pro for Powerline"
-    fontSize: "10.5"
   "tree-view": {}
   welcome:
     showOnStartup: false
