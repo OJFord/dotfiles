@@ -45,8 +45,6 @@ alias lla="ls -AFGhl"       # include dotfiles, except ./ and ../
 alias gz="tar -zcvf"        # zip tar.gz
 alias ping=prettyping       # use prettyping over ping
 ## Git aliases
-brew install hub
-alias git="hub"
 alias gitl="git lola"       # lola (pretty log) alias defined in gitconfig
 alias gits="git status"
 ## expand on space or return
