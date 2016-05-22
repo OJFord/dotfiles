@@ -134,3 +134,6 @@
 ".html.source":
   editor:
     tabLength: 2
+".yaml.source":
+  editor:
+    tabLength: 2
