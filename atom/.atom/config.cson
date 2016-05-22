@@ -13,10 +13,11 @@
   editor:
     autoIndent: true
     fontFamily: "Anonymous Pro for Powerline"
-    preferredLineLength: 80
-    showInvisibles: true
     fontSize: 11
+    invisibles: {}
+    preferredLineLength: 80
     showIndentGuide: true
+    showInvisibles: true
     showLineNumbers: true
     softTabs: true
     softWrap: true
