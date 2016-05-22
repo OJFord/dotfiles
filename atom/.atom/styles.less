@@ -10,11 +10,17 @@
  */
 
 atom-text-editor{
-    padding-left: .25em;
+    padding-left: 1px;  // readability when fullscreen without tree open
 }
 
-.lines{
-    padding-left: 1px;
+atom-text-editor::shadow{
+    .gutter-container{
+        padding-right: 2px; // readability of first character when line num on
+    }
+
+    .line .indent-guide:first-of-type{
+        box-shadow: none; // hide noisy and useless column 0 indent guide
+    }
 }
 
 .platformio-ide-terminal .xterm {
