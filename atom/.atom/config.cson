@@ -117,7 +117,6 @@
       fontFamily: "Anonymous Pro for Powerline"
       fontSize: "10"
   "spell-check": {}
-  "tree-view": {}
   switcheroo:
     themeOne: [
       "one-dark-ui"
@@ -127,6 +126,8 @@
       "one-light-ui"
       "solarized-light-syntax"
     ]
+  "tree-view":
+    hideVcsIgnoredFiles: false
   welcome:
     showOnStartup: false
   whitespace:
