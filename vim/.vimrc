@@ -2,6 +2,7 @@
 set nocompatible
 
 " Pathogen
+filetype on " Fixes a Mac+Pathogen+Git quirk
 filetype plugin indent off
 execute pathogen#infect()
 
