@@ -47,6 +47,7 @@ alias ping=prettyping       # use prettyping over ping
 ## Git aliases
 alias gitl="git lola"       # lola (pretty log) alias defined in gitconfig
 alias gits="git status"
+alias youtube-dl="youtube-dl --external-downloader=aria2c"
 ## expand on space or return
 expand_cmd_space(){
     zle _expand_alias
