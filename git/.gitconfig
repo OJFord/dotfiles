@@ -2,9 +2,9 @@
     name = Ollie Ford
     email = me@ojford.com
 [core]
-    excludesfile = ~/dotfiles/git/.gitignore_global
-    pager = diff-so-fancy | less --tabs=1,5 -R
-    editor = /usr/local/bin/vim
+    editor = vim
+    excludesfile = $HOME/.gitignore_global
+    pager = less
 [filter "media"]
     required = true
     clean = git media clean %f
