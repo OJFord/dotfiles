@@ -31,6 +31,9 @@
     executablePath: "/usr/local/bin/pylama"
     usePep257: false
   "markdown-preview-plus": {}
+  "merge-conflicts":
+    gitPath: "/usr/local/bin/git"
+  minimap: {}
   "platformio-ide-terminal":
     ansiColors: # solarized dark
       bright:
