@@ -22,12 +22,14 @@
     showInvisibles: true
     showLineNumbers: true
     softTabs: true
-    softWrap: true
-    softWrapAtPreferredLineLength: true
     tabLength: 4
     tabType: "auto"
   "exception-reporting":
     userId: "3c9e4751-db7b-0478-f7f2-b736c16a49f3"
+  linter: {}
+  "linter-pylama":
+    executablePath: "/usr/local/bin/pylama"
+    usePep257: false
   "markdown-preview-plus": {}
   "platformio-ide-terminal":
     ansiColors: # solarized dark
@@ -118,6 +120,10 @@
     style:
       fontFamily: "Anonymous Pro for Powerline"
       fontSize: "10"
+  "python-autopep8":
+    autopep8Path: "/usr/local/bin/autopep8"
+    formatOnSave: true
+    maxLineLength: 79
   "spell-check": {}
   switcheroo:
     themeOne: [
