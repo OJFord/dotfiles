@@ -4,7 +4,8 @@
     destroyEmptyPanes: false
     disabledPackages: [
     ]
-    excludeVcsIgnoredPath: true
+    excludeVcsIgnoredPath: false
+    excludeVcsIgnoredPaths: false
     projectHome: "~"
     themes: [
       "one-dark-ui"
