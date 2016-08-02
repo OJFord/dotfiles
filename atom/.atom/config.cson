@@ -144,6 +144,9 @@
   whitespace:
     ensureSingleTrailingNewline: true
     removeTrailingWhitespace: true
+".basic.html.text":
+  editor:
+    tabLength: 4
 ".gfm.source":
   editor:
     showIndentGuide: false
@@ -151,12 +154,23 @@
     softWrap: true
     tabLength: 4
     tabType: "hard"
-".html.source":
+".git-commit.text":
   editor:
+    tabLength: 4
+".git-config.source":
+  editor:
+    tabLength: 4
+".git-rebase.text":
+  editor:
+    tabLength: 4
+".html.text":
+  editor:
+    softWrap: false
+    softWrapAtPreferredLineLength: false
     tabLength: 2
 ".litcoffee.source":
   editor:
     tabLength: 2
-".yaml.source":
+".source.yaml":
   editor:
     tabLength: 2
