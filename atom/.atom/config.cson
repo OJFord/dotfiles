@@ -13,6 +13,7 @@
     ]
   editor:
     autoIndent: true
+    backUpBeforeSaving: true
     fontFamily: "Anonymous Pro for Powerline"
     fontSize: 11
     invisibles: {}
