@@ -1,6 +1,11 @@
 [user]
     name = Ollie Ford
     email = me@ojford.com
+    signingKey = 555E2CCB0DB272224566ED62152B3280A315B9D9
+[commit]
+    gpgsign = true
+[tag]
+    forceSignAnnotated = true
 [core]
     editor = vim
     excludesfile = $HOME/.gitignore_global
@@ -20,9 +25,9 @@
     smudge = git hawser smudge %f
     required = true
 [filter "lfs"]
-     required = true
-     clean = git-lfs clean %f
-     smudge = git-lfs smudge %f
+    required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
 [alias]
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all

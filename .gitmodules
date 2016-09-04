@@ -1,15 +1,6 @@
-[submodule "vim/.vim/bundle/vim-colors-solarized"]
-	path = vim/.vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized
-[submodule "vim/.vim/bundle/promptline.vim"]
-	path = vim/.vim/bundle/promptline.vim
-	url = https://github.com/edkolev/promptline.vim
-[submodule "vim/.vim/bundle/nerdtree"]
-	path = vim/.vim/bundle/nerdtree
-	url = git@github.com:scrooloose/nerdtree.git
 [submodule "gnupg"]
 	path = gnupg
 	url = git@github.com:OJFord/dotfiles-gnupg.git
-[submodule "vim/.vim/bundle/lightline.vim"]
-	path = vim/.vim/bundle/lightline.vim
-	url = https://github.com/itchyny/lightline.vim
+[submodule "/home/ojf/dotfiles/urxvt/.urxvt/ext"]
+	path = /home/ojf/dotfiles/urxvt/.urxvt/ext
+	url = git@github.com:OJFord/urxvt-perls
