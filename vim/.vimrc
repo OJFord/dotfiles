@@ -6,6 +6,7 @@ set shell=/bin/bash
 
 call plug#begin()
 Plug 'altercation/vim-colors-solarized'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'ervandew/supertab'
 call plug#end()
