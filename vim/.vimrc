@@ -1,10 +1,12 @@
 " No vi compatibility
 set nocompatible
 
-" Pathogen
-filetype on " Fixes a Mac+Pathogen+Git quirk
-filetype plugin indent off
-execute pathogen#infect()
+" Prevent confusing plugins with Xonsh
+set shell=/bin/bash
+
+call plug#begin()
+Plug 'altercation/vim-colors-solarized'
+call plug#end()
 
 " Semicolon -> :
 nnoremap ; :
@@ -23,16 +25,6 @@ let g:solarized_termtrans=1 " fixes background in iTerm
 let g:solarized_visibility="high"
 let g:solarized_contrast="high"
 colorscheme solarized
-
-" Statusline (lightline)
-set laststatus=2
-set noshowmode
-let g:lightline = {
-  \ 'colorscheme': 'solarized_dark',
-  \ 'component': {
-  \   'readonly': '%{&readonly?"x":""}',
-  \ }
-\ }
 
 " Run backspace over newlines
 set backspace=indent,eol,start
