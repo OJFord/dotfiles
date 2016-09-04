@@ -9,6 +9,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'tmhedberg/SimpylFold'
+Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 call plug#end()
 
