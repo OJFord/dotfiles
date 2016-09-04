@@ -5,6 +5,7 @@ set nocompatible
 set shell=/bin/bash
 
 call plug#begin()
+Plug 'tpope/vim-fugitive'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
