@@ -8,6 +8,7 @@ call plug#begin()
 Plug 'altercation/vim-colors-solarized'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
+Plug 'scrooloose/syntastic'
 Plug 'tmhedberg/SimpylFold'
 Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
@@ -18,8 +19,15 @@ nnoremap ; :
 vnoremap ; :
 
 " Syntax
-syntax on
+syntax enable
 filetype plugin indent on
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Code folding
 set foldmethod=syntax
