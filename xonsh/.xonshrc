@@ -1,0 +1,14 @@
+aliases.update({
+    'dc': 'docker-compose',
+    'fk': lambda args, stdin=None: execx(
+        $(thefuck @(__xonsh_history__.inps[-1]))
+    ),
+    'gitl': 'git lola',
+    'gits': 'git status',
+    'gz': 'tar -zcvf',
+    'ls': 'ls --color=always',
+    'll': 'ls -l',
+    'lla': 'll -A',
+    'ping': 'prettyping'
+})
+
