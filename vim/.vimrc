@@ -8,6 +8,7 @@ call plug#begin()
 Plug 'altercation/vim-colors-solarized'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
+Plug 'tmhedberg/SimpylFold'
 Plug 'ervandew/supertab'
 call plug#end()
 
@@ -18,6 +19,10 @@ vnoremap ; :
 " Syntax
 syntax on
 filetype plugin indent on
+
+" Code folding
+set foldmethod=syntax
+nnoremap <space> za
 
 " Solarized colours
 set background=dark
