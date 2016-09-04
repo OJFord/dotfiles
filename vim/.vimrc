@@ -36,16 +36,8 @@ nnoremap <space> za
 
 " Solarized colours
 set background=dark
-set t_Co=256
-set term=xterm-256color
 let g:solarized_termcolors=256
-let g:solarized_termtrans=1 " fixes background in iTerm
-let g:solarized_visibility="high"
-let g:solarized_contrast="high"
 colorscheme solarized
-
-" Run backspace over newlines
-set backspace=indent,eol,start
 
 " Cursor
 set ruler
@@ -89,4 +81,4 @@ set textwidth=80
 
 " Highlight search terms
 set hlsearch
-nnoremap <esc> :noh<return><esc>
+nnoremap <esc> :nohl<return><esc>
