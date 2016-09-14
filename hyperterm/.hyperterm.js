@@ -1,5 +1,6 @@
 module.exports = {
     config: {
+        bell: false,
         fontSize: 11,
         fontFamily: '"Anonymous Pro for Powerline"',
         cursorColor: '#839496',
