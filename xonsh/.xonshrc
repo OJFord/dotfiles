@@ -1,6 +1,15 @@
 XDG_CONFIG_HOME = $HOME + '/.config'
 XDG_RUNTIME_DIR = '/var/run'
 
+# Set SSH to use gpg-agent
+$GNUPGHOME = $XDG_CONFIG_HOME + '/gnupg'
+if 'SSH_AGENT_PID' in ${...}:
+    del $SSH_AGENT_PID
+if not !(gpg-agent):
+    gpg-agent --enable-ssh-support --daemon > /dev/null
+$SSH_AUTH_SOCK = $GNUPGHOME + '/S.gpg-agent.ssh'
+$GPG_TTY = $(tty)
+
 $XONSH_CONFIG_DIR = $XDG_CONFIG_HOME + '/xonsh'
 $XONSHRC = $XONSH_CONFIG_DIR + '/.xonshrc'
 
@@ -14,6 +23,7 @@ aliases.update({
     ),
     'gitl': 'git lola',
     'gits': 'git status',
+    'gpg': 'gpg2',
     'gz': 'tar -zcvf',
     'ls': 'ls --color=always',
     'll': 'ls -l',

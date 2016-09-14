@@ -2,6 +2,8 @@
     name = Ollie Ford
     email = me@ojford.com
     signingKey = 555E2CCB0DB272224566ED62152B3280A315B9D9
+[gpg]
+    program = /usr/local/bin/gpg2
 [commit]
     gpgsign = true
 [tag]
