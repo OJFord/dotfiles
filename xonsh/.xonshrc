@@ -44,13 +44,15 @@ aliases.update({
     'fk': lambda args, stdin=None: execx(
         $(thefuck @(__xonsh_history__.inps[-1]))
     ),
-    'gitl': 'git lola',
+    'gitl': 'git lol',
     'gits': 'git status',
     'gpg': 'gpg2',
     'gz': 'tar -zcvf',
     'ls': 'ls --color=always',
     'll': 'ls -l',
     'lla': 'll -A',
-    'ping': 'prettyping'
+    'ping': 'prettyping',
+    'pip': 'pip3',
+    'python': 'python3',
 })
 
