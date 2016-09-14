@@ -17,6 +17,12 @@ $MANPATH = [
     '/usr/local/share/man/man8',
 ]
 
+import sys
+sys.path.extend([
+    p for p in eval($(python3 -c 'import sys; print(sys.path)'))
+    if p not in sys.path
+])
+
 # Set SSH to use gpg-agent
 $GNUPGHOME = $XDG_CONFIG_HOME + '/gnupg'
 if 'SSH_AGENT_PID' in ${...}:
