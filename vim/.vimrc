@@ -1,14 +1,8 @@
-" Environment
-set directory=$XDG_CACHE_HOME/vim,~/,/tmp
-set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
-set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
-
 " No vi compatibility
 set nocompatible
 
-" Prevent confusing plugins with Xonsh
-set shell=/bin/bash
+" Use a POSIX shell to avoid confusing plugins
+set shell=/bin/sh
 
 call plug#begin()
 Plug 'tpope/vim-fugitive'

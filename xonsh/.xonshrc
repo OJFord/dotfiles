@@ -5,6 +5,8 @@ $PATH = [
     '/usr/local/bin',
     '/usr/local/opt/coreutils/libexec/gnubin',
     '/usr/bin',
+    '/usr/sbin',
+    '/bin',
 ]
 $MANPATH = [
     '/usr/local/opt/coreutils/libexec/gnuman',
@@ -27,7 +29,8 @@ $GPG_TTY = $(tty)
 $XONSH_CONFIG_DIR = $XDG_CONFIG_HOME + '/xonsh'
 $XONSHRC = $XONSH_CONFIG_DIR + '/.xonshrc'
 
-$VIMRC = $XDG_CONFIG_HOME + '/vim/.vimrc'
+$VIM = $XDG_CONFIG_HOME + '/vim'
+$VIMRC = $VIM + '/.vimrc'
 $VIMINIT = 'source $VIMRC'
 
 aliases.update({
