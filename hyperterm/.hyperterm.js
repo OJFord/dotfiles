@@ -33,5 +33,6 @@ module.exports = {
         ]
     },
     plugins: [],
-    localPlugins: []
+    localPlugins: [],
+    shell: '/usr/local/bin/xonsh'
 };
