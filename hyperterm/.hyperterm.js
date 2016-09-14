@@ -11,6 +11,9 @@ module.exports = {
             .tab_tab.tab_active:before {
                 border-color: #002b36 !important;
             }
+            .terms_terms {
+                padding: 0 !important;
+            }
         `,
         termCss: '',
         colors: [
