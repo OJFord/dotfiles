@@ -19,6 +19,9 @@ call plug#end()
 nnoremap ; :
 vnoremap ; :
 
+" Backspace
+set backspace=indent,eol,start
+
 " Syntax
 syntax enable
 filetype plugin indent on
