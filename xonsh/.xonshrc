@@ -36,10 +36,6 @@ $GPG_TTY = $(tty)
 $XONSH_CONFIG_DIR = $XDG_CONFIG_HOME + '/xonsh'
 $XONSHRC = $XONSH_CONFIG_DIR + '/.xonshrc'
 
-$VIM = $XDG_CONFIG_HOME + '/vim'
-$VIMRC = $VIM + '/.vimrc'
-$VIMINIT = 'source $VIMRC'
-
 aliases.update({
     'dc': 'docker-compose',
     'fk': lambda args, stdin=None: execx(
