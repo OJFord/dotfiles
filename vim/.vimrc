@@ -11,6 +11,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tmhedberg/SimpylFold'
+Plug 'hdima/python-syntax'
 Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 call plug#end()
