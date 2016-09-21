@@ -14,6 +14,7 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'hdima/python-syntax'
 Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
+Plug 'tommcdo/vim-exchange'
 call plug#end()
 
 " Semicolon -> :
