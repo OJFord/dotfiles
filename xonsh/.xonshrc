@@ -2,8 +2,9 @@ XDG_CONFIG_HOME = $HOME + '/.config'
 XDG_RUNTIME_DIR = '/var/run'
 
 $PATH = [
-    '/usr/local/bin',
+    '/usr/local/Homebrew',
     '/usr/local/opt/coreutils/libexec/gnubin',
+    '/usr/local/bin',
     '/usr/bin',
     '/usr/sbin',
     '/bin',
