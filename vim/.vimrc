@@ -10,16 +10,16 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall | source ~/.vimrc
 endif
 call plug#begin()
-Plug 'tpope/vim-fugitive'
 Plug 'altercation/vim-colors-solarized'
+Plug 'ervandew/supertab'
+Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
-Plug 'scrooloose/syntastic'
-Plug 'tmhedberg/SimpylFold'
-Plug 'hdima/python-syntax'
-Plug 'davidhalter/jedi-vim'
-Plug 'ervandew/supertab'
 Plug 'tommcdo/vim-exchange'
+Plug 'scrooloose/syntastic'
+Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
+Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 call plug#end()
 
 " Semicolon -> :
