@@ -90,5 +90,5 @@ set scrolloff=5
 set textwidth=80
 
 " Highlight search terms
+nnoremap <esc> :nohlsearch<CR><esc>
 set hlsearch
-nnoremap <esc> :nohl<return><esc>
