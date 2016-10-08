@@ -1,4 +1,4 @@
-XDG_CONFIG_HOME = $HOME + '/.config'
+XDG_CONFIG_HOME = '{}/.config'.format($HOME)
 XDG_RUNTIME_DIR = '/var/run'
 
 $PATH = [
@@ -25,18 +25,19 @@ sys.path.extend([
 ])
 
 # Set SSH to use gpg-agent
-$GNUPGHOME = $XDG_CONFIG_HOME + '/gnupg'
+$GNUPGHOME = '{}/gnupg'.format($XDG_CONFIG_HOME)
 if 'SSH_AGENT_PID' in ${...}:
     del $SSH_AGENT_PID
 if not !(gpg-agent):
     gpg-agent --enable-ssh-support --daemon > /dev/null
-$SSH_AUTH_SOCK = $GNUPGHOME + '/S.gpg-agent.ssh'
+$SSH_AUTH_SOCK = '{}/S.gpg-agent.ssh'.format($GNUPGHOME)
 $GPG_TTY = $(tty)
 
-$XONSH_CONFIG_DIR = $XDG_CONFIG_HOME + '/xonsh'
-$XONSHRC = $XONSH_CONFIG_DIR + '/.xonshrc'
 $VIMDIR = '{}/vim'.format($XDG_CONFIG_HOME)
 $VIMRC = '{}/.vimrc'.format($VIMDIR)
+
+$XONSH_CONFIG_DIR = '{}/xonsh'.format($XDG_CONFIG_HOME)
+$XONSHRC = '{}/.xonshrc'.format($XONSH_CONFIG_DIR)
 
 aliases.update({
     'dc': 'docker-compose',
