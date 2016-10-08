@@ -10,7 +10,6 @@
     forceSignAnnotated = true
 [core]
     editor = vim
-    excludesfile = $HOME/.gitignore_global
     pager = less
 [diff]
     compactionHeuristic = true
