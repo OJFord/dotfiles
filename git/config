@@ -11,6 +11,8 @@
 [core]
     editor = vim
     pager = less
+[advice]
+    statusHints = false
 [diff]
     compactionHeuristic = true
 [diff-so-fancy]
@@ -54,3 +56,6 @@
     added = yellow
     changed = green
     untracked = cyan
+[status]
+    short = true
+    branch = true
