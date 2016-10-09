@@ -2,8 +2,8 @@ XDG_CONFIG_HOME = '{}/.config'.format($HOME)
 XDG_RUNTIME_DIR = '/var/run'
 
 $PATH = [
-    '/usr/local/Homebrew',
     '/usr/local/opt/coreutils/libexec/gnubin',
+    '/usr/local/opt/findutils/libexec/gnubin',
     '/usr/local/bin',
     '/usr/bin',
     '/usr/sbin',
@@ -11,6 +11,7 @@ $PATH = [
 ]
 $MANPATH = [
     '/usr/local/opt/coreutils/libexec/gnuman',
+    '/usr/local/opt/findutils/libexec/gnuman',
     '/usr/local/share/man/man1',
     '/usr/local/share/man/man3',
     '/usr/local/share/man/man5',
@@ -54,5 +55,6 @@ aliases.update({
     'ping': 'prettyping',
     'pip': 'pip3',
     'python': 'python3',
+    'sh': 'bash',
     'vim': 'vim -u {}'.format($VIMRC),
 })
