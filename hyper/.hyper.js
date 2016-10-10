@@ -22,11 +22,16 @@ module.exports = {
             cyan: '#2aa198',
             lightCyan: '#00afaf',
         },
-        css: "",
+        css: `
+            .tab_active {
+                background-color: #2c2c2c;
+                border-color: #acacac !important;
+            }
+        `,
         fontFamily: 'Anonymous Pro for Powerline, monospace',
         fontSize: 11,
         padding: "0px 0px",
-        termCss: "",
+        termCss: ``,
         windowSize: [810, 500],
     },
     plugins: [],
