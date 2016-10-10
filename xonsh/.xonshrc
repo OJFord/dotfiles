@@ -46,12 +46,12 @@ def branch_prompt():
     if branch is None:
         return ''
     else:
-        return '({{branch_color}}{}{{NO_COLOR}})'.format(branch)
-$PROMPT = lambda: '{venv}{cwd}{branch}{{prompt_end}}'.format(
-    venv='{env_name:{} }',
-    cwd='{cwd}',
-    branch=branch_prompt()
-)
+        return '({branch_color}{branch_name}{{NO_COLOR}})'.format(
+            branch_color=$FORMATTER_DICT['branch_color'](),
+            branch_name=branch
+        )
+$FORMATTER_DICT['branch_prompt'] = branch_prompt
+$PROMPT = '{env_name:{} }{cwd}{branch_prompt}{prompt_end}'
 
 aliases.update({
     'dc': 'docker-compose',
