@@ -40,6 +40,19 @@ $VIMRC = '{}/.vimrc'.format($VIMDIR)
 $XONSH_CONFIG_DIR = '{}/xonsh'.format($XDG_CONFIG_HOME)
 $XONSHRC = '{}/.xonshrc'.format($XONSH_CONFIG_DIR)
 
+
+def branch_prompt():
+    branch = $FORMATTER_DICT['curr_branch']()
+    if branch is None:
+        return ''
+    else:
+        return '({{branch_color}}{}{{NO_COLOR}})'.format(branch)
+$PROMPT = lambda: '{venv}{cwd}{branch}{{prompt_end}}'.format(
+    venv='{env_name:{} }',
+    cwd='{cwd}',
+    branch=branch_prompt()
+)
+
 aliases.update({
     'dc': 'docker-compose',
     'fk': lambda args, stdin=None: execx(

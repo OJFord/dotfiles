@@ -3,7 +3,6 @@
   "IGNOREEOF": true,
   "INDENT": "    ",
   "MULTILINE_PROMPT": "",
-  "PROMPT": "{env_name:{} }{cwd}{curr_branch: (}{branch_color}{curr_branch:{}}{NO_COLOR}{curr_branch:)}{prompt_end} ",
   "SHELL_TYPE": "prompt_toolkit",
   "VI_MODE": true,
   "XONSHRC": ["/etc/xonshrc", "~/.config/xonsh/.xonshrc"]
