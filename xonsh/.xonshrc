@@ -40,18 +40,26 @@ $VIMRC = '{}/.vimrc'.format($VIMDIR)
 $XONSH_CONFIG_DIR = '{}/xonsh'.format($XDG_CONFIG_HOME)
 $XONSHRC = '{}/.xonshrc'.format($XONSH_CONFIG_DIR)
 
+def git_cwd():
+    dot_git_dir = !(git rev-parse --is-inside-git-dir)
+    if dot_git_dir:
+        from os import path
 
-def branch_prompt():
-    branch = $FORMATTER_DICT['curr_branch']()
-    if branch is None:
-        return ''
-    else:
-        return '({branch_color}{branch_name}{{NO_COLOR}})'.format(
-            branch_color=$FORMATTER_DICT['branch_color'](),
-            branch_name=branch
+        if dot_git_dir.stdout == 'true\n':
+            git_root = path.join($(git rev-parse --git-dir)[:-1], '..')
+        else:
+            git_root = path.join($(git rev-parse --show-toplevel)[:-1])
+        git_root = path.realpath(git_root).replace('/Users/ojf', '~')
+
+        return '{git_root}/({git_status}){git_relative_dir}'.format(
+            git_root=git_root,
+            git_status=$FORMATTER_DICT['gitstatus'](),
+            git_relative_dir=$FORMATTER_DICT['cwd']().replace(git_root, '')[1:]
         )
-$FORMATTER_DICT['branch_prompt'] = branch_prompt
-$PROMPT = '{env_name:{} }{cwd}{branch_prompt}{prompt_end}'
+    else:
+        return $FORMATTER_DICT['cwd']()
+$FORMATTER_DICT['git_cwd'] = git_cwd
+$PROMPT = '{env_name:[{}] }{git_cwd}{prompt_end}'
 
 aliases.update({
     'dc': 'docker-compose',
