@@ -30,8 +30,9 @@ sys.path.extend([
 ])
 
 
+# Xonsh prompt
 def git_cwd():
-    dot_git_dir = !(git rev-parse --is-inside-git-dir)
+    dot_git_dir = !(git rev-parse --is-inside-git-dir > /dev/null 2>&1)
     if dot_git_dir:
         from os import path
 
