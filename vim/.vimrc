@@ -20,9 +20,12 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'scrooloose/syntastic'
-Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
-Plug 'hdima/python-syntax', { 'for': 'python' }
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'tmhedberg/SimpylFold'
+Plug 'hdima/python-syntax'
+Plug 'davidhalter/jedi-vim'
+Plug 'lervag/vimtex'
+Plug 'plasticboy/vim-markdown'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " Semicolon -> :
