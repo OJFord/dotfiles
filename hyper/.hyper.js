@@ -23,6 +23,16 @@ module.exports = {
             lightCyan: '#00afaf',
         },
         css: `
+            .tabs_nav {
+                height: 24px;
+                line-height: 24px;
+            }
+            .tabs_list {
+                max-height: 24px;
+            }
+            .tab_icon {
+                top: 5px;
+            }
             .tab_active {
                 background-color: #2c2c2c;
                 border-color: #acacac !important;
