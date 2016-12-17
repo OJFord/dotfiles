@@ -50,7 +50,7 @@ def git_cwd():
     else:
         return $FORMATTER_DICT['cwd']()
 $FORMATTER_DICT['git_cwd'] = git_cwd
-$PROMPT = '{env_name:[{}] }{git_cwd}{prompt_end}'
+$PROMPT = '{env_name:[{}] }{git_cwd}{BOLD_WHITE}>{NO_COLOR}'
 
 
 $CARGO_HOME = '{}/cargo'.format($XDG_CONFIG_HOME)
