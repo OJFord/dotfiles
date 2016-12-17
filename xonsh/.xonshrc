@@ -29,20 +29,6 @@ sys.path.extend([
     if p not in sys.path
 ])
 
-# Set SSH to use gpg-agent
-$GNUPGHOME = '{}/gnupg'.format($XDG_CONFIG_HOME)
-if 'SSH_AGENT_PID' in ${...}:
-    del $SSH_AGENT_PID
-if not !(gpg-agent):
-    gpg-agent --enable-ssh-support --daemon > /dev/null
-$SSH_AUTH_SOCK = '{}/S.gpg-agent.ssh'.format($GNUPGHOME)
-$GPG_TTY = $(tty)
-
-$VIMDIR = '{}/vim'.format($XDG_CONFIG_HOME)
-$VIMRC = '{}/.vimrc'.format($VIMDIR)
-
-$XONSH_CONFIG_DIR = '{}/xonsh'.format($XDG_CONFIG_HOME)
-$XONSHRC = '{}/.xonshrc'.format($XONSH_CONFIG_DIR)
 
 def git_cwd():
     dot_git_dir = !(git rev-parse --is-inside-git-dir)
@@ -64,6 +50,23 @@ def git_cwd():
         return $FORMATTER_DICT['cwd']()
 $FORMATTER_DICT['git_cwd'] = git_cwd
 $PROMPT = '{env_name:[{}] }{git_cwd}{prompt_end}'
+
+
+# Set SSH to use gpg-agent
+$GNUPGHOME = '{}/gnupg'.format($XDG_CONFIG_HOME)
+if 'SSH_AGENT_PID' in ${...}:
+    del $SSH_AGENT_PID
+if not !(gpg-agent > /dev/null 2>&1):
+    gpg-agent --enable-ssh-support --daemon > /dev/null
+$SSH_AUTH_SOCK = '{}/S.gpg-agent.ssh'.format($GNUPGHOME)
+$GPG_TTY = $(tty)
+
+$VIMDIR = '{}/vim'.format($XDG_CONFIG_HOME)
+$VIMRC = '{}/.vimrc'.format($VIMDIR)
+
+$XONSH_CONFIG_DIR = '{}/xonsh'.format($XDG_CONFIG_HOME)
+$XONSHRC = '{}/.xonshrc'.format($XONSH_CONFIG_DIR)
+
 
 aliases.update({
     'dc': 'docker-compose',
