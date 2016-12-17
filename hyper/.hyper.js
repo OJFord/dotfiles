@@ -44,7 +44,9 @@ module.exports = {
         termCss: ``,
         windowSize: [810, 500],
     },
-    plugins: [],
+    plugins: [
+        'hyperlinks',
+    ],
     localPlugins: [],
     shell: '/usr/local/bin/xonsh',
 };
