@@ -2,12 +2,16 @@ XDG_CONFIG_HOME = '{}/.config'.format($HOME)
 XDG_RUNTIME_DIR = '/var/run'
 
 $PATH = [
+    '/Library/TeX/texbin',
     '/usr/local/opt/coreutils/libexec/gnubin',
     '/usr/local/opt/findutils/libexec/gnubin',
     '/usr/local/bin',
+    '/usr/local/sbin',
     '/usr/bin',
     '/usr/sbin',
+    '/usr/bin',
     '/bin',
+    '/sbin',
 ]
 $MANPATH = [
     '/usr/local/opt/coreutils/libexec/gnuman',
