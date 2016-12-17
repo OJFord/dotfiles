@@ -53,6 +53,9 @@ $FORMATTER_DICT['git_cwd'] = git_cwd
 $PROMPT = '{env_name:[{}] }{git_cwd}{prompt_end}'
 
 
+$CARGO_HOME = '{}/cargo'.format($XDG_CONFIG_HOME)
+$PATH.append('{}/bin'.format($CARGO_HOME))
+
 # Set SSH to use gpg-agent
 $GNUPGHOME = '{}/gnupg'.format($XDG_CONFIG_HOME)
 if 'SSH_AGENT_PID' in ${...}:
