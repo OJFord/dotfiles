@@ -30,6 +30,9 @@ module.exports = {
             .tabs_list {
                 max-height: 24px;
             }
+            .tab_text {
+                height: 24px;
+            }
             .tab_icon {
                 top: 5px;
             }
