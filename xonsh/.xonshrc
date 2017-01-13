@@ -44,12 +44,12 @@ def git_cwd():
 
         return '{git_root}/({git_status}){git_relative_dir}'.format(
             git_root=git_root,
-            git_status=$FORMATTER_DICT['gitstatus'](),
-            git_relative_dir=$FORMATTER_DICT['cwd']().replace(git_root, '')[1:]
+            git_status=$PROMPT_FIELDS['gitstatus'](),
+            git_relative_dir=$PROMPT_FIELDS['cwd']().replace(git_root, '')[1:]
         )
     else:
-        return $FORMATTER_DICT['cwd']()
-$FORMATTER_DICT['git_cwd'] = git_cwd
+        return $PROMPT_FIELDS['cwd']()
+$PROMPT_FIELDS['git_cwd'] = git_cwd
 $PROMPT = '{env_name:[{}] }{git_cwd}{BOLD_WHITE}>{NO_COLOR}'
 
 
