@@ -42,10 +42,20 @@ def git_cwd():
             git_root = path.join($(git rev-parse --show-toplevel)[:-1])
         git_root = path.realpath(git_root).replace('/Users/ojf', '~')
 
+        repo_idx = git_root.rindex('/')
+        repo_name = git_root[repo_idx:]
+
+        if len(git_root) > 30:
+            git_root = "{}...{}".format(
+                git_root[:20],
+                git_root[-10:] if len(repo_name) < 10 else git_root[repo_idx:]
+            )
+
+        cwd = $PROMPT_FIELDS['cwd']()
         return '{git_root}/({git_status}){git_relative_dir}'.format(
             git_root=git_root,
             git_status=$PROMPT_FIELDS['gitstatus'](),
-            git_relative_dir=$PROMPT_FIELDS['cwd']().replace(git_root, '')[1:]
+            git_relative_dir=cwd[cwd.rfind(repo_name) + len(repo_name):]
         )
     else:
         return $PROMPT_FIELDS['cwd']()
