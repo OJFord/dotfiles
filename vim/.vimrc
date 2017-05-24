@@ -25,18 +25,27 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'tommcdo/vim-exchange'
-Plug 'scrooloose/syntastic'
 Plug 'tmhedberg/SimpylFold'
-Plug 'hdima/python-syntax'
-Plug 'davidhalter/jedi-vim'
-Plug 'lervag/vimtex'
-Plug 'plasticboy/vim-markdown'
-Plug 'rust-lang/rust.vim'
+Plug 'godlygeek/tabular', {'for': 'markdown'}
 
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
+" Multi-language
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --racer-completer'}
+Plug 'w0rp/ale'
+Plug 'bronson/vim-trailing-whitespace'
+
+" Languages-specific
+Plug 'python-mode/python-mode', {'for': 'python'}
+Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
+Plug 'hashivim/vim-terraform', {'for': 'terraform'}
+Plug 'lervag/vimtex', {'for': 'tex'}
+Plug 'chrisbra/csv.vim', {'for': 'csv'}
+Plug 'elzr/vim-json', {'for': 'json'}
 call plug#end()
 
 " Semicolon -> :
@@ -45,6 +54,7 @@ vnoremap ; :
 
 " Plugin mappings
 map <Leader> <Plug>(easymotion-prefix)
+nnoremap <Leader>y :YcmCompleter GoTo<CR>
 let g:buffergator_suppress_keymaps=1
 nnoremap <Leader>bl :BuffergatorOpen<CR>
 nnoremap <Leader>bn :BuffergatorMruCycleNext<CR>
@@ -83,10 +93,11 @@ let g:airline_symbols.readonly = ''
 " Syntax
 syntax enable
 filetype plugin indent on
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:ale_lint_on_text_changed=1
+let g:ale_lint_on_save=1
+let g:ale_open_list=1
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Code folding
 set foldmethod=syntax
