@@ -22,6 +22,7 @@ Plug 'tpope/vim-fugitive'
 
 " Navigation
 Plug 'jeetsukumaran/vim-buffergator'
+Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'tommcdo/vim-exchange'
@@ -39,6 +40,7 @@ nnoremap ; :
 vnoremap ; :
 
 " Plugin mappings
+map <Leader> <Plug>(easymotion-prefix)
 let g:buffergator_suppress_keymaps=1
 nnoremap <Leader>bl :BuffergatorOpen<CR>
 nnoremap <Leader>bn :BuffergatorMruCycleNext<CR>
