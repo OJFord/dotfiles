@@ -28,6 +28,7 @@ Plug 'godlygeek/tabular', {'for': 'markdown'}
 
 " Editing
 Plug 'ervandew/supertab'
+Plug 'tpope/vim-commentary'
 Plug 'tommcdo/vim-exchange'
 Plug 'mbbill/undotree'
 
