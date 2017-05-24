@@ -19,6 +19,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-fugitive'
+
+" Navigation
+Plug 'jeetsukumaran/vim-buffergator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'tommcdo/vim-exchange'
@@ -34,6 +37,12 @@ call plug#end()
 " Semicolon -> :
 nnoremap ; :
 vnoremap ; :
+
+" Plugin mappings
+let g:buffergator_suppress_keymaps=1
+nnoremap <Leader>bl :BuffergatorOpen<CR>
+nnoremap <Leader>bn :BuffergatorMruCycleNext<CR>
+nnoremap <Leader>bp :BuffergatorMruCyclePrev<CR>
 
 " Backspace
 set backspace=indent,eol,start
@@ -116,6 +125,7 @@ nnoremap <C-H> <C-W><C-H>
 " Splits open below/right
 set splitbelow
 set splitright
+let g:buffergator_viewport_split_policy='T'
 
 " Maintain context when navigating near top/bottom
 set scrolloff=5
