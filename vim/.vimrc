@@ -18,7 +18,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ervandew/supertab'
-Plug 'tpope/vim-fugitive'
 
 " Navigation
 Plug 'jeetsukumaran/vim-buffergator'
@@ -33,6 +32,11 @@ Plug 'davidhalter/jedi-vim'
 Plug 'lervag/vimtex'
 Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
+
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 " Semicolon -> :
