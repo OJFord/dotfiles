@@ -2,40 +2,57 @@
     name = Ollie Ford
     email = me@ojford.com
     signingKey = 555E2CCB0DB272224566ED62152B3280A315B9D9
+
 [gpg]
     program = /usr/local/bin/gpg2
+
 [commit]
     gpgsign = true
+
 [tag]
     forceSignAnnotated = true
+
 [core]
     editor = vim
     pager = less
+
+[alias]
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
 [advice]
     statusHints = false
+
+[status]
+    short = true
+    branch = true
+
 [diff]
     compactionHeuristic = true
 [diff-so-fancy]
-	markEmptyLines = false
+    markEmptyLines = false
+
 [pager]
     diff = diff-so-fancy | less --tabs=4 -RFX
+
 [filter "media"]
     required = true
     clean = git media clean %f
     smudge = git media smudge %f
+
 [filter "hawser"]
+    required = true
     clean = git hawser clean %f
     smudge = git hawser smudge %f
-    required = true
+
 [filter "lfs"]
     required = true
     clean = git-lfs clean %f
     smudge = git-lfs smudge %f
-[alias]
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
 [color]
     ui = always
+
 [color "diff"]
     meta = yellow bold
     commit = green bold
@@ -43,19 +60,19 @@
     old = red bold
     new = green bold
     whitespace = red reverse
+
 [color "diff-highlight"]
     oldNormal = red bold
     oldHighlight = red bold 52
     newNormal = green bold
     newHighlight = 238 bold green
+
 [color "branch"]
     current = yellow reverse
     local = yellow
     remote = green
+
 [color "status"]
     added = yellow
     changed = green
     untracked = cyan
-[status]
-    short = true
-    branch = true
