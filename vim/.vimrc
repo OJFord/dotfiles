@@ -17,16 +17,19 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
-Plug 'ervandew/supertab'
 
 " Navigation
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
-Plug 'tommcdo/vim-exchange'
 Plug 'tmhedberg/SimpylFold'
 Plug 'godlygeek/tabular', {'for': 'markdown'}
+
+" Editing
+Plug 'ervandew/supertab'
+Plug 'tommcdo/vim-exchange'
+Plug 'mbbill/undotree'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -54,6 +57,7 @@ vnoremap ; :
 
 " Plugin mappings
 map <Leader> <Plug>(easymotion-prefix)
+nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>y :YcmCompleter GoTo<CR>
 let g:buffergator_suppress_keymaps=1
 nnoremap <Leader>bl :BuffergatorOpen<CR>
