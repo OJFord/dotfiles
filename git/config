@@ -28,6 +28,12 @@
     short = true
     branch = true
 
+[rebase]
+    stat = false
+    autoSquash = true
+    autoStash = true
+    missingCommitsCheck = "error"
+
 [diff]
     compactionHeuristic = true
 [diff-so-fancy]
