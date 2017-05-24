@@ -60,6 +60,7 @@ vnoremap ; :
 map <Leader> <Plug>(easymotion-prefix)
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>y :YcmCompleter GoTo<CR>
+nnoremap <Leader>p :CtrlP<CR>
 let g:buffergator_suppress_keymaps=1
 nnoremap <Leader>bl :BuffergatorOpen<CR>
 nnoremap <Leader>bn :BuffergatorMruCycleNext<CR>
@@ -114,9 +115,10 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
 
-" Cursor
+" Where am I
 set ruler
 set cursorline
+set number
 
 " Soft tabs, 4sp
 set tabstop=4
@@ -124,15 +126,22 @@ set shiftwidth=4
 set shiftround
 set expandtab
 
-" Line numbers
-set number
+let g:ctrlp_working_path_mode='r' " Look for nearest repo
+if executable('rg')
+    cnoreabbrev rg Ack
+    let g:ackprg = 'rg --vimgrep'
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
+    set grepprg=rg\ --vimgrep\ --color=never
+    set grepformat=%f:%l:%c:%m
+
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+    let g:ctrlp_use_caching = 0
+elseif executable('ag')
     cnoreabbrev ag Ack
     let g:ackprg = 'ag --vimgrep'
 
     set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep
+    set grepformat=%f:%l:%c:%m,%f:%l:%m
 
     let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
     let g:ctrlp_use_caching = 0
