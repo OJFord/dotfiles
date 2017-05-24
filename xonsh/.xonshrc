@@ -7,12 +7,8 @@ $PATH = [
     '/usr/local/opt/findutils/libexec/gnubin',
     '/usr/local/bin',
     '/usr/local/sbin',
-    '/usr/bin',
-    '/usr/sbin',
-    '/usr/bin',
-    '/bin',
-    '/sbin',
-]
+] + [p for p in $PATH]
+
 $MANPATH = [
     '/usr/local/opt/coreutils/libexec/gnuman',
     '/usr/local/opt/findutils/libexec/gnuman',
@@ -21,7 +17,7 @@ $MANPATH = [
     '/usr/local/share/man/man5',
     '/usr/local/share/man/man7',
     '/usr/local/share/man/man8',
-]
+] + ([p for p in $MANPATH] if 'MANPATH' in ${...} else [])
 
 import sys
 sys.path.extend([
