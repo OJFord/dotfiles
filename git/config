@@ -36,6 +36,8 @@
 
 [diff]
     compactionHeuristic = true
+    noprefix = true
+
 [diff-so-fancy]
     markEmptyLines = false
 
