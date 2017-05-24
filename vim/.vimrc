@@ -13,6 +13,9 @@ if empty(glob($VIMDIR.'/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall | source ~/.vimrc
 endif
 call plug#begin()
+" Aesthetic
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-fugitive'
@@ -35,12 +38,36 @@ vnoremap ; :
 " Backspace
 set backspace=indent,eol,start
 
+" Statusline
+set laststatus=2
+let g:airline_theme='solarized'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
+let g:airline_mode_map = {
+    \ '__' : '-',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V',
+    \ '' : 'V',
+    \ 's'  : 'S',
+    \ 'S'  : 'S',
+    \ '' : 'S',
+\ }
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols = get(g:, 'airline_symbols', {})
+let g:airline_symbols.branch = ''
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.readonly = ''
+
 " Syntax
 syntax enable
 filetype plugin indent on
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -53,6 +80,7 @@ nnoremap <space> za
 " Solarized colours
 set background=dark
 let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 colorscheme solarized
 
 " Cursor
