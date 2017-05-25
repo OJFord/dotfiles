@@ -16,6 +16,9 @@
     editor = vim
     pager = less
 
+[interactive]
+    singleKey = true
+
 [alias]
     fixup = "!f(){ target=$(git rev-parse "$1"); git commit --fixup=$target ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $target^; }; f"
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
