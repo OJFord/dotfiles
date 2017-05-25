@@ -67,9 +67,10 @@ $GNUPGHOME = '{}/gnupg'.format($XDG_CONFIG_HOME)
 if 'SSH_AGENT_PID' in ${...}:
     del $SSH_AGENT_PID
 if not !(gpg-agent > /dev/null 2>&1):
-    gpg-agent --enable-ssh-support --daemon > /dev/null
+    evalable = $(gpg-agent --enable-ssh-support --daemon)
+    $SSH_AUTH_SOCK = evalable[len('SSH_AUTH_SOCK='):-len('; export SSH_AUTH_SOCK')]
+    $GPG_TTY = $(tty)
 $SSH_AUTH_SOCK = '{}/S.gpg-agent.ssh'.format($GNUPGHOME)
-$GPG_TTY = $(tty)
 
 $VIMDIR = '{}/vim'.format($XDG_CONFIG_HOME)
 $VIMRC = '{}/.vimrc'.format($VIMDIR)
