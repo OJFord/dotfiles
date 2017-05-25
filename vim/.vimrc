@@ -108,6 +108,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Code folding
 set foldmethod=syntax
+set foldopen-=block
 nnoremap <space> za
 
 " Concealing
