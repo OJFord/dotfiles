@@ -175,3 +175,4 @@ set textwidth=80
 " Highlight search terms
 nnoremap <esc> :nohlsearch<CR><esc>
 set hlsearch
+set incsearch
