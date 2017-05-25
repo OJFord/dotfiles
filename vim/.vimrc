@@ -158,12 +158,10 @@ elseif executable('ag')
 endif
 
 " Split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" Splits open below/right
+nnoremap ∆ <C-W><C-J> " (<Alt-J>)
+nnoremap ˚ <C-W><C-K> " (<Alt-K>)
+nnoremap ¬ <C-W><C-L> " (<Alt-L>)
+nnoremap ˙ <C-W><C-H> " (<Alt-H>)
 set splitbelow
 set splitright
 let g:buffergator_viewport_split_policy='T'
