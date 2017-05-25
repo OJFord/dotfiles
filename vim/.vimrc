@@ -110,6 +110,10 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 set foldmethod=syntax
 nnoremap <space> za
 
+" Concealing
+autocmd InsertEnter *.* set conceallevel=0
+autocmd InsertLeave *.* set conceallevel=2
+
 " Solarized colours
 set background=dark
 let g:solarized_termcolors=256
