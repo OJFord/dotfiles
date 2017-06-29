@@ -6,6 +6,7 @@ general {
 	interval = 5
 }
 
+
 order += "disk /"
 order += "wireless wlan0"
 order += "ethernet eth0"
@@ -13,20 +14,7 @@ order += "battery 0"
 order += "tztime local"
 
 disk "/" {
-	format = " ¨ %avail:/ " 
-}
-
-battery 0 { 
-}
-
-wireless wlan0 {
-	format_up = " W: (%quality at %essid) %ip "
-	format_down = " ☡ WiFi "
-}
-
-ethernet eth0 {
-	format_up =  " Ω: %ip  "
-	format_down = " ∅ eth0  "
+	format = " ¨ %avail:/ "
 }
 
 tztime local {
