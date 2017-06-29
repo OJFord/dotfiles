@@ -8,7 +8,7 @@ exec 'set runtimepath='.$VIMDIR.'/.vim,'.&runtimepath
 set shell=/bin/sh
 
 if empty(glob($VIMDIR.'/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    silent !curl -fLo $VIMDIR/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall | source ~/.vimrc
 endif
