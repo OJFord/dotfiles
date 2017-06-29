@@ -11,8 +11,8 @@ Xft.lcdfilter:  lcddefault
 
 URxvt.perl-ext-common: default,clipboard,selection-to-clipboard,url-select,keyboard-select,tabbed,font-size
 URxvt.clipboard.autocopy: true
-URxvt.boldfont: xft:AnonymousPro:size=8
-URxvt.font: xft:AnonymousPro:size=8
+URxvt.boldfont: xft:Anonymice Powerline Bold:size=8
+URxvt.font: xft:Anonymice Powerline:size=8
 URxvt.keysym.C-minus: perl:font-size:decrease
 URxvt.keysym.C-equal: perl:font-size:increase
 URxvt.keysym.M-c: perl:clipboard:copy

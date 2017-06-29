@@ -1,7 +1,7 @@
 set $mod mod1
 floating_modifier $mod
 
-font pango:monospace 8
+font pango:Anonymice Powerline 6
 
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
@@ -125,7 +125,7 @@ set $custom           #1c5766
 
 bar {
         status_command i3status --config $XDG_CONFIG_HOME/i3/config.i3status
-        font xft:Anonymous Pro, FontAwesome 11
+        font xft:Anonymous Pro, FontAwesome 8
         colors {
                 background          $base03
                 statusline          $base2
