@@ -9,7 +9,7 @@ Xft.lcdfilter:  lcddefault
 #include ".Xresources.solarized.dark"
 
 
-URxvt.perl-ext-common: default,clipboard,selection-to-clipboard,url-select,keyboard-select,tabbed,font-size
+URxvt.perl-ext-common: default,clipboard,selection-to-clipboard,url-select,keyboard-select,font-size
 URxvt.clipboard.autocopy: true
 URxvt.boldfont: xft:Anonymice Powerline Bold:size=8
 URxvt.font: xft:Anonymice Powerline:size=8
