@@ -7,6 +7,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
 
+# no titlebar
+new_window 1pixel
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
