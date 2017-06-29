@@ -1,4 +1,0 @@
-.atom/.apm/*
-!.atom/.apm/.apmrc
-.atom/packages/*
-.atom/blob-store/*
