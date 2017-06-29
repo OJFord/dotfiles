@@ -1,6 +1,3 @@
 [submodule "gnupg"]
 	path = gnupg
 	url = git@github.com:OJFord/dotfiles-gnupg.git
-[submodule "/home/ojf/dotfiles/urxvt/.urxvt/ext"]
-	path = /home/ojf/dotfiles/urxvt/.urxvt/ext
-	url = git@github.com:OJFord/urxvt-perls
