@@ -8,6 +8,6 @@ export XONSH_CONFIG_DIR="$XDG_CONFIG_HOME/xonsh"
 export XONSHCONFIG="$XONSH_CONFIG_DIR/config.json"
 export XONSHRC="$XONSH_CONFIG_DIR/.xonshrc"
 
-export TERMINAL="urxvt -e $SHELL"
+export TERMINAL=alacritty
 
 exec startx $XINITRC
