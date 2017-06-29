@@ -66,11 +66,13 @@ $PATH.append('{}/bin'.format($CARGO_HOME))
 $GNUPGHOME = '{}/gnupg'.format($XDG_CONFIG_HOME)
 if 'SSH_AGENT_PID' in ${...}:
     del $SSH_AGENT_PID
-if not !(gpg-agent > /dev/null 2>&1):
-    evalable = $(gpg-agent --enable-ssh-support --daemon)
-    $SSH_AUTH_SOCK = evalable[len('SSH_AUTH_SOCK='):-len('; export SSH_AUTH_SOCK')]
-    $GPG_TTY = $(tty)
-$SSH_AUTH_SOCK = '{}/S.gpg-agent.ssh'.format($GNUPGHOME)
+if not !(gpg-agent > /dev/null 2>&1) or 'SSH_AUTH_SOCK' not in ${...}:
+    killall gpg-agent scdaemon > /dev/null 2>&1
+    bash_eval_str = $(gpg-agent --enable-ssh-support --daemon)
+    $SSH_AUTH_SOCK = bash_eval_str[
+        len('SSH_AUTH_SOCK='):bash_eval_str.rfind('; export')
+    ]
+$GPG_TTY = $(tty)
 
 $VIMDIR = '{}/vim'.format($XDG_CONFIG_HOME)
 $VIMRC = '{}/.vimrc'.format($VIMDIR)
