@@ -3,6 +3,8 @@ dpi:
   y: 128.0
 
 render_timer: false
+
+hide_cursor_when_typing: true
 tabspaces: 4
 
 font:
