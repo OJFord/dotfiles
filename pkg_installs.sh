@@ -9,6 +9,11 @@ sudo aura --noconfirm -Sy gnupg
 sudo aura --noconfirm -Sy i3-wm
 sudo aura --noconfirm -Sy irssi
 sudo aura --noconfirm -Sy libu2f-host
+sudo aura --noconfirm -Sy python
+sudo aura --noconfirm -Sy rustup
+sudo aura --noconfirm -Sy shellcheck
+sudo aura --noconfirm -Sy stack
+sudo aura --noconfirm -Sy terraform
 sudo aura --noconfirm -Sy thefuck
 sudo aura --noconfirm -Sy vim
 sudo aura --noconfirm -Sy yubico-c
