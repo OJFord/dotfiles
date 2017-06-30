@@ -8,7 +8,6 @@ font pango:Anonymice Powerline 6
 
 bindsym $mod+Return exec alacritty
 bindsym $alt+Shift+q kill
-bindsym $mod+d exec dmenu_run
 
 # no titlebar
 new_window 1pixel
