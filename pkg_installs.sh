@@ -1,27 +1,37 @@
 #!/bin/sh
 
+from_std() {
+    pkg="$1"
+    sudo aura --noconfirm -Sy "$pkg"
+}
+
+from_aur() {
+    pkg="$1"
+    sudo aura --noconfirm -Ay "$pkg"
+}
+
 sudo aura -Syu
 sudo aura -Ayu
 
-sudo aura --noconfirm -Sy dex
-sudo aura --noconfirm -Sy git
-sudo aura --noconfirm -Sy gnupg
-sudo aura --noconfirm -Sy i3-wm
-sudo aura --noconfirm -Sy irssi
-sudo aura --noconfirm -Sy libu2f-host
-sudo aura --noconfirm -Sy python
-sudo aura --noconfirm -Sy rustup
-sudo aura --noconfirm -Sy shellcheck
-sudo aura --noconfirm -Sy stack
-sudo aura --noconfirm -Sy terraform
-sudo aura --noconfirm -Sy thefuck
-sudo aura --noconfirm -Sy vim
-sudo aura --noconfirm -Sy yubico-c
-sudo aura --noconfirm -Sy yubico-c-client
-sudo aura --noconfirm -Sy yubico-pam
-sudo aura --noconfirm -Sy yubico-personalization
+from_std dex
+from_std git
+from_std gnupg
+from_std i3-wm
+from_std irssi
+from_std libu2f-host
+from_std python
+from_std rustup
+from_std shellcheck
+from_std stack
+from_std terraform
+from_std thefuck
+from_std vim
+from_std yubico-c
+from_std yubico-c-client
+from_std yubico-pam
+from_std yubico-personalization
 
-sudo aura --noconfirm -Ay alacritty
-sudo aura --noconfirm -Ay albert
-sudo aura --noconfirm -Ay compton-git
-sudo aura --noconfirm -Ay xonsh
+from_aur alacritty-git
+from_aur albert
+from_aur compton-git
+from_aur xonsh
