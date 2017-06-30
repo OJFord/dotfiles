@@ -10,4 +10,4 @@ export XONSHRC="$XONSH_CONFIG_DIR/.xonshrc"
 
 export TERMINAL=alacritty
 
-exec startx $XINITRC
+exec startx "$XINITRC"
