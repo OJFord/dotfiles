@@ -77,6 +77,7 @@ aliases.update({
     'ls': 'ls --color=always',
     'll': 'ls -l',
     'lla': 'll -A',
+    'pacaur': 'pacaur --color=always',
     'ping': 'prettyping',
     'pip': 'pip3',
     'python': 'python3',
