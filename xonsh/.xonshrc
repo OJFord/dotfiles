@@ -64,6 +64,9 @@ $XONSH_CONFIG_DIR = '{}/xonsh'.format($XDG_CONFIG_HOME)
 $XONSHRC = '{}/.xonshrc'.format($XONSH_CONFIG_DIR)
 $VI_MODE = True
 
+vim_with_rc = 'vim -u {}'.format($VIMRC)
+$EDITOR = vim_with_rc
+$VISUAL = vim_with_rc
 
 aliases.update({
     'dc': 'docker-compose',
@@ -82,10 +85,8 @@ aliases.update({
     'pip': 'pip3',
     'python': 'python3',
     'sh': 'bash',
-    'vim': 'vim -u {}'.format($VIMRC),
+    'vim': vim_with_rc,
 })
-
-$EDITOR = 'vim'
 
 $LANG = 'en_GB.UTF-8'
 $LC_CTYPE = 'en_GB.UTF-8'
