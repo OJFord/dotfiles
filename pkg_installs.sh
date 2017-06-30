@@ -34,4 +34,6 @@ from_std yubico-personalization
 from_aur alacritty-git
 from_aur albert
 from_aur compton-git
+from_aur ttf-iosevka-ss05
+from_aur ttf-iosevka-term-ss05
 from_aur xonsh
