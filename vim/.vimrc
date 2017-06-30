@@ -132,9 +132,8 @@ set shiftwidth=4
 set shiftround
 set expandtab
 let g:indentLine_color_term=239
-" Switch to nicer vertical dots when alacritty has full unicode support (jwilm/alacritty#306)
 autocmd InsertEnter *.* let g:indentLine_char=''
-autocmd InsertLeave *.* let g:indentLine_char='¦'
+autocmd InsertLeave *.* let g:indentLine_char='┊'
 
 let g:ctrlp_working_path_mode='r' " Look for nearest repo
 if executable('rg')
