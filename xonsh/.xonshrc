@@ -10,6 +10,7 @@ sys.path.extend([
 
 $PATH = [
     '$XDG_CONFIG_HOME/bin',
+    '/usr/share/git/diff-highlight',
 ] + [p for p in $PATH]
 
 

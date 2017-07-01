@@ -18,6 +18,7 @@
 
 [interactive]
     singleKey = true
+    diffFilter = "diff-highlight"
 
 [alias]
     amend = commit --amend
