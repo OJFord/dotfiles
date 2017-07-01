@@ -55,7 +55,7 @@ if not !(gpg-agent > /dev/null 2>&1) or 'SSH_AUTH_SOCK' not in ${...}:
     $SSH_AUTH_SOCK = bash_eval_str[
         len('SSH_AUTH_SOCK='):bash_eval_str.rfind('; export')
     ]
-$GPG_TTY = $(tty)
+    $GPG_TTY = $(tty)
 
 $VIMDIR = '{}/vim'.format($XDG_CONFIG_HOME)
 $VIMRC = '{}/.vimrc'.format($VIMDIR)
