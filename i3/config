@@ -6,7 +6,8 @@ floating_modifier $mod
 
 font pango:Iosevka Light 6
 
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec alacritty 2>/tmp/alacritty_error \
+    || i3-nagbar -m "$(cat /tmp/alacritty_error)" -t error
 bindsym $alt+Shift+q kill
 
 # no titlebar
