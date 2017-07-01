@@ -63,6 +63,7 @@ key_bindings:
   - { key: Up, chars: "\x1b[A", mode: ~AppCursor }
   - { key: Down, chars: "\x1b[B", mode: ~AppCursor }
   - { key: Tab, mods: Shift, chars: "\x1b[Z" }
+  - { key: I, mods: Control, command: {program: "alacritty-invert-colours", args: []} }
 
 shell:
   program: xonsh
