@@ -40,6 +40,9 @@
     short = true
     branch = true
 
+[pull]
+    rebase = true
+
 [rebase]
     stat = false
     autoSquash = true
