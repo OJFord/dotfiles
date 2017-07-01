@@ -52,8 +52,13 @@
     missingCommitsCheck = "error"
 
 [diff]
+    algorithm = histogram
     compactionHeuristic = true
+    context = 3
+    indentHeuristic = true
+    interHunkContext = 1
     noprefix = true
+    wordRegex = [^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+
 
 [diff-so-fancy]
     markEmptyLines = false
