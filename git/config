@@ -1,6 +1,6 @@
 [user]
     name = Ollie Ford
-    email = me@ojford.com
+    email = dev@ojford.com
     signingKey = 555E2CCB0DB272224566ED62152B3280A315B9D9
 
 [gpg]
