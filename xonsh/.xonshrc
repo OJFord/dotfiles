@@ -88,7 +88,6 @@ aliases.update({
     'ping': 'prettyping',
     'pip': 'pip3',
     'python': 'python3',
-    'sh': 'bash',
     'vim': vim_with_rc,
 })
 
