@@ -30,6 +30,9 @@
     recap = log --decorate --oneline --pretty=format:'%C(green)%cr: %C(white italic)%s %C(auto)%d' -n10 --author=@ojford.com
     staged = diff --cached
 
+[help]
+    autocorrect = 1
+
 [advice]
     statusHints = false
 
