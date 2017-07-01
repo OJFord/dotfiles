@@ -8,6 +8,10 @@ sys.path.extend([
     if p not in sys.path
 ])
 
+$PATH = [
+    '$XDG_CONFIG_HOME/bin',
+] + [p for p in $PATH]
+
 
 # Xonsh prompt
 def git_cwd():
