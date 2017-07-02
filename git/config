@@ -1,25 +1,5 @@
-[user]
-    name = Ollie Ford
-    email = dev@ojford.com
-    signingKey = 555E2CCB0DB272224566ED62152B3280A315B9D9
-
-[gpg]
-    program = gpg2
-
-[commit]
-    cleanup = whitespace
-    gpgsign = true
-
-[tag]
-    forceSignAnnotated = true
-
-[core]
-    editor = vim
-    pager = less
-
-[interactive]
-    singleKey = true
-    diffFilter = "diff-highlight"
+[advice]
+    statusHints = false
 
 [alias]
     amend = commit --amend
@@ -32,55 +12,6 @@
     recap = log --decorate --oneline --pretty=format:'%C(green)%cr: %C(white italic)%s %C(auto)%d' -n10 --author=@ojford.com
     staged = diff --cached
 
-[help]
-    autocorrect = 1
-
-[advice]
-    statusHints = false
-
-[status]
-    short = true
-    branch = true
-
-[pull]
-    rebase = true
-
-[rebase]
-    stat = false
-    autoSquash = true
-    autoStash = true
-    missingCommitsCheck = "error"
-
-[diff]
-    algorithm = histogram
-    compactionHeuristic = true
-    context = 3
-    indentHeuristic = true
-    interHunkContext = 1
-    noprefix = true
-    wordRegex = [^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+
-
-[diff-so-fancy]
-    markEmptyLines = false
-
-[pager]
-    diff = diff-so-fancy | less --tabs=4 -RFX
-
-[filter "media"]
-    required = true
-    clean = git media clean %f
-    smudge = git media smudge %f
-
-[filter "hawser"]
-    required = true
-    clean = git hawser clean %f
-    smudge = git hawser smudge %f
-
-[filter "lfs"]
-    required = true
-    clean = git-lfs clean %f
-    smudge = git-lfs smudge %f
-
 [color]
     branch = auto
     diff = auto
@@ -90,6 +21,11 @@
     showBranch = auto
     status = auto
     ui = auto
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
 
 [color "diff"]
     meta = yellow bold
@@ -105,12 +41,76 @@
     newNormal = green bold
     newHighlight = 238 bold green
 
-[color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
-
 [color "status"]
     added = yellow
     changed = green
     untracked = cyan
+
+[commit]
+    cleanup = strip
+    gpgsign = true
+
+[core]
+    editor = vim
+    pager = less
+
+[diff]
+    algorithm = histogram
+    compactionHeuristic = true
+    context = 3
+    indentHeuristic = true
+    interHunkContext = 1
+    noprefix = true
+    wordRegex = [^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+
+
+[diff-so-fancy]
+    markEmptyLines = false
+
+[filter "hawser"]
+    required = true
+    clean = git hawser clean %f
+    smudge = git hawser smudge %f
+
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+
+[filter "media"]
+    required = true
+    clean = git media clean %f
+    smudge = git media smudge %f
+
+[gpg]
+    program = gpg2
+
+[help]
+    autocorrect = 1
+
+[interactive]
+    singleKey = true
+    diffFilter = "diff-highlight"
+
+[pager]
+    diff = diff-so-fancy | less --tabs=4 -RFX
+
+[pull]
+    rebase = true
+
+[rebase]
+    stat = false
+    autoSquash = true
+    autoStash = true
+    missingCommitsCheck = "error"
+
+[status]
+    short = true
+    branch = true
+
+[tag]
+    forceSignAnnotated = true
+
+[user]
+    name = Ollie Ford
+    email = dev@ojford.com
+    signingKey = 555E2CCB0DB272224566ED62152B3280A315B9D9
