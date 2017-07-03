@@ -33,6 +33,7 @@ install gnupg
 install htop
 install httplab
 install i3-wm
+install i3status
 install irssi
 install jq
 install keybase-bin
