@@ -36,7 +36,6 @@ install_pacaur() {
 }
 
 install_pacaur
-pacaur -Sy open-vm-tools
 
 # Cleanup automatic dotfiles that either won't be used, or will move to XDG dir
 rubbish="$(

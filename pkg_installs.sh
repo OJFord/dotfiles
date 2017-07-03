@@ -40,6 +40,7 @@ install keybase-bin
 install libu2f-host
 install libusb-compat
 install npm
+install open-vm-tools
 install openssh
 install otfcc
 install perl-term-readkey
