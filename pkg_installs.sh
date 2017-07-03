@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 install() {
     pkg="$1"
@@ -7,10 +8,13 @@ install() {
 
 trust_install() {
     pkg="$1"
-    gpghome=/tmp/pacaurgpg
-    mkdir -p "$gpghome"
-    echo 'keyserver-options auto-key-retrieve' > "$gpghome"
-    GNUPGHOME="$gpghome" pacaur --noconfirm -Sy "$pkg"
+    mkdir -p /tmp/trust_install
+    cd /tmp/trust_install
+    if [ ! -n "$(pacman -Qs "$pkg")" ]; then
+        curl -o PKGBUILD \
+        "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=$pkg"
+        makepkg PKGBUILD --install --skippgpcheck
+    fi
 }
 
 pacaur -Syu
