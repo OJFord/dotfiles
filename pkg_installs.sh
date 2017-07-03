@@ -57,6 +57,8 @@ install thefuck
 install vim
 install wuzz
 install xonsh
+install xorg-server
+install xorg-xinit
 install yubico-c
 install yubico-c-client
 install yubico-pam
