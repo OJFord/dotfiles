@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 
+this_dir="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)"
 tmp_dir=/tmp/pacaur_install
 
 sudo pacman -Syu
@@ -23,3 +24,9 @@ fi
 
 pacaur -Syu
 pacaur -Sy open-vm-tools open-vm-tools-dkms
+
+# Cleanup automatic dotfiles that either won't be used, or will move to XDG dir
+rubbish="$(
+    find "$HOME" -maxdepth 1 -name ".*" -not -iname "$this_dir" -not -iname ".local"
+)"
+rm -rf "$rubbish"
