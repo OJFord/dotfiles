@@ -26,7 +26,6 @@ generate_font() {
     up_style="$3"
     it_style="$4"
     ob_style="$5"
-    font_dir="$iosevka_dir/dist/iosevka-$name/ttf"
 
     install_iosevka
 
@@ -36,13 +35,16 @@ generate_font() {
         italic="$it_style" \
         oblique="$ob_style" \
         && make custom set="$name"
-
-    cd "$font_dir"
-    for fontf in *; do
-        sudo ln -sf "$font_dir/$fontf" "/usr/share/fonts/TTF/$fontf"
-    done
 }
 
+move_fonts_to() {
+    gen_dirs="$iosevka_dir/dist/iosevka-*/ttf"
+    font_dir="$1"
+
+    mkdir -p  "$font_dir"
+    mv "$gen_dirs/*.ttf" "$font_dir"
+    fc-cache --force --verbose
+}
 
 style="\
     sans \
@@ -83,3 +85,5 @@ ob_style="\
 
 generate_font "custom-with-ligs" "$style" "$up_style" "$it_style" "$ob_style"
 generate_font "custom-no-ligs" "term $style" "$up_style" "$it_style" "$ob_style"
+
+move_fonts_to "$HOME/.local/share/fonts"
