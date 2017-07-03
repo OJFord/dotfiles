@@ -32,6 +32,7 @@ install keybase-bin
 install libu2f-host
 install npm
 install otfcc
+install perl-term-readkey
 install pinentry
 install python
 install python-prompt_toolkit
