@@ -17,6 +17,7 @@ pacaur -Syu
 
 install alacritty-git
 install albert
+install ccid
 install compton-git
 install dex
 install diff-so-fancy
@@ -30,10 +31,13 @@ install irssi
 install jq
 install keybase-bin
 install libu2f-host
+install libusb-compat
 install npm
+install openssh
 install otfcc
 install perl-term-readkey
 install pinentry
+install pcsclite
 install python
 install python-prompt_toolkit
 install ripgrep
@@ -53,3 +57,5 @@ install yubico-personalization
 install zathura
 
 trust_install ttfautohint
+
+sudo systemctl enable pcscd
