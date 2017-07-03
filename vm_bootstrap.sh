@@ -16,6 +16,7 @@ install_pacaur() {
         gcc \
         git \
         make \
+        pkg-config \
         yajl \
     "
     sudo pacman -S --needed --noconfirm --noedit "$deps"
