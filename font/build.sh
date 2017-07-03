@@ -1,7 +1,24 @@
 #!/bin/sh
 set -e
 
-iosevka_dir="$XDG_CONFIG_HOME/font/iosevka"
+iosevka_dir="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)/iosevka"
+
+install_deps() {
+    pacaur -S --needed npm ttfautohint
+}
+
+install_iosevka() {
+    install_deps
+
+    if [ ! -d "$iosevka_dir" ]; then
+        git clone --depth=1 https://github.com/be5invis/Iosevka/ "$iosevka_dir"
+        cd "$iosevka_dir"
+    else
+        cd "$iosevka_dir"
+        git pull
+    fi
+    npm install
+}
 
 generate_font() {
     name="$1"
@@ -10,6 +27,8 @@ generate_font() {
     it_style="$4"
     ob_style="$5"
     font_dir="$iosevka_dir/dist/iosevka-$name/ttf"
+
+    install_iosevka
 
     make custom-config set="$name" \
         design="$style" \
@@ -24,14 +43,6 @@ generate_font() {
     done
 }
 
-if [ ! -d "$iosevka_dir" ]; then
-    git clone --depth=1 https://github.com/be5invis/Iosevka/ "$iosevka_dir"
-    cd "$iosevka_dir"
-else
-    cd "$iosevka_dir"
-    git pull
-fi
-npm install
 
 style="\
     sans \
