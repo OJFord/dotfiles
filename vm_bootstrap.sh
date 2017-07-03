@@ -42,3 +42,5 @@ rubbish="$(
     find "$HOME" -maxdepth 1 -name ".*" -not -iname "$this_dir" -not -iname ".local"
 )"
 rm -rf "$rubbish"
+
+ln -sf "$this_dir/.profile" "$HOME/.profile"
