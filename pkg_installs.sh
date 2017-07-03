@@ -3,7 +3,9 @@ set -e
 
 install() {
     pkg="$1"
-    pacaur --noconfirm -Sy "$pkg"
+    if [ ! -n "$(pacman -Qs "$pkg")" ]; then
+        pacaur -S --noconfirm --noedit "$pkg"
+    fi
 }
 
 trust_install() {
