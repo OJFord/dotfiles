@@ -23,6 +23,8 @@ pacaur -Syu
 
 install alacritty-git
 install albert
+install automake
+install autoconf
 install ccid
 install compton-git
 install dex
@@ -33,6 +35,7 @@ install gnupg
 install htop
 install httplab
 install i3-wm
+install i3ipc-glib-git
 install i3status
 install irssi
 install jq
@@ -46,6 +49,7 @@ install otfcc
 install perl-term-readkey
 install pinentry
 install pcsclite
+install polybar
 install python
 install python-prompt_toolkit
 install ripgrep

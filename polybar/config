@@ -1,0 +1,17 @@
+[bar/one]
+    font-0 = "Iosevka:size=10;0"
+    locale = en_GB.UTF-8
+    modules-left = i3
+    modules-center = date
+
+[module/date]
+    type = internal/date
+    interval = 15
+    date = %d/%m
+    time = %H:%M
+    label = %date% %time%
+
+[module/i3]
+    type = internal/i3
+    pin-workspaces = true
+    strip-wsnumbers = true
