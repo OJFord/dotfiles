@@ -51,6 +51,7 @@ install perl-term-readkey
 install pinentry
 install pcsclite
 install polybar
+install prettyping
 install python
 install python-prompt_toolkit
 install ripgrep
