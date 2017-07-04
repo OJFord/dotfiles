@@ -37,6 +37,7 @@ install httplab
 install i3-wm
 install i3ipc-glib-git
 install i3status
+install iosevka-generate
 install irssi
 install jq
 install keybase-bin

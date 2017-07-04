@@ -1,0 +1,36 @@
+[options]
+    name = custom-no-ligs
+    sans =
+    term =
+
+[common]
+    a = doublestory
+    g = opendoublestory
+    m = shortleg
+    t = standard
+    q = taily
+    asterisk = low
+    at = short
+    caret = high
+    dollar = through
+    eszet = sulzbacher
+    numbersign = upright
+    paragraph = high
+    tilde = low
+    underscore = low
+    zero = slashed
+
+[upright]
+    i = serifed
+    l = zshaped
+    brace = straight
+
+[italic]
+    i = hooky
+    l = hooky
+    brace = curly
+
+[oblique]
+    i = serifed
+    l = hooky
+    brace = curly
