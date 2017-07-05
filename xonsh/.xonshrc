@@ -24,7 +24,7 @@ def git_cwd():
             git_root = path.join($(git rev-parse --git-dir)[:-1], '..')
         else:
             git_root = path.join($(git rev-parse --show-toplevel)[:-1])
-        git_root = path.realpath(git_root).replace('/Users/ojf', '~')
+        git_root = path.realpath(git_root).replace($HOME, '~')
 
         repo_idx = git_root.rindex('/')
         repo_name = git_root[repo_idx:]
