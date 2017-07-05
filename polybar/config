@@ -1,5 +1,6 @@
 [bar/one]
     font-0 = "Iosevka:size=10;0"
+    font-1 = "Twitter Color Emoji:size=14;0"
     locale = en_GB.UTF-8
     modules-left = i3
     modules-center = date
@@ -9,7 +10,7 @@
     interval = 15
     date = %d/%m
     time = %H:%M
-    label = %date% %time%
+    label = %date% 🕰️ %time%
 
 [module/i3]
     type = internal/i3

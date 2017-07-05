@@ -61,6 +61,7 @@ install stack
 install sudo
 install terraform
 install thefuck
+install twemoji
 install vim
 install wuzz
 install xonsh
