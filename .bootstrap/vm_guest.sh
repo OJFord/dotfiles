@@ -2,7 +2,7 @@
 set -e
 
 install_vm_guest() {
-    install open-vm-tools
+    require open-vm-tools
 }
 
 install_vm_shared_dir() {

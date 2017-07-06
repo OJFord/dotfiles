@@ -6,7 +6,7 @@ this_dir="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)"
 # Switch package manager
 source "$this_dir/.bootstrap/pkg_mgr.sh"
 install_pkg_mgr
-install sudo
+require sudo
 
 # Install window manager, omni launcher, et al.
 source "$this_dir/.bootstrap/visual_env.sh"

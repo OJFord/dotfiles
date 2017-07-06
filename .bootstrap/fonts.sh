@@ -3,10 +3,10 @@ set -e
 
 install_fonts() {
     #!FIXME: iosevka-generate depends on ttfautohint, for which PGP check will fail
-    trust_install ttfautohint
+    trust_require ttfautohint
 
-    install iosevka-generate
+    require iosevka-generate
     iosevka-generate
 
-    install twemoji
+    require twemoji
 }

@@ -2,24 +2,24 @@
 set -e
 
 install_cli() {
-    install alacritty-git
-    install python-prompt_toolkit
-    install thefuck
-    install xonsh
+    require alacritty-git
+    require python-prompt_toolkit
+    require thefuck
+    require xonsh
 }
 
 install_dev_tools() {
     langs="$1"
 
-    install htop
-    install httplab
-    install irssi
-    install jq
-    install prettyping
-    install ripgrep
-    install terraform
-    install vim
-    install wuzz
+    require htop
+    require httplab
+    require irssi
+    require jq
+    require prettyping
+    require ripgrep
+    require terraform
+    require vim
+    require wuzz
 
     for lang in $langs; do
         exec "install_dev_tools_$lang"
@@ -27,47 +27,47 @@ install_dev_tools() {
 }
 
 install_dev_tools_haskell() {
-    install stack
+    require stack
 }
 
 install_dev_tools_python() {
-    install flake8
-    install mypy
-    install python
-    install python-isort
+    require flake8
+    require mypy
+    require python
+    require python-isort
 }
 
 install_dev_tools_rust() {
-    install rustup
+    require rustup
     rustup default nightly
 }
 
 install_dev_tools_shell() {
-    install shellcheck
+    require shellcheck
 }
 
 install_password_mgr() {
-    install keybase-bin
+    require keybase-bin
 }
 
 install_security_key() {
-    install ccid
-    install gnupg
-    install libu2f-host
-    install libusb-compat
-    install pcsclite
-    install pinentry
-    install yubico-c
-    install yubico-c-client
-    install yubico-pam
-    install yubico-personalization
+    require ccid
+    require gnupg
+    require libu2f-host
+    require libusb-compat
+    require pcsclite
+    require pinentry
+    require yubico-c
+    require yubico-c-client
+    require yubico-pam
+    require yubico-personalization
 
     sudo systemctl enable pcscd
 }
 
 install_svc() {
-    install diff-so-fancy
-    install git
-    install openssh
-    install perl-term-readkey
+    require diff-so-fancy
+    require git
+    require openssh
+    require perl-term-readkey
 }

@@ -2,29 +2,29 @@
 set -e
 
 install_launcher() {
-    install albert
-    install compton-git
+    require albert
+    require compton-git
 }
 
 install_pdf_viewer() {
-    install zathura
+    require zathura
 }
 
 install_web_browser() {
-    install firefox
+    require firefox
 }
 
 install_wm() {
     # Extra polybar dependencies
-    install autoconf
-    install automake
-    install i3ipc-glib-git
+    require autoconf
+    require automake
+    require i3ipc-glib-git
     #
 
-    install dex
-    install i3-wm
-    install i3status
-    install polybar
-    install xorg-server
-    install xorg-xinit
+    require dex
+    require i3-wm
+    require i3status
+    require polybar
+    require xorg-server
+    require xorg-xinit
 }

@@ -22,29 +22,29 @@ install_pkg_mgr() {
     if [ ! -n "$(pacman -Qs cower)" ]; then
         curl -o PKGBUILD \
             "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower-git"
-        makepkg PKGBUILD --install --needed
+        makepkg PKGBUILD --install
     fi
 
     if [ ! -n "$(pacman -Qs pacaur)" ]; then
         curl -o PKGBUILD \
             "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur"
-        makepkg PKGBUILD --install --needed
+        makepkg PKGBUILD --install
     fi
 
     pacaur -Syu
 }
 
-install() {
+require() {
     pkg="$1"
     if [ ! -n "$(pacman -Qs "$pkg")" ]; then
         pacaur -S --noconfirm --noedit "$pkg"
     fi
 }
 
-trust_install() {
+trust_require() {
     pkg="$1"
-    mkdir -p /tmp/trust_install
-    cd /tmp/trust_install
+    mkdir -p /tmp/trust_require
+    cd /tmp/trust_require
     if [ ! -n "$(pacman -Qs "$pkg")" ]; then
         curl -o PKGBUILD \
         "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=$pkg"
