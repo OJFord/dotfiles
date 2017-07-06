@@ -8,6 +8,7 @@
     fixup = "!f(){ target=$(git rev-parse "$1"); git commit --fixup=$target ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $target^; }; f"
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    push-new = "!f(){ remote=$1; branch=$(git rev-parse --abbrev-ref HEAD); git push --set-upstream $remote $branch; }; f"
     released = tag --contains
     recap = log --decorate --oneline --pretty=format:'%C(green)%cr: %C(white italic)%s %C(auto)%d' -n10 --author=@ojford.com
     staged = diff --cached
