@@ -1,14 +1,12 @@
 #!/bin/sh
 set -e
 
-this_dir="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)"
-tmp_dir=/tmp/pacaur_install
+install_pkg_mgr() {
+    tmp_dir=/tmp/pacaur_install
 
-sudo pacman -Syu
-mkdir -p "$tmp_dir"
-cd "$tmp_dir"
+    mkdir -p "$tmp_dir"
+    cd "$tmp_dir"
 
-install_pacaur() {
     deps="\
         binutils \
         expac \
@@ -19,7 +17,7 @@ install_pacaur() {
         pkg-config \
         yajl \
     "
-    sudo pacman -S --needed --noconfirm --noedit "$deps"
+    sudo pacman -Sy --needed --noconfirm --noedit "$deps"
 
     if [ ! -n "$(pacman -Qs cower)" ]; then
         curl -o PKGBUILD \
@@ -36,12 +34,20 @@ install_pacaur() {
     pacaur -Syu
 }
 
-install_pacaur
+install() {
+    pkg="$1"
+    if [ ! -n "$(pacman -Qs "$pkg")" ]; then
+        pacaur -S --noconfirm --noedit "$pkg"
+    fi
+}
 
-# Cleanup automatic dotfiles that either won't be used, or will move to XDG dir
-rubbish="$(
-    find "$HOME" -maxdepth 1 -name ".*" -not -iname "$this_dir" -not -iname ".local"
-)"
-rm -rf "$rubbish"
-
-ln -sf "$this_dir/.profile" "$HOME/.profile"
+trust_install() {
+    pkg="$1"
+    mkdir -p /tmp/trust_install
+    cd /tmp/trust_install
+    if [ ! -n "$(pacman -Qs "$pkg")" ]; then
+        curl -o PKGBUILD \
+        "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=$pkg"
+        makepkg PKGBUILD --install --skippgpcheck
+    fi
+}
