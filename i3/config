@@ -1,4 +1,6 @@
 exec compton
+exec_always --no-startup-id $XDG_CONFIG_HOME/polybar/launch 2>/tmp/polybar_error \
+    || i3-nagbar -m "$(cat /tmp/polybar_error)" -t error
 
 set $mod mod4
 set $alt mod1
@@ -119,18 +121,3 @@ set $blue             #268bd2
 set $cyan             #2aa198
 set $green            #859900
 set $custom           #1c5766
-
-
-bar {
-        status_command i3status --config $XDG_CONFIG_HOME/i3/config.i3status
-        font pango:Iosevka Light, xft:Font Awesome 8
-        colors {
-                background          $base03
-                statusline          $base2
-                separator           $yellow
-                focused_workspace   $base2   $base2  $base01
-                active_workspace    $base2   $base2  $base01
-                inactive_workspace  $base01  $base01 $base2
-                urgent_workspace    $magenta $blue   $magenta
-        }
-}
