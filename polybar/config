@@ -15,5 +15,8 @@
 
 [module/i3]
     type = internal/i3
+    label-focused = %index%
+    label-focused-background = #888
+    label-unfocused = %index%
     pin-workspaces = true
     strip-wsnumbers = true
