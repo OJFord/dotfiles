@@ -24,6 +24,7 @@ install_wm() {
     require autoconf
     require automake
     require i3ipc-glib-git
+    require libjson-rpc-cpp
     #
 
     require dex
