@@ -12,6 +12,11 @@ install_pdf_viewer() {
 
 install_web_browser() {
     require firefox
+    require chromium
+
+    # Fix Chromium DPI
+    sudo sed -i 's/Exec=chromium %U/Exec=chromium --force-device-scale-factor=1 %U/' \
+        /usr/share/applications/chromium.desktop
 }
 
 install_wm() {
