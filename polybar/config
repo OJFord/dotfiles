@@ -4,9 +4,23 @@
     font-0 = "Iosevka:size=10;0"
     font-1 = "Twitter Color Emoji:size=14;0"
     locale = en_GB.UTF-8
-    modules-left = i3
+    module-margin = 1
+    modules-left = i3 cpu
     modules-center = date
     tray-position = right
+
+[module/cpu]
+    type = internal/cpu
+    format = <label> <ramp-coreload>
+    label = CPU
+    ramp-coreload-0 = ▁
+    ramp-coreload-1 = ▂
+    ramp-coreload-2 = ▃
+    ramp-coreload-3 = ▄
+    ramp-coreload-4 = ▅
+    ramp-coreload-5 = ▆
+    ramp-coreload-6 = ▇
+    ramp-coreload-7 = █
 
 [module/date]
     type = internal/date
