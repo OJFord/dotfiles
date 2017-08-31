@@ -1,9 +1,0 @@
-{
- "env": {
-  "IGNOREEOF": true,
-  "INDENT": "    ",
-  "MULTILINE_PROMPT": "",
-  "SHELL_TYPE": "prompt_toolkit",
-  "XONSHRC": ["/etc/xonshrc", "~/.config/xonsh/.xonshrc"]
- }
-}

@@ -43,6 +43,7 @@ Plug 'w0rp/ale'
 Plug 'bronson/vim-trailing-whitespace'
 
 " Languages-specific
+Plug 'dag/vim-fish'
 Plug 'python-mode/python-mode', {'for': 'python'}
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}

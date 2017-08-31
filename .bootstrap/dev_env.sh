@@ -3,9 +3,8 @@ set -e
 
 install_cli() {
     require alacritty-git
-    require python-prompt_toolkit
     require thefuck
-    require xonsh
+    require fish
 }
 
 install_dev_tools() {

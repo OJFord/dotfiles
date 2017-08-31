@@ -66,4 +66,4 @@ key_bindings:
   - { key: I, mods: Control, command: {program: "alacritty-invert-colours", args: []} }
 
 shell:
-  program: xonsh
+  program: fish
