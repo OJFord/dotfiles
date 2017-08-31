@@ -40,3 +40,6 @@ rm -rf "$rubbish"
 
 # Ensure new configuration is found on next login
 ln -sf "$this_dir/.profile" "$HOME/.profile"
+
+# Tidy up SSH + GPG agent
+ln -sf "$this_dir/gnupg/ssh/" "$HOME/.ssh/"
