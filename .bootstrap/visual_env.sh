@@ -14,9 +14,9 @@ install_web_browser() {
     require chromium
     require firefox-nightly-en-gb
 
-    # Fix Chromium DPI
-    sudo sed -i 's/Exec=chromium %U/Exec=chromium --force-device-scale-factor=1 %U/' \
-        /usr/share/applications/chromium.desktop
+    app_files="$HOME/.local/share/applications"
+    mkdir -p "$app_files"
+    mv chromium.desktop "$app_files/chromium.desktop"
 }
 
 install_wm() {
