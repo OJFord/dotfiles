@@ -51,3 +51,11 @@ trust_require() {
         makepkg PKGBUILD --install --skippgpcheck
     fi
 }
+
+update() {
+    pacaur -Sy
+}
+
+upgrade() {
+    pacaur -Syu
+}
