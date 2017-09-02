@@ -11,8 +11,7 @@
 
 [module/cpu]
     type = internal/cpu
-    format = <label> <ramp-coreload>
-    label = CPU
+    format = <ramp-coreload>
     ramp-coreload-0 = ▁
     ramp-coreload-1 = ▂
     ramp-coreload-2 = ▃
