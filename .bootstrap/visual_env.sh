@@ -30,7 +30,7 @@ install_wm() {
     require dex
     require i3-wm
     require i3status
-    require polybar
+    require polybar-git
     require xorg-server
     require xorg-xinit
 }
