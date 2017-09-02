@@ -23,17 +23,17 @@ function fish_prompt
         set git (__fish_vcs_prompt | tr -d ' ')
 
         if [ (git rev-parse --is-inside-git-dir) = 'true' ]
-            set git_path .git
+            set git_path /.git
         else
-            set git_path (git rev-parse --show-prefix)
+            set git_path /(git rev-parse --show-prefix)
         end
     else
         set path (pwd)
     end
 
-    echo -n (echo $path | string replace $HOME '~')
+    echo -n (string replace "$HOME" '~' "$path")
     echo -n $git
-    echo -n $git_path
+    echo -n (string replace --regex '/$' '' "$git_path")
 
     set_color --bold brwhite
     echo -n '>'
