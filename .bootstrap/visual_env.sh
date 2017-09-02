@@ -16,7 +16,7 @@ install_web_browser() {
 
     app_files="$HOME/.local/share/applications"
     mkdir -p "$app_files"
-    mv chromium.desktop "$app_files/chromium.desktop"
+    cp "$BOOTSTRAP_DIR/chromium.desktop" "$app_files/chromium.desktop"
 }
 
 install_wm() {
