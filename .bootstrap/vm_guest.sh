@@ -17,10 +17,12 @@ install_vm_guest() {
 
 install_vm_shared_dir() {
     target="$1"
-    mkdir "$target"
+    if ! sudo mountpoint -q "$target"; then
+        mkdir "$target"
 
-    sudo echo ".host:/share $target fuse.vmhgfs-fuse defaults 0 0" \
-        | tee --append /etc/fstab
+        echo ".host:/share $target fuse.vmhgfs-fuse defaults 0 0" \
+            | sudo tee --append /etc/fstab >/dev/null
 
-    mount "$target"
+        sudo mount "$target"
+    fi
 }
