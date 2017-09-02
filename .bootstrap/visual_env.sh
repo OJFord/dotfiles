@@ -32,6 +32,7 @@ install_wm() {
     require polybar-git
     require xorg-server
     require xorg-xinit
+    require xorg-xrandr
 
     if [ ! -L "$BOOTSTRAP_DIR/../X/xrandr.sh" ]; then
         read -n1 -rsp "
