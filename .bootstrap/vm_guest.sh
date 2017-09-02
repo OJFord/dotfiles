@@ -2,9 +2,6 @@
 set -e
 
 install_vm_guest() {
-    require open-vm-tools
-
-    vmware-toolbox-cmd timesync enable
     sudo hwclock --hctosys --localtime
     require chrony
     sudo tee /etc/chrony.conf <<-EOF
@@ -15,28 +12,45 @@ install_vm_guest() {
 	EOF
     sudo systemctl restart chronyd
 
-    read -n1 -rsp "
-        In order to use a USB security key inside a VM, the following lines
-        must be added to {vmname}.vmwarevm/{vmname}.vmx:
+    require dmidecode
+    vm="$(sudo dmidecode -s system-product-name)"
+    case "$vm" in
+        "VMWare Virtual Platform")
+            require open-vm-tools
 
-            usb.generic.pluginAction = "guest"
-            usb.generic.allowHID = "TRUE"
-            usb.generic.allowLastHID = "TRUE"
+            vmware-toolbox-cmd timesync enable
 
-        A VM restart may then be necessary.
+            read -n1 -rsp "
+                In order to use a USB security key inside a VM, the following
+                lines must be added to {vmname}.vmwarevm/{vmname}.vmx:
 
-        Press any key to acknowledge and continue.
-    "
+                    usb.generic.pluginAction = "guest"
+                    usb.generic.allowHID = "TRUE"
+                    usb.generic.allowLastHID = "TRUE"
+
+                A VM restart may then be necessary.
+
+                Press any key to acknowledge and continue.
+            "
+        ;;
+    esac
 }
 
 install_vm_shared_dir() {
     target="$1"
-    if ! sudo mountpoint -q "$target"; then
-        mkdir "$target"
 
-        echo ".host:/share $target fuse.vmhgfs-fuse defaults 0 0" \
-            | sudo tee --append /etc/fstab >/dev/null
+    require dmidecode
+    vm="$(sudo dmidecode -s system-product-name)"
+    case "$vm" in
+        "VMWare Virtual Platform")
+            if ! sudo mountpoint -q "$target"; then
+                mkdir "$target"
 
-        sudo mount "$target"
-    fi
+                echo ".host:/share $target fuse.vmhgfs-fuse defaults 0 0" \
+                    | sudo tee --append /etc/fstab >/dev/null
+
+                sudo mount "$target"
+            fi
+            ;;
+    esac
 }
