@@ -21,7 +21,7 @@ install_dev_tools() {
     require wuzz-git
 
     for lang in $langs; do
-        exec "install_dev_tools_$lang"
+        eval "install_dev_tools_$lang"
     done
 }
 
