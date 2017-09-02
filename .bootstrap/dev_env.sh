@@ -26,6 +26,7 @@ install_dev_tools() {
 }
 
 install_dev_tools_haskell() {
+    require ncurses5-compat-libs
     require stack
 }
 
