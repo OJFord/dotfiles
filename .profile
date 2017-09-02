@@ -21,6 +21,7 @@ export VISUAL="vim -u $VIMRC"
 
 export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 
+export PATH="$XDG_CONFIG_HOME/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$CARGO_HOME/bin:$PATH"
 export PATH="/usr/share/git/diff-highlight:$PATH"
