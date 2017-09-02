@@ -18,7 +18,7 @@ install_dev_tools() {
     require ripgrep
     require terraform
     require vim
-    require wuzz
+    require wuzz-git
 
     for lang in $langs; do
         exec "install_dev_tools_$lang"
