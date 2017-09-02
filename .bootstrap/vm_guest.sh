@@ -13,6 +13,7 @@ install_vm_guest() {
 		makestep 1 3
 		rtcsync
 	EOF
+    sudo systemctl restart chronyd
 
     read -n1 -rsp "
         In order to use a USB security key inside a VM, the following lines
