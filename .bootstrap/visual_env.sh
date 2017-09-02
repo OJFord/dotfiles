@@ -32,4 +32,15 @@ install_wm() {
     require polybar-git
     require xorg-server
     require xorg-xinit
+
+    if [ ! -L "$BOOTSTRAP_DIR/../X/xrandr.sh" ]; then
+        read -n1 -rsp "
+            For correct display settings, this machine's xrandr script should now
+            be the symlink destination for xrandr.sh. e.g.
+
+                ln -sf .../X/xrandr.sh.mba .../X/xrandr.sh
+
+            Press any key to acknowledge and continue.
+        "
+    fi
 }
