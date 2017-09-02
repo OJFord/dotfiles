@@ -62,9 +62,10 @@ install_security_key() {
     require yubico-pam
     require yubikey-personalization
 
-    chown -R "$(whoami)" "$BOOTSTRAP_DIR/../gnupg"
-    chmod 600 "$BOOTSTRAP_DIR/../gnupg/*"
-    chmod 700 "$BOOTSTRAP_DIR/../gnupg"
+    sudo chown -R "$(whoami)" "$BOOTSTRAP_DIR/../gnupg"
+    sudo chmod 600 "$BOOTSTRAP_DIR/../gnupg"/*
+    sudo chmod 700 "$BOOTSTRAP_DIR/../gnupg"/*/
+    sudo chmod 700 "$BOOTSTRAP_DIR/../gnupg"
     mkdir -p "$BOOTSTRAP_DIR/../gnupg/ssh"
 
     sudo systemctl enable pcscd
