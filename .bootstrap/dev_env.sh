@@ -67,6 +67,7 @@ install_security_key() {
     chown -R "$(whoami)" "$BOOTSTRAP_DIR/../gnupg"
     chmod 600 "$BOOTSTRAP_DIR/../gnupg/*"
     chmod 700 "$BOOTSTRAP_DIR/../gnupg"
+    mkdir -p "$BOOTSTRAP_DIR/../gnupg/ssh"
 }
 
 install_svc() {
