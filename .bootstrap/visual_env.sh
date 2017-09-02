@@ -12,7 +12,6 @@ install_pdf_viewer() {
 
 install_web_browser() {
     require chromium
-    require firefox-nightly-en-gb
 
     app_files="$HOME/.local/share/applications"
     mkdir -p "$app_files"
