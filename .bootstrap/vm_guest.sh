@@ -13,6 +13,19 @@ install_vm_guest() {
 		makestep 1 3
 		rtcsync
 	EOF
+
+    read -n1 -rsp "
+        In order to use a USB security key inside a VM, the following lines
+        must be added to {vmname}.vmwarevm/{vmname}.vmx:
+
+            usb.generic.pluginAction = "guest"
+            usb.generic.allowHID = "TRUE"
+            usb.generic.allowLastHID = "TRUE"
+
+        A VM restart may then be necessary.
+
+        Press any key to acknowledge and continue.
+    "
 }
 
 install_vm_shared_dir() {
