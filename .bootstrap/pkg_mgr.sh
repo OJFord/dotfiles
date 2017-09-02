@@ -17,21 +17,21 @@ install_pkg_mgr() {
         pkg-config \
         yajl \
     "
-    sudo pacman -Sy --needed --noconfirm --noedit "$deps"
+    sudo pacman -Sy --needed --noconfirm $deps
 
     if [ ! -n "$(pacman -Qs cower)" ]; then
         curl -o PKGBUILD \
             "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower-git"
-        makepkg PKGBUILD --install
+        makepkg PKGBUILD --install --noconfirm
     fi
 
     if [ ! -n "$(pacman -Qs pacaur)" ]; then
         curl -o PKGBUILD \
             "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur"
-        makepkg PKGBUILD --install
+        makepkg PKGBUILD --install --noconfirm
     fi
 
-    pacaur -Syu
+    pacaur -Syu --noconfirm --noedit
 }
 
 require() {
@@ -48,7 +48,7 @@ trust_require() {
     if [ ! -n "$(pacman -Qs "$pkg")" ]; then
         curl -o PKGBUILD \
         "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=$pkg"
-        makepkg PKGBUILD --install --skippgpcheck
+        makepkg PKGBUILD --install --skippgpcheck --noconfirm
     fi
 }
 
