@@ -11,7 +11,7 @@ fi
 # shellcheck source=/dev/null
 . "$XDG_CONFIG_HOME/X/xrandr.sh"
 
-setxkbmap -layout gb
+setxkbmap -layout us
 
 xrdb -load "$XDG_CONFIG_HOME/X/.Xresources"
 xmodmap "$XDG_CONFIG_HOME/X/.Xmodmap"
