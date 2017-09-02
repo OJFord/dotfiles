@@ -33,6 +33,12 @@ install_vm_guest() {
                 Press any key to acknowledge and continue.
             "
         ;;
+        "VirtualBox")
+            require libnotify
+            require virtualbox-guest-utils
+            VBoxClient-all
+            sudo systemctl enable vboxservice
+        ;;
     esac
 }
 
@@ -51,6 +57,11 @@ install_vm_shared_dir() {
 
                 sudo mount "$target"
             fi
+            ;;
+         "VirtualBox")
+            sudo systemctl enable vboxservice
+            sudo gpasswd -a "$(whoami)" vboxsf
+            ln -sf /media/sf_share "$target"
             ;;
     esac
 }
