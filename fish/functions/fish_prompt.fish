@@ -20,19 +20,20 @@ function fish_prompt
 
     if git rev-parse >/dev/null ^&1
         set path (git rev-parse --show-toplevel)
+        set git (__fish_vcs_prompt | tr -d ' ')
+
         if [ (git rev-parse --is-inside-git-dir) = 'true' ]
             set git_path .git
         else
             set git_path (git rev-parse --show-prefix)
         end
-	set git (__fish_vcs_prompt | tr -d ' ')
     else
         set path (pwd)
     end
 
     echo -n (echo $path | string replace $HOME '~')
     echo -n $git
-    echo -n $gitpath
+    echo -n $git_path
 
     set_color --bold brwhite
     echo -n '>'
