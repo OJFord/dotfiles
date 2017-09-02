@@ -6,5 +6,5 @@ install_fonts() {
     require iosevka-generate
     iosevka-generate
 
-    require twemoji
+    require ttf-twemoji-color
 }
