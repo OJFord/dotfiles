@@ -72,7 +72,7 @@ install_security_key() {
     sudo chmod 700 "$BOOTSTRAP_DIR/../gnupg"/*/
 
     sudo systemctl enable pcscd
-    killall scdaemon gpg-agent
+    killall scdaemon gpg-agent || true
     sudo systemctl restart pcscd
 }
 
