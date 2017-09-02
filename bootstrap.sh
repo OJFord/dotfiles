@@ -35,7 +35,7 @@ install_fonts
 # Setup VM guest tooling
 source "$BOOTSTRAP_DIR/vm_guest.sh"
 install_vm_guest
-install_shared_dir "$HOME/vmshare"
+install_vm_shared_dir "$HOME/vmshare"
 
 # Cleanup automatic dotfiles that either won't be used, or will move to XDG dir
 rubbish="$(
