@@ -38,13 +38,15 @@ install_vm_guest
 install_vm_shared_dir "$HOME/vmshare"
 
 # Cleanup automatic dotfiles that either won't be used, or will move to XDG dir
+#!FIXME: permission denied on `vmshare`, so `find` errors
+set +e
 rubbish="$(
-    find "$HOME" -maxdepth 1 -name ".*" -not -iname "$this_dir" -not -iname ".local"
+    find "$HOME" -maxdepth 1 -name ".*" -not -wholename "$this_dir" -not -iname ".local" \
+        2>/dev/null
 )"
-rm -rf "$rubbish"
+set -e
+rm -rf $rubbish
+ln -sf "$this_dir/gnupg/ssh" "$HOME/.ssh"
 
 # Ensure new configuration is found on next login
 ln -sf "$this_dir/.profile" "$HOME/.profile"
-
-# Tidy up SSH + GPG agent
-ln -sf "$this_dir/gnupg/ssh/" "$HOME/.ssh/"
