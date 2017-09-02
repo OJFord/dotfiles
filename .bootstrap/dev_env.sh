@@ -39,7 +39,7 @@ install_dev_tools_python() {
 
 install_dev_tools_rust() {
     require rustup
-    rustup default nightly
+    rustup default stable
 }
 
 install_dev_tools_shell() {

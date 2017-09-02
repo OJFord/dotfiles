@@ -8,6 +8,10 @@ source "$this_dir/.bootstrap/pkg_mgr.sh"
 install_pkg_mgr
 require sudo
 
+# Install rust via rustup before anything depends on it
+require rustup
+rustup default stable
+
 # Install window manager, omni launcher, et al.
 source "$this_dir/.bootstrap/visual_env.sh"
 install_wm
