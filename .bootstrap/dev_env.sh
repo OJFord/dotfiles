@@ -64,9 +64,12 @@ install_security_key() {
 
     sudo chown -R "$(whoami)" "$BOOTSTRAP_DIR/../gnupg"
     sudo chmod 600 "$BOOTSTRAP_DIR/../gnupg"/*
-    sudo chmod 700 "$BOOTSTRAP_DIR/../gnupg"/*/
     sudo chmod 700 "$BOOTSTRAP_DIR/../gnupg"
     mkdir -p "$BOOTSTRAP_DIR/../gnupg/ssh"
+
+    curl https://keybase.io/OJFord/pgp_keys.asc -o /tmp/keys.asc
+    GNUPGHOME="$BOOTSTRAP_DIR/../gnupg" gpg --import /tmp/keys.asc
+    sudo chmod 700 "$BOOTSTRAP_DIR/../gnupg"/*/
 
     sudo systemctl enable pcscd
     killall scdaemon gpg-agent
