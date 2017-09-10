@@ -1,19 +1,27 @@
-# shellcheck source=/dev/null
 #!/bin/sh
 set -e
 this_dir="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)"
-export BOOTSTRAP_DIR="$this_dir/.bootstrap"
+
+if [ "$(uname -s)" = "Darwin" ]; then
+    export BOOTSTRAP_DIR="$this_dir/.bootstrap.mac"
+else
+    export BOOTSTRAP_DIR="$this_dir/.bootstrap.arch"
+fi
 
 # Switch package manager
+# shellcheck source=/dev/null
 source "$BOOTSTRAP_DIR/pkg_mgr.sh"
 install_pkg_mgr
-require sudo
 
 # Install rust via rustup before anything depends on it
-require rustup
-rustup default stable
+export CARGO_HOME="$this_dir/cargo"
+# shellcheck source=/dev/null
+source "$BOOTSTRAP_DIR/dev_env.sh"
+install_dev_tools_rust
+export PATH="$CARGO_HOME/bin:$PATH"
 
 # Install window manager, omni launcher, et al.
+# shellcheck source=/dev/null
 source "$BOOTSTRAP_DIR/visual_env.sh"
 install_wm
 install_launcher
@@ -21,21 +29,26 @@ install_pdf_viewer
 install_web_browser
 
 # Install development tools
+# shellcheck source=/dev/null
 source "$BOOTSTRAP_DIR/dev_env.sh"
 install_cli
-install_dev_tools "haskell python rust shell"
+install_dev_tools "python shell"
 install_password_mgr
 install_security_key
 install_svc
 
 # Install custom fonts and patches
+# shellcheck source=/dev/null
 source "$BOOTSTRAP_DIR/fonts.sh"
 install_fonts
 
-# Setup VM guest tooling
-source "$BOOTSTRAP_DIR/vm_guest.sh"
-install_vm_guest
-install_vm_shared_dir "$HOME/vmshare"
+if sudo dmesg | grep -i hypervisor; then
+    # Setup VM guest tooling
+    # shellcheck source=/dev/null
+    source "$BOOTSTRAP_DIR/vm_guest.sh"
+    install_vm_guest
+    install_vm_shared_dir "$HOME/vmshare"
+fi
 
 # Cleanup automatic dotfiles that either won't be used, or will move to XDG dir
 #!FIXME: permission denied on `vmshare`, so `find` errors
@@ -48,5 +61,7 @@ set -e
 rm -rf $rubbish
 ln -sf "$this_dir/gnupg/ssh" "$HOME/.ssh"
 
-# Ensure new configuration is found on next login
-ln -sf "$this_dir/.profile" "$HOME/.profile"
+if (uname -s) = "Linux"
+    # Ensure new configuration is found on next login
+    ln -sf "$this_dir/.profile" "$HOME/.profile"
+end
