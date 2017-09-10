@@ -48,6 +48,7 @@ install_dev_tools_shell() {
 
 install_password_mgr() {
     require keybase-bin
+    require passbase
 }
 
 install_security_key() {
