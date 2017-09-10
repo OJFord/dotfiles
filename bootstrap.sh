@@ -59,7 +59,12 @@ rubbish="$(
 )"
 set -e
 rm -rf $rubbish
+
+# Link dotfiles for XDG naysayers
+ln -sf "$this_dir/atom" "$HOME/.atom"
 ln -sf "$this_dir/gnupg/ssh" "$HOME/.ssh"
+ln -sf "$this_dir/chunkwm/config" "$HOME/.chunkwmrc"
+ln -sf "$this_dir/skhd/config" "$HOME/.skhdrc"
 
 if (uname -s) = "Linux"
     # Ensure new configuration is found on next login
