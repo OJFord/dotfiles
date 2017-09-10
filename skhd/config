@@ -1,4 +1,6 @@
 cmd - return : open -n /Applications/Alacritty.app
+# open Atom editor with correct environment for config and commit signing
+cmd - e : exec fish "-c open -n /Applications/Atom.app"
 
 shift + alt - q : chunkc tiling::window --close
 
