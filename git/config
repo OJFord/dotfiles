@@ -83,7 +83,7 @@
     smudge = git media smudge %f
 
 [gpg]
-    program = gpg2
+    program = gpg
 
 [help]
     autocorrect = 1

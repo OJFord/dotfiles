@@ -11,7 +11,7 @@ install_cli() {
 
 install_dev_tools() {
     langs="$1"
-    
+
     gnu_replacements=(
         binutils
         coreutils

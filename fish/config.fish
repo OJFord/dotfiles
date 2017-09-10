@@ -30,7 +30,6 @@ set -x VISUAL "atom"
 set -x PATH "$XDG_CONFIG_HOME/bin" \
     "$CARGO_HOME/bin" \
     "$HOME/go/bin" \
-    "/usr/share/git/diff-highlight" \
     "/usr/local/bin" \
     "/usr/local/sbin" \
     "/usr/bin" \
@@ -46,6 +45,10 @@ if test (uname -s) = "Darwin"
     set -x MANPATH "/usr/local/opt/coreutils/libexec/gnuman" $MANPATH
     set -x PATH "/usr/local/opt/findutils/libexec/bin" $PATH
     set -x MANPATH "/usr/local/opt/findutils/share/man" $MANPATH
+
+    set -x PATH "/usr/local/opt/git/share/git-core/contrib/diff-highlight" $PATH
+else
+    set -x PATH "/usr/share/git/diff-highlight" $PATH
 end
 
 gpg-connect-agent updatestartuptty /bye
