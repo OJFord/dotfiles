@@ -33,6 +33,7 @@ install_dev_tools_haskell() {
 install_dev_tools_python() {
     require flake8
     require mypy
+    require pycodestyle
     require python
     require python-isort
 }

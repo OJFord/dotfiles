@@ -25,7 +25,7 @@ set -x GNUPGHOME "$XDG_CONFIG_HOME/gnupg"
 set -x VIMDIR "$XDG_CONFIG_HOME/vim"
 set -x VIMRC "$VIMDIR/.vimrc"
 set -x EDITOR "vim -u $VIMRC"
-set -x VISUAL "vim -u $VIMRC"
+set -x VISUAL "atom"
 
 set -x PATH "$XDG_CONFIG_HOME/bin" \
     "$CARGO_HOME/bin" \

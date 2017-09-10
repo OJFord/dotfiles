@@ -1,0 +1,2 @@
+'atom-text-editor:not([mini])':
+  'ctrl-shift-b': 'git-blame:toggle'
