@@ -103,6 +103,9 @@ install_dev_tools_shell() {
 install_password_mgr() {
     require keybase
     require OJFord/formulae/passbase
+
+    keybase login
+    keybase install
 }
 
 install_security_key() {
