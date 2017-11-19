@@ -1,13 +1,21 @@
 fish_vi_key_bindings
 
-alias dc docker-compose
+alias dc "set -e DOCKER_HOST; docker-compose"
+alias dkr "set -e DOCKER_HOST; docker"
+alias rdkr "set -x DOCKER_HOST $RDKR_HOST; docker"
+
 alias gitl "git lol"
 alias gits "git status"
+
 alias gz "tar -zcvf"
+
 alias ll "ls -l"
 alias lla "ll -A"
+
 alias ping prettyping
+
 alias vim "vim -u $VIMRC"
+
 
 set -x SHELL "fish"
 set -x TERMINAL "alacritty"
