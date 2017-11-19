@@ -7,6 +7,10 @@ render_timer: false
 hide_cursor_when_typing: true
 tabspaces: 4
 
+scrollback:
+  enabled: true
+  maxlines: 10000
+
 font:
   normal:
     family: Iosevka Term
