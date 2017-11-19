@@ -14,7 +14,7 @@ alias lla "ll -A"
 
 alias ping prettyping
 
-alias vim "vim -u $VIMRC"
+alias vim "vim -u $VIMRC --"
 
 
 set -x SHELL "fish"
