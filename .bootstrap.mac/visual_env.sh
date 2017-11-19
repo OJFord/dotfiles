@@ -11,6 +11,9 @@ install_pdf_viewer() {
 
 install_web_browser() {
     require firefox
+
+    ln -sf "$BOOTSTRAP_DIR/../firefox/profiles.ini" "$HOME/Library/Application Support/Firefox/profiles.ini"
+    ln -sf "$BOOTSTRAP_DIR/../firefox/profile" "$HOME/Library/Application Support/Firefox/Profile/profile"
 }
 
 install_wm() {
