@@ -62,3 +62,19 @@ end
 gpg-connect-agent updatestartuptty /bye
 set -e GPG_TTY; set -x --universal GPG_TTY (tty)
 set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+
+for config in (find $XDG_CONFIG_HOME -wholename '*.dotfiles/fish/config.fish')
+    source $config
+end
+
+for autoload_fn in (find $XDG_CONFIG_HOME -wholename '*.dotfiles/fish/functions/*.fish')
+    if not test -L $autoload_fn
+        ln -s $autoload_fn $XDG_CONFIG_HOME/fish/functions
+    end
+end
+
+for completion in (find $XDG_CONFIG_HOME -wholename '*.dotfiles/fish/completions/*.fish')
+    if not test -L $completion
+        ln -s $completion $XDG_CONFIG_HOME/fish/completions
+    end
+end
