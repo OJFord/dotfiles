@@ -2,7 +2,7 @@ fish_vi_key_bindings
 
 alias dc "set -e DOCKER_HOST; docker-compose"
 alias dkr "set -e DOCKER_HOST; docker"
-alias rdkr "set -x DOCKER_HOST $RDKR_HOST; docker"
+alias rdkr "set -Ux DOCKER_HOST (echo \$RDKR_HOST); docker"
 
 alias gitl "git lol"
 alias gits "git status"
