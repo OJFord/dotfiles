@@ -59,7 +59,7 @@ else
     set -x PATH "/usr/share/git/diff-highlight" $PATH
 end
 
-gpg-connect-agent updatestartuptty /bye
+gpg-connect-agent reloadagent updatestartuptty /bye >/dev/null
 set -e GPG_TTY; set -x --universal GPG_TTY (tty)
 set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
 
