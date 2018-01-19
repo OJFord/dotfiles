@@ -14,6 +14,9 @@ alias lla "ll -A"
 
 alias ping prettyping
 
+alias python python3
+alias pip "python -m pip"
+
 alias vim "vim -u $VIMRC --"
 
 
