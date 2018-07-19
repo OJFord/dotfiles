@@ -1,3 +1,6 @@
 [submodule "arm.dotfiles"]
 	path = arm.dotfiles
 	url = git@github.com:OJFord/arm.dotfiles
+[submodule "fish/completions/fish-kubectl-completions"]
+	path = fish/completions/fish-kubectl-completions
+	url = git@github.com:evanlucas/fish-kubectl-completions
