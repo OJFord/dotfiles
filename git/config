@@ -12,6 +12,7 @@
     released = tag --contains
     recap = log --decorate --oneline --pretty=format:'%C(green)%cr: %C(white italic)%s %C(auto)%d' -n10 --author=@ojford.com
     staged = diff --cached
+    uncommit = reset HEAD~1
 
 [color]
     branch = auto
