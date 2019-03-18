@@ -4,8 +4,12 @@ dpi:
 
 render_timer: false
 
-hide_cursor_when_typing: true
+mouse:
+  hide_when_typing: true
 tabspaces: 4
+
+window:
+  decorations: buttonless
 
 scrollback:
   enabled: true
@@ -24,16 +28,15 @@ font:
 
   size: 6.0
   offset:
-    x: 0.0
-    y: 0.0
+    x: 0
+    y: 0
   glyph_offset:
-    x: 0.0
-    y: 1.0
+    x: 0
+    y: 1
 
   use_thin_strokes: true
 
 draw_bold_text_with_bright_colors: true
-custom_cursor_colors: false
 
 colors: # Solarized Dark
   primary:
@@ -68,8 +71,8 @@ key_bindings:
   - { key: Down, chars: "\x1b[B", mode: ~AppCursor }
   - { key: Tab, mods: Shift, chars: "\x1b[Z" }
   - { key: I, mods: Control, command: {program: "alacritty-invert-colours", args: []} }
-  - { key: K, mods: Control, action: ScrollUp }
-  - { key: J, mods: Control, action: ScrollDown }
+  - { key: K, mods: Control, action: ScrollPageUp }
+  - { key: J, mods: Control, action: ScrollPageDown }
 
 shell:
   program: fish
