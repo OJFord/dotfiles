@@ -22,8 +22,9 @@ alias lla "ll -A"
 
 alias ping prettyping
 
-alias python python3
 alias pip "python -m pip"
+status --is-interactive; and source (pyenv init - | psub)
+pyenv global 3.7.0
 
 alias vim "vim -u $VIMRC --"
 

@@ -84,8 +84,10 @@ install_dev_tools_haskell() {
 install_dev_tools_python() {
     require flake8
     require mypy
-    require python3
+    require pyenv
 
+    pyenv install 3.7.0
+    pyenv global 3.7.0
     pip3 install --upgrade pip setuptools
 }
 
