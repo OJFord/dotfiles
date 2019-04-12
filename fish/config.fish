@@ -1,5 +1,13 @@
 fish_vi_key_bindings
 
+set -x PATH \
+    "/usr/local/bin" \
+    "/usr/local/sbin" \
+    "/usr/bin" \
+    "/usr/sbin" \
+    "/bin" \
+    "/sbin"
+
 alias dc "set -e DOCKER_HOST; docker-compose"
 alias dkr "set -e DOCKER_HOST; docker"
 alias rdkr "set -Ux DOCKER_HOST (echo \$RDKR_HOST); docker"
@@ -41,12 +49,6 @@ set -x VISUAL "atom"
 set -x PATH "$XDG_CONFIG_HOME/bin" \
     "$CARGO_HOME/bin" \
     "$HOME/go/bin" \
-    "/usr/local/bin" \
-    "/usr/local/sbin" \
-    "/usr/bin" \
-    "/usr/sbin" \
-    "/bin" \
-    "/sbin" \
     $PATH
 
 set -x NODE_PATH "/usr/local/lib/node_modules"
