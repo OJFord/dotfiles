@@ -86,8 +86,8 @@ install_dev_tools_python() {
     require mypy
     require pyenv
 
-    pyenv install 3.7.0
-    pyenv global 3.7.0
+    pyenv install 3.7.3
+    pyenv global 3.7.3
     pip3 install --upgrade pip setuptools
 }
 
