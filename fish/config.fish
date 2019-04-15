@@ -38,14 +38,12 @@ set -x LC_CTYPE "en_GB.UTF-8"
 if not set -q XDG_CONFIG_HOME
     set -x XDG_CONFIG_HOME "$HOME/.config"
 end
-set -x ATOM_HOME "$XDG_CONFIG_HOME/atom"
 set -x CARGO_HOME "$XDG_CONFIG_HOME/cargo"
 set -x GNUPGHOME "$XDG_CONFIG_HOME/gnupg"
 
 set -x VIMDIR "$XDG_CONFIG_HOME/vim"
 set -x VIMRC "$VIMDIR/.vimrc"
 set -x EDITOR "vim -u $VIMRC"
-set -x VISUAL "atom"
 
 set -x PATH "$XDG_CONFIG_HOME/bin" \
     "$CARGO_HOME/bin" \
