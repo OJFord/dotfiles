@@ -73,6 +73,7 @@ key_bindings:
   - { key: I, mods: Control, command: {program: "alacritty-invert-colours", args: []} }
   - { key: K, mods: Control, action: ScrollPageUp }
   - { key: J, mods: Control, action: ScrollPageDown }
+  - { key: Key3, mods: Alt, chars: "#" }
 
 shell:
   program: fish
