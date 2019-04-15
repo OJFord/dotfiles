@@ -108,6 +108,9 @@
     autoStash = true
     missingCommitsCheck = "error"
 
+[remote "origin"]
+    fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+
 [status]
     short = true
     branch = true
