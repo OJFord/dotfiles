@@ -1,19 +1,10 @@
-dpi:
-  x: 128.0
-  y: 128.0
-
-render_timer: false
-
 mouse:
   hide_when_typing: true
+
 tabspaces: 4
 
 window:
   decorations: buttonless
-
-scrollback:
-  enabled: true
-  maxlines: 10000
 
 font:
   normal:
@@ -90,12 +81,6 @@ solorized_light: &lightscheme
 colors: *darkscheme
 
 key_bindings:
-  - { key: V, mods: Command, action: Paste }
-  - { key: C, mods: Command, action: Copy }
-  - { key: Right, chars: "\x1b[C", mode: ~AppCursor }
-  - { key: Up, chars: "\x1b[A", mode: ~AppCursor }
-  - { key: Down, chars: "\x1b[B", mode: ~AppCursor }
-  - { key: Tab, mods: Shift, chars: "\x1b[Z" }
   - { key: I, mods: Control, command: {program: fish, args: ["--command=alacritty-invert-colours"]} }
   - { key: K, mods: Control, action: ScrollPageUp }
   - { key: J, mods: Control, action: ScrollPageDown }
