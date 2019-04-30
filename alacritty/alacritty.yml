@@ -69,7 +69,7 @@ key_bindings:
   - { key: Up, chars: "\x1b[A", mode: ~AppCursor }
   - { key: Down, chars: "\x1b[B", mode: ~AppCursor }
   - { key: Tab, mods: Shift, chars: "\x1b[Z" }
-  - { key: I, mods: Control, command: {program: "alacritty-invert-colours", args: []} }
+  - { key: I, mods: Control, command: {program: fish, args: ["--command=alacritty-invert-colours"]} }
   - { key: K, mods: Control, action: ScrollPageUp }
   - { key: J, mods: Control, action: ScrollPageDown }
   - { key: Key3, mods: Alt, chars: "#" }
