@@ -19,7 +19,7 @@ alias pip "python -m pip"
 status --is-interactive; and source (pyenv init - | psub)
 pyenv global 3.7.3
 
-alias vim "vim -u $VIMRC --"
+alias vim "vim -u $VIMRC"
 
 gpg-connect-agent reloadagent updatestartuptty /bye >/dev/null
 set -e GPG_TTY; set -x --universal GPG_TTY (tty)
