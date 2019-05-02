@@ -1,5 +1,7 @@
 " No vi compatibility
-set nocompatible
+if &compatible
+    set nocompatible
+endif
 
 " Use XDG dir for .vim
 exec 'set runtimepath='.$VIMDIR.'/.vim,'.&runtimepath
