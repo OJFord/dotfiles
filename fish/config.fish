@@ -1,25 +1,8 @@
 bass source .profile
 fish_vi_key_bindings
 
-alias dc "set -e DOCKER_HOST; docker-compose"
-alias dkr "set -e DOCKER_HOST; docker"
-alias rdkr "set -Ux DOCKER_HOST (echo \$RDKR_HOST); docker"
-
-alias gitl "git lol"
-alias gits "git status"
-
-alias gz "tar -zcvf"
-
-alias ll "ls -l"
-alias lla "ll -A"
-
-alias ping prettyping
-
-alias pip "python -m pip"
 status --is-interactive; and source (pyenv init - | psub)
 pyenv global 3.7.3
-
-alias vim "vim -u $VIMRC"
 
 gpg-connect-agent reloadagent updatestartuptty /bye >/dev/null
 set -e GPG_TTY; set -x --universal GPG_TTY (tty)
