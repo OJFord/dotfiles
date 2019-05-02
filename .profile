@@ -1,7 +1,4 @@
 #!/bin/sh
-export SHELL="fish"
-export TERMINAL="alacritty"
-
 export LANG="en_GB.UTF-8"
 export LC_CTYPE="en_GB.UTF-8"
 
