@@ -5,6 +5,7 @@
     amend = commit --amend
     changes = git log HEAD...@{upstream} --left-right --graph
     find-commit = log --oneline --pretty=format:'%C(auto)%h %C(white italic)%s %C(green)(%cr)' --grep
+    files = diff-tree --no-commit-id --name-only -r
     fixup = "!f(){ target=$(git rev-parse "$1"); git commit --fixup=$target ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $target^; }; f"
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
