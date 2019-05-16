@@ -4,57 +4,20 @@ if &compatible
 endif
 
 " Use XDG dir for .vim
-exec 'set runtimepath='.$VIMDIR.'/.vim,'.&runtimepath
+exec 'set runtimepath='.$VIMDIR.','.$VIMRUNTIME
+
+" Packages
+exec 'set packpath='.&runtimepath
+packloadall
+function PackAddFor(dir)
+    for pkg in split(system('ls '.$VIMDIR.'/pack/'.a:dir.'/opt'))
+        exec 'packadd '.pkg
+    endfor
+endfunction
+autocmd FileType * call PackAddFor(&filetype)
 
 " Use a POSIX shell to avoid confusing plugins
 set shell=/bin/sh
-
-if empty(glob($VIMDIR.'/.vim/autoload/plug.vim'))
-    silent !curl -fLo $VIMDIR/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall | source ~/.vimrc
-endif
-call plug#begin()
-" Aesthetic
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'altercation/vim-colors-solarized'
-Plug 'Yggdroot/indentLine'
-
-" Navigation
-Plug 'jeetsukumaran/vim-buffergator'
-Plug 'easymotion/vim-easymotion'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack.vim'
-Plug 'tmhedberg/SimpylFold'
-Plug 'godlygeek/tabular', {'for': 'markdown'}
-
-" Editing
-Plug 'ervandew/supertab'
-Plug 'tpope/vim-commentary'
-Plug 'tommcdo/vim-exchange'
-Plug 'mbbill/undotree'
-
-" Git
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-
-" Multi-language
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --racer-completer'}
-Plug 'w0rp/ale'
-Plug 'bronson/vim-trailing-whitespace'
-
-" Languages-specific
-Plug 'dag/vim-fish'
-Plug 'python-mode/python-mode', {'for': 'python'}
-Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
-Plug 'hashivim/vim-terraform', {'for': 'terraform'}
-Plug 'lervag/vimtex', {'for': 'tex'}
-Plug 'chrisbra/csv.vim', {'for': 'csv'}
-Plug 'elzr/vim-json', {'for': 'json'}
-call plug#end()
 
 " Semicolon -> :
 nnoremap ; :
