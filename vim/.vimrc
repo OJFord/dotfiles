@@ -100,22 +100,12 @@ autocmd InsertLeave *.* let g:indentLine_char='┊'
 
 let g:ctrlp_working_path_mode='r' " Look for nearest repo
 if executable('rg')
-    cnoreabbrev rg Ack
-    let g:ackprg = 'rg --vimgrep'
+    let g:ackprg = 'rg --vimgrep --no-heading'
 
-    set grepprg=rg\ --vimgrep\ --color=never
+    set grepprg=rg\ --vimgrep\ --color=never\ --no-heading
     set grepformat=%f:%l:%c:%m
 
     let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-    let g:ctrlp_use_caching = 0
-elseif executable('ag')
-    cnoreabbrev ag Ack
-    let g:ackprg = 'ag --vimgrep'
-
-    set grepprg=ag\ --nogroup\ --nocolor\ --vimgrep
-    set grepformat=%f:%l:%c:%m,%f:%l:%m
-
-    let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
     let g:ctrlp_use_caching = 0
 endif
 
