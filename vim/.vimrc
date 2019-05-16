@@ -16,6 +16,8 @@ function PackAddFor(dir)
 endfunction
 autocmd FileType * call PackAddFor(&filetype)
 
+colorscheme mine
+
 " Use a POSIX shell to avoid confusing plugins
 set shell=/bin/sh
 
@@ -38,7 +40,7 @@ set backspace=indent,eol,start
 
 " Statusline
 set laststatus=2
-let g:airline_theme='solarized'
+let g:airline_theme='term'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline_mode_map = {
@@ -81,12 +83,6 @@ nnoremap <space> za
 " Concealing
 autocmd InsertEnter *.* set conceallevel=0
 autocmd InsertLeave *.* set conceallevel=2
-
-" Solarized colours
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-colorscheme solarized
 
 " Where am I
 set ruler

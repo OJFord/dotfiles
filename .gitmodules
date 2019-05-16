@@ -76,9 +76,6 @@
 [submodule "indentLine"]
 	path = vim/pack/all/start/indentLine
 	url = git@github.com:Yggdroot/indentLine
-[submodule "vim-colors-solarized"]
-	path = vim/pack/all/start/vim-colors-solarized
-	url = git@github.com:altercation/vim-colors-solarized
 [submodule "vim-airline-themes"]
 	path = vim/pack/all/start/vim-airline-themes
 	url = git@github.com:vim-airline/vim-airline-themes
