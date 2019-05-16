@@ -68,7 +68,6 @@ let g:airline_symbols.readonly = ''
 " Syntax
 syntax enable
 filetype plugin indent on
-autocmd BufNewFile,BufRead *.xonshrc set filetype=python
 let g:ale_lint_on_text_changed=1
 let g:ale_lint_on_save=1
 let g:ale_open_list=1
