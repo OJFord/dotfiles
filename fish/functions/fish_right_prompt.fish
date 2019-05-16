@@ -9,7 +9,7 @@ function fish_right_prompt
     set num_jobs (jobs | wc -l | tr -d ' ')
     if [ $num_jobs != 0 ]
         set_color --bold --background black white
-        echo -n [unicode gear] $num_jobs
+        echo -n ⚙$num_jobs
         set_color normal
     end
 
