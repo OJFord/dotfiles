@@ -31,10 +31,6 @@ map <Leader> <Plug>(easymotion-prefix)
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>d <Plug>(ale_go_to_definition)
 nnoremap <Leader>p :CtrlP<CR>
-let g:buffergator_suppress_keymaps=1
-nnoremap <Leader>bl :BuffergatorOpen<CR>
-nnoremap <Leader>bn :BuffergatorMruCycleNext<CR>
-nnoremap <Leader>bp :BuffergatorMruCyclePrev<CR>
 
 " Backspace
 set backspace=indent,eol,start
@@ -120,7 +116,6 @@ nnoremap <C-L> <C-W><C-L><C-W>|
 nnoremap <C-H> <C-W><C-H><C-W>|
 set splitbelow
 set splitright
-let g:buffergator_viewport_split_policy='T'
 
 " Maintain context when navigating near top/bottom
 set scrolloff=5

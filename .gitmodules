@@ -64,9 +64,6 @@
 [submodule "vim-easymotion"]
 	path = vim/pack/all/start/vim-easymotion
 	url = git@github.com:easymotion/vim-easymotion
-[submodule "vim-buffergator"]
-	path = vim/pack/all/start/vim-buffergator
-	url = git@github.com:jeetsukumaran/vim-buffergator
 [submodule "indentLine"]
 	path = vim/pack/all/start/indentLine
 	url = git@github.com:Yggdroot/indentLine
