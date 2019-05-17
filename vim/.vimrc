@@ -9,6 +9,7 @@ exec 'set runtimepath='.$VIMDIR.','.$VIMRUNTIME
 " Packages
 exec 'set packpath='.&runtimepath
 packloadall
+helptags ALL
 function PackAddFor(dir)
     for pkg in split(system('ls '.$VIMDIR.'/pack/'.a:dir.'/opt'))
         exec 'packadd '.pkg
