@@ -76,3 +76,6 @@
 [submodule "vim-json"]
 	path = vim/pack/json/opt/vim-json
 	url = git@github.com:elzr/vim-json
+[submodule "vim-auto-origami"]
+	path = vim/pack/all/start/vim-auto-origami
+	url = git@github.com:benknoble/vim-auto-origami

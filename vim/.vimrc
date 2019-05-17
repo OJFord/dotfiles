@@ -72,7 +72,10 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Code folding
-set foldcolumn=1
+augroup autofoldcolumn
+  au!
+  au CursorHold,BufWinEnter,WinEnter * AutoOrigamiFoldColumn
+augroup END
 set foldmethod=syntax
 set foldopen-=block
 nnoremap <space> za
