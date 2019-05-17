@@ -34,9 +34,6 @@
 [submodule "ale"]
 	path = vim/pack/all/start/ale
 	url = git@github.com:w0rp/ale
-[submodule "YouCompleteMe"]
-	path = vim/pack/all/start/YouCompleteMe
-	url = git@github.com:Valloric/YouCompleteMe
 [submodule "vim-fugitive"]
 	path = vim/pack/all/start/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive

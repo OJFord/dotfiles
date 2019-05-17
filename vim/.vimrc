@@ -28,7 +28,7 @@ vnoremap ; :
 " Plugin mappings
 map <Leader> <Plug>(easymotion-prefix)
 nnoremap <Leader>u :UndotreeToggle<CR>
-nnoremap <Leader>y :YcmCompleter GoTo<CR>
+nnoremap <Leader>d <Plug>(ale_go_to_definition)
 nnoremap <Leader>p :CtrlP<CR>
 let g:buffergator_suppress_keymaps=1
 nnoremap <Leader>bl :BuffergatorOpen<CR>
