@@ -6,6 +6,8 @@ endif
 " Use XDG dir for .vim
 exec 'set runtimepath='.$VIMDIR.','.$VIMRUNTIME
 
+colorscheme mine
+
 " Packages
 exec 'set packpath='.&runtimepath
 packloadall
@@ -16,8 +18,6 @@ function PackAddFor(dir)
     endfor
 endfunction
 autocmd FileType * call PackAddFor(&filetype)
-
-colorscheme mine
 
 " Use a POSIX shell to avoid confusing plugins
 set shell=/bin/sh
