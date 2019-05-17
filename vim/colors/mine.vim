@@ -25,6 +25,8 @@ highlight Error                                     ctermbg=Blue        ctermfg=
 highlight ErrorMsg                                  ctermbg=DarkBlue    ctermfg=White
 highlight Exception             None
 highlight Float                 None
+highlight Folded                cterm=Undercurl     ctermbg=None        ctermfg=DarkBlue
+highlight FoldColumn                                ctermbg=None        ctermfg=DarkBlue
 highlight Function              None
 highlight Identifier            cterm=None                              ctermfg=DarkYellow
 highlight Ignore                                                        ctermfg=White
@@ -79,8 +81,6 @@ highlight WildMenu                                  ctermbg=Cyan        ctermfg=
 if &background == "light"
 highlight ColorColumn                               ctermbg=Grey        ctermfg=DarkGrey
 highlight Comment                                                       ctermfg=Grey
-highlight Folded                                    ctermbg=Grey        ctermfg=DarkGrey
-highlight FoldColumn                                ctermbg=Grey        ctermfg=DarkGrey
 highlight LineNr                                                        ctermfg=Grey
 highlight Pmenu                                     ctermbg=Grey        ctermfg=Black
 highlight PmenuSel                                  ctermbg=Black       ctermfg=Grey
@@ -92,8 +92,6 @@ highlight VertSplit                                 ctermbg=Grey        ctermfg=
 else " dark background
 highlight ColorColumn                               ctermbg=DarkGrey    ctermfg=Grey
 highlight Comment                                                       ctermfg=DarkGrey
-highlight Folded                                    ctermbg=DarkGrey    ctermfg=Grey
-highlight FoldColumn                                ctermbg=DarkGrey    ctermfg=Grey
 highlight LineNr                                                        ctermfg=DarkGrey
 highlight Pmenu                                     ctermbg=DarkGrey    ctermfg=White
 highlight PmenuSel                                  ctermbg=White       ctermfg=DarkGrey
