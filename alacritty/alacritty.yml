@@ -106,8 +106,8 @@ colors: *darkscheme
 
 key_bindings:
   - { key: I, mods: Control, command: {program: fish, args: ["--command=alacritty-invert-colours"]} }
-  - { key: K, mods: Control, action: ScrollPageUp }
-  - { key: J, mods: Control, action: ScrollPageDown }
+  - { key: K, mods: Control, action: ScrollPageUp, mode: ~Alt }
+  - { key: J, mods: Control, action: ScrollPageDown, mode: ~Alt }
   - { key: Key3, mods: Alt, chars: "#" }
 
 shell:
