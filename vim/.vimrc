@@ -95,15 +95,11 @@ let g:indentLine_color_term=239
 autocmd InsertEnter *.* let g:indentLine_char=''
 autocmd InsertLeave *.* let g:indentLine_char='┊'
 
-let g:ctrlp_working_path_mode='r' " Look for nearest repo
 if executable('rg')
     let g:ackprg = 'rg --vimgrep --no-heading'
 
     set grepprg=rg\ --vimgrep\ --color=never\ --no-heading
     set grepformat=%f:%l:%c:%m
-
-    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-    let g:ctrlp_use_caching = 0
 endif
 
 " Split navigation
@@ -127,3 +123,8 @@ set textwidth=80
 nnoremap <esc> :nohlsearch<CR><esc>
 set hlsearch
 set incsearch
+
+" CtrlP.vim
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_user_command = 'fd --hidden --color=never --type=file --type=symlink --type=empty "" %s'
+let g:ctrlp_working_path_mode='ra' " Look for nearest repo, else use cwd/files dir
