@@ -22,9 +22,6 @@
 [submodule "vim-go"]
 	path = vim/pack/go/opt/vim-go
 	url = git@github.com:fatih/vim-go
-[submodule "python-mode"]
-	path = vim/pack/python/opt/python-mode
-	url = git@github.com:python-mode/python-mode
 [submodule "vim-fish"]
 	path = vim/pack/fish/opt/vim-fish
 	url = git@github.com:dag/vim-fish
