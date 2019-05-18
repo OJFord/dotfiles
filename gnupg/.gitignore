@@ -3,3 +3,6 @@
 !gpg-agent.conf
 !scdaemon.conf
 !sshcontrol
+!ssh/
+ssh/*
+!ssh/config
