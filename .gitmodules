@@ -58,9 +58,6 @@
 [submodule "ack.vim"]
 	path = vim/pack/all/start/ack.vim
 	url = git@github.com:mileszs/ack.vim
-[submodule "ctrlp.vim"]
-	path = vim/pack/all/start/ctrlp.vim
-	url = git@github.com:ctrlpvim/ctrlp.vim
 [submodule "vim-easymotion"]
 	path = vim/pack/all/start/vim-easymotion
 	url = git@github.com:easymotion/vim-easymotion

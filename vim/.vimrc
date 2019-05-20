@@ -30,7 +30,8 @@ vnoremap ; :
 map <Leader> <Plug>(easymotion-prefix)
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>d <Plug>(ale_go_to_definition)
-nnoremap <Leader>p :CtrlP<CR>
+nnoremap <C-P> :Files<CR>
+nnoremap <C-L> :Commits<CR>
 
 " Backspace
 set backspace=indent,eol,start
@@ -126,8 +127,3 @@ set textwidth=80
 nnoremap <esc> :nohlsearch<CR><esc>
 set hlsearch
 set incsearch
-
-" CtrlP.vim
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_user_command = 'fd --hidden --color=never --type=file --type=symlink --type=empty "" %s'
-let g:ctrlp_working_path_mode='ra' " Look for nearest repo, else use cwd/files dir
