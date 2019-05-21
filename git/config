@@ -7,7 +7,6 @@
     find-commit = log --oneline --pretty=format:'%C(auto)%h %C(white italic)%s %C(green)(%cr)' --grep
     files = diff-tree --no-commit-id --name-only -r
     fixup = "!f(){ target=\"$(git rev-parse \"$1\")\"; git commit --fixup=$target ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $target^; }; f"
-    fzsha = "!f(){ git log --pretty=oneline --abbrev-commit --all | fzf --no-multi --preview='echo {} | cut --delimiter=\" \" --field=1 | xargs git show' | cut --delimiter=' ' --field=1; }; f"
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     push-new = "!f(){ remote="$1"; branch="$(git rev-parse --abbrev-ref HEAD)"; git push --set-upstream "$remote" "$branch"; }; f"
