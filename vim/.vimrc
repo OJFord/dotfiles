@@ -32,6 +32,7 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>d <Plug>(ale_go_to_definition)
 nnoremap <C-P> :Files<CR>
 nnoremap <C-L> :Commits<CR>
+nnoremap <C-F> :Rg<CR>
 
 " Backspace
 set backspace=indent,eol,start
@@ -98,13 +99,6 @@ set expandtab
 let g:indentLine_color_term=239
 autocmd InsertEnter *.* let g:indentLine_char=''
 autocmd InsertLeave *.* let g:indentLine_char='┊'
-
-if executable('rg')
-    let g:ackprg = 'rg --vimgrep --no-heading'
-
-    set grepprg=rg\ --vimgrep\ --color=never\ --no-heading
-    set grepformat=%f:%l:%c:%m
-endif
 
 " Split navigation
 set winwidth=80
