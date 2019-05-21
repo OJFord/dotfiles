@@ -1,3 +1,3 @@
 function lla
-    ll -A $argv
+    ll --all $argv
 end
