@@ -6,12 +6,13 @@
     changes = git log HEAD...@{upstream} --left-right --graph
     find-commit = log --oneline --pretty=format:'%C(auto)%h %C(white italic)%s %C(green)(%cr)' --grep
     files = diff-tree --no-commit-id --name-only -r
-    fixup = "!f(){ target=$(git rev-parse \"$(if [ -n \"$1\" ]; then echo \"$1\"; else git fzsha; fi)\"); git commit --fixup=$target ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $target^; }; f"
+    fixup = "!f(){ target=\"$(git rev-parse \"$1\")\"; git commit --fixup=$target ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $target^; }; f"
     fzsha = "!f(){ git log --pretty=oneline --abbrev-commit --all | fzf --no-multi --preview='echo {} | cut --delimiter=\" \" --field=1 | xargs git show' | cut --delimiter=' ' --field=1; }; f"
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     push-new = "!f(){ remote="$1"; branch="$(git rev-parse --abbrev-ref HEAD)"; git push --set-upstream "$remote" "$branch"; }; f"
     rebase = "!f(){ if [ \"$*\" = -i ]; then git rebase -i \"$(git fzsha)\"; else git rebase \"$@\"; fi; }; f"
+    rev-parse = "!f(){ git rev-parse --default=\"$(git fzsha)\"; }; f"
     released = tag --contains
     recap = log --decorate --oneline --pretty=format:'%C(green)%cr: %C(white italic)%s %C(auto)%d' -n10 --author=@ojford.com
     staged = diff --cached
