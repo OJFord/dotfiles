@@ -2,8 +2,11 @@
     statusHints = false
 
 [alias]
+    add = fzfile add
     amend = commit --amend
     changes = git log HEAD...@{upstream} --left-right --graph
+    checkout = fzfile checkout
+    diff = fzfile diff
     find-commit = log --oneline --pretty=format:'%C(auto)%h %C(white italic)%s %C(green)(%cr)' --grep
     files = diff-tree --no-commit-id --name-only -r
     fixup = "!f(){ target=\"$(git rev-parse \"$1\")\"; git commit --fixup=$target ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $target^; }; f"
@@ -14,6 +17,8 @@
     rev-parse = "!f(){ git rev-parse --default=\"$(git fzsha)\"; }; f"
     released = tag --contains
     recap = log --decorate --oneline --pretty=format:'%C(green)%cr: %C(white italic)%s %C(auto)%d' -n10 --author=@ojford.com
+    reset = fzfile reset
+    rm = fzfile rm
     staged = diff --cached
     uncommit = reset HEAD~1
 
