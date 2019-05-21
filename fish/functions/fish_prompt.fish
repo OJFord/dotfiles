@@ -22,6 +22,8 @@ function fish_prompt
         set git (__fish_vcs_prompt | tr -d ' ')
 
         if [ (git rev-parse --is-inside-git-dir) = 'true' ]
+            # $path from --show-toplevel will be ''
+            set path (realpath "$PWD/..")
             set git_path /.git
         else
             set git_path /(git rev-parse --show-prefix)
