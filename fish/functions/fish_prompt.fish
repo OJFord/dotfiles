@@ -18,8 +18,7 @@ function fish_prompt
     set -g __fish_git_prompt_color_cleanstate green --bold
     set -g __fish_prompt_normal (set_color normal)
 
-    if git rev-parse --git-dir >/dev/null ^&1
-        set path (git rev-parse --show-toplevel)
+    if set path (git rev-parse --show-toplevel 2>/dev/null)
         set git (__fish_vcs_prompt | tr -d ' ')
 
         if [ (git rev-parse --is-inside-git-dir) = 'true' ]
