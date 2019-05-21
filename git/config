@@ -14,7 +14,6 @@
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     push-new = "!f(){ remote="$1"; branch="$(git rev-parse --abbrev-ref HEAD)"; git push --set-upstream "$remote" "$branch"; }; f"
     rebase = "!f(){ if [ \"$*\" = -i ]; then git rebase -i \"$(git fzsha)\"; else git rebase \"$@\"; fi; }; f"
-    rev-parse = "!f(){ git rev-parse --default=\"$(git fzsha)\"; }; f"
     released = tag --contains
     recap = log --decorate --oneline --pretty=format:'%C(green)%cr: %C(white italic)%s %C(auto)%d' -n10 --author=@ojford.com
     reset = fzfile reset
