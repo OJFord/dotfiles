@@ -118,6 +118,6 @@ set scrolloff=5
 set textwidth=80
 
 " Highlight search terms
-nnoremap <esc> :nohlsearch<CR><esc>
+autocmd TermResponse * nnoremap <Esc> :nohlsearch<Return><Esc>
 set hlsearch
 set incsearch
