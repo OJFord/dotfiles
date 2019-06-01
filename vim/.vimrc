@@ -38,11 +38,10 @@ command! -bang -nargs=* Rg
   \   1,
   \   {
   \     'options': '--delimiter=: --nth=4.. --preview='."'".
-  \                   'file="$(echo {} | cut --delimiter=: --fields=1)";'.
-  \                   'ln="$(echo {} | cut --delimiter=: --fields=2)";'.
-  \                   'context_start="$(expr "$ln" - 3)";'.
+  \                   'file={1};'.
+  \                   'context_start="$(expr {2} - 3)";'.
   \                   'top_ln="$(if [ $context_start -lt 1 ]; then echo 1; else echo $context_start; fi)";'.
-  \                   'bat --color=always --style=plain --theme=TwoDark --highlight-line="$ln" --line-range="$top_ln:" "$file"'.
+  \                   'bat --color=always --style=plain --theme=TwoDark --highlight-line={2} --line-range="$top_ln:" "$file"'.
   \                "'"
   \   },
   \   <bang>0
