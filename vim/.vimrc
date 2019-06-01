@@ -37,7 +37,7 @@ command! -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
   \   1,
   \   {
-  \     'options': '--preview='."'".
+  \     'options': '--delimiter=: --nth=4.. --preview='."'".
   \                   'file="$(echo {} | cut --delimiter=: --fields=1)";'.
   \                   'ln="$(echo {} | cut --delimiter=: --fields=2)";'.
   \                   'context_start="$(expr "$ln" - 3)";'.
