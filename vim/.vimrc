@@ -32,6 +32,21 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>d <Plug>(ale_go_to_definition)
 nnoremap <C-P> :Files<CR>
 nnoremap <C-L> :Commits<CR>
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
+  \   1,
+  \   {
+  \     'options': '--preview='."'".
+  \                   'file="$(echo {} | cut --delimiter=: --fields=1)";'.
+  \                   'ln="$(echo {} | cut --delimiter=: --fields=2)";'.
+  \                   'context_start="$(expr "$ln" - 3)";'.
+  \                   'top_ln="$(if [ $context_start -lt 1 ]; then echo 1; else echo $context_start; fi)";'.
+  \                   'bat --color=always --style=plain --theme=TwoDark --highlight-line="$ln" --line-range="$top_ln:" "$file"'.
+  \                "'"
+  \   },
+  \   <bang>0
+  \ )
 nnoremap <C-F> :Rg<CR>
 
 " Backspace
