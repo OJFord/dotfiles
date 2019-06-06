@@ -1,3 +1,3 @@
 function pb
-    passbase read (passbase ls | fzf --no-preview --no-multi) | pbcopy
+    passbase read (passbase ls | fzf --no-preview --no-multi --query="$argv") | pbcopy
 end
