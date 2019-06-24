@@ -31,9 +31,6 @@
 [submodule "ale"]
 	path = vim/pack/all/start/ale
 	url = git@github.com:w0rp/ale
-[submodule "vim-fugitive"]
-	path = vim/pack/all/start/vim-fugitive
-	url = git@github.com:tpope/vim-fugitive
 [submodule "vim-gitgutter"]
 	path = vim/pack/all/start/vim-gitgutter
 	url = git@github.com:airblade/vim-gitgutter
@@ -79,3 +76,6 @@
 [submodule "fzf"]
 	path = vim/pack/all/start/fzf
 	url = git@github.com:junegunn/fzf
+[submodule "vim-quickfix-conflicts"]
+	path = vim/pack/all/start/vim-quickfix-conflicts
+	url = git@github.com:OJFord/vim-quickfix-conflicts
