@@ -1,5 +1,5 @@
 function ls
-    if not type lsd 2>/dev/null
+    if not type lsd >/dev/null
         echo 'ls deluxe seems not to be installed' >&2
         echo '=> https://github.com/Peltoche/lsd' >&2
         return 1
