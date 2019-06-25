@@ -19,6 +19,7 @@
     recap = log --decorate --oneline --pretty=format:'%C(green)%cr: %C(white italic)%s %C(auto)%d' -n10 --author=@ojford.com
     reset = fzfile reset
     rm = fzfile rm
+    rp = fzsha rev-parse
     staged = diff --cached
     uncommit = reset HEAD~1
 
