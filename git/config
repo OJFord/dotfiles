@@ -6,6 +6,7 @@
     amend = commit --amend
     changes = git log HEAD...@{upstream} --left-right --graph
     checkout = fzfile checkout
+    conflicts = diff --name-only --diff-filter=U
     diff = fzfile diff
     find-commit = log --oneline --pretty=format:'%C(auto)%h %C(white italic)%s %C(green)(%cr)' --grep
     files = diff-tree --no-commit-id --name-only -r
