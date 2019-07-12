@@ -3,3 +3,6 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export PATH="/usr/local/opt/findutils/libexec/bin:$PATH"
 export MANPATH="/usr/local/opt/findutils/share/man:$MANPATH"
+
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/gnu-tar/share/man:$MANPATH"
