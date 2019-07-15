@@ -2,53 +2,31 @@
 set -e
 this_dir="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)"
 
-if [ "$(uname -s)" = "Darwin" ]; then
-    export BOOTSTRAP_DIR="$this_dir/.bootstrap.mac"
-else
-    export BOOTSTRAP_DIR="$this_dir/.bootstrap.arch"
-fi
+ensure_brew() {
+    if ! command -v brew >/dev/null; then
+        touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
+        softwareupdate --verbose --install "$(
+            softwareupdate --list |
+            grep "\* Command Line Tools" |
+            sed -e 's/[[:space:]]*\*[[:space:]]//' \
+        )"
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+}
 
-# Switch package manager
-# shellcheck source=/dev/null
-source "$BOOTSTRAP_DIR/pkg_mgr.sh"
-install_pkg_mgr
-
-# Install rust via rustup before anything depends on it
-export CARGO_HOME="$this_dir/cargo"
-# shellcheck source=/dev/null
-source "$BOOTSTRAP_DIR/dev_env.sh"
-install_dev_tools_rust
-export PATH="$CARGO_HOME/bin:$PATH"
-
-# Install window manager, omni launcher, et al.
-# shellcheck source=/dev/null
-source "$BOOTSTRAP_DIR/visual_env.sh"
-install_wm
-install_launcher
-install_pdf_viewer
-install_web_browser
-
-# Install development tools
-# shellcheck source=/dev/null
-source "$BOOTSTRAP_DIR/dev_env.sh"
-install_cli
-install_dev_tools "python shell"
-install_password_mgr
-install_security_key
-install_svc
-
-# Install custom fonts and patches
-# shellcheck source=/dev/null
-source "$BOOTSTRAP_DIR/fonts.sh"
-install_fonts
-
-if sudo dmesg | grep -i hypervisor; then
-    # Setup VM guest tooling
-    # shellcheck source=/dev/null
-    source "$BOOTSTRAP_DIR/vm_guest.sh"
-    install_vm_guest
-    install_vm_shared_dir "$HOME/vmshare"
-fi
+case "$(uname -a)" in
+    *Darwin*)
+        ensure_brew
+        for brewfile in $(find "$this_dir" -name Brewfile); do
+		echo "Installing dependencies for $(basename "$(dirname "$brewfile")")"
+            brew bundle --file="$brewfile"
+        done
+        ;;
+    *)
+        echo unknown uname
+        exit 1
+        ;;
+esac
 
 # Cleanup automatic dotfiles that either won't be used, or will move to XDG dir
 #!FIXME: permission denied on `vmshare`, so `find` errors

@@ -1,5 +1,6 @@
 **/*
 !.gitignore
+!Brewfile
 !gpg-agent.conf
 !scdaemon.conf
 !sshcontrol

@@ -1,0 +1,2 @@
+tap 'OJFord/formulae'
+brew 'OJFord/formulae/iosevka-generate', args: ['HEAD']

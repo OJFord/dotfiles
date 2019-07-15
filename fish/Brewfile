@@ -1,0 +1,6 @@
+tap "OJFord/formulae"
+brew "OJFord/formulae/passbase"
+
+brew "fish"
+brew "lsd"
+brew "ripgrep"
