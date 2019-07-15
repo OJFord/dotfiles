@@ -1,4 +1,4 @@
-bass source .profile
+bass source "$HOME/.profile"
 fish_vi_key_bindings
 
 status --is-interactive; and source (pyenv init - | psub)
