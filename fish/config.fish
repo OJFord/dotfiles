@@ -1,9 +1,6 @@
 bass source "$HOME/.profile"
 fish_vi_key_bindings
 
-status --is-interactive; and source (pyenv init - | psub)
-pyenv global 3.7.3
-
 gpg-connect-agent reloadagent updatestartuptty /bye >/dev/null
 set -e GPG_TTY; set -x --universal GPG_TTY (tty)
 set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
