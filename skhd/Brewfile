@@ -1,0 +1,2 @@
+tap 'koekeishiya/formulae'
+brew 'skhd', restart_service: true

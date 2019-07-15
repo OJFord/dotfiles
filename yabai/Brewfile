@@ -1,0 +1,3 @@
+tap 'koekeishiya/formulae'
+brew 'yabai', restart_service: true
+system 'sudo yabai --install-sa'
