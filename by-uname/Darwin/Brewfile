@@ -1,0 +1,3 @@
+tap 'OJFord/formulae'
+
+brew 'loginitems'
