@@ -2,7 +2,6 @@ tap 'OJFord/formulae'
 
 brew 'bat'
 brew 'fd'
-brew 'htop'
 brew 'lsd'
 brew 'prettyping'
 brew 'kubectx'
