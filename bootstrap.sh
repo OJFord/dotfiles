@@ -17,8 +17,8 @@ ensure_brew() {
 case "$(uname -a)" in
     *Darwin*)
         ensure_brew
-        for brewfile in $(find "$this_dir" -name Brewfile); do
-		echo "Installing dependencies for $(basename "$(dirname "$brewfile")")"
+        find "$this_dir" -name Brewfile | while IFS= read -r brewfile; do
+            echo "Installing dependencies for $(basename "$(dirname "$brewfile")")"
             brew bundle --file="$brewfile"
         done
         ;;
