@@ -1,6 +1,3 @@
-[submodule "arm.dotfiles"]
-	path = arm.dotfiles
-	url = git@github.com:OJFord/arm.dotfiles
 [submodule "fish/completions/fish-kubectl-completions"]
 	path = fish/completions/fish-kubectl-completions
 	url = git@github.com:evanlucas/fish-kubectl-completions
@@ -79,3 +76,6 @@
 [submodule "vim-quickfix-conflicts"]
 	path = vim/pack/all/start/vim-quickfix-conflicts
 	url = git@github.com:OJFord/vim-quickfix-conflicts
+[submodule "yagro.dotfiles"]
+	path = yagro.dotfiles
+	url = ../yagro.dotfiles
