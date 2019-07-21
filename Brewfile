@@ -16,7 +16,6 @@ brew 'stern'
 brew 'terraform'
 brew 'wget'
 
-cask 'docker'
 cask 'keybase'
 cask 'slack'
 
