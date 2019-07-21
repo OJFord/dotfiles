@@ -1,0 +1,2 @@
+[profile ojf]
+credential_process=cat /keybase/private/ojford/aws/ojf

@@ -1,6 +1,5 @@
 tap 'OJFord/formulae'
 
-brew 'awscli'
 brew 'bat'
 brew 'fd'
 brew 'htop'
