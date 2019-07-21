@@ -21,3 +21,7 @@ brew 'wget'
 cask 'docker'
 cask 'keybase'
 cask 'slack'
+
+Dir.glob(File.join(File.dirname(__FILE__), '*', '**', 'Brewfile')) do |brewfile|
+    eval(IO.read(brewfile), binding)
+end
