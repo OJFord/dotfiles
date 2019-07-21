@@ -1,2 +1,2 @@
 tap 'koekeishiya/formulae'
-brew 'skhd', restart_service: true
+brew 'skhd', args: ['HEAD'], restart_service: true
