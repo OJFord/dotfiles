@@ -1,14 +1,5 @@
-# Appearance
-echo "Setting graphite menus, blue highlight..."
-## Graphite appearance
-defaults write -g 'AppleAquaColorVariant' -int 6
-
-# Light sensor
-echo "Preventing ambient light sensor from playing havoc with brightness..."
-## Disable display auto brightness
-sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Display Enabled" -bool false
-## Disable keyboard auto brightness
-sudo defaults write /Library/Preferences/com.apple.iokit.AmbientLightSensor "Automatic Keyboard Enabled" -bool false
+#!/bin/sh
+set -e
 
 # Dock
 echo "Setting dock to hidden left middle, small, no animations, etc..."
@@ -116,18 +107,6 @@ defaults write com.apple.sidebarlists "networkbrowser" "{
         \"com.apple.NetworkBrowser.connectedEnabled\"=0;
     };
 }"
-osascript << 'END'
-tell application "System Events"
-    tell property list file "~/Library/Preferences/com.apple.sidebarlists.plist"
-        tell property list item "systemitems"
-            set value of property list item "ShowEjectables" to false
-            set value of property list item "ShowHardDisks" to true
-            set value of property list item "ShowRemovable" to true
-            set value of property list item "ShowServers" to true
-        end tell
-    end tell
-end tell
-END
 killall Finder
 ## Show ~/Library
 chflags nohidden "${HOME}/Library"
