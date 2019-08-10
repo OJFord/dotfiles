@@ -1,1 +1,1 @@
-./fish-kubectl-completions/kubectl.fish
+fish-kubectl-completions/completions/kubectl.fish
