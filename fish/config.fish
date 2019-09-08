@@ -16,3 +16,5 @@ end
 for completion_d in (find "$XDG_CONFIG_HOME"/*.dotfiles/fish -name completions -type d)
     set fish_completion_path "$completion_d" $fish_completion_path
 end
+
+direnv hook fish | source
