@@ -88,3 +88,6 @@
 [submodule "nvim-yarp"]
 	path = vim/pack/all/start/nvim-yarp
 	url = git@github.com:roxma/nvim-yarp
+[submodule "vim-terraform"]
+	path = vim/pack/terraform/opt/vim-terraform
+	url = git@github.com:hashivim/vim-terraform
