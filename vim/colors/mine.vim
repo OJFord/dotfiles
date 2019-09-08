@@ -35,7 +35,7 @@ highlight IncSearch             cterm=Reverse
 highlight Keyword               None
 highlight Label                 None
 highlight Macro                 None
-highlight MatchParen                                ctermbg=Yellow
+highlight MatchParen            cterm=Standout                          ctermfg=Yellow
 highlight ModeMsg               cterm=Bold
 highlight MoreMsg                                                       ctermfg=DarkGreen
 highlight NonText                                                       ctermfg=Red
@@ -54,7 +54,7 @@ highlight Special                                                       ctermfg=
 highlight SpecialChar           None
 highlight SpecialComment        None
 highlight SpecialKey                                                    ctermfg=DarkRed
-highlight SpellBad                                  ctermbg=DarkGreen
+highlight SpellBad              cterm=Undercurl     ctermbg=None        ctermfg=DarkRed
 highlight SpellLocal                                ctermbg=Yellow
 highlight SpellRare                                 ctermbg=DarkMagenta
 highlight Statement                                                     ctermfg=DarkCyan
