@@ -48,6 +48,22 @@ command! -bang -nargs=* Rg
   \ )
 nnoremap <C-F> :Rg<CR>
 
+set wildmode=longest,list,full
+set wildmenu
+
+" Completions
+set completeopt=longest,menuone,preview
+let g:SuperTabDefaultCompletionType = "<C-n>"
+" <CR> to accept completion
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" https://github.com/Shougo/deoplete.nvim
+call deoplete#enable()
+call deoplete#custom#var('around', {
+  \   'mark_above': '↑',
+  \   'mark_below': '↓',
+  \   'mark_changes': '*',
+  \})
+
 " Backspace
 set backspace=indent,eol,start
 

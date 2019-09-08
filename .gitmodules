@@ -79,3 +79,12 @@
 [submodule "yagro.dotfiles"]
 	path = yagro.dotfiles
 	url = ../yagro.dotfiles
+[submodule "deoplete"]
+	path = vim/pack/all/start/deoplete
+	url = git@github.com:Shougo/deoplete.nvim
+[submodule "vim-hug-neovim-rpc"]
+	path = vim/pack/all/start/vim-hug-neovim-rpc
+	url = git@github.com:roxma/vim-hug-neovim-rpc
+[submodule "nvim-yarp"]
+	path = vim/pack/all/start/nvim-yarp
+	url = git@github.com:roxma/nvim-yarp
