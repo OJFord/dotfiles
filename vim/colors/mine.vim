@@ -50,6 +50,7 @@ highlight Question                                                      ctermfg=
 highlight QuickFixLine          None
 highlight Repeat                None
 highlight Search                                    ctermbg=Cyan        ctermfg=Black
+highlight SignColumn            None
 highlight Special                                                       ctermfg=DarkMagenta
 highlight SpecialChar           None
 highlight SpecialComment        None
@@ -84,7 +85,6 @@ highlight Comment                                                       ctermfg=
 highlight LineNr                                                        ctermfg=Grey
 highlight Pmenu                                     ctermbg=Grey        ctermfg=Black
 highlight PmenuSel                                  ctermbg=Black       ctermfg=Grey
-highlight SignColumn                                ctermbg=Grey
 highlight SpellCap                                  ctermbg=Grey        ctermfg=DarkGrey
 highlight StatusLine            cterm=Bold          ctermbg=Grey        ctermfg=Black
 highlight StatusLineNC                              ctermbg=Grey        ctermfg=DarkGrey
@@ -95,7 +95,6 @@ highlight Comment                                                       ctermfg=
 highlight LineNr                                                        ctermfg=DarkGrey
 highlight Pmenu                                     ctermbg=DarkGrey    ctermfg=White
 highlight PmenuSel                                  ctermbg=White       ctermfg=DarkGrey
-highlight SignColumn                                ctermbg=DarkGrey
 highlight SpellCap                                  ctermbg=DarkGrey    ctermfg=Grey
 highlight StatusLine            cterm=Bold          ctermbg=DarkGrey    ctermfg=White
 highlight StatusLineNC                              ctermbg=DarkGrey    ctermfg=Grey

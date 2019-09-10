@@ -28,9 +28,6 @@
 [submodule "ale"]
 	path = vim/pack/all/start/ale
 	url = git@github.com:w0rp/ale
-[submodule "vim-gitgutter"]
-	path = vim/pack/all/start/vim-gitgutter
-	url = git@github.com:airblade/vim-gitgutter
 [submodule "undotree"]
 	path = vim/pack/all/start/undotree
 	url = git@github.com:mbbill/undotree
@@ -91,3 +88,6 @@
 [submodule "vim-terraform"]
 	path = vim/pack/terraform/opt/vim-terraform
 	url = git@github.com:hashivim/vim-terraform
+[submodule "vim-signify"]
+	path = vim/pack/all/start/vim-signify
+	url = git@github.com:mhinz/vim-signify
