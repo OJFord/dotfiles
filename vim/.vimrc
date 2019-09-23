@@ -115,6 +115,7 @@ nnoremap <expr> <space> foldclosed(".") == -1 ? 'zc' : 'zv'
 " Concealing
 autocmd InsertEnter *.* set conceallevel=0
 autocmd InsertLeave *.* set conceallevel=2
+set concealcursor=
 
 " Where am I
 set ruler
