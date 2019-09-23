@@ -110,7 +110,7 @@ augroup autofoldcolumn
 augroup END
 set foldmethod=syntax
 set foldopen-=block
-nnoremap <space> za
+nnoremap <expr> <space> foldclosed(".") == -1 ? 'zc' : 'zv'
 
 " Concealing
 autocmd InsertEnter *.* set conceallevel=0
