@@ -8,13 +8,13 @@ window:
 
 font:
   normal:
-    family: Iosevka Term
+    family: Iosevka Myosevka
     style: Light
   bold:
-    family: Iosevka Term
-    style: Medium
+    family: Iosevka Myosevka
+    style: Semibold
   italic:
-    family: Iosevka Term
+    family: Iosevka Myosevka
     style: Light Italic
   size: 12
   offset:
