@@ -105,6 +105,9 @@ solorized_light: &lightscheme
 colors: *darkscheme
 
 key_bindings:
+  - { key: H, mods: Command, action: None }
+  - { key: W, mods: Command, action: None }
+  - { key: Q, mods: Command, action: None }
   - { key: I, mods: Control, command: {program: fish, args: ["--command=alacritty-invert-colours"]} }
   - { key: K, mods: Control, action: ScrollPageUp, mode: ~Alt }
   - { key: J, mods: Control, action: ScrollPageDown, mode: ~Alt }
