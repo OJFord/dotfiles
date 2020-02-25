@@ -11,4 +11,3 @@ fi
 
 map="$(cat "$XDG_CONFIG_HOME/by-uname/Darwin/userkeymap.json")"
 hidutil property --set "$(jq -r -n --argjson map "$map" '{"UserKeyMapping":$map}')" >/dev/null
-loginitems add "$XDG_CONFIG_HOME/by-uname/Darwin/prefs.sh"
