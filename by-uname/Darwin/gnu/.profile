@@ -1,6 +1,6 @@
-PATH="$(find -L /usr/local/opt -name gnubin -print0 | xargs -0 -I@ printf '@:')$PATH"
+PATH="$(fd --print0 --follow gnubin /usr/local/opt/*/libexec | xargs -0 -I@ printf '@:')$PATH"
 export PATH
-MANPATH="$(find -L /usr/local/opt -name gnuman -print0 | xargs -0 -I@ printf '@:')$MANPATH"
+MANPATH="$(fd --print0 --follow gnuman /usr/local/opt/*/libexec | xargs -0 -I@ printf '@:')$MANPATH"
 export MANPATH
 
 export PATH="/usr/local/opt/diffutils/bin:$PATH"
