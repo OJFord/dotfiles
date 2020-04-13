@@ -1,6 +1,9 @@
 exec compton
-exec_always --no-startup-id $XDG_CONFIG_HOME/polybar/launch 2>/tmp/polybar_error \
+
+exec_always --no-startup-id "$XDG_CONFIG_HOME/polybar/launch" 2>/tmp/polybar_error \
     || i3-nagbar -m "$(cat /tmp/polybar_error)" -t error
+
+exec dex -ae i3
 
 set $mod mod4
 set $alt mod1
@@ -8,8 +11,8 @@ floating_modifier $mod
 
 font pango:Iosevka Light 6
 
-bindsym $mod+Return exec alacritty 2>/tmp/alacritty_error \
-    || i3-nagbar -m "$(cat /tmp/alacritty_error)" -t error
+bindsym $mod+Return exec i3-sensible-terminal 2>/tmp/term-error \
+    || i3-nagbar -m "$(cat /tmp/term-error)" -t error
 bindsym $alt+Shift+q kill
 
 # no titlebar

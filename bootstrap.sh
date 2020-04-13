@@ -2,6 +2,19 @@
 set -e
 this_dir="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)"
 
+ensure_aconfmgr() {
+    if ! command -v aconfmgr; then
+        pushd "$(mktemp -d)"
+        sudo pacman -S wget
+        wget 'https://aur.archlinux.org/cgit/aur.git/snapshot/aconfmgr-git.tar.gz'
+        tar -xf *.tar.gz
+        rm *.tar.gz
+        cd *
+        makepkg -si
+        popd
+    fi
+}
+
 ensure_brew() {
     if ! command -v brew >/dev/null; then
         touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress;
@@ -15,6 +28,10 @@ ensure_brew() {
 }
 
 case "$(uname -a)" in
+    *Linux*arch*)
+        ensure_aconfmgr
+        aconfmgr apply
+        ;;
     *Darwin*)
         ensure_brew
         brew bundle --file="$this_dir/Brewfile"

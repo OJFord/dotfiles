@@ -1,0 +1,16 @@
+{
+  "defaultHandlersVersion": {
+    "en-US": 4,
+    "en-GB": 4
+  },
+  "mimeTypes": {
+    "application/pdf": {
+      "action": 3,
+      "extensions": [
+        "pdf"
+      ]
+    }
+  },
+  "schemes": {
+  }
+}

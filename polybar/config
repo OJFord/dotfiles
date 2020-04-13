@@ -1,8 +1,8 @@
 [bar/one]
     background = #002b36
     fixed-center = true
-    font-0 = "Iosevka Term:size=10;0"
-    font-1 = "Twitter Color Emoji:size=14;0"
+    font-0 = "Iosevka Myosevka:size=9"
+    font-1 = "Noto Color Emoji:scale=12"
     locale = en_GB.UTF-8
     module-margin = 1
     modules-left = i3 cpu pkgupdates github

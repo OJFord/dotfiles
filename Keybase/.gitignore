@@ -1,0 +1,5 @@
+*
+!.gitignore
+!aconfmgr.sh
+!/keybase.target
+!/Preferences

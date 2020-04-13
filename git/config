@@ -108,6 +108,9 @@
 [pager]
     diff = diff-so-fancy | less --tabs=4 -RFX
 
+[protocol "keybase"]
+    allow = always
+
 [pull]
     rebase = true
 

@@ -1,1 +1,6 @@
 brew "vim"
+
+brew "bat"
+brew "fd"
+brew "fzf"
+brew "rg"

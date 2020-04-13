@@ -1,0 +1,5 @@
+Crash Reports
+profile/*
+!profile/chrome/
+!profile/handlers.json
+!profile/user.js

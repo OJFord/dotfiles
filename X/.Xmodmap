@@ -23,17 +23,6 @@ add control = Control_L Control_R
 add mod1 = Alt_L Alt_R
 add mod4 = Super_L Super_R
 
+keysym Caps_Lock = Escape
+
 keycode 12 = 3 sterling numbersign
-
-! Remap caps lock to modifier
-! - used for i3
-!clear Lock
-!add Mod3 = 66
-
-! Swap Ctrl and Cmd keys
-! - allows Cmd in copy/paste/select-all
-! - will require switching use of `C` and `M` in configs
-!clear Control
-!clear Mod4
-!add Control = Super_trL Super_R
-!add Mod4 = Control_L

@@ -1,0 +1,29 @@
+# Misc. development tools that don't have their own conf dir
+
+AddPackage dbeaver
+IgnorePath /etc/dbeaver/bundles.info
+IgnorePath /usr/lib/jvm/*
+
+AddPackage docker
+AddPackage docker-compose
+CreateLink '/etc/systemd/system/multi-user.target.wants/docker.service' '/usr/lib/systemd/system/docker.service'
+IgnorePath '/opt/containerd'
+IgnorePath '/etc/docker/key.json'
+
+AddPackage dbeaver
+AddPackage fd
+AddPackage fzf
+
+AddPackage ghc-libs
+IgnorePath /usr/lib/ghc-*/package.conf.d/*
+
+AddPackage helm
+AddPackage jq
+AddPackage kubectl
+AddPackage kubectx
+AddPackage python-pre-commit
+AddPackage ripgrep
+AddPackage shellcheck
+AddPackage terraform
+AddPackage unzip
+AddPackage yarn

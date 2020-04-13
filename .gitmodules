@@ -3,7 +3,7 @@
 	url = git@github.com:evanlucas/fish-kubectl-completions
 [submodule "fish/bass"]
 	path = fish/bass
-	url = git@github.com:edc/bass
+	url = https://github.com/edc/bass
 [submodule "vimtex"]
 	path = vim/pack/tex/opt/vimtex
 	url = git@github.com:lervag/vimtex
