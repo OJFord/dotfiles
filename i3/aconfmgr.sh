@@ -9,3 +9,7 @@ AddPackage picom
 
 # XDG autostart
 AddPackage dex
+
+# Clipboard
+AddPackage clipmenu
+AddPackage --foreign xvkbd

@@ -11,8 +11,19 @@ floating_modifier $mod
 
 font pango:Iosevka Light 6
 
-bindsym $mod+Return exec i3-sensible-terminal 2>/tmp/term-error \
-    || i3-nagbar -m "$(cat /tmp/term-error)" -t error
+# Choose selection to paste
+bindsym $alt+c exec clipmenu
+
+# Paste
+# For some reason this manual xsel sync is needed if copying term->FF
+# Then fire Shift-Insert to paste.
+bindsym --release $alt+v \
+    exec xsel --output --primary | xsel --input --clipboard ;\
+    exec xvkbd -no-jump-pointer -xsendevent -text '\S\[Insert]'
+
+# Terminal emulator
+bindsym $mod+Return exec i3-sensible-terminal
+
 bindsym $alt+Shift+q kill
 
 # no titlebar
