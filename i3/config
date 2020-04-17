@@ -21,6 +21,10 @@ bindsym --release $alt+v \
     exec xsel --output --primary | xsel --input --clipboard ;\
     exec xvkbd -no-jump-pointer -xsendevent -text '\S\[Insert]'
 
+# Launch/switch
+bindsym $alt+space exec rofi -show drun
+bindsym $alt+Tab exec rofi -show window
+
 # Terminal emulator
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -59,7 +63,7 @@ bindsym $mod+e layout toggle split
 bindsym $alt+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $alt+space focus mode_toggle
+bindsym $alt+f focus mode_toggle
 
 # switch to workspace
 bindsym $mod+1 workspace 1
