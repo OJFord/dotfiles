@@ -28,6 +28,15 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 bindsym $alt+Shift+q kill
 
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+plus scratchpad show; mode "browse scratchpad"
+mode "browse scratchpad" {
+    bindsym plus scratchpad show; scratchpad show
+    bindsym Return floating toggle; mode "default"
+    bindsym Escape scratchpad show; mode "default"
+}
+
+
 # no titlebar
 new_window 1pixel
 
