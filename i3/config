@@ -3,7 +3,7 @@ exec compton
 exec_always --no-startup-id "$XDG_CONFIG_HOME/polybar/launch" 2>/tmp/polybar_error \
     || i3-nagbar -m "$(cat /tmp/polybar_error)" -t error
 
-exec dex -ae i3
+exec_always dex --autostart --environment=i3
 
 set $mod mod4
 set $alt mod1
@@ -135,3 +135,5 @@ set $blue             #268bd2
 set $cyan             #2aa198
 set $green            #859900
 set $custom           #1c5766
+
+assign [class="Keybase"] scratchpad
