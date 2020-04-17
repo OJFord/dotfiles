@@ -1,8 +1,6 @@
 exec compton
 
-exec_always --no-startup-id "$XDG_CONFIG_HOME/polybar/launch" 2>/tmp/polybar_error \
-    || i3-nagbar -m "$(cat /tmp/polybar_error)" -t error
-
+exec_always --no-startup-id "$XDG_CONFIG_HOME/polybar/launch"
 exec_always dex --autostart --environment=i3
 
 set $mod mod4
