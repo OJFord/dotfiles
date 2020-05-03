@@ -15,4 +15,10 @@ xrdb -load "$XDG_CONFIG_HOME/X/.Xresources"
 xmodmap "$XDG_CONFIG_HOME/X/.Xmodmap"
 xbindkeys -f "$XDG_CONFIG_HOME/X/.xbindkeysrc"
 
+
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon --daemonize --replace --xim
+
 exec i3
