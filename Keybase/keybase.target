@@ -1,0 +1,6 @@
+[Unit]
+Description=Keybase
+Wants=keybase.service kbfs.service
+
+[Install]
+WantedBy=default.target

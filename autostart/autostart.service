@@ -1,0 +1,10 @@
+[Unit]
+Description=XDG Autostart (via dex)
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=dex -a
+
+[Install]
+WantedBy=default.target
