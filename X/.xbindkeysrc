@@ -1,0 +1,7 @@
+# Input mode
+"ibus engine xkb:us::eng"
+    F1
+"ibus engine m17n:hi:itrans"
+    F2
+"rofi -show emoji"
+    F3

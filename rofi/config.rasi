@@ -1,5 +1,5 @@
 configuration {
- modi: "window,drun,ssh";
+ modi: "window,drun,emoji,ssh";
  theme: "solarized";
  kb-accept-entry: "Return";
  kb-remove-to-eol: "";
