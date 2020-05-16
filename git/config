@@ -4,7 +4,7 @@
 [alias]
     add = fzfile add
     amend = commit --amend
-    changes = git log HEAD...@{upstream} --left-right --graph
+    changes = log HEAD...@{upstream} --left-right --graph
     checkout = fzfile checkout
     conflicts = "!f(){ git diff --check | cut --delimiter=':' --field=1 | uniq; }; f"
     diff = fzfile diff
