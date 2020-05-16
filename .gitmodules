@@ -91,3 +91,6 @@
 [submodule "vim-signify"]
 	path = vim/pack/all/start/vim-signify
 	url = git@github.com:mhinz/vim-signify
+[submodule "ibus/hunspell-hi"]
+	path = ibus/hunspell-hi
+	url = git@github.com:Shreeshrii/hindi-hunspell
