@@ -94,3 +94,6 @@
 [submodule "ibus/hunspell-hi"]
 	path = ibus/hunspell-hi
 	url = git@github.com:Shreeshrii/hindi-hunspell
+[submodule "fzutils"]
+	path = fzf/bin
+	url = git@github.com:OJFord/fzutils
