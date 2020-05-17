@@ -3,7 +3,7 @@ function pb
         set --local IFS
         set list (passbase ls)
     end
-    if test "$argv"; and test (echo "$list" | rg --count "^$argv\$" || echo 0) -eq 1
+    if test "$argv"; and test (echo "$list" | rg --count --include-zero "^$argv\$") -eq 1
         set read "$argv"
     else
         set read (echo "$list" | fzf --no-preview --no-multi --query="$argv")
