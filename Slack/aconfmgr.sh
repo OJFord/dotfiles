@@ -1,0 +1,1 @@
+AddPackage --foreign slack-desktop
