@@ -1,2 +1,2 @@
 [profile ojf]
-credential_process=keybase fs read /keybase/private/ojford/aws/ojf
+credential_process=pass show aws/credentials/ojf
