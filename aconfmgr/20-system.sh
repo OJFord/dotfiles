@@ -1,3 +1,8 @@
+if [ "$(hostname)" = desk ]; then
+    AddPackage xf86-video-ati
+    CopyFile /etc/X11/xorg.conf.d/10-benq-bl2420pt.conf
+fi
+
 CopyFile /etc/X11/xorg.conf.d/00-keyboard.conf
 sed -i 's/^#\(en_GB\.UTF-8\)/\1/' "$(GetPackageOriginalFile glibc /etc/locale.gen)"
 sudo locale-gen
