@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+# git-send-email alias to get SMTP settings from pass.
+# not in git config alias due to being a plumbing command, which cannot be aliased.
+
+sender="$(git config --get user.name) <$(git config --get user.email | sed -e "s/.*@/dev.git.$(basename "$(git rev-parse --show-toplevel)")@/")>"
+git send-email \
+    --smtp-server="$(pass show servorum/amail/smtp-host)" \
+    --smtp-user="$(pass show servorum/amail/smtp-user)" \
+    --smtp-pass="$(pass show servorum/amail/smtp-password)" \
+    --smtp-encryption=ssl \
+    --from="$sender" \
+    --cc="$sender" \
+    "$@"

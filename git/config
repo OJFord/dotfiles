@@ -122,6 +122,10 @@
 [remote "origin"]
     fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
 
+[sendemail]
+    annotate = true
+    confirm = always
+
 [status]
     short = true
     branch = true
