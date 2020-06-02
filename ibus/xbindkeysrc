@@ -1,7 +1,4 @@
-# Input mode
 "ibus engine xkb:us::eng"
     F1
 "ibus engine typing-booster"
     F2
-"rofi -show emoji"
-    F3
