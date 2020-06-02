@@ -5,7 +5,7 @@
     font-1 = "Noto Color Emoji:scale=12"
     locale = en_GB.UTF-8
     module-margin = 1
-    modules-left = i3 cpu pkgupdates github
+    modules-left = i3 cpu memory pkgupdates github
     modules-center = date
     tray-position = right
 
@@ -20,6 +20,9 @@
     ramp-coreload-5 = ▆
     ramp-coreload-6 = ▇
     ramp-coreload-7 = █
+
+[module/memory]
+    type = internal/memory
 
 [module/date]
     type = internal/date
