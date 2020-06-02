@@ -7,11 +7,23 @@ clear mod3
 clear mod4
 clear mod5
 
-add shift = Shift_L Shift_R
-add control = Control_L Control_R
-add mod1 = Alt_L Alt_R
-add mod4 = Super_L Super_R
+! Swap alt+super
+keycode 64 = Super_L
+keycode 133 = Alt_L
 
-keysym Caps_Lock = Escape
+! Caps -> Escape
+keycode 66 = Escape
+
+! US layout duplicates <> above mod keys
+keycode 94 = numbersign
+
+! AltGr-ish (old style - ISO_Level3_Shift wasn't working for '#'
+keycode 108 = Mode_switch
+
+add shift = Shift_L Shift_R
+add control = Control_L
+add mod1 = Alt_L
+add mod2 = Num_Lock
+add mod4 = Super_L
 
 keycode 12 = 3 sterling numbersign

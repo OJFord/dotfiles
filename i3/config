@@ -2,33 +2,33 @@ exec compton
 
 exec_always --no-startup-id "$XDG_CONFIG_HOME/polybar/launch"
 
-set $mod mod4
-set $alt mod1
-floating_modifier $mod
+set $mod_global mod4
+set $mod_desktop mod1
+floating_modifier $mod_global
 
 font pango:Iosevka Light 6
 
 # Choose selection to paste
-bindsym $alt+c exec clipmenu
+bindsym $mod_desktop+c exec clipmenu
 
 # Paste
 # For some reason this manual xsel sync is needed if copying term->FF
 # Then fire Shift-Insert to paste.
-bindsym --release $alt+v \
+bindsym --release $mod_desktop+v \
     exec xsel --output --primary | xsel --input --clipboard ;\
     exec xvkbd -no-jump-pointer -xsendevent -text '\S\[Insert]'
 
 # Launch/switch
-bindsym $alt+space exec rofi -show drun
-bindsym $alt+Tab exec rofi -show window
+bindsym $mod_desktop+space exec rofi -show drun
+bindsym $mod_desktop+Tab exec rofi -show window
 
 # Terminal emulator
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod_desktop+Return exec i3-sensible-terminal
 
-bindsym $alt+Shift+q kill
+bindsym $mod_desktop+Shift+q kill
 
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+Shift+plus scratchpad show; mode "browse scratchpad"
+bindsym $mod_global+Shift+minus move scratchpad
+bindsym $mod_global+Shift+plus scratchpad show; mode "browse scratchpad"
 mode "browse scratchpad" {
     bindsym plus scratchpad show; scratchpad show
     bindsym Return floating toggle; mode "default"
@@ -40,25 +40,25 @@ mode "browse scratchpad" {
 new_window 1pixel
 
 # change focus
-bindsym $alt+h focus left
-bindsym $alt+j focus down
-bindsym $alt+k focus up
-bindsym $alt+l focus right
+bindsym $mod_desktop+h focus left
+bindsym $mod_desktop+j focus down
+bindsym $mod_desktop+k focus up
+bindsym $mod_desktop+l focus right
 
 # move focused window
-bindsym $alt+Shift+h move left
-bindsym $alt+Shift+j move down
-bindsym $alt+Shift+k move up
-bindsym $alt+Shift+l move right
+bindsym $mod_desktop+Shift+h move left
+bindsym $mod_desktop+Shift+j move down
+bindsym $mod_desktop+Shift+k move up
+bindsym $mod_desktop+Shift+l move right
 
 # splits
-bindsym $mod+h split h
-bindsym $mod+l split h
-bindsym $mod+j split v
-bindsym $mod+k split v
+bindsym $mod_global+h split h
+bindsym $mod_global+l split h
+bindsym $mod_global+j split v
+bindsym $mod_global+k split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod_global+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -66,39 +66,39 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $alt+Shift+space floating toggle
+bindsym $mod_desktop+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $alt+f focus mode_toggle
+bindsym $mod_desktop+f focus mode_toggle
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod_global+1 workspace 1
+bindsym $mod_global+2 workspace 2
+bindsym $mod_global+3 workspace 3
+bindsym $mod_global+4 workspace 4
+bindsym $mod_global+5 workspace 5
+bindsym $mod_global+6 workspace 6
+bindsym $mod_global+7 workspace 7
+bindsym $mod_global+8 workspace 8
+bindsym $mod_global+9 workspace 9
+bindsym $mod_global+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod_global+Shift+1 move container to workspace 1
+bindsym $mod_global+Shift+2 move container to workspace 2
+bindsym $mod_global+Shift+3 move container to workspace 3
+bindsym $mod_global+Shift+4 move container to workspace 4
+bindsym $mod_global+Shift+5 move container to workspace 5
+bindsym $mod_global+Shift+6 move container to workspace 6
+bindsym $mod_global+Shift+7 move container to workspace 7
+bindsym $mod_global+Shift+8 move container to workspace 8
+bindsym $mod_global+Shift+9 move container to workspace 9
+bindsym $mod_global+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod_global+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod_global+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -124,7 +124,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod_global+r mode "resize"
 
 
 # solarized
