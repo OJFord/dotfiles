@@ -1,0 +1,3 @@
+# Choose and enter a password, without storing in clipmenu if installed
+"clipctl disable; PASSWORD_STORE_CLIP_TIME=2 PASSWORD_STORE_X_SELECTION=clipboard passmenu; xdotool key Ctrl+V; clipctl enable"
+    F4 + Release
