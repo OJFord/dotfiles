@@ -1,0 +1,36 @@
+@-moz-document domain("hl.co.uk") {
+    body {
+        font-size: medium !important;
+    }
+
+    #content-body-full,
+    .main-content,
+    .main-content-left,
+    .main-content-right {
+        width: inherit !important;
+    }
+
+    .main-nav {
+        position: absolute;
+    }
+
+    .accounts-table {
+        margin: 1.5rem 0 !important;
+    }
+
+    .landing-page .market-prices {
+        width: 300px;
+    }
+
+    .landing-page .market-prices td:first-of-type {
+        width: 80%;
+    }
+
+    .more-market-select {
+        top: 0 !important;
+    }
+
+    .landing-page .smc-summary li > a {
+        padding-left: 4rem;
+    }
+}
