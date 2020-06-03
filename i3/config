@@ -1,7 +1,5 @@
 exec compton
 
-exec_always --no-startup-id "$XDG_CONFIG_HOME/polybar/launch"
-
 set $mod_global mod4
 set $mod_desktop mod1
 floating_modifier $mod_global

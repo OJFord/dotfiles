@@ -1,0 +1,2 @@
+# Enabled dynamically via symlinks in each service's own dotfiles
+/user/*
