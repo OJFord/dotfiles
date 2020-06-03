@@ -1,0 +1,4 @@
+# As with most electron apps, almost all of this dir is not actually config
+*
+!.gitignore
+!aconfmgr.sh
