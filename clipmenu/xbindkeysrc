@@ -1,0 +1,5 @@
+"clipmenu"
+    Mod4 + c
+
+"xdotool key --clearmodifiers Shift+Insert"
+    Mod4 + v + Release

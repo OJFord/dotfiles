@@ -1,2 +1,8 @@
 "rofi -show emoji"
     F3
+
+"rofi -show drun"
+    Alt + space
+
+"rofi -show window"
+    Mod4 + Tab

@@ -8,20 +8,6 @@ floating_modifier $mod_global
 
 font pango:Iosevka Light 6
 
-# Choose selection to paste
-bindsym $mod_desktop+c exec clipmenu
-
-# Paste
-# For some reason this manual xsel sync is needed if copying term->FF
-# Then fire Shift-Insert to paste.
-bindsym --release $mod_desktop+v \
-    exec xsel --output --primary | xsel --input --clipboard ;\
-    exec xvkbd -no-jump-pointer -xsendevent -text '\S\[Insert]'
-
-# Launch/switch
-bindsym $mod_desktop+space exec rofi -show drun
-bindsym $mod_desktop+Tab exec rofi -show window
-
 # Terminal emulator
 bindsym $mod_desktop+Return exec i3-sensible-terminal
 

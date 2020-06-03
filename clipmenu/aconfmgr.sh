@@ -1,0 +1,2 @@
+AddPackage clipmenu
+AddPackage xdotool
