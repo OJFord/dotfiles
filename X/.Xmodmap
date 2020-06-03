@@ -1,29 +1,24 @@
-clear shift
-clear lock
-clear control
-clear mod1
-clear mod2
-clear mod3
-clear mod4
-clear mod5
-
 ! Swap alt+super
 keycode 64 = Super_L
 keycode 133 = Alt_L
+clear mod1
+add mod1 = Alt_L
+clear mod4
+add mod4 = Super_L
 
 ! Caps -> Escape
 keycode 66 = Escape
-
-! US layout duplicates <> above mod keys
-keycode 94 = numbersign
-
-! AltGr-ish (old style - ISO_Level3_Shift wasn't working for '#'
-keycode 108 = Mode_switch
-
-add shift = Shift_L Shift_R
+clear control
 add control = Control_L
-add mod1 = Alt_L
+! - stop caps lock light (but keep num lock)
+clear lock
 add mod2 = Num_Lock
-add mod4 = Super_L
 
-keycode 12 = 3 sterling numbersign
+! Slightly Americanize [sic] but keep AltGr keys
+! - swap @ & "
+keycode 11 = 2 at twosuperior oneeighth
+keycode 48 = apostrophe quotedbl dead_circumflex dead_caron
+! - three-way swap | & ~ & useless ¬
+keycode 49 = grave asciitilde bar notsign
+keycode 51 = numbersign bar dead_grave dead_breve
+keycode 94 = backslash notsign bar brokenbar

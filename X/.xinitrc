@@ -9,8 +9,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-setxkbmap -layout us
-
 xrdb -load "$XDG_CONFIG_HOME/X/.Xresources"
 xmodmap "$XDG_CONFIG_HOME/X/.Xmodmap"
 for f in "$XDG_CONFIG_HOME"/*/xbindkeysrc; do
