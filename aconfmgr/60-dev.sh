@@ -10,6 +10,7 @@ IgnorePath /opt/containerd
 IgnorePath /etc/docker/key.json
 CopyFile /etc/docker/daemon.json
 CopyFile /etc/modprobe.d/docker.conf
+CopyFile /etc/systemd/system/docker.service.d/resourcecontrol.conf
 AddPackage dbeaver
 
 AddPackage docker-compose
