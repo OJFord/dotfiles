@@ -19,6 +19,7 @@ mode "browse scratchpad" {
     bindsym Escape scratchpad show; mode "default"
 }
 
+for_window [window_role="PictureInPicture"] sticky enable
 
 # no titlebar
 new_window 1pixel
