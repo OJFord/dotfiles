@@ -22,6 +22,16 @@ autocmd FileType * call PackAddFor(&filetype)
 " Use a POSIX shell to avoid confusing plugins
 set shell=/bin/sh
 
+" Paste without manic indentation
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+function! XTermPasteBegin()
+    set pastetoggle=<Esc>[201~
+    set paste
+    return ""
+endfunction
+
 " Semicolon -> :
 nnoremap ; :
 vnoremap ; :
