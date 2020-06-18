@@ -2,8 +2,6 @@ bass source "$HOME/.profile"
 set --unexport fish_greeting
 fish_vi_key_bindings
 
-gpgkeyreinit
-
 for config in (find "$XDG_CONFIG_HOME/" -name 'config.fish')
     if [ "$config" != (status -f) ]
         source $config
