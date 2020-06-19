@@ -80,6 +80,12 @@ bindsym $mod_global+Shift+8 move container to workspace 8
 bindsym $mod_global+Shift+9 move container to workspace 9
 bindsym $mod_global+Shift+0 move container to workspace 10
 
+# default application workspaces
+assign [class="discord"] 2
+assign [class="Slack"] 2
+assign [class="DBeaver"] 3
+assign [class="firefox"] 5
+
 # reload the configuration file
 bindsym $mod_global+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
