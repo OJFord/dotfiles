@@ -1,6 +1,7 @@
 # Misc. development tools that don't have their own conf dir
 
 AddPackage dbeaver
+AddPackage postgresql
 IgnorePath /etc/dbeaver/bundles.info
 IgnorePath /usr/lib/jvm/*
 
