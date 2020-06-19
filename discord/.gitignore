@@ -1,0 +1,4 @@
+# Mostly this is not config, even 'Preferences', unfortunately
+*
+!.gitignore
+!aconfmgr.sh
