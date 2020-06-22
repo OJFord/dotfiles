@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE pam_mount SYSTEM "pam_mount.conf.xml.dtd">
+<pam_mount>
+<debug enable="0" />
+<mntoptions allow="nosuid,nodev,loop,encryption,fsck,nonempty,allow_root,allow_other" />
+<mntoptions require="nosuid,nodev" />
+<logout wait="0" hup="no" term="no" kill="no" />
+<mkmountpoint enable="1" remove="true" />
+<!-- End defaults ^ -->
+
+<!-- Encrypted home -->
+<volume user="ojf" fstype="fuse" options="nodev,nosuid,quiet,nonempty,allow_other"
+	path="/usr/bin/gocryptfs#/home/%(USER).cipher" mountpoint="/home/%(USER)"
+/>
+
+</pam_mount>
