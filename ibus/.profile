@@ -1,3 +1,7 @@
+if [ "$(uname -s)" != Linux ]; then
+    return 0
+fi
+
 dconf write /desktop/ibus/general/embed-preedit-text true
 dconf write /desktop/ibus/general/engines-order "['xkb:us::eng', 'm17n:hi:itrans']"
 dconf write /desktop/ibus/general/use-system-keyboard-layout true
