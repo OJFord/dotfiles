@@ -42,6 +42,14 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>d <Plug>(ale_go_to_definition)
 nnoremap <C-P> :Files<CR>
 nnoremap <C-L> :Commits<CR>
+command! -bang -nargs=* Buffers
+  \ call fzf#vim#buffers(
+  \   {
+  \     'options': '--delimiter="	" --preview="bat {-1}"'
+  \   },
+  \   <bang>0
+  \ )
+nnoremap <C-B> :Buffers<CR>
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
