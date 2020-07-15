@@ -51,7 +51,7 @@ command! -bang -nargs=* Rg
   \                   'file={1};'.
   \                   'context_start="$(expr {2} - 3)";'.
   \                   'top_ln="$(if [ $context_start -lt 1 ]; then echo 1; else echo $context_start; fi)";'.
-  \                   'bat --color=always --style=plain --theme=TwoDark --highlight-line={2} --line-range="$top_ln:" "$file"'.
+  \                   'bat --highlight-line={2} --line-range="$top_ln:" "$file"'.
   \                "'"
   \   },
   \   <bang>0
