@@ -21,6 +21,7 @@ AddPackage fzf
 AddPackage ghc-libs
 IgnorePath /usr/lib/ghc-*/package.conf.d/*
 
+AddPackage gnu-netcat
 AddPackage helm
 AddPackage jq
 AddPackage kubectl
