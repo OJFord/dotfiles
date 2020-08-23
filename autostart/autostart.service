@@ -1,6 +1,6 @@
 [Unit]
 Description=XDG Autostart (via dex)
-Wants=network-online.target
+Wants=basic.target
 
 [Service]
 Type=oneshot
