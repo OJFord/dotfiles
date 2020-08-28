@@ -97,3 +97,6 @@
 [submodule "fzutils"]
 	path = fzf/bin
 	url = git@github.com:OJFord/fzutils
+[submodule "vim-vue"]
+	path = vim/pack/vue/opt/vim-vue
+	url = git@github.com:posva/vim-vue
