@@ -12,8 +12,8 @@ IgnorePath /etc/docker/key.json
 CopyFile /etc/docker/daemon.json
 CopyFile /etc/modprobe.d/docker.conf
 CopyFile /etc/systemd/system/docker.service.d/resourcecontrol.conf
-AddPackage dbeaver
 
+AddPackage dbeaver
 AddPackage docker-compose
 AddPackage fd
 AddPackage fzf
@@ -29,6 +29,7 @@ AddPackage kubectx
 AddPackage python-pre-commit
 AddPackage ripgrep
 AddPackage shellcheck
+AddPackage --foreign stern
 AddPackage terraform
 AddPackage unzip
 AddPackage yarn
