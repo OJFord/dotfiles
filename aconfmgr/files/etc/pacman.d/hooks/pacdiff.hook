@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Running pacdiff
+When = PostTransaction
+Exec = /usr/bin/pacdiff

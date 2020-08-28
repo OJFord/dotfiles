@@ -23,6 +23,7 @@ AddPackage man-pages
 AddPackage man-db
 
 AddPackage pacman-contrib
+CopyFile /etc/pacman.d/hooks/pacdiff.hook
 IgnorePath '/etc/pacman.d/gnupg/*'
 curl --silent 'https://www.archlinux.org/mirrorlist/?country=GB&protocol=https&use_mirror_status=on' \
     | sed -e 's/^#Server/Server/g' -e '/^#/d' \
