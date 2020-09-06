@@ -1,0 +1,15 @@
+[ql570]
+Collate=OFF
+Copies=1
+CutLabel=1
+#AutoCut=ON
+CutAtEnd=ON
+#Compress=OFF
+Brightness=0
+Contrast=0
+Halftone=ERROR
+MirrorPrinting=OFF
+Quality=SPEED
+Resolution=300
+Feed=3
+MediaSize=29x90
