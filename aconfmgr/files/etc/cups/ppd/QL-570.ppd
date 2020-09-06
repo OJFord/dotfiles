@@ -240,7 +240,7 @@
 *%satyam added for QL570
 *OpenUI *BrCutLabel/Cut every: PickOne
 *OrderDependency: 23 AnySetup  *BrCutLabel
-*DefaultBrCutLabel: 0
+*DefaultBrCutLabel: 1
 *BrCutLabel 0/OFF: "          "
 *BrCutLabel 1/1 label: "          "
 *BrCutLabel 2/2 labels: "          "
