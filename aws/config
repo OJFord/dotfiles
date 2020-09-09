@@ -1,2 +1,9 @@
 [profile ojf]
 credential_process=pass show aws/credentials/ojf
+
+[profile ojf-b2]
+credential_process=pass show aws/credentials/ojf-b2
+
+# for bootstrapping purposes
+[profile ojf-b2-pass]
+credential_process=pass show aws/credentials/ojf-b2-pass

@@ -1,0 +1,11 @@
+[Unit]
+Description=`pass` db sync
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash --login -c 'pass-sync --down'
+RemainAfterExit=yes
+ExecStop=/bin/bash --login -c 'pass-sync --up'
+
+[Install]
+WantedBy=default.target
