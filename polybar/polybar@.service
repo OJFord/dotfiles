@@ -1,7 +1,9 @@
 [Unit]
 Description=Polybar %I
+After=default.target
 
 [Service]
+Environment=DISPLAY=:0
 ExecStart=/usr/bin/polybar -r %i
 Restart=always
 

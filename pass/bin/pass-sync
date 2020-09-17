@@ -4,9 +4,11 @@ set -e
 case "$1" in
     '--up')
         source_dest=("$PASSWORD_STORE_DIR" "s3://$(pass show b2/bucket/pass)")
+        test $? -eq 0 || exit 1
         ;;
     '--down')
         source_dest=("s3://$(pass show b2/bucket/pass)" "$PASSWORD_STORE_DIR")
+        test $? -eq 0 || exit 1
         ;;
     *)
         >&2 echo 'Must sync --up or --down'

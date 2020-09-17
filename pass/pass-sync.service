@@ -1,9 +1,11 @@
 [Unit]
 Description=`pass` db sync
+After=default.target
 
 [Service]
 Type=oneshot
 ExecStart=/bin/bash --login -c 'pass-sync --down'
+Restart=on-failure
 RemainAfterExit=yes
 ExecStop=/bin/bash --login -c 'pass-sync --up'
 

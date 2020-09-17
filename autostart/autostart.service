@@ -1,10 +1,13 @@
 [Unit]
 Description=XDG Autostart (via dex)
-Wants=basic.target
+After=default.target
 
 [Service]
 Type=oneshot
+Environment=DISPLAY=:0
 ExecStart=dex -a
+Restart=on-failure
+RemainAfterExit=yes
 
 [Install]
 WantedBy=default.target

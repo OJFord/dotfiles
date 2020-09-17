@@ -1,9 +1,1 @@
-[Unit]
-Description=Polybar %I
-
-[Service]
-ExecStart=/usr/bin/polybar -r %i
-Restart=always
-
-[Install]
-WantedBy=default.target
+polybar@.service
