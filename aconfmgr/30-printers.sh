@@ -5,12 +5,10 @@ CreateLink /etc/systemd/system/sockets.target.wants/org.cups.cupsd.socket /usr/l
 AddPackage system-config-printer
 IgnorePath '/etc/cups/**/*.O'
 IgnorePath '/etc/cups/*.O'
+# Not real, reasonable config; churns
+IgnorePath '/etc/cups/*.conf'
 IgnorePath /etc/cups/ssl
-
-SetFileProperty /etc/cups/classes.conf mode 600
-CopyFile /etc/cups/printers.conf 600
-CopyFile /etc/cups/subscriptions.conf 640
-CopyFile /etc/printcap
+IgnorePath /etc/printcap
 
 
 # Brother QL-570 label printer
