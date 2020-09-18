@@ -1,2 +1,4 @@
-# Presently includes OAuth token: https://github.com/cli/cli#1054
-config.yml
+# Presently includes OAuth token: https://github.com/cli/cli#554
+/hosts.yml
+# Includes check for update timestamp
+/state.yml

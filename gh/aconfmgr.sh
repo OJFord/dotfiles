@@ -1,1 +1,1 @@
-AddPackage --foreign github-cli-bin
+AddPackage github-cli
