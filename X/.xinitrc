@@ -10,7 +10,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 xrdb -load "$XDG_CONFIG_HOME/X/.Xresources"
+
+setxkbmap gb
 xmodmap "$XDG_CONFIG_HOME/X/.Xmodmap"
+
 for f in "$XDG_CONFIG_HOME"/*/xbindkeysrc; do
     xbindkeys --file "$f"
 done
