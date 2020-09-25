@@ -1,3 +1,5 @@
 AddPackageGroup xorg
 AddPackage xorg-xinit
 AddPackage xbindkeys
+
+AddPackage numlockx
