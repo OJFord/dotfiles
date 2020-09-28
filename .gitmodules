@@ -7,21 +7,6 @@
 [submodule "vimtex"]
 	path = vim/pack/tex/opt/vimtex
 	url = git@github.com:lervag/vimtex
-[submodule "csv.vim"]
-	path = vim/pack/csv/opt/csv.vim
-	url = git@github.com:chrisbra/csv.vim
-[submodule "rust.vim"]
-	path = vim/pack/rust/opt/rust.vim
-	url = git@github.com:rust-lang/rust.vim
-[submodule "vim-markdown"]
-	path = vim/pack/markdown/opt/vim-markdown
-	url = git@github.com:plasticboy/vim-markdown
-[submodule "vim-go"]
-	path = vim/pack/go/opt/vim-go
-	url = git@github.com:fatih/vim-go
-[submodule "vim-fish"]
-	path = vim/pack/fish/opt/vim-fish
-	url = git@github.com:dag/vim-fish
 [submodule "vim-trailing-whitespace"]
 	path = vim/pack/all/start/vim-trailing-whitespace
 	url = git@github.com:bronson/vim-trailing-whitespace
@@ -58,9 +43,6 @@
 [submodule "vim-airline"]
 	path = vim/pack/all/start/vim-airline
 	url = git@github.com:vim-airline/vim-airline
-[submodule "vim-json"]
-	path = vim/pack/json/opt/vim-json
-	url = git@github.com:elzr/vim-json
 [submodule "vim-auto-origami"]
 	path = vim/pack/all/start/vim-auto-origami
 	url = git@github.com:benknoble/vim-auto-origami
@@ -85,9 +67,6 @@
 [submodule "nvim-yarp"]
 	path = vim/pack/all/start/nvim-yarp
 	url = git@github.com:roxma/nvim-yarp
-[submodule "vim-terraform"]
-	path = vim/pack/terraform/opt/vim-terraform
-	url = git@github.com:hashivim/vim-terraform
 [submodule "vim-signify"]
 	path = vim/pack/all/start/vim-signify
 	url = git@github.com:mhinz/vim-signify
@@ -97,6 +76,6 @@
 [submodule "fzutils"]
 	path = fzf/bin
 	url = git@github.com:OJFord/fzutils
-[submodule "vim-vue"]
-	path = vim/pack/vue/opt/vim-vue
-	url = git@github.com:posva/vim-vue
+[submodule "vim-polyglot"]
+	path = vim/pack/all/start/vim-polyglot
+	url = git@github.com:sheerun/vim-polyglot
