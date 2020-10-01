@@ -1,6 +1,8 @@
 configuration {
  modi: "window,drun,emoji,ssh";
  theme: "solarized";
+ matching: "fuzzy";
+ sorting-method: "fzf";
  kb-accept-entry: "Return";
  kb-remove-to-eol: "";
  kb-row-down: "Control+j";
