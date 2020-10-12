@@ -80,6 +80,7 @@ assign [class="discord"] 2
 assign [class="Slack"] 2
 assign [class="DBeaver"] 3
 assign [class="firefox"] 5
+for_window [class="Pavucontrol"] floating enable
 
 # reload the configuration file
 bindsym $mod_global+Shift+c reload
