@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+pick="$(find "$PASSWORD_STORE_DIR" -type f \
+    | sed -E "s@$PASSWORD_STORE_DIR/(.*)\.gpg@\1@g" \
+    | fzf-dmenu \
+)"
+
+if [ -z "$pick" ]; then
+    exit 0
+fi
+
+pass show "$pick" \
+    | xdotool type --file - \
+    ;

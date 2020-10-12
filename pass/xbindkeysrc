@@ -1,3 +1,2 @@
-# Choose and enter a password, without storing in clipmenu if installed
-"clipctl disable; PASSWORD_STORE_CLIP_TIME=2 PASSWORD_STORE_X_SELECTION=secondary passmenu; xsel -o -s | xdotool type --file -; clipctl enable"
+"pass-dmenu"
     F4 + Release

@@ -81,6 +81,7 @@ assign [class="Slack"] 2
 assign [class="DBeaver"] 3
 assign [class="firefox"] 5
 for_window [class="Pavucontrol"] floating enable
+for_window [class="fzf-dmenu"] floating enable
 
 # reload the configuration file
 bindsym $mod_global+Shift+c reload
