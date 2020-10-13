@@ -5,7 +5,7 @@ Before=default.target
 [Service]
 Type=oneshot
 Environment=DISPLAY=:0
-ExecStart=/bin/sh -c 'while ! >/dev/null xset -q ; do >&2 echo "Display not ready" ; sleep 1 ; done'
+ExecStart=/bin/sh -c 'while ! { xset -q && i3 --get-socketpath ; } >/dev/null ; do >&2 echo "Display not ready" ; sleep 1 ; done'
 Restart=on-failure
 RemainAfterExit=yes
 
