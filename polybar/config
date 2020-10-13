@@ -7,6 +7,7 @@
     module-margin = 1
     modules-left = i3 cpu memory pkgupdates github
     modules-center = date
+    modules-right = spotify
     tray-position = right
 
 [module/cpu]
@@ -56,3 +57,12 @@
     format-underline = #dc322f
     interval = 1200
     label = "%output:0:7%"
+
+[module/spotify]
+    type = custom/script
+    interval = 1
+    format-prefix = "♫ "
+    format-suffix = " ♫"
+    format = <label>
+    exec = polybar-spotify -f '{artist}: {song}'
+    format-underline = #1db954
