@@ -1,4 +1,4 @@
-exec compton
+exec_always --no-startup-id picom
 
 set $mod_global mod4
 set $mod_desktop mod1
