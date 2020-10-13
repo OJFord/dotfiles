@@ -51,7 +51,6 @@
 [module/pkgupdates]
     type = custom/script
     exec = polybar-pkgupdates
-    exec-if = "ping -q -w2 -c1 duckduckgo.com >/dev/null"
     format-prefix = " "
     format-prefix-foreground = #5b
     format-underline = #dc322f
