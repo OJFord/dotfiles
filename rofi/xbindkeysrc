@@ -1,7 +1,7 @@
 "rofi -show emoji"
     F3
 
-"rofi -show drun"
+"systemctl --user start rofi-drun@$(date +'%s')"
     Alt + space
 
 "rofi -show window"

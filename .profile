@@ -12,6 +12,11 @@ for p in "$XDG_CONFIG_HOME"/*/.profile; do
     . "$p"
 done
 
+for e in "$XDG_CONFIG_HOME"/*/env.conf; do
+    confdirname="$(basename "$(dirname "$e")")"
+    ln -sf "../$confdirname/env.conf" "$XDG_CONFIG_HOME/environment.d/$confdirname.profile.conf"
+done
+
 if [ "$(uname -s)" = Linux ]; then
     if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
         exec startx "$XINITRC"

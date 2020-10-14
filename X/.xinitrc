@@ -18,10 +18,6 @@ for f in "$XDG_CONFIG_HOME"/*/xbindkeysrc; do
     xbindkeys --file "$f"
 done
 
-
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
 ibus-daemon --daemonize --replace --xim
 
 numlockx &
