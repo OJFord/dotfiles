@@ -4,10 +4,10 @@ After=default.target
 
 [Service]
 Type=oneshot
-ExecStart=/bin/bash --login -c 'pass-sync --down'
+ExecStart=/usr/bin/env pass-sync --down
 Restart=on-failure
 RemainAfterExit=yes
-ExecStop=/bin/bash --login -c 'pass-sync --up'
+ExecStop=/usr/bin/env pass-sync --up
 
 [Install]
 WantedBy=default.target

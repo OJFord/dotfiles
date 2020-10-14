@@ -13,9 +13,21 @@ for p in "$XDG_CONFIG_HOME"/*/.profile; do
 done
 
 for e in "$XDG_CONFIG_HOME"/*/env.conf; do
+    set -o allexport
+    # shellcheck source=/dev/null
+    . "$e"
+    set +o allexport
+
     confdirname="$(basename "$(dirname "$e")")"
-    ln -sf "../$confdirname/env.conf" "$XDG_CONFIG_HOME/environment.d/$confdirname.profile.conf"
+    ln -sf "../$confdirname/env.conf" "$XDG_CONFIG_HOME/environment.d/50-$confdirname.profile.conf"
 done
+
+cat > "$XDG_CONFIG_HOME/environment.d/00-.profile.conf" <<-EOF
+	PATH=$PATH
+	XDG_CACHE_HOME=$XDG_CACHE_HOME
+	XDG_CONFIG_HOME=$XDG_CONFIG_HOME
+	XDG_DATA_HOME=$XDG_DATA_HOME
+EOF
 
 if [ "$(uname -s)" = Linux ]; then
     if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
