@@ -5,7 +5,7 @@
     font-1 = "Noto Color Emoji:scale=12"
     locale = en_GB.UTF-8
     module-margin = 1
-    modules-left = i3 cpu memory pkgupdates github
+    modules-left = i3 cpu memory pkgupdates gh-issues
     modules-center = date
     modules-right = spotify
     tray-position = right
@@ -22,6 +22,14 @@
     ramp-coreload-6 = ▇
     ramp-coreload-7 = █
 
+[module/gh-issues]
+    type = custom/script
+    exec = polybar-gh-issues | jq -r 'length'
+    interval = 900
+    format-prefix = " "
+    label = "%output%"
+    click-left = polybar-gh-issues --open
+
 [module/memory]
     type = internal/memory
 
@@ -31,15 +39,6 @@
     date = %d/%m
     time = %H:%M
     label = "%date% 🕰️ %time%"
-
-[module/github]
-    type = internal/github
-    token = ${file:/home/ojf/.config/polybar/.githubtoken}
-    empty-notifications = false
-    format-prefix = " "
-    format-prefix-foreground = #5b
-    format-underline = #2aa198
-    label = "%notifications%"
 
 [module/i3]
     type = internal/i3
