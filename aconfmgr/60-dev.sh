@@ -23,7 +23,7 @@ IgnorePath /usr/lib/ghc-*/package.conf.d/*
 
 AddPackage gnu-netcat
 AddPackage helm
-AddPackage jq
+AddPackage --foreign jq-git
 AddPackage kubectl
 AddPackage kubectx
 AddPackage python-pre-commit
