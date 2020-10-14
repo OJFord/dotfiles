@@ -1,0 +1,60 @@
+#!/bin/bash
+set -Ee
+set -u
+set -o pipefail
+
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/polybar-gh"
+mkdir -p "$cache_dir"
+
+query_api() {
+    local query="$1"
+    local query_md5
+    query_md5="$(echo "$query" | md5sum | cut --delimiter=' ' --field=1)"
+
+    gh api search/issues -X GET -f q="$query" \
+        | jq '.items | map({url:.html_url, body:.body, display:("[" + (.repository_url | split("/"))[-1] + "] " + .title + " (" + (.number | tostring) + ")")})' \
+        | tee "$cache_dir/$query_md5.json" \
+        ;
+
+    return 0
+}
+
+popterm() {
+    alacritty --class polybar-term,polybar-term --dimensions 150 6 --position 150 30 -e /bin/sh -c "$1"
+}
+
+open() {
+    local query="$1"
+    local query_md5
+    query_md5="$(echo "$query" | md5sum | cut --delimiter=' ' --field=1)"
+
+    popterm "jq --nul-output '.[] | (.display  + \"\n\" + .url + \"\n\" + .body)' '$cache_dir/$query_md5.json' \
+        | fzf --read0 --delimiter='\n' --nth=1,3 --with-nth=1 --preview='bat --language=md --terminal-width=\$FZF_PREVIEW_COLUMNS --wrap=character < <(echo {3..})' \
+        | sed -n '2p;3q' \
+        | xargs xdg-open \
+    ;"
+    return 0
+}
+
+
+# default
+query='user:@me is:open archived:false'
+
+while [ -n "${1-}" ]; do
+    case "${1-}" in
+        --query=*)
+            query="${1#--query=}"
+            shift
+            ;;
+        --open)
+            open "$query"
+            exit $?
+            ;;
+        *)
+            exit 1
+            ;;
+    esac
+done
+
+query_api "$query"
+exit $?

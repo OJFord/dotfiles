@@ -5,3 +5,4 @@ AddPackage psmisc
 AddPackage noto-fonts-emoji
 
 AddPackage --foreign polybar-spotify
+AddPackage --foreign jq-git

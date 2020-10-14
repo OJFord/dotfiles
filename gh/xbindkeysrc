@@ -1,2 +1,2 @@
-"rofi -show ':rofi-gh-issues'"
+"polybar-gh-issues --open"
     F5
