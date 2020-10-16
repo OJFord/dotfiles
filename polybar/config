@@ -5,7 +5,7 @@
     font-1 = "Noto Color Emoji:scale=12"
     locale = en_GB.UTF-8
     module-margin = 1
-    modules-left = i3 cpu memory pkgupdates gh-issues
+    modules-left = i3 cpu memory filesystem pkgupdates gh-issues
     modules-center = date
     modules-right = spotify
     tray-position = right
@@ -21,6 +21,11 @@
     ramp-coreload-5 = ▆
     ramp-coreload-6 = ▇
     ramp-coreload-7 = █
+
+[module/filesystem]
+    type = internal/fs
+    label-mounted = "%free%"
+    mount-0 = /
 
 [module/gh-issues]
     type = custom/script
