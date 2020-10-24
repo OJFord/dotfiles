@@ -25,13 +25,15 @@ AddPackage man-db
 AddPackage pacman-contrib
 CopyFile /etc/pacman.d/hooks/pacdiff.hook
 IgnorePath '/etc/pacman.d/gnupg/*'
-curl --silent 'https://www.archlinux.org/mirrorlist/?country=GB&protocol=https&use_mirror_status=on' \
-    | sed -e 's/^#Server/Server/g' -e '/^#/d' \
-    | rankmirrors -n 5 - \
-    | sort \
-    > "$(CreateFile '/etc/pacman.d/mirrorlist')"
-# Sort destroys ranking within the selected closest mirrors,
-# but makes it less likely to churn between runs.
+if [[ ! -f /etc/pacman.d/mirrorlist ]]
+then
+    curl --silent 'https://www.archlinux.org/mirrorlist/?country=GB&protocol=https&use_mirror_status=on' \
+        | sed -e 's/^#Server/Server/g' -e '/^#/d' \
+        | rankmirrors -n 5 - \
+        > "$(CreateFile '/etc/pacman.d/mirrorlist')"
+else
+    IgnorePath '/etc/pacman.d/mirrorlist'
+fi
 
 CreateLink '/etc/systemd/system/ctrl-alt-del.target' '/usr/lib/systemd/system/reboot.target'
 CreateLink '/etc/systemd/system/dbus-org.freedesktop.network1.service' '/usr/lib/systemd/system/systemd-networkd.service'
