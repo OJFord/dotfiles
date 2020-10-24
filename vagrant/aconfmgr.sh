@@ -1,0 +1,2 @@
+AddPackage vagrant
+AddPackage virtualbox
