@@ -1,0 +1,5 @@
+"maim --window=$(xdotool getactivewindow) ~/screenshots/$(date +%s).png"
+    Print
+
+"maim --select | xclip -selection clipboard -target image/png"
+    Alt + Print + Release
