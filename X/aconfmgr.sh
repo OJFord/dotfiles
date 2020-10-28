@@ -3,3 +3,6 @@ AddPackage xorg-xinit
 AddPackage xbindkeys
 
 AddPackage numlockx
+
+AddPackage maim
+AddPackage xclip
