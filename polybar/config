@@ -7,7 +7,7 @@
     module-margin = 1
     modules-left = i3 cpu memory filesystem pkgupdates gh-issues
     modules-center = date
-    modules-right = spotify
+    modules-right = spotify pulseaudio-control
     tray-position = right
 
 [module/cpu]
@@ -37,6 +37,17 @@
 
 [module/memory]
     type = internal/memory
+
+[module/pulseaudio-control]
+    type = custom/script
+    exec = pulseaudio-control --icon-sink='⇉ ' --sink-nicknames-from='device.description' --icons-volume='🔈 ,🔉 ,🔊 ' listen
+    click-left = pulseaudio-control next-sink
+    click-right = exec pavucontrol &
+    scroll-up = pulseaudio-control --volume-max 130 up
+    scroll-down = pulseaudio-control --volume-max 130 down
+    tail = true
+    label = "%output%"
+    label-padding = 2
 
 [module/date]
     type = internal/date
