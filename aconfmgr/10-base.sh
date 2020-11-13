@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 IgnorePath '/boot/*'
 IgnorePath '/etc/.updated'
 IgnorePath '/etc/ca-certificates/extracted/*'

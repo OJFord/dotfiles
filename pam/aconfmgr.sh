@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Decrypt home dir from $HOME.cipher
 AddPackage gocryptfs
 AddPackage pam_mount

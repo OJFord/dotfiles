@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 AddPackage fish
 cat >> "$(GetPackageOriginalFile filesystem '/etc/shells')" <<-EOF
 	/usr/bin/fish
