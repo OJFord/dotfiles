@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 shopt -s extglob
 
 if [ "$(uname -s)" != Linux ]; then

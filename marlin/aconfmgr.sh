@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 AddPackage pantheon-files
 
 # Thumbnails
