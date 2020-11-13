@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 AddPackage dhcpcd
 CreateLink /etc/systemd/system/multi-user.target.wants/dhcpcd.service /usr/lib/systemd/system/dhcpcd.service
 

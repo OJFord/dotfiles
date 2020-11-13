@@ -162,7 +162,7 @@
 *ImageableArea 62X4/62mm x 4(2-3/7" x 4):				"4.32 8.4  672.48 275.06"
 
 *%==== Information About Media Sizes ========
-*DefaultPaperDimension: 29x90			
+*DefaultPaperDimension: 29x90
 *PaperDimension 17x54/17mm x 54mm(2/3" x 2-1/8"):		"48.24  152.64"
 *PaperDimension 17x87/17mm x 87mm(2/3" x 3-7/16"):		"48.24  246.24"
 *PaperDimension 23x23/23mm x 23mm(10/11" x 10/11"):		"65.28  65.28"
@@ -640,5 +640,3 @@
 *Font Germany: Standard "(001.005)" Standard ROM
 *Font SanDiego: Standard "(001.005)" Standard ROM
 *Font US-Roman: Standard "(001.005)" Standard ROM
-
-

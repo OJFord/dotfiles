@@ -1,0 +1,24 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.3.0
+    hooks:
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-vcs-permalinks
+      - id: check-xml
+      - id: check-yaml
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: pretty-format-json
+        args:
+          - --autofix
+      - id: sort-simple-yaml
+      - id: trailing-whitespace
+
+  - repo: https://github.com/ArturKlauser/shellcheck
+    rev: 5f66176
+    hooks:
+      - id: shellcheck

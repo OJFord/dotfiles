@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 AddPackage i3-wm
 
 # Status bar

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 this_dir="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)"
 
@@ -7,9 +7,9 @@ ensure_aconfmgr() {
         pushd "$(mktemp -d)"
         sudo pacman -S wget
         wget 'https://aur.archlinux.org/cgit/aur.git/snapshot/aconfmgr-git.tar.gz'
-        tar -xf *.tar.gz
-        rm *.tar.gz
-        cd *
+        tar -xf ./*.tar.gz
+        rm ./*.tar.gz
+        cd ./*
         makepkg -si
         popd
     fi

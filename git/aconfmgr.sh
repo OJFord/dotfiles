@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 AddPackage git
 
 # interactive.singleKey

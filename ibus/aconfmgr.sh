@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 AddPackage ibus-typing-booster
 AddPackage hunspell-en_GB
 CreateLink '/usr/share/hunspell/hi_IN.aff' "$XDG_CONFIG_HOME/ibus/hunspell-hi/Hindi/hi_IN.aff"

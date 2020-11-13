@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 AddPackage ccid
 AddPackage libusb-compat
 AddPackage pcsclite

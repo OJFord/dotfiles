@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Misc. development tools that don't have their own conf dir
 
 AddPackage dbeaver
