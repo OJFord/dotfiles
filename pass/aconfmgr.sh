@@ -1,2 +1,3 @@
 # shellcheck shell=bash
-AddPackage pass
+AddPackage gopass
+CreateLink /usr/bin/pass gopass
