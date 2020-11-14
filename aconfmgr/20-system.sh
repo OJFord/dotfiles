@@ -4,6 +4,9 @@ if [ "$(uname --nodename)" = desk ]; then
     CopyFile /etc/X11/xorg.conf.d/10-benq-bl2420pt.conf
 fi
 
+AddPackage earlyoom
+CreateLink /etc/systemd/system/multi-user.target.wants/earlyoom.service /usr/lib/systemd/system/earlyoom.service
+
 CopyFile /etc/X11/xorg.conf.d/00-keyboard.conf
 sed -i 's/^#\(en_GB\.UTF-8\)/\1/' "$(GetPackageOriginalFile glibc /etc/locale.gen)"
 sudo locale-gen
