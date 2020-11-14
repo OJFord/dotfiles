@@ -28,6 +28,7 @@ AddPackage --foreign jq-git
 AddPackage kubectl
 AddPackage kubectx
 AddPackage python-pre-commit
+AddPackage restic
 AddPackage ripgrep
 AddPackage shellcheck
 AddPackage --foreign stern
