@@ -6,13 +6,13 @@ window:
 
 font:
   normal:
-    family: Iosevka Myosevka
+    family: monospace
     style: Light
   bold:
-    family: Iosevka Myosevka
+    family: monospace
     style: Semibold
   italic:
-    family: Iosevka Myosevka
+    family: monospace
     style: Light Italic
 
   size: 8
