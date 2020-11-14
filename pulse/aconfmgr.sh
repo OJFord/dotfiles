@@ -1,6 +1,8 @@
 # shellcheck shell=bash
-AddPackage pulseaudio-alsa
-CreateLink /etc/systemd/user/sockets.target.wants/pulseaudio.socket /usr/lib/systemd/user/pulseaudio.socket
+AddPackage pipewire
+CreateLink /etc/systemd/user/sockets.target.wants/pipewire.socket /usr/lib/systemd/user/pipewire.socket
+sed -i -E 's/(exec .*pipewire-media-session).*/\1 -e bluez,pulse-bridge/' "$(GetPackageOriginalFile pipewire '/etc/pipewire/pipewire.conf')"
+AddPackage --foreign pipewire-pulse-dropin
 
 # keybindings
 AddPackage pavucontrol
