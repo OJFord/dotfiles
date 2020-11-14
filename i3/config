@@ -4,7 +4,7 @@ set $mod_global mod4
 set $mod_desktop mod1
 floating_modifier $mod_global
 
-font pango:Iosevka Light 6
+font pango:Monospace 10
 
 # Terminal emulator
 bindsym $mod_desktop+Return exec i3-sensible-terminal
