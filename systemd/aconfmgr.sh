@@ -1,3 +1,4 @@
 # shellcheck shell=bash
 AddPackage systemd
-IgnorePath '/usr/lib/udev/hwdb.bin'
+CreateDir /etc/environment.d
+IgnorePath /usr/lib/udev/hwdb.bin
