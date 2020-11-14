@@ -1,9 +1,7 @@
-**/*
-!bin/
-!bin/*
-!.gitignore
-!Brewfile
-!aconfmgr.sh
-!gpg-agent.conf
-!scdaemon.conf
-!sshcontrol
+/.#*
+/private-keys-v*.d
+/*.kbx*
+/random_seed
+/reader_*.status
+/tofu.db
+/trustdb.gpg
