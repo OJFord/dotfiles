@@ -1,3 +1,6 @@
 .include /etc/pulse/default.pa
+
 unload-module module-bluetooth-discover
 load-module module-bluetooth-discover a2dp_config="sbc_cmode=dual sbc_min_bp=53 sbc_min_bp=53 sbc_freq=44k"
+
+load-module module-switch-on-connect
