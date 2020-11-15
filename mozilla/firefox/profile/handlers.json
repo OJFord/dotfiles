@@ -12,6 +12,9 @@
     }
   },
   "schemes": {
+    "slack": {
+      "action": 4
+    },
     "tg": {
       "action": 4
     }
