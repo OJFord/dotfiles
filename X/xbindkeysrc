@@ -1,4 +1,4 @@
-"maim --window=$(xdotool getactivewindow) ~/screenshots/$(date +%s).png"
+"maim --window=$(xdotool getactivewindow) ~/screenshots/$(date +%s-%N).png"
     Print
 
 "maim --select | xclip -selection clipboard -target image/png"
