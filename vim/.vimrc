@@ -55,12 +55,7 @@ command! -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
   \   1,
   \   {
-  \     'options': '--delimiter=: --nth=4.. --preview='."'".
-  \                   'file={1};'.
-  \                   'context_start="$(expr {2} - 3)";'.
-  \                   'top_ln="$(if [ $context_start -lt 1 ]; then echo 1; else echo $context_start; fi)";'.
-  \                   'bat --highlight-line={2} --line-range="$top_ln:" "$file"'.
-  \                "'"
+  \     'options': '--delimiter=: --nth=4.. --preview-window="+{2}-3" --preview="bat --highlight-line={2} {1}"'
   \   },
   \   <bang>0
   \ )
