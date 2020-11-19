@@ -135,3 +135,8 @@ set $blue             #268bd2
 set $cyan             #2aa198
 set $green            #859900
 set $custom           #1c5766
+
+mode screen_rec {
+    bindsym --release Shift+F12 exec screen-rec --stop; mode default
+}
+bindsym --release Shift+F12 exec screen-rec; mode screen_rec
