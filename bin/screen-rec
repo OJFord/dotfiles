@@ -1,0 +1,27 @@
+#!/bin/sh
+set -eu
+
+start() {
+    ffmpeg -f x11grab -framerate 30 -i "$DISPLAY" -c:v ffvhuff "$HOME/screenshots/$(date +%s).mkv"
+}
+
+stop() {
+    if ! pkill --sig=TERM --full --exact --newest '(/\S+)*ffmpeg\s.*\sx11grab\s.*a'; then
+        i3-nagbar --message='Error stopping ffmpeg'
+    fi
+}
+
+case "${1:-}" in
+    --help|-h)
+        echo "$0 [--stop]"
+        exit 0
+        ;;
+    --stop)
+        stop
+        exit $?
+        ;;
+    *)
+        start
+        exit $?
+        ;;
+esac
