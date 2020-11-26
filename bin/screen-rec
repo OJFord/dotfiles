@@ -2,7 +2,7 @@
 set -eu
 
 start() {
-    ffmpeg -f x11grab -framerate 30 -i "$DISPLAY" -c:v ffvhuff "$HOME/screenshots/$(date +%s).mkv"
+    ffmpeg -f x11grab -framerate 30 -i "$DISPLAY" -c:v libx264 "$HOME/screenshots/$(date +%s).mkv"
 }
 
 stop() {
