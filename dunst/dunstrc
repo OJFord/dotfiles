@@ -1,0 +1,66 @@
+[global]
+    follow = keyboard
+    verbosity = mesg
+
+    corner_radius = 1
+    geometry = "350x6-10+30"
+    shrink = no
+
+    alignment = left
+    vertical_alignment = center
+    font = Sans-Serif 8
+    frame_color = "#aaaa22"
+    frame_width = 1
+    line_height = 0
+    padding = 8
+    horizontal_padding = 8
+    separator_color = auto
+    separator_height = 2
+    transparency = 10
+
+    sort = yes
+    idle_threshold = 120
+    show_age_threshold = 60
+
+    stack_duplicates = true
+    hide_duplicate_count = false
+    indicate_hidden = yes
+
+    ellipsize = middle
+    format = "<b>%s</b>\n%b"
+    ignore_newline = no
+    markup = full
+    show_indicators = yes
+    word_wrap = yes
+
+    icon_position = left
+    min_icon_size = 64
+    max_icon_size = 64
+    icon_path = /usr/share/icons/gnome/scalable/status/:/usr/share/icons/gnome/scalable/devices/:/usr/share/icons/gnome/256x256/status/:/usr/share/icons/gnome/256x256/devices/
+
+    mouse_left_click = do_action, close_current
+    mouse_right_click = close_current
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+
+    history = ctrl+grave
+
+    context = ctrl+shift+period
+
+[urgency_low]
+    background = "#222222"
+    foreground = "#888888"
+    timeout = 10
+
+[urgency_normal]
+    background = "#285577"
+    foreground = "#ffffff"
+    timeout = 10
+
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+    timeout = 0
