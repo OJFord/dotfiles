@@ -12,6 +12,15 @@
     }
   },
   "schemes": {
+    "mailto": {
+      "action": 2,
+      "handlers": [
+        {
+          "name": "Fastmail",
+          "uriTemplate": "https://www.fastmail.com/action/compose/?mailto=%s"
+        }
+      ]
+    },
     "slack": {
       "action": 4
     },
