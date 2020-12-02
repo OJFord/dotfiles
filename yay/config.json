@@ -1,12 +1,10 @@
 {
-  "absdir": "/home/ojf/.cache/yay/abs",
   "answerclean": "",
   "answerdiff": "",
   "answeredit": "",
   "answerupgrade": "",
   "aururl": "https://aur.archlinux.org",
   "batchinstall": false,
-  "buildDir": "/home/ojf/.cache/yay",
   "cleanAfter": false,
   "cleanmenu": true,
   "combinedupgrade": false,
