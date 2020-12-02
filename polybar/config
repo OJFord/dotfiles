@@ -41,7 +41,7 @@
 
 [module/pulseaudio-control]
     type = custom/script
-    exec = pulseaudio-control --icon-sink='⇉ ' --sink-nicknames-from='device.description' --icons-volume='🔈 ,🔉 ,🔊 ' listen
+    exec = pulseaudio-control --icon-sink='⇉ ' --sink-nicknames-from='device.description' --icons-volume=' , , ' listen
     click-left = pulseaudio-control next-sink
     click-right = exec pavucontrol &
     scroll-up = pulseaudio-control --volume-max 130 up
