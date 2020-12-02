@@ -1,6 +1,10 @@
 [Unit]
 Description=`pass` db sync
 After=default.target
+# Only try once an hour
+# (otherwise repeated gpg-agent pinentry dialogues)
+StartLimitBurst=1
+StartLimitIntervalSec=3600
 
 [Service]
 Type=oneshot
