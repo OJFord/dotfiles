@@ -29,7 +29,7 @@
   "provides": true,
   "rebuild": "no",
   "redownload": "no",
-  "removemake": "ask",
+  "removemake": "yes",
   "requestsplitn": 150,
   "searchby": "name-desc",
   "sortby": "votes",
