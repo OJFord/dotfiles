@@ -1,0 +1,10 @@
+[Unit]
+Description=playerctl daemon to find MRU player to control appropriately
+Before=mpris-proxy.service
+
+[Service]
+ExecStart=/usr/bin/playerctld
+
+[Install]
+RequiredBy=mpris-proxy.service
+WantedBy=default.target
