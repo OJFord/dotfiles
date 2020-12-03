@@ -1,0 +1,119 @@
+{
+  "coc.preferences.formatOnInsertLeave": true,
+  "json.format.enable": true,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "filetypes": [
+        "go"
+      ],
+      "rootPatterns": [
+        "go.mod"
+      ]
+    },
+    "python": {
+      "args": [
+        "--log-file=/tmp/lsp_python.log"
+      ],
+      "command": "pyls",
+      "filetypes": [
+        "python"
+      ],
+      "settings": {
+        "pyls": {
+          "enable": true,
+          "plugins": {
+            "autopep8": {
+              "enabled": false
+            },
+            "black": {
+              "enabled": true
+            },
+            "jedi_completion": {
+              "enabled": true
+            },
+            "jedi_hover": {
+              "enabled": true
+            },
+            "jedi_references": {
+              "enabled": true
+            },
+            "jedi_signature_help": {
+              "enabled": true
+            },
+            "jedi_symbols": {
+              "all_scopes": true,
+              "enabled": true
+            },
+            "mccabe": {
+              "enabled": true,
+              "threshold": 15
+            },
+            "preload": {
+              "enabled": true
+            },
+            "pycodestyle": {
+              "enabled": true
+            },
+            "pydocstyle": {
+              "enabled": false,
+              "match": "(?!test_).*\\.py",
+              "matchDir": "[^\\.].*"
+            },
+            "pyflakes": {
+              "enabled": true
+            },
+            "pyls_mypy": {
+              "enabled": true
+            },
+            "rope_completion": {
+              "enabled": true
+            },
+            "yapf": {
+              "enabled": false
+            }
+          }
+        }
+      },
+      "trace.server": "verbose"
+    },
+    "rust": {
+      "command": "rls",
+      "filetypes": [
+        "rust"
+      ],
+      "settings": {
+        "rust": {
+          "clippy_preference": "on"
+        }
+      }
+    },
+    "terraform": {
+      "args": [
+        "serve"
+      ],
+      "command": "terraform-ls",
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {}
+    },
+    "vue": {
+      "command": "vls",
+      "filetypes": [
+        "vue"
+      ],
+      "settings": {
+        "vetur": {
+          "format": {
+            "defaultFormatter": {
+              "js": "prettier-eslint"
+            },
+            "enable": true
+          }
+        }
+      }
+    }
+  }
+}
