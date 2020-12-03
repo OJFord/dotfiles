@@ -1,0 +1,8 @@
+{
+  "pyls.plugins.autopep8.enabled": false,
+  "pyls.plugins.black.enabled": true,
+  "pyls.plugins.pyls_mypy.enabled": true,
+  "pyls.plugins.pyls_mypy.live_mode": true,
+  "pyls.plugins.yapf.enabled": false,
+  "rust.clippy_preference": "on"
+}

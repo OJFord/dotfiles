@@ -10,9 +10,6 @@
 [submodule "vim-trailing-whitespace"]
 	path = vim/pack/all/start/vim-trailing-whitespace
 	url = git@github.com:bronson/vim-trailing-whitespace
-[submodule "ale"]
-	path = vim/pack/all/start/ale
-	url = git@github.com:w0rp/ale
 [submodule "undotree"]
 	path = vim/pack/all/start/undotree
 	url = git@github.com:mbbill/undotree
@@ -79,6 +76,6 @@
 [submodule "vim-polyglot"]
 	path = vim/pack/all/start/vim-polyglot
 	url = git@github.com:sheerun/vim-polyglot
-[submodule "coc.nvim"]
-	path = vim/pack/all/start/coc.nvim
-	url = git@github.com:neoclide/coc.nvim
+[submodule "language-client"]
+	path = vim/pack/all/start/language-client
+	url = https://github.com/autozimu/LanguageClient-neovim
