@@ -39,7 +39,6 @@ vnoremap ; :
 " Plugin mappings
 map <Leader> <Plug>(easymotion-prefix)
 nnoremap <Leader>u :UndotreeToggle<CR>
-nnoremap <Leader>d <Plug>(ale_go_to_definition)
 nnoremap <C-P> :Files<CR>
 nnoremap <C-L> :Commits<CR>
 command! -bang -nargs=* Buffers
@@ -64,10 +63,38 @@ nnoremap <C-F> :Rg<CR>
 set wildmode=longest,list,full
 set wildmenu
 
+"LSP
+set signcolumn=number
+call system($VIMDIR.'/pack/all/start/language-client/install.sh')
+let g:LanguageClient_loggingLevel = 'DEBUG'
+let g:LanguageClient_loggingFile = '/tmp/vim-languageclient.log'
+let g:LanguageClient_serverStderr = '/tmp/vim-languageclient.stderr'
+let g:LanguageClient_rootMarkers = {
+\ 'python': ['pyproject.toml', 'setup.cfg', 'setup.py', 'tox.ini'],
+\ 'rust': ['Cargo.toml'],
+\ 'terraform': ['.terraform'],
+\ 'vim': ['autoload', 'ftdetect', 'ftplugin'],
+\ 'vue': ['package.json'],
+\ }
+let g:LanguageClient_serverCommands = {
+\ 'python': ['pyls', '--log-file=/tmp/python-languageserver.log', '--verbose'],
+\ 'rust': ['rustup', 'run', 'stable', 'rls'],
+\ 'terraform': ['terraform-ls', 'serve'],
+\ 'vim': ['vim-language-server'],
+\ 'vue': ['vls'],
+\ }
+let g:LanguageClient_settingsPath = "$VIMDIR/lsp.json"
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
+function! AfterFormat(...) abort
+  noautocmd w
+endfunction
+autocmd BufWrite * call LanguageClient#textDocument_formatting({}, 'AfterFormat')
+
 " Completions
 set completeopt=longest,menuone,preview
-let g:coc_config_home = "$VIMDIR"
-let g:coc_data_home = "$XDG_DATA_HOME/vim/coc"
+autocmd InsertEnter * call deoplete#enable()
 "" C-j/k completion navigation
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "j"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "k"
