@@ -66,18 +66,14 @@ set wildmenu
 
 " Completions
 set completeopt=longest,menuone,preview
-let g:SuperTabDefaultCompletionType = "<C-n>"
-" <CR> to accept completion
+let g:coc_config_home = "$VIMDIR"
+let g:coc_data_home = "$XDG_DATA_HOME/vim/coc"
+"" C-j/k completion navigation
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "j"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "k"
+"" Enter to accept
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('sources', {
-\ '_': ['ale'],
-\})
-call deoplete#custom#var('around', {
-  \   'mark_above': '↑',
-  \   'mark_below': '↓',
-  \   'mark_changes': '*',
-  \})
+let g:SuperTabDefaultCompletionType = "<C-n>"
 
 " Backspace
 set backspace=indent,eol,start
@@ -112,12 +108,6 @@ let g:airline_symbols.readonly = ''
 " Syntax
 syntax enable
 filetype plugin indent on
-let g:ale_lint_on_text_changed=1
-let g:ale_lint_on_save=1
-let g:ale_fix_on_save = 1
-let g:ale_open_list=1
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 " Code folding
 augroup autofoldcolumn
