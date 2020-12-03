@@ -69,8 +69,10 @@ set completeopt=longest,menuone,preview
 let g:SuperTabDefaultCompletionType = "<C-n>"
 " <CR> to accept completion
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" https://github.com/Shougo/deoplete.nvim
-call deoplete#enable()
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('sources', {
+\ '_': ['ale'],
+\})
 call deoplete#custom#var('around', {
   \   'mark_above': '↑',
   \   'mark_below': '↓',
