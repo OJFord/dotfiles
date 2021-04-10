@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -eEux
 this_dir="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)"
 
 ensure_aconfmgr() {

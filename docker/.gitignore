@@ -1,2 +1,4 @@
 /config.json
 /daemon.json
+/.buildNodeID
+/.token_seed
