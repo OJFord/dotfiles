@@ -4,10 +4,93 @@
     "en-US": 4
   },
   "mimeTypes": {
+    "application/java-archive": {
+      "action": 0,
+      "ask": true,
+      "extensions": [
+        "jar"
+      ]
+    },
     "application/pdf": {
       "action": 3,
       "extensions": [
         "pdf"
+      ]
+    },
+    "application/xhtml+xml": {
+      "action": 0,
+      "ask": true,
+      "extensions": [
+        "xhtml",
+        "xhtm",
+        "xht"
+      ]
+    },
+    "application/zip": {
+      "action": 0,
+      "ask": true,
+      "extensions": [
+        "zip"
+      ]
+    },
+    "image/jpeg": {
+      "action": 0,
+      "ask": true,
+      "extensions": [
+        "jpg",
+        "jpeg",
+        "jpe",
+        "jfif",
+        "pjpeg",
+        "pjp"
+      ]
+    },
+    "image/png": {
+      "action": 2,
+      "ask": true,
+      "extensions": [
+        "png"
+      ]
+    },
+    "image/svg+xml": {
+      "action": 3,
+      "extensions": [
+        "svg"
+      ]
+    },
+    "image/webp": {
+      "action": 3,
+      "extensions": [
+        "webp"
+      ]
+    },
+    "text/csv": {
+      "action": 0,
+      "ask": true,
+      "extensions": [
+        "csv"
+      ]
+    },
+    "text/plain": {
+      "action": 4,
+      "ask": true,
+      "extensions": [
+        "csv",
+        "txt",
+        "asc",
+        "text"
+      ],
+      "handlers": [
+        {
+          "name": "TextEdit",
+          "path": "/System/Applications/TextEdit.app"
+        }
+      ]
+    },
+    "text/xml": {
+      "action": 3,
+      "extensions": [
+        "xml"
       ]
     }
   },
