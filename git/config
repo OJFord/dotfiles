@@ -99,7 +99,7 @@
 
 [interactive]
     singleKey = true
-    diffFilter = "diff-highlight"
+    diffFilter = diff-so-fancy --patch
 
 [merge]
     conflictStyle = diff3
