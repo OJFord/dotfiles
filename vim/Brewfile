@@ -4,3 +4,8 @@ brew "bat"
 brew "fd"
 brew "fzf"
 brew "rg"
+
+system 'pip install pynvim'
+system 'pip install python-language-server'
+system 'pip install pyls-black'
+system 'pip install pyls-mypy'

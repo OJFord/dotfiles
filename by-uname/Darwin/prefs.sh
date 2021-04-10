@@ -34,8 +34,8 @@ echo "Setting trackpad to tap to click/drag..."
 ## Tap to click
 defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
 ## Allow dragging (on tap-drag)
-defaults write com.apple.AppleMultitouchTrackpad Dragging -bool true
-defaults write com.apple.AppleMultitouchTrackpad DragLock -bool false
+defaults write com.apple.AppleMultitouchTrackpad Dragging -int 0
+defaults write com.apple.AppleMultitouchTrackpad DragLock -int 0
 ## Disable the Launchpad gesture
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
