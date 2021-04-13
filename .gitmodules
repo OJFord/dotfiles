@@ -79,3 +79,9 @@
 [submodule "language-client"]
 	path = vim/pack/all/start/language-client
 	url = https://github.com/autozimu/LanguageClient-neovim
+[submodule "vim-fugitive"]
+	path = vim/pack/all/start/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive
+[submodule "vim-fugitive-gitlab"]
+	path = vim/pack/all/start/fugitive-gitlab.vim
+	url = git@github.com:shumphrey/fugitive-gitlab.vim
