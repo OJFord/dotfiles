@@ -6,7 +6,7 @@ start() {
 }
 
 stop() {
-    if ! pkill --sig=TERM --full --exact --newest '(/\S+)*ffmpeg\s.*\sx11grab\s.*a'; then
+    if ! pkill --sig=TERM --full --exact --newest 'ffmpeg\s.*\sx11grab\s.*'; then
         i3-nagbar --message='Error stopping ffmpeg'
     fi
 }
