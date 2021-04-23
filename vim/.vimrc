@@ -81,7 +81,7 @@ let g:LanguageClient_serverCommands = {
 \ 'rust': ['rustup', 'run', 'stable', 'rls'],
 \ 'terraform': ['terraform-ls', 'serve'],
 \ 'vim': ['vim-language-server'],
-\ 'vue': ['vls'],
+\ 'vue': ['vls', '--stdio'],
 \ }
 let g:LanguageClient_settingsPath = "$VIMDIR/lsp.json"
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
