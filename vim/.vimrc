@@ -70,6 +70,7 @@ let g:LanguageClient_loggingLevel = 'DEBUG'
 let g:LanguageClient_loggingFile = '/tmp/vim-languageclient.log'
 let g:LanguageClient_serverStderr = '/tmp/vim-languageclient.stderr'
 let g:LanguageClient_rootMarkers = {
+\ 'go': ['go.mod', 'go.sum', 'main.go'],
 \ 'python': ['pyproject.toml', 'setup.cfg', 'setup.py', 'tox.ini'],
 \ 'rust': ['Cargo.toml'],
 \ 'terraform': ['.terraform'],
@@ -77,6 +78,7 @@ let g:LanguageClient_rootMarkers = {
 \ 'vue': ['package.json'],
 \ }
 let g:LanguageClient_serverCommands = {
+\ 'go': ['gopls'],
 \ 'python': ['pyls', '--log-file=/tmp/python-languageserver.log', '--verbose'],
 \ 'rust': ['rustup', 'run', 'stable', 'rls'],
 \ 'terraform': ['terraform-ls', 'serve'],
