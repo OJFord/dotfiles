@@ -37,9 +37,17 @@ nnoremap ; :
 vnoremap ; :
 
 " Plugin mappings
-nmap f <Plug>(easymotion-jumptoanywhere)
+nmap s <Plug>(easymotion-jumptoanywhere)
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <C-P> :Files<CR>
+command! -bang -nargs=* BLines
+  \ call fzf#vim#buffer_lines(
+  \   {
+  \     'options': '--delimiter="	" --preview-window="+{1}-3" --preview="bat --highlight-line={1} ' . expand('%:p') . '"'
+  \   },
+  \   <bang>0
+  \ )
+nmap f :BLines<CR>
 nnoremap <C-L> :Commits<CR>
 command! -bang -nargs=* Buffers
   \ call fzf#vim#buffers(
