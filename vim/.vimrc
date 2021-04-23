@@ -39,7 +39,7 @@ vnoremap ; :
 " Plugin mappings
 nmap s <Plug>(easymotion-jumptoanywhere)
 nnoremap <Leader>u :UndotreeToggle<CR>
-nnoremap <C-P> :Files<CR>
+nnoremap <C-P> :GFiles --cached --others --exclude-standard<CR>
 command! -bang -nargs=* BLines
   \ call fzf#vim#buffer_lines(
   \   {
