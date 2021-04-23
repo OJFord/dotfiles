@@ -37,7 +37,7 @@ nnoremap ; :
 vnoremap ; :
 
 " Plugin mappings
-map <Leader> <Plug>(easymotion-prefix)
+nmap f <Plug>(easymotion-jumptoanywhere)
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <C-P> :Files<CR>
 nnoremap <C-L> :Commits<CR>
