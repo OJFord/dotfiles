@@ -1,6 +1,7 @@
 // Customisation
 user_pref('browser.zoom.siteSpecific', true);
 user_pref('toolkit.legacyUserProfileCustomizations.stylesheets', true);
+user_pref('ui.context_menus.after_mouseup', true);
 
 // Privacy
 user_pref('privacy.firstparty.isolate, true);
