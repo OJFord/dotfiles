@@ -43,7 +43,7 @@ nnoremap <C-P> :Files<CR>
 command! -bang -nargs=* BLines
   \ call fzf#vim#buffer_lines(
   \   {
-  \     'options': '--delimiter="	" --preview-window="+{1}-3" --preview="bat --highlight-line={1} ' . expand('%:p') . '"'
+  \     'options': '--delimiter="	" --preview-window="+{1}/2" --preview="bat --highlight-line={1} ' . expand('%:p') . '"'
   \   },
   \   <bang>0
   \ )
@@ -62,7 +62,7 @@ command! -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
   \   1,
   \   {
-  \     'options': '--delimiter=: --nth=4.. --preview-window="+{2}-3" --preview="bat --highlight-line={2} {1}"'
+  \     'options': '--delimiter=: --nth=4.. --preview-window="+{2}/2" --preview="bat --highlight-line={2} {1}"'
   \   },
   \   <bang>0
   \ )
