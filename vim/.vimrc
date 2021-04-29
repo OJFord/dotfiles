@@ -97,6 +97,14 @@ let g:LanguageClient_settingsPath = "$VIMDIR/lsp.json"
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
+function! MyLangClientSelectionUI(source, sink) abort
+  call fzf#run(fzf#wrap({
+    \ 'source': a:source,
+    \ 'sink': function(a:sink),
+    \ 'options': '--delimiter=: --preview-window="+{2}/2" --preview="bat --highlight-line={2} {1}"',
+  \ }))
+endfunction
+let g:LanguageClient_selectionUI = function('MyLangClientSelectionUI')
 function! AfterFormat(...) abort
   noautocmd w
 endfunction
