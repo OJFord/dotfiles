@@ -1,3 +1,8 @@
 {
+  "log-driver": "local",
+  "log-opts": {
+    "max-file": "3",
+    "max-size": "10m"
+  },
   "storage-driver": "overlay2"
 }
