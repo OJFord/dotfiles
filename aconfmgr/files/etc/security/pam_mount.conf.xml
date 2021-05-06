@@ -9,6 +9,7 @@
 <!-- End defaults ^ -->
 
 <!-- Encrypted home -->
+<msg-authpw>password: </msg-authpw>
 <volume user="ojf" fstype="fuse" options="nodev,nosuid,quiet,nonempty,allow_other"
 	path="/usr/bin/gocryptfs#/home/%(USER).cipher" mountpoint="/home/%(USER)"
 />
