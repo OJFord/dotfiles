@@ -9,7 +9,7 @@
     conflicts = "!f(){ git diff --check | cut --delimiter=':' --field=1 | uniq; }; f"
     diff = fzfile diff
     files = diff-tree --no-commit-id --name-only -r
-    fixup = "!f(){ target=\"$(git rev-parse \"$1\")\"; git commit --fixup=$target ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $target^; }; f"
+    fixup = "!f(){ target=\"$(test -n \"$1\" && git rev-parse \"$1\" || git fzsha rev-parse)\"; git commit --fixup=\"$target\" ${@:2} && EDITOR=true git rebase -i --autostash --autosquash \"$target^\"; }; f"
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     push-new = "!f(){ remote="$1"; branch="$(git rev-parse --abbrev-ref HEAD)"; git push --set-upstream "$remote" "$branch"; }; f"

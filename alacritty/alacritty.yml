@@ -137,6 +137,17 @@ hints:
         key: R
         mods: Super
 
+    - regex: "[a-zA-Z0-9_-]+/[a-zA-Z0-9._-]+#[1-9][0-9]*"
+      command:
+        program: sh
+        args: ["-c", 'xdg-open "https://github.com/$(echo "$0" | sed "s@#@/issues/@")"']
+      mouse:
+        enabled: true
+        mods: None
+      binding:
+        key: G
+        mods: Super
+
     - regex: "SC[0-9]{4}"
       command:
         program: sh
