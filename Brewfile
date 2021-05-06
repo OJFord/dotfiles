@@ -15,7 +15,6 @@ brew 'ranger'
 brew 'ripgrep'
 brew 'shellcheck'
 brew 'stern'
-brew 'terraform'
 brew 'wget'
 brew 'yarn'
 
