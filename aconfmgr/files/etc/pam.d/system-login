@@ -14,9 +14,8 @@ password   include    system-auth
 
 session    optional   pam_loginuid.so
 session    optional   pam_keyinit.so       force revoke
-session [success=2 default=ignore]  pam_exec.so  quiet /usr/bin/mountpoint -q "/home/$PAM_USER"
 session [success=1 default=ignore]  pam_succeed_if.so  service = systemd-user quiet
-session    optional   pam_mount.so
+session    optional   pam_mount_patched.so
 session    include    system-auth
 session    optional   pam_motd.so          motd=/etc/motd
 session    optional   pam_mail.so          dir=/var/spool/mail standard quiet
