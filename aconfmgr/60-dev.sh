@@ -32,6 +32,5 @@ AddPackage restic
 AddPackage ripgrep
 AddPackage shellcheck
 AddPackage --foreign stern
-AddPackage terraform
 AddPackage unzip
 AddPackage yarn
