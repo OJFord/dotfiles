@@ -1,6 +1,5 @@
 #!/bin/bash
-set -Ee
-set -u
+set -eEu
 set -o pipefail
 
 cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/polybar-gh"
@@ -19,28 +18,18 @@ query_api() {
     return 0
 }
 
-popterm() {
-    alacritty \
-        -o window.class.general=polybar-term \
-        -o window.class.instance=polybar-term \
-        -o window.dimensions.columns=150 \
-        -o window.dimensions.lines=6 \
-        -o window.position.x=150 \
-        -o window.position.y=30 \
-        -e /bin/sh -c "$1"
-}
-
 open() {
     local query="$1"
     local query_md5
     query_md5="$(echo "$query" | md5sum | cut --delimiter=' ' --field=1)"
 
-    popterm "jq --nul-output '.[] | (.display  + \"\n\" + .url + \"\n\" + .body)' '$cache_dir/$query_md5.json' \
-        | fzf --read0 --delimiter='\n' --nth=1,3 --with-nth=1 --preview='bat --language=md --terminal-width=\$FZF_PREVIEW_COLUMNS --wrap=character < <(echo {3..})' \
+    jq --nul-output '.[] | (.display  + "\n" + .url + "\n" + .body)' "$cache_dir/$query_md5.json" \
+        | fzf-dmenu \
+            --fzf-read0 --fzf-delimiter="'\n'" --fzf-nth=1,3 --fzf-with-nth=1 \
+            --fzf-preview="'bat --language=md --terminal-width=\$FZF_PREVIEW_COLUMNS --wrap=character < <(echo {3..})'" \
+            --tty-window.dimensions.columns=150 --tty-window.dimensions.lines=6 --tty-window.position.x=150 --tty-window.position.y=30 \
         | sed -n '2p;3q' \
-        | xargs xdg-open \
-    ;"
-    return 0
+        | xargs xdg-open
 }
 
 
