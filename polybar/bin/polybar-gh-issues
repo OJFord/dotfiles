@@ -20,7 +20,14 @@ query_api() {
 }
 
 popterm() {
-    alacritty --class polybar-term,polybar-term --dimensions 150 6 --position 150 30 -e /bin/sh -c "$1"
+    alacritty \
+        -o window.class.general=polybar-term \
+        -o window.class.instance=polybar-term \
+        -o window.dimensions.columns=150 \
+        -o window.dimensions.lines=6 \
+        -o window.position.x=150 \
+        -o window.position.y=30 \
+        -e /bin/sh -c "$1"
 }
 
 open() {
