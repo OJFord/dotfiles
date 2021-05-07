@@ -74,7 +74,7 @@
     format-underline = #dc322f
     interval = 1200
     label = "%output:0:7%"
-    click-left = alacritty --class polybar-term,polybar-term --dimensions 60 12 --position 150 30 -e /bin/sh -c 'checkupdates; yay -Qu; yay -Syu; touch $XDG_CONFIG_HOME/polybar/config' # touch to reload
+    click-left = polybar-pkgupdates --open
 
 [module/spotify]
     type = custom/script

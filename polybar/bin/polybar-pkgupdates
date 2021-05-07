@@ -1,10 +1,35 @@
-#!/bin/sh
-set -e
+#!/bin/bash
+set -eEu
+set -o pipefail
 
-pac=$(checkupdates | wc -l)
-aur=$(yay -Qua | wc -l)
+function Check() {
+    pac=$(checkupdates | wc -l)
+    aur=$(yay -Qua | wc -l)
 
-check=$((pac + aur))
-if [ "$check" != "0" ]; then
-    echo "$pac;$aur"
-fi
+    check=$((pac + aur))
+    if [ "$check" != "0" ]; then
+        echo "$pac;$aur"
+    fi
+}
+
+function Open() {
+    alacritty \
+        -o window.class.general=polybar-term \
+        -o window.class.instance=polybar-term \
+        -o window.dimensions.columns=60 \
+        -o window.dimensions.lines=12 \
+        -o window.position.x=150 \
+        -o window.position.y=30 \
+        -e /bin/sh -c "checkupdates; yay -Qu; yay -Syu; touch '$XDG_CONFIG_HOME/polybar/config'"
+}
+
+case "${1:-}" in
+    --open)
+        Open
+        exit 0
+        ;;
+    *)
+        Check
+        exit 0
+        ;;
+esac
