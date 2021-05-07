@@ -27,7 +27,7 @@ open() {
         | fzf-dmenu \
             --fzf-read0 --fzf-delimiter="'\n'" --fzf-nth=1,3 --fzf-with-nth=1 \
             --fzf-preview="'bat --language=md --terminal-width=\$FZF_PREVIEW_COLUMNS --wrap=character < <(echo {3..})'" \
-            --tty-window.dimensions.columns=150 --tty-window.dimensions.lines=6 --tty-window.position.x=150 --tty-window.position.y=30 \
+            --tty-window.dimensions.columns=150 --tty-window.dimensions.lines=20 --tty-window.position.x=150 --tty-window.position.y=30 \
         | sed -n '2p;3q' \
         | xargs xdg-open
 }
