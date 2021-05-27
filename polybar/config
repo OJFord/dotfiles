@@ -53,9 +53,9 @@
 [module/date]
     type = internal/date
     interval = 15
-    date = %d/%m
+    date = %d/%m %A
     time = %H:%M
-    label = "%date%  %time%"
+    label = "%date% %time%"
 
 [module/i3]
     type = internal/i3
