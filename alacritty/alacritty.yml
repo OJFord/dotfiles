@@ -137,6 +137,28 @@ hints:
         key: R
         mods: Super
 
+    - regex: "aur/[a-zA-Z0-9_-]+"
+      command:
+        program: sh
+        args: ["-c", 'xdg-open "https://aur.archlinux.org/packages/$(echo "$0" | sed -E "s@.+/(.+)@\1@")"']
+      mouse:
+        enabled: true
+        mods: None
+      binding:
+        key: A
+        mods: Shift|Super
+
+    - regex: "(core|community|extra)/[a-zA-Z0-9_-]+"
+      command:
+        program: sh
+        args: ["-c", 'xdg-open "https://archlinux.org/packages?repo=$(echo "$0" | sed -E "s@(.+)/.+@\u\1@")&q=$(echo "$0" | sed -E "s@.+/(.+)@\1@")"']
+      mouse:
+        enabled: true
+        mods: None
+      binding:
+        key: A
+        mods: Super
+
     - regex: "[a-zA-Z0-9_-]+/[a-zA-Z0-9._-]+#[1-9][0-9]*"
       command:
         program: sh
