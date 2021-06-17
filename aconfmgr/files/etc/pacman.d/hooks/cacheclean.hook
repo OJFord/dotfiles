@@ -6,6 +6,6 @@ Type = Package
 Target = *
 
 [Action]
-Description = Keep the last cache and the currently installed.
+Description = Clearing cache, keeping only current & last installed...
 When = PostTransaction
 Exec = /usr/bin/paccache --verbose --remove --keep=2

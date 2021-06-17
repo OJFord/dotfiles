@@ -6,6 +6,6 @@ Type = Package
 Target = *
 
 [Action]
-Description = Running pacdiff
+Description = Running pacdiff...
 When = PostTransaction
 Exec = /usr/bin/pacdiff
