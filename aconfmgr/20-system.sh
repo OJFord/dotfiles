@@ -2,7 +2,11 @@
 if [ "$(uname --nodename)" = desk ]; then
     AddPackage xf86-video-ati
     CopyFile /etc/X11/xorg.conf.d/10-benq-bl2420pt.conf
+
 fi
+
+# SSD TRIM
+CreateLink /etc/systemd/system/timers.target.wants/fstrim.timer /usr/lib/systemd/system/fstrim.timer
 
 AddPackage earlyoom
 CreateLink /etc/systemd/system/multi-user.target.wants/earlyoom.service /usr/lib/systemd/system/earlyoom.service
