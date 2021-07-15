@@ -136,6 +136,7 @@
 [user]
     name = Oliver Ford
     email = dev@ojford.com
-    signingKey = 4373E81FEF601557A7AF34287B697680F0B1E873
+    # signingKey not set as it should find whichever is inserted automatically - no way to list multiple
+
 [init]
     defaultBranch = master
