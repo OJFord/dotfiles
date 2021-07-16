@@ -3,12 +3,12 @@ set -e
 
 case "$1" in
     '--up')
-        source_dest=("$PASSWORD_STORE_DIR" "s3://$(pass show b2/bucket/pass)")
+        source_dest=("$PASSWORD_STORE_DIR" "s3://$(pass show servorum/b2/bucket/pass)")
         test $? -eq 0 || exit 1
         shift
         ;;
     '--down')
-        source_dest=("s3://$(pass show b2/bucket/pass)" "$PASSWORD_STORE_DIR")
+        source_dest=("s3://$(pass show servorum/b2/bucket/pass)" "$PASSWORD_STORE_DIR")
         test $? -eq 0 || exit 1
         shift
         ;;
@@ -17,4 +17,4 @@ case "$1" in
         exit 1
 esac
 
-aws --profile=ojf-b2-pass --endpoint-url="$(pass show b2/endpoint-url/pass)" s3 sync "$@" "${source_dest[@]}"
+aws --profile=ojf-b2-pass --endpoint-url="$(pass show servorum/b2/endpoint-url/pass)" s3 sync "$@" "${source_dest[@]}"
