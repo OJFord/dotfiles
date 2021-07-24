@@ -80,6 +80,7 @@ bindsym $mod_global+Shift+0 move container to workspace 10
 assign [class="discord"] 2
 assign [class="Slack"] 2
 assign [class="DBeaver"] 3
+for_window [title="DBeaver "] move container to workspace 3
 assign [class="firefox"] 5
 for_window [class="Pavucontrol"] floating enable
 for_window [class="fzf-dmenu"] floating enable
