@@ -15,4 +15,5 @@ AddPackage python-language-server
 AddPackage --foreign python-language-server-black
 AddPackage --foreign pyls-mypy
 rustup component add rls
+AddPackage --foreign nodejs-svelte-language-server
 AddPackage --foreign terraform-ls
