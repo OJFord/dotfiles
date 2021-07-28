@@ -88,7 +88,7 @@ let g:LanguageClient_rootMarkers = {
 \ }
 let g:LanguageClient_serverCommands = {
 \ 'go': ['gopls'],
-\ 'python': ['pyls', '--log-file=/tmp/python-languageserver.log', '--verbose'],
+\ 'python': ['pylsp', '--log-file=/tmp/python-languageserver.log', '--verbose'],
 \ 'rust': ['rustup', 'run', 'stable', 'rls'],
 \ 'svelte': ['svelteserver', '--stdio'],
 \ 'terraform': ['terraform-ls', 'serve'],
