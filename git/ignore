@@ -1,5 +1,5 @@
+*~
 *.DS_Store
-*.lock
 *.log
 *.log.*
 **/node_modules/*
@@ -7,3 +7,7 @@
 *.swo
 *.swp
 **/venv/*
+
+*.lock
+!yarn.lock
+!Cargo.lock
