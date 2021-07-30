@@ -1,13 +1,12 @@
 # shellcheck shell=bash
-AddPackage pulseaudio-alsa
-CreateLink /etc/systemd/user/sockets.target.wants/pulseaudio.socket /usr/lib/systemd/user/pulseaudio.socket
+AddPackage pipewire
 
 # keybindings
 AddPackage pavucontrol
 AddPackage playerctl
 
 # bluetooth
-AddPackage --foreign pulseaudio-modules-bt
+AddPackage pipewire-pulse
 AddPackage blueman
 AddPackage bluez
 AddPackage --foreign bluez-utils-compat
