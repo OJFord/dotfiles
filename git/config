@@ -136,7 +136,10 @@
 [user]
     name = Oliver Ford
     email = dev@ojford.com
-    # signingKey not set as it should find whichever is inserted automatically - no way to list multiple
+    # signingKey set by active-gpg-key.config inclusion
+
+[include]
+    path = active-gpg-key.config
 
 [init]
     defaultBranch = master
