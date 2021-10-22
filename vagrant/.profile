@@ -3,6 +3,7 @@ for f in "$XDG_CONFIG_HOME"/**/Vagrantfile; do
     name="$(basename "$dir")"
 
     desktopf="$XDG_DATA_HOME/applications/$name.desktop"
+    mkdir -p "$(dirname "$desktopf")"
     test -f "$desktopf" || cat > "$desktopf" <<-EOF
 		[Desktop Entry]
 		Name=$name
