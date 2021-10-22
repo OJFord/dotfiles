@@ -73,7 +73,6 @@ set wildmenu
 
 "LSP
 set signcolumn=number
-call system($VIMDIR.'/pack/all/start/language-client/install.sh')
 let g:LanguageClient_loggingLevel = 'DEBUG'
 let g:LanguageClient_loggingFile = '/tmp/vim-languageclient.log'
 let g:LanguageClient_serverStderr = '/tmp/vim-languageclient.stderr'
