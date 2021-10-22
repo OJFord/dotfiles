@@ -1,3 +1,5 @@
+chmod 0700 "$GNUPGHOME"
+
 for f in "$GNUPGHOME"/pub/*.pgp.pub.asc; do
     gpg --import <"$f" 2>/dev/null
 done
