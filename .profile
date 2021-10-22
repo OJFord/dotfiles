@@ -23,6 +23,7 @@ for e in "$XDG_CONFIG_HOME"/*/env.conf; do
 done
 
 cat > "$XDG_CONFIG_HOME/environment.d/00-.profile.conf" <<-EOF
+	LANG=$LANG"
 	PATH=$PATH
 	XDG_CACHE_HOME=$XDG_CACHE_HOME
 	XDG_CONFIG_HOME=$XDG_CONFIG_HOME
