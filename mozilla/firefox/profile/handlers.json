@@ -75,7 +75,8 @@
     "image/svg+xml": {
       "action": 3,
       "extensions": [
-        "svg"
+        "svg",
+        "svgz"
       ]
     },
     "image/webp": {
@@ -125,7 +126,11 @@
     "text/xml": {
       "action": 3,
       "extensions": [
-        "xml"
+        "xml",
+        "xsd",
+        "rng",
+        "xsl",
+        "xbl"
       ]
     }
   },
