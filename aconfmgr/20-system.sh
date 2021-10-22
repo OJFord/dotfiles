@@ -1,9 +1,7 @@
 # shellcheck shell=bash
-if [ "$(uname --nodename)" = desk ]; then
-    AddPackage xf86-video-ati
-    CopyFile /etc/X11/xorg.conf.d/10-benq-bl2420pt.conf
 
-fi
+# shellcheck source=/dev/null
+. "$XDG_CONFIG_HOME/by-hostname/$(uname --nodename)/aconfmgr.sh"
 
 # SSD TRIM
 CreateLink /etc/systemd/system/timers.target.wants/fstrim.timer /usr/lib/systemd/system/fstrim.timer
