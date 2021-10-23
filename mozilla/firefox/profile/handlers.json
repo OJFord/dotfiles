@@ -17,8 +17,22 @@
         "pdf"
       ]
     },
-    "application/xhtml+xml": {
+    "application/pgp-signature": {
       "action": 0,
+      "ask": true,
+      "extensions": [
+        "sig"
+      ]
+    },
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {
+      "action": 0,
+      "ask": true,
+      "extensions": [
+        "xlsx"
+      ]
+    },
+    "application/xhtml+xml": {
+      "action": 4,
       "ask": true,
       "extensions": [
         "xhtml",
@@ -31,6 +45,12 @@
       "ask": true,
       "extensions": [
         "zip"
+      ]
+    },
+    "image/avif": {
+      "action": 3,
+      "extensions": [
+        "avif"
       ]
     },
     "image/jpeg": {
@@ -71,20 +91,35 @@
         "csv"
       ]
     },
-    "text/plain": {
+    "text/html": {
       "action": 4,
+      "ask": true,
+      "extensions": [
+        "html",
+        "htm",
+        "shtml",
+        "ehtml"
+      ]
+    },
+    "text/plain": {
+      "action": 0,
       "ask": true,
       "extensions": [
         "csv",
         "txt",
         "asc",
-        "text"
-      ],
-      "handlers": [
-        {
-          "name": "TextEdit",
-          "path": "/System/Applications/TextEdit.app"
-        }
+        "text",
+        "pm",
+        "el",
+        "c",
+        "h",
+        "cc",
+        "hh",
+        "cxx",
+        "hxx",
+        "f90",
+        "conf",
+        "log"
       ]
     },
     "text/xml": {
