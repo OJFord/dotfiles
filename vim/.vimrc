@@ -48,7 +48,7 @@ command! -bang -nargs=* BLines
   \   <bang>0
   \ )
 nmap f :BLines<CR>
-nnoremap <C-L> :Commits<CR>
+nnoremap <C-C> :Commits<CR>
 command! -bang -nargs=* Buffers
   \ call fzf#vim#buffers(
   \   {
