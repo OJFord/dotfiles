@@ -4,7 +4,7 @@ Before=default.target
 
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -c 'while ! { mount | grep "%h.cipher on %h" ; } >/dev/null ; do >&2 echo "Home not ready" ; sleep 1 ; done'
+ExecStart=/bin/sh -c 'while [ -d %h.cipher ] && ! { mount | grep "%h.cipher on %h" ; } >/dev/null ; do >&2 echo "Home not ready" ; sleep 1 ; done'
 Restart=on-failure
 RemainAfterExit=yes
 
