@@ -113,7 +113,7 @@ endfunction
 autocmd BufWrite * call LanguageClient#textDocument_formatting({}, 'AfterFormat')
 
 " Completions
-set completeopt=longest,menuone,preview
+set completeopt=longest,menuone
 autocmd InsertEnter * call deoplete#enable()
 "" C-j/k completion navigation
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "j"
