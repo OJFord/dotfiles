@@ -92,7 +92,7 @@ let g:LanguageClient_serverCommands = {
 \ 'rust': ['rustup', 'run', 'stable', 'rls'],
 \ 'svelte': ['svelteserver', '--stdio'],
 \ 'terraform': ['terraform-ls', 'serve'],
-\ 'vim': ['vim-language-server'],
+\ 'vim': ['vim-language-server','--stdio'],
 \ 'vue': ['vls', '--stdio'],
 \ }
 let g:LanguageClient_settingsPath = "$VIMDIR/lsp.json"
