@@ -161,6 +161,7 @@ augroup autofoldcolumn
   au!
   au CursorHold,BufWinEnter,WinEnter * AutoOrigamiFoldColumn
 augroup END
+autocmd BufEnter * normal! zv
 set foldmethod=syntax
 set foldopen-=block
 nnoremap <expr> <space> foldclosed(".") == -1 ? 'zc' : 'zv'
@@ -195,8 +196,13 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
-" Maintain context when navigating near top/bottom
-set scrolloff=5
+" Maintain context
+set scrolloff=10
+nnoremap <C-I> <C-I>zz
+nnoremap <C-O> <C-O>zz
+nnoremap { {zz
+nnoremap } }zz
+autocmd BufEnter * normal! zz
 
 " Highlight search terms
 nnoremap <Leader>l :nohlsearch<Return>
