@@ -2,22 +2,16 @@
     statusHints = false
 
 [alias]
-    add = fzfile add
     amend = commit --amend
     changes = log HEAD...@{upstream} --left-right --graph
-    checkout = fzfile checkout
     conflicts = "!f(){ git diff --check | cut --delimiter=':' --field=1 | uniq; }; f"
-    diff = fzfile diff
     files = diff-tree --no-commit-id --name-only -r
     fixup = "!f(){ target=\"$(test -n \"$1\" && git rev-parse \"$1\" || git fzsha rev-parse)\"; git commit --fixup=\"$target\" ${@:2} && EDITOR=true git rebase -i --autostash --autosquash \"$target^\"; }; f"
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     push-new = "!f(){ remote="$1"; branch="$(git rev-parse --abbrev-ref HEAD)"; git push --set-upstream "$remote" "$branch"; }; f"
-    rebase = "!f(){ if [ \"$*\" = -i ]; then git fzsha rebase -i; else git rebase \"$@\"; fi; }; f"
     released = tag --contains
     recap = log --decorate --oneline --pretty=format:'%C(green)%cr: %C(white italic)%s %C(auto)%d' -n10 --author=@ojford.com
-    reset = fzfile reset
-    rm = fzfile rm
     rp = fzsha rev-parse
     staged = diff --cached
     uncommit = reset HEAD~1
