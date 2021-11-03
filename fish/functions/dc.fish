@@ -1,4 +1,4 @@
 function dc
     set -e DOCKER_HOST
-    docker-compose $argv
+    docker compose $argv
 end
