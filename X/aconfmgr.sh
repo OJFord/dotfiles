@@ -7,3 +7,6 @@ AddPackage numlockx
 
 AddPackage maim
 AddPackage xclip
+
+# Backlight
+AddPackage acpilight
