@@ -1,0 +1,8 @@
+#!/bin/bash
+set -eEuo pipefail
+
+if [ -z "${1:-}" ]; then
+    git add --patch
+else
+    git add "$@"
+fi
