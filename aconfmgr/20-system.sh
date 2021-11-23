@@ -4,7 +4,10 @@
 . "$XDG_CONFIG_HOME/by-hostname/$(uname --nodename)/aconfmgr.sh"
 
 # SSD TRIM
-CreateLink /etc/systemd/system/timers.target.wants/fstrim.timer /usr/lib/systemd/system/fstrim.timer
+if [ "$(cat "/sys/block/$(mount | rg 'on /boot ' | cut -d' ' -f1 | sed -E 's@/dev/(.*)p[0-9]+$@\1@')/queue/rotational")" = 0 ]; then
+    CreateLink /etc/systemd/system/timers.target.wants/fstrim.timer /usr/lib/systemd/system/fstrim.timer
+    CopyFile /etc/sysctl.d/20-ssd-swap.conf
+fi
 
 AddPackage earlyoom
 CreateLink /etc/systemd/system/multi-user.target.wants/earlyoom.service /usr/lib/systemd/system/earlyoom.service
