@@ -1,13 +1,38 @@
 # shellcheck shell=bash
-IgnorePath '/boot/*'
 IgnorePath '/etc/.updated'
 IgnorePath '/etc/ca-certificates/extracted/*'
 IgnorePath '/etc/ssl/certs/*'
 IgnorePath '/var/*'
 
 AddPackage linux
-IgnorePath '/etc/mkinitcpio.d/linux.preset'
+CopyFile /boot/loader/loader.conf 755
+IgnorePath '/boot/*/*.EFI'
+IgnorePath '/boot/*/*.efi'
+IgnorePath '/boot/EFI/*'
+IgnorePath '/boot/*.img'
+IgnorePath '/boot/vmlinuz-*'
+IgnorePath /boot/loader/random-seed
+CopyFile /etc/mkinitcpio.conf
+IgnorePath '/etc/mkinitcpio.d/*.preset'
 IgnorePath '/usr/lib/modules/*'
+
+root_device="$(findmnt --noheadings --output=source --target=/)"
+root_device_name="$(echo "$root_device" | rev | cut -d/ -f1 | rev)"
+root_partition="$(lsblk --output=name,pkname --ascii | sed -En "s@[ \`-]*${root_device_name} (.*)@\1@p")"
+root_partition_uuid="$(lsblk --noheadings --output=partuuid "/dev/$root_partition" | tr -d '\n')"
+if [ "$(lsblk --noheadings --output=type "$root_device")" = crypt ]; then
+    crypt_options="cryptdevice=PARTUUID=${root_partition_uuid}:${root_device_name}"
+else
+    crypt_options="disablehooks=encrypt"
+fi
+cat > "$(CreateFile /boot/loader/entries/arch.conf)" <<EOF
+title Arch Linux
+linux /vmlinuz-linux
+initrd /intel-ucode.img
+initrd /initramfs-linux.img
+options ${crypt_options} root=${root_device} rw intel_pstate=no_hwp
+EOF
+SetFileProperty /boot/loader/entries/arch.conf mode 755
 
 AddPackage linux-firmware
 AddPackage linux-headers
