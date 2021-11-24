@@ -1,0 +1,10 @@
+[Unit]
+After=swapfile-create
+Requires=swapfile-create
+
+[Swap]
+What=/swapfile
+Priority=20
+
+[Install]
+WantedBy=multi-user.target
