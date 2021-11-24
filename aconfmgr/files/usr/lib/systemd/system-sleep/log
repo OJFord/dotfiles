@@ -1,0 +1,11 @@
+#!/bin/bash
+set -eEuo pipefail
+
+case $1 in
+    pre)
+        echo "Going to $2..."
+        ;;
+    post)
+        echo "Waking from $2..."
+        ;;
+esac
