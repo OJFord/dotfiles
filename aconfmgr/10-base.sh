@@ -48,6 +48,11 @@ AddPackageGroup base-devel
 AddPackage man-pages
 AddPackage man-db
 
+cat >> "$(GetPackageOriginalFile pacman /etc/pacman.conf)" <<EOF
+[options]
+Color
+ParallelDownloads = 5
+EOF
 AddPackage pacman-contrib
 CopyFile /etc/pacman.d/hooks/pacdiff.hook
 IgnorePath '/etc/pacman.d/gnupg/*'
