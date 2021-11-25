@@ -55,6 +55,7 @@ AddPackage reflector
 CreateLink /etc/systemd/system/multi-user.target.wants/reflector.service /usr/lib/systemd/system/reflector.service
 IgnorePath /etc/pacman.d/mirrorlist
 CopyFile /etc/pacman.d/hooks/mirrorupgrade.hook
+CreateLink /etc/systemd/system/timers.target.wants/paccache.timer /usr/lib/systemd/system/paccache.timer
 
 CreateLink '/etc/systemd/system/ctrl-alt-del.target' '/usr/lib/systemd/system/reboot.target'
 CreateLink '/etc/systemd/system/dbus-org.freedesktop.network1.service' '/usr/lib/systemd/system/systemd-networkd.service'
