@@ -25,12 +25,18 @@ if [ "$(lsblk --noheadings --output=type "$root_device")" = crypt ]; then
 else
     crypt_options="disablehooks=encrypt"
 fi
+ucode="$(yay -Qs --quiet \\-ucode)"
+if [ "$ucode" = 'intel-ucode' ]; then
+    cpu_options="intel_pstate=no_hwp"
+else
+    cpu_options=
+fi
 cat > "$(CreateFile /boot/loader/entries/arch.conf)" <<EOF
 title Arch Linux
 linux /vmlinuz-linux
-initrd /intel-ucode.img
+initrd /${ucode}.img
 initrd /initramfs-linux.img
-options ${crypt_options} root=${root_device} rw intel_pstate=no_hwp
+options ${crypt_options} root=${root_device} rw ${cpu_options}
 EOF
 SetFileProperty /boot/loader/entries/arch.conf mode 755
 
