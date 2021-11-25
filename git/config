@@ -127,6 +127,15 @@
 [tag]
     forceSignAnnotated = true
 
+[url "git@github.com:"]
+        insteadOf = gh:
+
+[url "git@gitlab.com:"]
+        insteadOf = gl:
+
+[url "aur@aur.archlinux.org:"]
+        insteadOf = aur:
+
 [user]
     name = Oliver Ford
     email = dev@ojford.com
