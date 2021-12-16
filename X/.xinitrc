@@ -22,4 +22,5 @@ ibus-daemon --daemonize --replace --xim
 
 numlockx &
 
+feh --bg-scale "$XDG_CONFIG_HOME/X/bg.png"
 exec i3
