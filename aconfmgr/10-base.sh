@@ -1,13 +1,44 @@
 # shellcheck shell=bash
-IgnorePath '/boot/*'
 IgnorePath '/etc/.updated'
 IgnorePath '/etc/ca-certificates/extracted/*'
 IgnorePath '/etc/ssl/certs/*'
 IgnorePath '/var/*'
 
 AddPackage linux
-IgnorePath '/etc/mkinitcpio.d/linux.preset'
+CopyFile /boot/loader/loader.conf 755
+IgnorePath '/boot/*/*.EFI'
+IgnorePath '/boot/*/*.efi'
+IgnorePath '/boot/EFI/*'
+IgnorePath '/boot/*.img'
+IgnorePath '/boot/vmlinuz-*'
+IgnorePath /boot/loader/random-seed
+CopyFile /etc/mkinitcpio.conf
+IgnorePath '/etc/mkinitcpio.d/*.preset'
 IgnorePath '/usr/lib/modules/*'
+
+root_device="$(findmnt --noheadings --output=source --target=/)"
+root_device_name="$(echo "$root_device" | rev | cut -d/ -f1 | rev)"
+root_partition="$(lsblk --output=name,pkname --ascii | sed -En "s@[ \`-]*${root_device_name} (.*)@\1@p")"
+root_partition_uuid="$(lsblk --noheadings --output=partuuid "/dev/$root_partition" | tr -d '\n')"
+if [ "$(lsblk --noheadings --output=type "$root_device")" = crypt ]; then
+    crypt_options="cryptdevice=PARTUUID=${root_partition_uuid}:${root_device_name}"
+else
+    crypt_options="disablehooks=encrypt"
+fi
+ucode="$(yay -Qs --quiet \\-ucode)"
+if [ "$ucode" = 'intel-ucode' ]; then
+    cpu_options="intel_pstate=no_hwp"
+else
+    cpu_options=
+fi
+cat > "$(CreateFile /boot/loader/entries/arch.conf)" <<EOF
+title Arch Linux
+linux /vmlinuz-linux
+initrd /${ucode}.img
+initrd /initramfs-linux.img
+options ${crypt_options} root=${root_device} rw ${cpu_options}
+EOF
+SetFileProperty /boot/loader/entries/arch.conf mode 755
 
 AddPackage linux-firmware
 AddPackage linux-headers
@@ -23,18 +54,19 @@ AddPackageGroup base-devel
 AddPackage man-pages
 AddPackage man-db
 
+cat >> "$(GetPackageOriginalFile pacman /etc/pacman.conf)" <<EOF
+[options]
+Color
+ParallelDownloads = 5
+EOF
 AddPackage pacman-contrib
 CopyFile /etc/pacman.d/hooks/pacdiff.hook
 IgnorePath '/etc/pacman.d/gnupg/*'
-if [[ ! -f /etc/pacman.d/mirrorlist ]]
-then
-    curl --silent 'https://www.archlinux.org/mirrorlist/?country=GB&protocol=https&use_mirror_status=on' \
-        | sed -e 's/^#Server/Server/g' -e '/^#/d' \
-        | rankmirrors -n 5 - \
-        > "$(CreateFile '/etc/pacman.d/mirrorlist')"
-else
-    IgnorePath '/etc/pacman.d/mirrorlist'
-fi
+AddPackage reflector
+CreateLink /etc/systemd/system/multi-user.target.wants/reflector.service /usr/lib/systemd/system/reflector.service
+IgnorePath /etc/pacman.d/mirrorlist
+CopyFile /etc/pacman.d/hooks/mirrorupgrade.hook
+CreateLink /etc/systemd/system/timers.target.wants/paccache.timer /usr/lib/systemd/system/paccache.timer
 
 CreateLink '/etc/systemd/system/ctrl-alt-del.target' '/usr/lib/systemd/system/reboot.target'
 CreateLink '/etc/systemd/system/dbus-org.freedesktop.network1.service' '/usr/lib/systemd/system/systemd-networkd.service'

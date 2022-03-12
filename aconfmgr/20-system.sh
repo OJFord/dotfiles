@@ -1,12 +1,7 @@
 # shellcheck shell=bash
-if [ "$(uname --nodename)" = desk ]; then
-    AddPackage xf86-video-ati
-    CopyFile /etc/X11/xorg.conf.d/10-benq-bl2420pt.conf
 
-fi
-
-# SSD TRIM
-CreateLink /etc/systemd/system/timers.target.wants/fstrim.timer /usr/lib/systemd/system/fstrim.timer
+# shellcheck source=/dev/null
+. "$XDG_CONFIG_HOME/by-hostname/$(uname --nodename)/aconfmgr.sh"
 
 AddPackage earlyoom
 CreateLink /etc/systemd/system/multi-user.target.wants/earlyoom.service /usr/lib/systemd/system/earlyoom.service
@@ -45,3 +40,8 @@ CreateLink /etc/os-release ../usr/lib/os-release
 IgnorePath /etc/udev/hwdb.bin
 
 IgnorePath /usr/share/mime/*
+
+# Power
+AddPackage powertop
+CopyFile /etc/systemd/system/powertop.service
+CreateLink /etc/systemd/system/multi-user.target.wants/powertop.service /etc/systemd/system/powertop.service
