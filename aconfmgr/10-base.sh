@@ -18,7 +18,7 @@ IgnorePath '/usr/lib/modules/*'
 
 root_device="$(findmnt --noheadings --output=source --target=/)"
 root_device_name="$(echo "$root_device" | rev | cut -d/ -f1 | rev)"
-root_partition="$(lsblk --output=name,pkname --ascii | sed -En "s@[ \`-]*${root_device_name} (.*)@\1@p")"
+root_partition="$(lsblk --output=name,pkname --list --noheadings | sed -En "s@${root_device_name} +([^ ]+)@\1@p")"
 root_partition_uuid="$(lsblk --noheadings --output=partuuid "/dev/$root_partition" | tr -d '\n')"
 if [ "$(lsblk --noheadings --output=type "$root_device")" = crypt ]; then
     crypt_options="cryptdevice=PARTUUID=${root_partition_uuid}:${root_device_name}"
