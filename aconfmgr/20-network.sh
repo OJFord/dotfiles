@@ -17,3 +17,8 @@ CopyFile /etc/systemd/network/20-wwan.network
 AddPackage iwd
 CopyFile /etc/iwd/main.conf
 CreateLink /etc/systemd/system/multi-user.target.wants/iwd.service /usr/lib/systemd/system/iwd.service
+
+# USB tether
+CopyFile /etc/systemd/network/50-phone0.link
+CopyFile /etc/systemd/network/50-phone-tethering.network
+CopyFile /etc/udev/rules.d/90-phone-tethering.rules
