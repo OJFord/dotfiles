@@ -25,7 +25,7 @@ CopyFile /etc/X11/xorg.conf.d/00-keyboard.conf
 sed -i 's/^#\(en_GB\.UTF-8\)/\1/' "$(GetPackageOriginalFile glibc /etc/locale.gen)"
 sudo locale-gen
 IgnorePath /usr/lib/locale/locale-archive
-IgnorePath /etc/locale.conf
+CopyFile /etc/locale.conf
 CopyFile /etc/vconsole.conf
 
 # Scanner
