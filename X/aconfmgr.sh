@@ -9,4 +9,5 @@ AddPackage maim
 AddPackage xclip
 
 # Backlight
-AddPackage acpilight
+RemovePackage xorg-xbacklight # in xorg group
+AddPackage acpilight # provides xbacklight
