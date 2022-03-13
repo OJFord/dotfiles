@@ -5,7 +5,7 @@ cat >> "$(GetPackageOriginalFile filesystem '/etc/shells')" <<-EOF
 	/bin/fish
 EOF
 
-AddPackage --foreign direnv
+AddPackage direnv
 AddPackage fd
 AddPackage fzf
 AddPackage lsd
