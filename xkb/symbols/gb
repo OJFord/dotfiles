@@ -1,0 +1,21 @@
+partial alphanumeric_keys
+xkb_symbols "mine" {
+    include "latin"
+
+    name[Group1] = "English (UK, slightly 'muricanized per my preference)";
+
+    key <AE02> { [ 2, at,       twosuperior,   oneeighth  ] };
+    key <AE03> { [ 3, sterling, threesuperior, sterling   ] };
+    key <AE04> { [ 4, dollar,   EuroSign,      onequarter ] };
+
+    key <TLDE> { [ grave,      asciitilde, bar,        notsign    ] };
+    key <BKSL> { [ numbersign, bar,        dead_grave, dead_breve ] };
+    key <LSGT> { [ backslash,  notsign,    bar,        brokenbar  ] };
+
+    key <AB04> {
+        type = "MY_SHIFT_SUPER",
+        symbols[Group1] = [ v, V, XF86Paste ]
+    };
+
+    include "level3(ralt_switch)"
+};

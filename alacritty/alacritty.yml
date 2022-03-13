@@ -15,7 +15,7 @@ font:
     family: monospace
     style: Light Italic
 
-  size: 8
+  size: 12
   offset:
     x: 0
     y: 0
@@ -110,6 +110,7 @@ key_bindings:
   - { key: I, mods: Control, command: {program: fish, args: ["--command=alacritty-invert-colours"]} }
   - { key: K, mods: Control, action: ScrollPageUp, mode: ~Alt }
   - { key: J, mods: Control, action: ScrollPageDown, mode: ~Alt }
+  - { key: Paste, mods: Super, action: Paste } # https://github.com/alacritty/alacritty/issues/5972
 
 shell:
   program: fish
