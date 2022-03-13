@@ -1,6 +1,5 @@
 configuration {
  modi: "window,drun,emoji,ssh";
- theme: "solarized";
  matching: "fuzzy";
  sort: true;
  sorting-method: "fzf";
@@ -9,3 +8,5 @@ configuration {
  kb-row-down: "Control+j";
  kb-row-up: "Control+k";
 }
+
+@theme "solarized"
