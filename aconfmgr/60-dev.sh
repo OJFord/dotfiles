@@ -22,6 +22,6 @@ AddPackage python-pre-commit
 AddPackage restic
 AddPackage ripgrep
 AddPackage shellcheck
-AddPackage --foreign stern
+AddPackage stern
 AddPackage unzip
 AddPackage yarn
