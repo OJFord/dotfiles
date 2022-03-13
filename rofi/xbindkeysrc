@@ -1,8 +1,0 @@
-"rofi -show emoji"
-    F3
-
-"systemctl --user start rofi-drun@$(date +'%s')"
-    Alt + space
-
-"rofi -show window"
-    Mod4 + Tab

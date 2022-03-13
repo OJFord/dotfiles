@@ -1,0 +1,9 @@
+bindsym {
+    XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+    XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1000'
+    XF86AudioRaiseVolume exec 'pactl set-sink-mute @DEFAULT_SINK@ 0; pactl set-sink-volume @DEFAULT_SINK@ +1000'
+    XF86AudioPlay exec 'playerctl --ignore-player=Soundcore_Life_P2,Soundcore_Life_P2_L,Soundcore_Life_P2_RS play-pause'
+    XF86AudioPrev exec 'playerctl --ignore-player=Soundcore_Life_P2,Soundcore_Life_P2_L,Soundcore_Life_P2_RS previous'
+    XF86AudioNext exec 'playerctl --ignore-player=Soundcore_Life_P2,Soundcore_Life_P2_L,Soundcore_Life_P2_RS next'
+    XF86AudioStop exec 'playerctl --ignore-player=Soundcore_Life_P2,Soundcore_Life_P2_L,Soundcore_Life_P2_RS stop'
+}

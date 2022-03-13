@@ -1,0 +1,3 @@
+bindsym {
+    F5 exec polybar-gh-issues --open
+}

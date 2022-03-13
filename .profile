@@ -6,6 +6,7 @@ export MANPATH="/usr/local/share/man:/usr/share/man"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_SCREENSHOTS_DIR="$HOME/screenshots"
 
 for p in "$XDG_CONFIG_HOME"/*/.profile; do
     # shellcheck source=/dev/null
@@ -32,6 +33,7 @@ EOF
 
 if [ "$(uname -s)" = Linux ]; then
     if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-        exec startx "$XINITRC"
+        export XDG_SESSION_TYPE=wayland
+        exec systemd-cat --identifier=sway sway
     fi
 fi

@@ -1,0 +1,4 @@
+bindsym {
+    F1 exec ibus engine xkb:::
+    F2 exec ibus engine typing-booster
+}
