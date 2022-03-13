@@ -1,87 +1,87 @@
 [submodule "fish/completions/fish-kubectl-completions"]
 	path = fish/completions/fish-kubectl-completions
-	url = git@github.com:evanlucas/fish-kubectl-completions
+	url = https://github.com/evanlucas/fish-kubectl-completions
 [submodule "fish/bass"]
 	path = fish/bass
 	url = https://github.com/edc/bass
 [submodule "vimtex"]
 	path = vim/pack/tex/opt/vimtex
-	url = git@github.com:lervag/vimtex
+	url = https://github.com/lervag/vimtex
 [submodule "vim-trailing-whitespace"]
 	path = vim/pack/all/start/vim-trailing-whitespace
-	url = git@github.com:bronson/vim-trailing-whitespace
+	url = https://github.com/bronson/vim-trailing-whitespace
 [submodule "undotree"]
 	path = vim/pack/all/start/undotree
-	url = git@github.com:mbbill/undotree
+	url = https://github.com/mbbill/undotree
 [submodule "vim-exchange"]
 	path = vim/pack/all/start/vim-exchange
-	url = git@github.com:tommcdo/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange
 [submodule "vim-commentary"]
 	path = vim/pack/all/start/vim-commentary
-	url = git@github.com:tpope/vim-commentary
+	url = https://github.com/tpope/vim-commentary
 [submodule "supertab"]
 	path = vim/pack/all/start/supertab
-	url = git@github.com:ervandew/supertab
+	url = https://github.com/ervandew/supertab
 [submodule "tabular"]
 	path = vim/pack/markdown/opt/tabular
-	url = git@github.com:godlygeek/tabular
+	url = https://github.com/godlygeek/tabular
 [submodule "SimpylFold"]
 	path = vim/pack/python/opt/SimpylFold
-	url = git@github.com:tmhedberg/SimpylFold
+	url = https://github.com/tmhedberg/SimpylFold
 [submodule "vim-easymotion"]
 	path = vim/pack/all/start/vim-easymotion
-	url = git@github.com:easymotion/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion
 [submodule "indentLine"]
 	path = vim/pack/all/start/indentLine
-	url = git@github.com:Yggdroot/indentLine
+	url = https://github.com/Yggdroot/indentLine
 [submodule "vim-airline-themes"]
 	path = vim/pack/all/start/vim-airline-themes
-	url = git@github.com:vim-airline/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
 [submodule "vim-airline"]
 	path = vim/pack/all/start/vim-airline
-	url = git@github.com:vim-airline/vim-airline
+	url = https://github.com/vim-airline/vim-airline
 [submodule "vim-auto-origami"]
 	path = vim/pack/all/start/vim-auto-origami
-	url = git@github.com:benknoble/vim-auto-origami
+	url = https://github.com/benknoble/vim-auto-origami
 [submodule "fzf.vim"]
 	path = vim/pack/all/start/fzf.vim
-	url = git@github.com:junegunn/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
 [submodule "fzf"]
 	path = vim/pack/all/start/fzf
-	url = git@github.com:junegunn/fzf
+	url = https://github.com/junegunn/fzf
 [submodule "vim-quickfix-conflicts"]
 	path = vim/pack/all/start/vim-quickfix-conflicts
-	url = git@github.com:OJFord/vim-quickfix-conflicts
+	url = https://github.com/OJFord/vim-quickfix-conflicts
 [submodule "deoplete"]
 	path = vim/pack/all/start/deoplete
-	url = git@github.com:Shougo/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim
 [submodule "vim-hug-neovim-rpc"]
 	path = vim/pack/all/start/vim-hug-neovim-rpc
-	url = git@github.com:roxma/vim-hug-neovim-rpc
+	url = https://github.com/roxma/vim-hug-neovim-rpc
 [submodule "nvim-yarp"]
 	path = vim/pack/all/start/nvim-yarp
-	url = git@github.com:roxma/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp
 [submodule "vim-signify"]
 	path = vim/pack/all/start/vim-signify
-	url = git@github.com:mhinz/vim-signify
+	url = https://github.com/mhinz/vim-signify
 [submodule "ibus/hunspell-hi"]
 	path = ibus/hunspell-hi
-	url = git@github.com:Shreeshrii/hindi-hunspell
+	url = https://github.com/Shreeshrii/hindi-hunspell
 [submodule "fzutils"]
 	path = fzf/bin
-	url = git@github.com:OJFord/fzutils
+	url = https://github.com/OJFord/fzutils
 [submodule "vim-polyglot"]
 	path = vim/pack/all/start/vim-polyglot
-	url = git@github.com:sheerun/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
 [submodule "language-client"]
 	path = vim/pack/all/start/language-client
 	url = https://github.com/autozimu/LanguageClient-neovim
 [submodule "vim-fugitive"]
 	path = vim/pack/all/start/vim-fugitive
-	url = git@github.com:tpope/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
 [submodule "vim-fugitive-gitlab"]
 	path = vim/pack/all/start/fugitive-gitlab.vim
-	url = git@github.com:shumphrey/fugitive-gitlab.vim
+	url = https://github.com/shumphrey/fugitive-gitlab.vim
 [submodule "yagro.dotfiles"]
 	path = yagro.dotfiles
 	url = git@github.com:OJFord/yagro.dotfiles
