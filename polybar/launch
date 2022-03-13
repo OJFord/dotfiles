@@ -1,7 +1,0 @@
-#!/bin/sh
-set -e
-
-killall -q polybar || true
-while pgrep -x polybar >/dev/null; do sleep 1; done
-
-polybar one

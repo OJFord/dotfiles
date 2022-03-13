@@ -7,10 +7,8 @@ user_pref('ui.context_menus.after_mouseup', true);
 user_pref('privacy.firstparty.isolate', true);
 
 // Scrolling
-// https://wiki.archlinux.org/index.php/Firefox/Tweaks#Jerky_or_choppy_scrolling
-user_pref('mousewheel.min_line_scroll_amount', 40);
-user_pref('general.smoothScroll', false);
-user_pref('general.smoothScroll.pages', false);
+user_pref('apz.gtk.kinetic_scroll.enabled', false);
+user_pref('mousewheel.default.delta_multiplier_y', 50);
 user_pref('image.mem.min_discard_timeout_ms', 2140000000);
 user_pref('image.mem.max_decoded_image_kb', 524288);
 

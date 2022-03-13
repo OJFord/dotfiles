@@ -1,13 +1,69 @@
-exec_always --no-startup-id picom
+exec swayidle -w
+exec wl-paste --watch cliphist store
+exec wl-paste --primary --watch wl-copy # sync selections
 
-set $mod_global mod4
-set $mod_desktop mod1
+bar {
+    position top
+    swaybar_command waybar
+}
+
+output * scale 1
+output * bg "$XDG_CONFIG_HOME/sway/bg.png" fill
+
+input type:keyboard {
+    xkb_layout "gb"
+    xkb_variant "mine"
+    xkb_options "caps:escape,altwin:swap_lalt_lwin"
+
+    xkb_numlock enable
+}
+
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+
+    accel_profile adaptive
+    pointer_accel 0.4
+}
+
+set $mod_global Mod4
+set $mod_desktop Mod1
+bindsym {
+    $mod_desktop+Return exec alacritty
+
+    XF86MonBrightnessDown exec brightnessctl set 3%-
+    XF86MonBrightnessUp exec brightnessctl set 3%+
+
+    Mod4+c exec 'cliphist list | rofi -dmenu | cliphist decode | wl-copy'
+
+    Print exec grimshot save active
+    Alt+Print exec grimshot copy active
+    --release Shift+Print exec grimshot save area
+    --release Alt+Shift+Print exec grimshot copy area
+}
+
+include "$XDG_CONFIG_HOME"/*/swayconfig
+
+# no titlebar
+default_border pixel 1
+
+# default application workspaces
+assign [app_id="discord"] 2
+assign [app_id="Slack"] 2
+assign [app_id="DBeaver"] 3
+for_window [app_id="DBeaver "] move container to workspace 3
+assign [app_id="firefox"] 5
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="fzf-dmenu"] floating enable
+for_window [app_id="bar-term"] floating enable
+
+
+# legacy i3 config below
+
 floating_modifier $mod_global
 
 font pango:Monospace 10
 
-# Terminal emulator
-bindsym $mod_desktop+Return exec i3-sensible-terminal
 
 bindsym $mod_desktop+Shift+q kill
 
@@ -21,8 +77,6 @@ mode "browse scratchpad" {
 
 for_window [window_role="PictureInPicture"] sticky enable
 
-# no titlebar
-new_window 1pixel
 
 # change focus
 focus_wrapping no
@@ -75,16 +129,6 @@ bindsym $mod_global+Shift+7 move container to workspace 7
 bindsym $mod_global+Shift+8 move container to workspace 8
 bindsym $mod_global+Shift+9 move container to workspace 9
 bindsym $mod_global+Shift+0 move container to workspace 10
-
-# default application workspaces
-assign [class="discord"] 2
-assign [class="Slack"] 2
-assign [class="DBeaver"] 3
-for_window [title="DBeaver "] move container to workspace 3
-assign [class="firefox"] 5
-for_window [class="Pavucontrol"] floating enable
-for_window [class="fzf-dmenu"] floating enable
-for_window [class="polybar-term"] floating enable
 
 # reload the configuration file
 bindsym $mod_global+Shift+c reload

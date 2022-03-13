@@ -1,8 +1,0 @@
-! Slightly Americanize [sic] but keep AltGr keys
-! - swap @ & "
-keycode 11 = 2 at twosuperior oneeighth
-keycode 48 = apostrophe quotedbl dead_circumflex dead_caron
-! - three-way swap | & ~ & useless ¬
-keycode 49 = grave asciitilde bar notsign
-keycode 51 = numbersign bar dead_grave dead_breve
-keycode 94 = backslash notsign bar brokenbar

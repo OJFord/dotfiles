@@ -4,7 +4,6 @@ After=default.target
 
 [Service]
 Type=oneshot
-Environment=DISPLAY=:0
 ExecStart=dex -a
 Restart=on-failure
 RemainAfterExit=yes

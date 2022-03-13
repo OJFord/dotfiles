@@ -1,0 +1,3 @@
+bindsym {
+    F4 exec pass-dmenu
+}

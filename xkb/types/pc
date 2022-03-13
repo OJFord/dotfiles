@@ -1,0 +1,12 @@
+default partial xkb_types "mine" {
+    type "MY_SHIFT_SUPER" {
+       modifiers = Shift+Mod4;
+       map[None] = Level1;
+       map[Shift] = Level2;
+       map[Mod4] = Level3;
+       #preserve[Mod4] = None;
+       level_name[Level1] = "Base";
+       level_name[Level2] = "Shift";
+       level_name[Level3] = "Super";
+    };
+};

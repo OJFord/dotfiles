@@ -1,5 +1,8 @@
 # shellcheck shell=bash
+
+# shellcheck disable=SC2154
 this_dir="$config_dir" # defined in aconfmgr
+
 if ! [ -L "${XDG_CONFIG_HOME-}" ]; then
     if [ -z "${XDG_CONFIG_HOME-}" ]; then
         export XDG_CONFIG_HOME="$HOME/.config"
@@ -21,7 +24,6 @@ fi
 AddPackage earlyoom
 CreateLink /etc/systemd/system/multi-user.target.wants/earlyoom.service /usr/lib/systemd/system/earlyoom.service
 
-CopyFile /etc/X11/xorg.conf.d/00-keyboard.conf
 sed -i 's/^#\(en_GB\.UTF-8\)/\1/' "$(GetPackageOriginalFile glibc /etc/locale.gen)"
 sudo locale-gen
 IgnorePath /usr/lib/locale/locale-archive

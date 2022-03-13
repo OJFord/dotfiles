@@ -2,7 +2,7 @@
 set -eEu
 set -o pipefail
 
-cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/polybar-gh"
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/bar-gh-issues"
 mkdir -p "$cache_dir"
 
 query_api() {
