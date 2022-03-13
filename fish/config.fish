@@ -1,4 +1,4 @@
-bass source .profile
+bass source "$HOME/.profile"
 set --unexport fish_greeting
 
 for function_d in (find "$XDG_CONFIG_HOME/" -maxdepth 3 -name functions -type d)
