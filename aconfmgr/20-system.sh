@@ -51,6 +51,7 @@ CopyFile "/etc/sudoers.d/10-$(whoami)"
 IgnorePath '/**/*.lock'
 IgnorePath '/**/*.cache'
 IgnorePath /etc/machine-id
+IgnorePath /etc/machine-info
 CreateLink /etc/os-release ../usr/lib/os-release
 IgnorePath /etc/udev/hwdb.bin
 
