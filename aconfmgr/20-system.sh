@@ -1,4 +1,19 @@
 # shellcheck shell=bash
+this_dir="$config_dir" # defined in aconfmgr
+if ! [ -L "${XDG_CONFIG_HOME-}" ]; then
+    if [ -z "${XDG_CONFIG_HOME-}" ]; then
+        export XDG_CONFIG_HOME="$HOME/.config"
+        echo set xdgch
+    fi
+
+    rm -r "$HOME/.config" # only this dir may have been created automatically, leave other XDG_CONFIG_HOMEs
+    ln -sT "$(realpath --relative-to="$(dirname "$XDG_CONFIG_HOME")" "$this_dir/..")" "$XDG_CONFIG_HOME"
+fi
+
+if ! [ -L "$HOME/.profile" ]; then
+    rm -f "$HOME/.profile" "$HOME"/.{bash,less,npm,vim}*
+    ln -sT "$(realpath --relative-to="$HOME" --no-symlinks "$XDG_CONFIG_HOME/.profile")" "$HOME/.profile"
+fi
 
 # shellcheck source=/dev/null
 . "$XDG_CONFIG_HOME/by-hostname/$(uname --nodename)/aconfmgr.sh"
