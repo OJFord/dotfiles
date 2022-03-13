@@ -11,7 +11,6 @@ fi
 
 xrdb -load "$XDG_CONFIG_HOME/X/.Xresources"
 
-setxkbmap gb
 xmodmap "$XDG_CONFIG_HOME/X/.Xmodmap"
 
 for f in "$XDG_CONFIG_HOME"/*/xbindkeysrc; do
