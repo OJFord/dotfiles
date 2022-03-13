@@ -11,3 +11,6 @@ AddPackage xclip
 # Backlight
 RemovePackage xorg-xbacklight # in xorg group
 AddPackage acpilight # provides xbacklight
+
+# Background
+AddPackage feh
