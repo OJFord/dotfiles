@@ -5,6 +5,7 @@ IgnorePath '/etc/ssl/certs/*'
 IgnorePath '/var/*'
 
 AddPackage linux
+AddPackage linux-lts
 CopyFile /boot/loader/loader.conf 755
 IgnorePath '/boot/*/*.EFI'
 IgnorePath '/boot/*/*.efi'
@@ -31,17 +32,21 @@ if [ "$ucode" = 'intel-ucode' ]; then
 else
     cpu_options=
 fi
-cat > "$(CreateFile /boot/loader/entries/arch.conf)" <<EOF
-title Arch Linux
-linux /vmlinuz-linux
-initrd /${ucode}.img
-initrd /initramfs-linux.img
-options ${crypt_options} root=${root_device} rw ${cpu_options}
-EOF
-SetFileProperty /boot/loader/entries/arch.conf mode 755
+linuces=('linux' 'linux-lts')
+for linux in "${linuces[@]}"; do
+    cat > "$(CreateFile "/boot/loader/entries/arch-${linux}.conf")" <<-EOF
+		title Arch (${linux})
+		linux /vmlinuz-${linux}
+		initrd /${ucode}.img
+		initrd /initramfs-${linux}.img
+		options ${crypt_options} root=${root_device} rw ${cpu_options}
+	EOF
+    SetFileProperty "/boot/loader/entries/arch-${linux}.conf" mode 755
+done
 
 AddPackage linux-firmware
 AddPackage linux-headers
+AddPackage linux-lts-headers
 
 AddPackage coreutils
 IgnorePath '/usr/share/info/dir'

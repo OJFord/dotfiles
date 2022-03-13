@@ -10,9 +10,13 @@ if swap_device="$(findmnt --noheadings --output=source --target=/swapfile)"; the
     swap_offset="$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}')"
 
     # Enable hibernation
-    sed -E "s/(title .*)/\1 (resume)/;s@(options .*)@\1 resume=${swap_device} resume_offset=${swap_offset}@" /boot/loader/entries/arch.conf \
-        > "$(CreateFile /boot/loader/entries/arch-resume-hibernation.conf)"
-    SetFileProperty /boot/loader/entries/arch-resume-hibernation.conf mode 755
+    for f in /boot/loader/entries/arch-*.conf; do
+        resume_f="$(echo "$f" | sed -E 's/(.*)\.conf/\1-resume-hibernation.conf/')"
+        sed -E "s/(title .*)/\1 (resume)/;s@(options .*)@\1 resume=${swap_device} resume_offset=${swap_offset}@" "$f" \
+            > "$(CreateFile "$resume_f")"
+        SetFileProperty "$resume_f" mode 755
+    done
+
     CopyFile /etc/systemd/logind.conf.d/sleep.conf
     CopyFile /usr/lib/systemd/system-sleep/log 755
 else
