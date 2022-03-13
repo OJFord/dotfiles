@@ -1,0 +1,86 @@
+{
+    "layer": "top",
+
+    "modules-left": [
+        "battery",
+        "sway/workspaces",
+        "sway/mode",
+        "cpu",
+        "memory",
+        "disk",
+        "custom/pkgupdates",
+        "custom/gh-issues",
+    ],
+    "modules-center": [
+        "clock",
+    ],
+    "modules-right": [
+        "custom/mpris",
+        "pulseaudio",
+        "tray",
+    ],
+
+    "battery": {
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "⚡ {capacity}%",
+        "format-discharging": "{icon} {capacity}%",
+        "format-not charging": "⚡",
+    },
+
+    "clock": {
+        "format": "{:%d/%m %A %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+
+    "cpu": {
+        "interval": 1,
+        "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7} {usage:>2}%",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    },
+
+    "custom/gh-issues": {
+        "exec": "bar-gh-issues",
+        "on-click": "bar-gh-issues --open",
+    },
+
+    "custom/mpris": {
+        "return-type": "json",
+        "exec": "waybar-mpris --position --autofocus",
+        "on-click": "waybar-mpris --send toggle",
+        "on-click-right": "waybar-mpris --send player-next",
+        "escape": true,
+    },
+
+    "custom/pkgupdates": {
+        "exec": "bar-pkgupdates",
+        "on-click": "bar-pkgupdates --open",
+    },
+
+    "disk": {
+        "format": "{free}",
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}% {desc} {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " {volume}%",
+        "format-icons": {
+            "headphones": "",
+            "default": ["", "", ""],
+        },
+        "on-click": "pulseaudio-control next-sink",
+        "on-click-right": "pavucontrol",
+    },
+
+    "memory": {
+    },
+
+    "sway/workspaces": {
+    },
+
+    "sway/mode": {
+    },
+
+    "tray": {
+    },
+}

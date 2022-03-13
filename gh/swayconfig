@@ -1,0 +1,3 @@
+bindsym {
+    F5 exec bar-gh-issues --open
+}

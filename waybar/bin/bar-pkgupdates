@@ -14,8 +14,8 @@ function Check() {
 
 function Open() {
     alacritty \
-        -o window.class.general=polybar-term \
-        -o window.class.instance=polybar-term \
+        -o window.class.general=bar-term \
+        -o window.class.instance=bar-term \
         -o window.dimensions.columns=60 \
         -o window.dimensions.lines=12 \
         -o window.position.x=150 \

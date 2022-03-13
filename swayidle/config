@@ -1,0 +1,7 @@
+before-sleep 'playerctl pause'
+before-sleep 'swaylock --daemonize'
+
+lock 'playerctl pause'
+lock 'swaylock --daemonize'
+
+idlehint 1200
