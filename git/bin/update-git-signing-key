@@ -1,0 +1,21 @@
+#!/bin/bash
+set -eEuo pipefail
+
+configf="$XDG_CONFIG_HOME/git/active-gpg-key.config"
+
+if [ "${1-}" = "--remove" ]; then
+    >&2 echo 'Removing signingKey'
+    cat </dev/null >"$configf"
+    exit 0
+fi
+
+key="$(gpg --card-status | grep 'Signature key' | tr -d ' ' | cut -d: -f2)";
+>&2 echo "Found key: $key"
+
+if [ -f "$XDG_CONFIG_HOME/gnupg/pub/${key}.pgp.pub.asc" ]; then
+    >&2 echo 'Updating git signingKey'
+    echo -e "[user]\n signingKey=$key" \
+        >"$configf"
+else
+    >&2 echo "$key not known, ignoring"
+fi
