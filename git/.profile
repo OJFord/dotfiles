@@ -7,7 +7,4 @@ case "$(uname -s)" in
         ;;
 esac
 
-cat \
-    <(echo -en '[user]\n signingKey=') \
-    <(gpg --card-status | grep 'Signature key' | tr -d ' ' | cut -d: -f2) \
-    > "$XDG_CONFIG_HOME/git/active-gpg-key.config"
+update-git-signing-key
