@@ -8,3 +8,5 @@ CopyFile /etc/modprobe.d/docker.conf
 CopyFile /etc/systemd/system/docker.service.d/resourcecontrol.conf
 
 AddPackage docker-compose
+
+sudo usermod --append --groups docker "$USER"
