@@ -18,7 +18,7 @@ repos:
       - id: sort-simple-yaml
       - id: trailing-whitespace
 
-  - repo: https://github.com/ArturKlauser/shellcheck
-    rev: 5f66176
+  - repo: https://github.com/koalaman/shellcheck-precommit
+    rev: v0.8.0
     hooks:
       - id: shellcheck
