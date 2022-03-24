@@ -1,6 +1,5 @@
 [Unit]
-After=swapfile-create
-Requires=swapfile-create
+Description=providing a swapfile
 
 [Swap]
 What=/swapfile

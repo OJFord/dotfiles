@@ -4,6 +4,7 @@ IgnorePath /swapfile
 CopyFile /etc/systemd/system/swapfile.swap
 CopyFile /etc/systemd/system/swapfile-create.service
 CreateLink /etc/systemd/system/multi-user.target.wants/swapfile.swap /etc/systemd/system/swapfile.swap
+CreateLink /etc/systemd/system/swapfile.swap.requires/swapfile-create.service /etc/systemd/system/swapfile-create.service
 
 # Before and during first `apply`, the swap device does not exist so cannot be used until the second.
 if swap_device="$(findmnt --noheadings --output=source --target=/swapfile)"; then

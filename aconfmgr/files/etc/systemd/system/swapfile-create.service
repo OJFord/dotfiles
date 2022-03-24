@@ -1,9 +1,13 @@
 [Unit]
-Description=Create a swap file at /swapfile
+Description=creating a swap file at /swapfile
 ConditionPathExists=!/swapfile
+Before=swapfile.swap
 
 [Service]
 Type=oneshot
 ExecStart=/bin/sh -c 'dd if=/dev/zero of=/swapfile bs=1M count="$(expr "$(cat /sys/power/image_size)" / 1024 / 1024)" status=progress'
 ExecStart=/usr/bin/chmod 600 /swapfile
 ExecStart=/usr/bin/mkswap /swapfile
+
+[Install]
+RequiredBy=swapfile.swap
