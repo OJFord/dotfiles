@@ -1,4 +1,5 @@
 /.#*
+/env.conf
 /private-keys-v*.d
 /*.kbx*
 /random_seed

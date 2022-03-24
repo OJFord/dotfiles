@@ -1,3 +1,6 @@
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+echo "GNUPGHOME=$GNUPGHOME" > "$GNUPGHOME/env.conf"
+
 chmod 0700 "$GNUPGHOME"
 
 for f in "$GNUPGHOME"/pub/*.pgp.pub.asc; do
