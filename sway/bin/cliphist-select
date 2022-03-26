@@ -1,0 +1,7 @@
+#!/bin/bash
+set -eEuo pipefail
+
+selection="$(cliphist list | rofi -dmenu | sed -E 's/(\d+\. ).*/\1/')"
+if [ -n "$selection" ]; then
+    echo "$selection" | cliphist decode | wl-copy
+fi

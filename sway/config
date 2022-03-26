@@ -34,7 +34,7 @@ bindsym {
     XF86MonBrightnessDown exec brightnessctl set 3%-
     XF86MonBrightnessUp exec brightnessctl set 3%+
 
-    Mod4+c exec 'cliphist list | rofi -dmenu | cliphist decode | wl-copy'
+    Mod4+c exec "$XDG_CONFIG_HOME/sway/bin/cliphist-select"
 
     Print exec grimshot save active
     Alt+Print exec grimshot copy active
