@@ -1,6 +1,30 @@
 @import '/etc/xdg/waybar/style.css';
 
-#pulseaudio {
+window#waybar {
+    background: @theme_base_color;
+    border-bottom: 0px;
+    color: @theme_text_color;
+}
+
+* {
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+
+#backlight,
+#battery,
+#clock,
+#cpu,
+#custom-media,
+#disk,
+#idle_inhibitor,
+#memory,
+#mode,
+#mpd,
+#network,
+#pulseaudio,
+#temperature,
+#tray {
     background-color: inherit;
     color: inherit;
 }
