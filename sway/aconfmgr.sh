@@ -21,3 +21,4 @@ AddPackage --foreign grimshot
 # Sleep
 AddPackage swayidle
 AddPackage swaylock
+AddPackage --foreign systemd-lock-handler
