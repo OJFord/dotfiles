@@ -63,6 +63,7 @@
 
     "pulseaudio#sink": {
         "format": "{icon} {volume}% {desc}",
+        "format-muted": "🔇 {volume}% {desc}",
         "format-icons": {
             "headphones": "",
             "default": ["", "", ""],
