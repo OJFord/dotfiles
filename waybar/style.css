@@ -1,0 +1,19 @@
+@import '/etc/xdg/waybar/style.css';
+
+#pulseaudio {
+    background-color: inherit;
+    color: inherit;
+}
+
+#pulseaudio.muted {
+    background-color: inherit;
+    color: inherit;
+}
+
+#pulseaudio.sink.muted {
+    color: @theme_unfocused_fg_color;
+}
+
+#pulseaudio.source.source-muted {
+    color: @theme_unfocused_fg_color;
+}
