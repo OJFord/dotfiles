@@ -1,0 +1,11 @@
+[Unit]
+Description=pausing media
+Requisite=graphical-session.target
+PartOf=lock.target
+
+[Service]
+ExecCondition=/usr/bin/playerctl status
+ExecStart=/usr/bin/playerctl pause
+
+[Install]
+WantedBy=lock.target

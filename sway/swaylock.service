@@ -1,0 +1,11 @@
+[Unit]
+Description=locking the screen
+Requisite=graphical-session.target
+PartOf=lock.target
+
+[Service]
+ExecStart=/usr/bin/swaylock
+ExecStopPost=/usr/bin/loginctl unlock-session
+
+[Install]
+RequiredBy=lock.target
