@@ -16,7 +16,8 @@
     ],
     "modules-right": [
         "custom/mpris",
-        "pulseaudio",
+        "pulseaudio#sink",
+        "pulseaudio#source",
         "tray",
     ],
 
@@ -60,10 +61,8 @@
         "format": "{free}",
     },
 
-    "pulseaudio": {
-        "format": "{icon} {volume}% {desc} {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": " {volume}%",
+    "pulseaudio#sink": {
+        "format": "{icon} {volume}% {desc}",
         "format-icons": {
             "headphones": "",
             "default": ["", "", ""],
@@ -73,6 +72,16 @@
         // https://github.com/Alexays/Waybar/issues/1140
         "on-scroll-down": "pamixer --allow-boost --increase=1",
         "on-scroll-up": "pamixer --allow-boost --decrease=1",
+    },
+
+    "pulseaudio#source": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " {volume}%",
+        "on-click-right": "pamixer --default-source --toggle-mute",
+        // https://github.com/Alexays/Waybar/issues/1140
+        "on-scroll-down": "pamixer --default-source --increase=1",
+        "on-scroll-up": "pamixer --default-source --decrease=1",
     },
 
     "memory": {
