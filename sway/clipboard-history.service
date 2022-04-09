@@ -1,0 +1,10 @@
+[Unit]
+Description=storing clipboard history
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/wl-paste --watch /usr/bin/cliphist store
+
+[Install]
+WantedBy=graphical-session.target
