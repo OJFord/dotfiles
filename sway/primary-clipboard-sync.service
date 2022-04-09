@@ -1,0 +1,10 @@
+[Unit]
+Description=synchronising clipboard & primary selection
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/wl-paste --primary --watch /usr/bin/wl-copy
+
+[Install]
+WantedBy=graphical-session.target

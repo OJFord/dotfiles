@@ -1,9 +1,5 @@
 include /etc/sway/config.d/*
 
-exec swayidle -w
-exec wl-paste --watch cliphist store
-exec wl-paste --primary --watch wl-copy # sync selections
-
 bar {
     position top
     swaybar_command waybar
