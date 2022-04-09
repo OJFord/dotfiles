@@ -69,7 +69,7 @@
             "default": ["", "", ""],
         },
         "on-click": "pulseaudio-control next-sink",
-        "on-click-right": "pavucontrol",
+        "on-click-right": "pamixer --toggle-mute",
         // https://github.com/Alexays/Waybar/issues/1140
         "on-scroll-down": "pamixer --allow-boost --increase=1",
         "on-scroll-up": "pamixer --allow-boost --decrease=1",
