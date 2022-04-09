@@ -4,7 +4,7 @@ Before=default.target
 
 [Service]
 Type=oneshot
-ExecStart=/bin/sh -c 'while ! sway --get-socketpath >/dev/null ; do >&2 echo "Display not ready" ; sleep 1 ; done'
+ExecStart=/bin/sh -c 'sway --get-socketpath 2>/dev/null || { echo "Display not ready" && false ;}'
 Restart=on-failure
 RemainAfterExit=yes
 
