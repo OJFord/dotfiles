@@ -1,5 +1,6 @@
 # shellcheck shell=bash
 AddPackage sway
+AddPackage --foreign sway-systemd
 AddPackage --foreign wev
 
 # Backlight
