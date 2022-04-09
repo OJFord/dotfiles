@@ -1,0 +1,10 @@
+[Unit]
+Description=watching for idle
+PartOf=sway-session.target
+After=sway-session.target
+
+[Service]
+ExecStart=/usr/bin/swayidle
+
+[Install]
+WantedBy=sway-session.target
