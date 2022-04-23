@@ -112,5 +112,6 @@ CreateLink '/etc/systemd/system/sockets.target.wants/systemd-networkd.socket' '/
 CreateLink '/etc/systemd/system/sockets.target.wants/systemd-userdbd.socket' '/usr/lib/systemd/system/systemd-userdbd.socket'
 CreateLink '/etc/systemd/system/sysinit.target.wants/systemd-repart.service' '/usr/lib/systemd/system/systemd-repart.service'
 CreateLink '/etc/systemd/system/systemd-remount-fs.service.wants/systemd-pstore.service' '/usr/lib/systemd/system/systemd-pstore.service'
-f="$(GetPackageOriginalFile systemd /etc/systemd/journald.conf)"
-sed -i_-E 's/^#?SystemMaxUse=.*$/SystemMaxUse=1G/' "$f"
+cat > "$(CreateFile /etc/systemd/journald.conf.d/size.conf)" <<-EOF
+	SystemMaxUse=1G
+EOF
