@@ -5,3 +5,4 @@ AddPackage pam_mount
 CopyFile /etc/fuse.conf
 CopyFile /etc/pam.d/system-login
 CopyFile /etc/security/pam_mount.conf.xml
+getent group encrypted-home >/dev/null || sudo groupadd encrypted-home
