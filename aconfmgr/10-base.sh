@@ -39,6 +39,8 @@ for linux in "${linuces[@]}"; do
         swap_offset="$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}')"
         hibernation_resume_params="resume=${swap_device} resume_offset=${swap_offset}"
         CopyFile /etc/systemd/logind.conf.d/sleep.conf
+        CopyFile /etc/systemd/sleep.conf.d/hibernate.conf
+        CopyFile /etc/udev/rules.d/90-low-battery.rules
         CopyFile /usr/lib/systemd/system-sleep/log 755
 
         # Add a fall back entry without resume
