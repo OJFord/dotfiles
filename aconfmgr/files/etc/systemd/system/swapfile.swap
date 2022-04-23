@@ -1,9 +1,10 @@
 [Unit]
 Description=providing a swapfile
+Before=swap.target
 
 [Swap]
 What=/swapfile
 Priority=20
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=swap.target
