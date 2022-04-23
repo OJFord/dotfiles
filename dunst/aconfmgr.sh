@@ -1,3 +1,3 @@
 # shellcheck shell=bash
 AddPackage dunst
-AddPackage gnome-icon-theme
+AddPackage --foreign gnome-icon-theme
