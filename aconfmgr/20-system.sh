@@ -49,6 +49,7 @@ f="$(GetPackageOriginalFile sudo /etc/sudoers)"
 sed -i_ 's|^#\(#includedir /etc/sudoers\.d\)|\1|' "$f"
 sudo rm "${f}_"
 CopyFile "/etc/sudoers.d/10-$(whoami)"
+sudo usermod --comment='Oliver Ford' "$(whoami)"
 
 IgnorePath '/**/*.lock'
 IgnorePath '/**/*.cache'
