@@ -4,8 +4,6 @@ IgnorePath '/etc/ca-certificates/extracted/*'
 IgnorePath '/etc/ssl/certs/*'
 IgnorePath '/var/*'
 
-AddPackage linux
-AddPackage linux-lts
 CopyFile /boot/loader/loader.conf 755
 IgnorePath '/boot/*/*.EFI'
 IgnorePath '/boot/*/*.efi'
@@ -34,6 +32,9 @@ else
 fi
 linuces=('linux' 'linux-lts')
 for linux in "${linuces[@]}"; do
+    AddPackage "$linux"
+    AddPackage "${linux}-headers"
+
     # Before and during first `apply`, the swap device does not exist so cannot be used until the second.
     if swap_device="$(findmnt --noheadings --output=source --target=/swapfile)"; then
         swap_offset="$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}')"
@@ -69,8 +70,6 @@ for linux in "${linuces[@]}"; do
 done
 
 AddPackage linux-firmware
-AddPackage linux-headers
-AddPackage linux-lts-headers
 
 AddPackage coreutils
 IgnorePath '/usr/share/info/dir'
@@ -79,6 +78,7 @@ AddPackage grub
 AddPackage lvm2
 AddPackage systemd-sysvcompat
 
+AddPackage base
 AddPackageGroup base-devel
 AddPackage man-pages
 AddPackage man-db
