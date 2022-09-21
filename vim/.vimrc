@@ -4,7 +4,7 @@ if &compatible
 endif
 
 " Use XDG dir for .vim
-exec 'set runtimepath='.$VIMDIR.','.$VIMRUNTIME
+exec 'set runtimepath='.$VIMDIR.','.$VIMRUNTIME.',/usr/share/vim/vimfiles'
 
 colorscheme mine
 
