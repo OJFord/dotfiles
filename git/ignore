@@ -2,11 +2,11 @@
 *.DS_Store
 *.log
 *.log.*
-**/node_modules/*
+node_modules/
 *.pyc
 *.swo
 *.swp
-**/venv/*
+venv/
 
 *.lock
 !yarn.lock
