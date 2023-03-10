@@ -1,11 +1,21 @@
+# from https://git.sr.ht/~whynothugo/systemd-lock-handler/tree/main/item/README.md
 [Unit]
 Description=locking the screen
-Requisite=graphical-session.target
+# If swaylock exits cleanly, unlock the session:
+OnSuccess=unlock.target
+# When lock.target is stopped, stops this too:
 PartOf=lock.target
+# Delay lock.target until this service is ready:
+After=lock.target
 
 [Service]
-ExecStart=/usr/bin/swaylock
-ExecStopPost=/usr/bin/loginctl unlock-session
+# systemd will consider this service started when swaylock forks...
+Type=forking
+# ... and swaylock will fork only after it has locked the screen.
+ExecStart=/usr/bin/swaylock -f
+# If swaylock crashes, always restart it immediately:
+Restart=on-failure
+RestartSec=0
 
 [Install]
-RequiredBy=lock.target
+WantedBy=lock.target
