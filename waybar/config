@@ -18,6 +18,7 @@
         "custom/mpris",
         "pulseaudio#sink",
         "pulseaudio#source",
+        "idle_inhibitor",
         "tray",
     ],
 
@@ -60,6 +61,17 @@
 
     "disk": {
         "format": "{free}",
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": "",
+        },
+        "tooltip-format-activated": "Idle inhibitor {status}",
+        "tooltip-format-deactivated": "Idle inhibitor {status}",
+        "timeout": 60,
     },
 
     "pulseaudio#sink": {
