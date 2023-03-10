@@ -56,19 +56,26 @@
 
 [core]
     editor = vim
-    pager = less
+    pager = delta
+
+[delta]
+    features = full
+    navigate = true
+
+[delta "full"]
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
 
 [diff]
     algorithm = histogram
+    colorMoved = default
     compactionHeuristic = true
     context = 3
     indentHeuristic = true
     interHunkContext = 1
     noprefix = false
     wordRegex = [^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+
-
-[diff-so-fancy]
-    markEmptyLines = false
 
 [filter "hawser"]
     required = true
@@ -93,13 +100,10 @@
 
 [interactive]
     singleKey = true
-    diffFilter = diff-so-fancy --patch
+    diffFilter = delta --color-only --features=interactive
 
 [merge]
     conflictStyle = diff3
-
-[pager]
-    diff = diff-so-fancy | less --tabs=4 -RFX
 
 [protocol "keybase"]
     allow = always
