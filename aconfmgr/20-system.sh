@@ -61,6 +61,6 @@ IgnorePath /etc/udev/hwdb.bin
 IgnorePath /usr/share/mime/*
 
 # Power
-AddPackage powertop
-CopyFile /etc/systemd/system/powertop.service
-CreateLink /etc/systemd/system/multi-user.target.wants/powertop.service /etc/systemd/system/powertop.service
+AddPackage tlp
+AddPackage tlp-rdw
+CopyFile /etc/tlp.d/10-usb-autosuspend.conf
