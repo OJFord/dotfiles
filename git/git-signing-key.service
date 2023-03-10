@@ -1,8 +1,8 @@
 [Unit]
 Description=providing git signingKey
-After=dev-yubikey.device
-ReloadPropagatedFrom=dev-yubikey.device
-BindsTo=dev-yubikey.device
+PartOf=smartcard.target
+Before=smartcard.target
+ReloadPropagatedFrom=smartcard.target
 
 [Service]
 Type=oneshot
@@ -11,4 +11,4 @@ RemainAfterExit=yes
 ExecStop=/bin/env update-git-signing-key --remove
 
 [Install]
-WantedBy=dev-yubikey.device
+WantedBy=smartcard.target

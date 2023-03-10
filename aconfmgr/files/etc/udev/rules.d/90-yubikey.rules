@@ -1,6 +1,0 @@
-ACTION=="add" \
-, ENV{ID_VENDOR}=="Yubico" \
-, ENV{ID_VENDOR_ID}=="1050" \
-, ENV{SYSTEMD_ALIAS}+="/dev/yubikey" \
-
-# above line intentionally left blank
