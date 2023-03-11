@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -eEuo pipefail
+
+function Open() {
+    alacritty \
+        -o window.class.general=bar-term \
+        -o window.class.instance=bar-term \
+        -e /usr/bin/env bash -c "$1"
+}
+
+Open "$@"

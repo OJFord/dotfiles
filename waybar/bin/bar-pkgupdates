@@ -13,14 +13,7 @@ function Check() {
 }
 
 function Open() {
-    alacritty \
-        -o window.class.general=bar-term \
-        -o window.class.instance=bar-term \
-        -o window.dimensions.columns=60 \
-        -o window.dimensions.lines=12 \
-        -o window.position.x=150 \
-        -o window.position.y=30 \
-        -e /bin/sh -c "yay -Qu; yay -Syu; kill --signal USR1 '$PPID'"
+    bar-term "yay -Qu; yay -Syu; kill --signal USR1 '$PPID'"
 }
 
 case "${1:-}" in

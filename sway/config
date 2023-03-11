@@ -54,7 +54,14 @@ for_window [app_id="DBeaver "] move container to workspace 3
 assign [app_id="firefox"] 5
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="fzf-dmenu"] floating enable
-for_window [app_id="bar-term"] floating enable
+for_window [app_id="bar-term"] {
+    floating enable
+    border pixel 1
+
+    # 30 = (100 - width=40)/2
+    resize set width 40 ppt
+    move position 30 ppt 3 ppt
+}
 
 
 # legacy i3 config below

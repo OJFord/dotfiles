@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+set -eEuo pipefail
+
+function Check() {
+    local system_or_user="$1"
+    systemctl "--$system_or_user" --failed --output=json | jq --exit-status 'length > 0' >/dev/null
+    return $?
+}
+
+function Count() {
+    local system_or_user="$1"
+    systemctl "--$system_or_user" --failed --output=json | jq 'length'
+}
+
+function Show() {
+    local system_or_user="$1"
+    bar-term "systemctl --$system_or_user --failed"
+}
+
+case "$1" in
+    --user)
+        system_or_user=user
+        ;;
+    --system)
+        system_or_user=system
+        ;;
+    *)
+        >&2 echo "Must set either --system or --user"
+        exit 1
+        ;;
+esac
+
+case "$2" in
+    --check)
+        Check "$system_or_user"
+        exit $?
+        ;;
+    --count)
+        Count "$system_or_user"
+        exit 0
+        ;;
+    --show)
+        Show "$system_or_user"
+        exit 0
+        ;;
+    *)
+        >&2 echo "Unknown option $2"
+        exit 1
+        ;;
+esac

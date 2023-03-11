@@ -64,15 +64,17 @@
     "custom/systemd-failed": {
         "format": "{} ",
         "interval": 120,
-        "exec-if": "systemctl --failed --output=json | jq --exit-status 'length > 0' >/dev/null",
-        "exec": "systemctl --failed --output=json | jq 'length'",
+        "exec-if": "bar-systemd-failed --system --check",
+        "exec": "bar-systemd-failed --system --count",
+        "on-click": "bar-systemd-failed --system --show",
     },
 
     "custom/systemd-user-failed": {
         "format": "{} ",
         "interval": 120,
-        "exec-if": "systemctl --user --failed --output=json | jq --exit-status 'length > 0' >/dev/null",
-        "exec": "systemctl --user --failed --output=json | jq 'length'",
+        "exec-if": "bar-systemd-failed --user --check",
+        "exec": "bar-systemd-failed --user --count",
+        "on-click": "bar-systemd-failed --user --show",
     },
 
     "disk": {
