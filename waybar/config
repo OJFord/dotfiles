@@ -57,8 +57,10 @@
     },
 
     "custom/pkgupdates": {
+        "format": "{}",
         "exec": "bar-pkgupdates",
-        "on-click": "bar-pkgupdates --open",
+        "on-click": "bar-pkgupdates --open; pkill -SIGRTMIN+1 waybar",
+        "signal": 1,
     },
 
     "custom/systemd-failed": {
