@@ -18,7 +18,7 @@
         "clock",
     ],
     "modules-right": [
-        "custom/mpris",
+        "mpris",
         "pulseaudio#sink",
         "pulseaudio#source",
         "idle_inhibitor",
@@ -48,13 +48,17 @@
         "on-click": "bar-gh-issues --open",
     },
 
-    "custom/mpris": {
-        "return-type": "json",
-        "exec": "waybar-mpris --position --autofocus",
-        "on-click": "waybar-mpris --send toggle",
-        "on-click-right": "waybar-mpris --send player-next",
-        "escape": true,
+    "mpris": {
+        "format": "{player_icon} {title}",
+	    "format-paused": "{status_icon} <i>{title}</i>",
         "max-length": 64,
+        "player-icons": {
+            "default": " ",
+            "spotify": " "
+        },
+        "status-icons": {
+            "paused": " "
+        },
     },
 
     "custom/pkgupdates": {
