@@ -10,6 +10,7 @@
         "disk",
         "custom/systemd-failed",
         "custom/systemd-user-failed",
+        "custom/systemd-failed-nag",
         "custom/pkgupdates",
         "custom/gh-issues",
     ],
@@ -64,19 +65,23 @@
     },
 
     "custom/systemd-failed": {
-        "format": "{} ",
+        "format": " {} ",
         "interval": 120,
-        "exec-if": "bar-systemd-failed --system --check",
         "exec": "bar-systemd-failed --system --count",
-        "on-click": "bar-systemd-failed --system --show",
+        "signal": 2,
     },
 
     "custom/systemd-user-failed": {
-        "format": "{} ",
+        "format": " {} ",
         "interval": 120,
-        "exec-if": "bar-systemd-failed --user --check",
         "exec": "bar-systemd-failed --user --count",
-        "on-click": "bar-systemd-failed --user --show",
+        "signal": 2,
+    },
+
+    "custom/systemd-failed-nag": {
+        "interval": 3600,
+        "exec": "bar-systemd-failed --nag --signal=SIGRTMIN+2",
+        "signal": 2,
     },
 
     "disk": {
