@@ -1,6 +1,6 @@
 # shellcheck shell=bash
 AddPackage waybar
 
-AddPackage --foreign awesome-terminal-fonts
+AddPackage ttf-font-awesome
 AddPackage pamixer
 AddPackage --foreign waybar-mpris-git
