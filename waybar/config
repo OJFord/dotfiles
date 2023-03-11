@@ -44,8 +44,9 @@
     },
 
     "custom/gh-issues": {
+        "format": " {} ",
+        "interval": 120,
         "exec": "bar-gh-issues",
-        "on-click": "bar-gh-issues --open",
     },
 
     "mpris": {
