@@ -11,8 +11,9 @@ query_api() {
     query_md5="$(echo "$query" | md5sum | cut --delimiter=' ' --field=1)"
 
     gh api search/issues -X GET -f q="$query" \
-        | jq '.items | map({url:.html_url, body:.body, display:("[" + (.repository_url | split("/"))[-1] + "] " + .title + " (" + (.number | tostring) + ")")})' \
+        | jq '.items | map({url:.html_url, body:.body, display:("[" + (.repository_url | split("/"))[-1] + "] " + .title + " (#" + (.number | tostring) + ")")})' \
         | tee "$cache_dir/$query_md5.json" \
+        | jq 'length' \
         ;
 
     return 0
@@ -27,7 +28,7 @@ open() {
         | fzf-dmenu \
             --fzf-read0 --fzf-delimiter="'\n'" --fzf-nth=1,3 --fzf-with-nth=1 \
             --fzf-preview="'bat --language=md --terminal-width=\$FZF_PREVIEW_COLUMNS --wrap=character < <(echo {3..})'" \
-            --tty-window.dimensions.columns=150 --tty-window.dimensions.lines=20 --tty-window.position.x=150 --tty-window.position.y=30 \
+            --tty-window.dimensions.columns=150 --tty-window.dimensions.lines=20 \
         | sed -n '2p;3q' \
         | xargs xdg-open
 }
