@@ -1,50 +1,130 @@
 #!/usr/bin/env bash
 set -eEuo pipefail
 
-function Check() {
-    local system_or_user="$1"
-    systemctl "--$system_or_user" --failed --output=json | jq --exit-status 'length > 0' >/dev/null
-    return $?
-}
+swaynag_pid_file="/tmp/$(basename "$0").swaynag.pid"
 
 function Count() {
     local system_or_user="$1"
-    systemctl "--$system_or_user" --failed --output=json | jq 'length'
+
+    local count
+    count="$(systemctl "--$system_or_user" --failed --output=json | jq 'length')"
+
+    if [ "$count" -ne 0 ]; then
+        echo "$count"
+    else
+        exit 1 # so we don't get rendered
+    fi
 }
 
-function Show() {
+function KillNag() {
+    if [ "${1-}" = --keep-last ]; then
+        pids="$(head -n-1 "$swaynag_pid_file")"
+    else
+        pids="$(cat "$swaynag_pid_file")"
+    fi
+
+    if [ -n "$pids" ]; then
+        echo "$pids" | xargs -I@ bash -c "{ kill @ || true; }; sed -i '/@/d' '$swaynag_pid_file'"
+    fi
+}
+
+function Nag() {
+    local signal="$1"
+
+    local system_count
+    local user_count
+    system_count="$(systemctl --system --failed --output=json | jq 'length')"
+    user_count="$(systemctl --user --failed --output=json | jq 'length')"
+
+
+    _nag() {
+        local maybe_system_button=
+        local maybe_user_button=
+        if [ "$system_count" -ne 0 ]; then
+            maybe_system_button=('--button' 'Restart failed system units' "$0 --system --restart --signal=$signal")
+        fi
+        if [ "$user_count" -ne 0 ]; then
+            maybe_user_button=('--button' 'Restart failed user units' "$0 --user --restart --signal=$signal")
+        fi
+
+        2>&1 cat | swaynag \
+            --detailed-message \
+            --message="$1" \
+            "${maybe_system_button[@]}" "${maybe_user_button[@]}" \
+            &
+        local pid="$!"
+        echo "$pid" >> "$swaynag_pid_file"
+        KillNag --keep-last
+    }
+
+    if [ "$system_count" -ne 0 ] && [ "$user_count" -ne 0 ]; then
+        { systemctl --system --failed; systemctl --user --failed; } \
+            | _nag "$system_count system & $user_count user units failed"
+    elif [ "$system_count" -ne 0 ]; then
+        systemctl --system --failed \
+            | _nag "$system_count system units failed"
+    elif [ "$user_count" -ne 0 ]; then
+        systemctl --user --failed \
+            | _nag "$user_count user units failed"
+    else
+        KillNag
+    fi
+}
+
+function Restart() {
     local system_or_user="$1"
-    bar-term "systemctl --$system_or_user --failed"
+    local signal="$2"
+
+    systemctl "--$system_or_user" --failed --output=json \
+        | jq '.[].unit' \
+        | xargs -L1 systemctl "--$system_or_user" restart
+
+    pkill --signal="$signal" waybar
 }
 
 case "$1" in
-    --user)
-        system_or_user=user
-        ;;
     --system)
         system_or_user=system
+        shift
+        ;;
+    --user)
+        system_or_user=user
+        shift
+        ;;
+    --nag)
         ;;
     *)
-        >&2 echo "Must set either --system or --user"
-        exit 1
+        swaynag --message='Must specify --system or --user'
         ;;
 esac
 
-case "$2" in
-    --check)
-        Check "$system_or_user"
-        exit $?
-        ;;
+case "$1" in
     --count)
         Count "$system_or_user"
         exit 0
         ;;
-    --show)
-        Show "$system_or_user"
-        exit 0
+    --nag)
+        shift
+        if [[ "${1-}" =~ --signal=* ]]; then
+            Nag "$1"
+            exit 0
+        else
+            swaynag --message="Must specify a --signal, got $1"
+            exit 1
+        fi
+        ;;
+    --restart)
+        shift
+        if [[ "${1-}" =~ --signal=* ]]; then
+            Restart "$system_or_user" "${1#--signal=}"
+            exit 0
+        else
+            swaynag --message="Must specify a --signal, got $1"
+            exit 1
+        fi
         ;;
     *)
-        >&2 echo "Unknown option $2"
+        swaynag --message="Unknown option $1"
         exit 1
         ;;
 esac
