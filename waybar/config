@@ -8,6 +8,8 @@
         "cpu",
         "memory",
         "disk",
+        "custom/systemd-failed",
+        "custom/systemd-user-failed",
         "custom/pkgupdates",
         "custom/gh-issues",
     ],
@@ -57,6 +59,20 @@
     "custom/pkgupdates": {
         "exec": "bar-pkgupdates",
         "on-click": "bar-pkgupdates --open",
+    },
+
+    "custom/systemd-failed": {
+        "format": "{} ",
+        "interval": 120,
+        "exec-if": "systemctl --failed --output=json | jq --exit-status 'length > 0' >/dev/null",
+        "exec": "systemctl --failed --output=json | jq 'length'",
+    },
+
+    "custom/systemd-user-failed": {
+        "format": "{} ",
+        "interval": 120,
+        "exec-if": "systemctl --user --failed --output=json | jq --exit-status 'length > 0' >/dev/null",
+        "exec": "systemctl --user --failed --output=json | jq 'length'",
     },
 
     "disk": {
