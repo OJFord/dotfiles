@@ -113,10 +113,10 @@
             "default": ["", "", ""],
         },
         "on-click": "pulseaudio-control next-node",
-        "on-click-right": "pamixer --toggle-mute",
+        "on-click-right": "wtype -k XF86AudioMute",
         // https://github.com/Alexays/Waybar/issues/1140
-        "on-scroll-down": "pamixer --allow-boost --increase=1",
-        "on-scroll-up": "pamixer --allow-boost --decrease=1",
+        "on-scroll-down": "wtype -k XF86AudioRaiseVolume",
+        "on-scroll-up": "wtype -k XF86AudioLowerVolume",
     },
 
     "pulseaudio#source": {
