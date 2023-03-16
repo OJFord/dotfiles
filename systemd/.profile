@@ -14,10 +14,10 @@ for f in "$XDG_CONFIG_HOME"/*/*[^@].@(service|socket|target); do
         mkdir -p "$XDG_CONFIG_HOME/systemd/user/$r.requires"
     done
 
-    systemctl --user enable "$f"
+    systemctl --user enable "$(realpath "$f")"
 done
 
 # Link but don't enable unit template
 for f in "$XDG_CONFIG_HOME"/*/*@.@(service|socket|target); do
-    ln -sf "$f" "$XDG_CONFIG_HOME/systemd/user/"
+    ln -sf "$(realpath "$f")" "$XDG_CONFIG_HOME/systemd/user/"
 done
