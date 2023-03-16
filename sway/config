@@ -5,8 +5,11 @@ bar {
     swaybar_command waybar
 }
 
-output * scale 1
-output * bg "$XDG_CONFIG_HOME/sway/bg.png" fill
+output * {
+    scale 1
+    bg "$XDG_CONFIG_HOME/sway/bg.png" fill
+    pos 0 0
+}
 exec_always kanshi
 
 input type:keyboard {
