@@ -1,5 +1,8 @@
 export VIMDIR="$XDG_CONFIG_HOME/vim"
-export VIMRC="$VIMDIR/.vimrc"
+cat > "$VIMDIR/env.conf" <<-EOF
+	VIMDIR='$VIMDIR'
+	VIMINIT='source $VIMDIR/vimrc'
+EOF
 export EDITOR="vim"
 
 if ! rustup component list --installed | rg '^rls-' >/dev/null; then

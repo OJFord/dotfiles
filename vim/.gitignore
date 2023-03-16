@@ -1,3 +1,6 @@
 .*~
 .netrwhist
 vimfiles
+
+# generated
+/env.conf
