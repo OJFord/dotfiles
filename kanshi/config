@@ -1,8 +1,10 @@
-profile {
+include "$XDG_CONFIG_HOME/by-hostname/$(uname -n)/kanshi.config"
+
+profile undocked {
     output eDP-1 enable
 }
 
-profile {
+profile desk {
     output eDP-1 disable
     output "BNQ BenQ LCD 43L00233019" enable
 }
