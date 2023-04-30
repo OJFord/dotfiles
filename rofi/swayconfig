@@ -1,3 +1,0 @@
-bindsym F3 exec rofi -show emoji
-bindsym Alt+Space exec systemctl --user start rofi-drun@$(date +'%s')
-bindsym Mod4+Tab exec rofi -show window

@@ -1,0 +1,3 @@
+bindsym F3 exec systemd-cat --identifier=rofimoji rofimoji --selector=fuzzel
+bindsym Alt+Space exec systemd-cat --identifier=fuzzel fuzzel
+bindsym Mod4+Tab exec systemd-cat --identifier=sway-window-menu sway-window-menu
