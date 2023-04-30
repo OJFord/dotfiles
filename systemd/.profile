@@ -1,5 +1,6 @@
 # shellcheck shell=bash
 shopt -s extglob
+shopt -s nullglob
 
 if [ "$(uname -s)" != Linux ]; then
     return 0
