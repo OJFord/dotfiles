@@ -69,7 +69,7 @@ for linux in "${linuces[@]}"; do
     SetFileProperty "/boot/loader/entries/arch-${linux}.conf" mode 755
 done
 
-AddPackage linux-firmware
+AddPackage --foreign mkinitcpio-firmware
 
 AddPackage coreutils
 IgnorePath '/usr/share/info/dir'
