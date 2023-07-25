@@ -1,5 +1,6 @@
 # shellcheck shell=bash
 AddPackage waybar
 
-AddPackage ttf-font-awesome
+AddPackage mate-polkit
 AddPackage pamixer
+AddPackage ttf-font-awesome
