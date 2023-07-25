@@ -41,7 +41,7 @@ function Nag() {
         local maybe_system_button=
         local maybe_user_button=
         if [ "$system_count" -ne 0 ]; then
-            maybe_system_button=('--button' 'Restart failed system units' "$0 --system --restart --signal=$signal")
+            maybe_system_button=('--button' 'Restart failed system units' "pkexec $0 --system --restart --signal=$signal")
         fi
         if [ "$user_count" -ne 0 ]; then
             maybe_user_button=('--button' 'Restart failed user units' "$0 --user --restart --signal=$signal")
