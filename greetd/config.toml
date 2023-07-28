@@ -1,0 +1,10 @@
+[terminal]
+vt = 1
+
+[default_session]
+command = "agreety --cmd=/bin/sh"
+user = "greeter"
+
+[initial_session]
+command = "systemd-cat --identifier=sway sway"
+user = "ojf"

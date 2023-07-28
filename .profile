@@ -30,9 +30,3 @@ cat > "$XDG_CONFIG_HOME/environment.d/00-.profile.conf" <<-EOF
 	XDG_CONFIG_HOME=$XDG_CONFIG_HOME
 	XDG_DATA_HOME=$XDG_DATA_HOME
 EOF
-
-if [ "$(uname -s)" = Linux ]; then
-    if [ -z "$SWAYSOCK" ] && [ "$(tty)" = /dev/tty1 ]; then
-        exec systemd-cat --identifier=sway sway
-    fi
-fi
