@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # based on: https://gitlab.com/anarcat/scripts/-/blob/main/sway-window-menu
 set -eEuo pipefail
 
@@ -16,7 +16,7 @@ row="$(
     | fuzzel --dmenu --prompt=🪟
 )"
 
-if [ ! -z "$row" ]; then
-    winid=$(echo "$row" | sed 's/.*(\([0-9]*\))$/\1/')
+if [[ $row =~ \(([0-9]+)\)$ ]]; then
+    winid="${BASH_REMATCH[1]}"
     swaymsg "[con_id=$winid] focus"
 fi
