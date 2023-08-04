@@ -41,17 +41,17 @@ function Nag() {
         local maybe_system_button=
         local maybe_user_button=
         if [ "$system_count" -ne 0 ]; then
-            maybe_system_button=('--button' 'Restart failed system units' "pkexec $0 --system --restart --signal=$signal")
+            maybe_system_button=('--button' 'Restart failed system units' "$0 --system --restart --signal=$signal")
         fi
         if [ "$user_count" -ne 0 ]; then
             maybe_user_button=('--button' 'Restart failed user units' "$0 --user --restart --signal=$signal")
         fi
 
-        2>&1 cat | swaynag \
+        2>&1 cat | systemd-cat --identifier=swaynag-systemd swaynag \
             --detailed-message \
             --message="$1" \
             "${maybe_system_button[@]}" "${maybe_user_button[@]}" \
-            &
+            ;
         local pid="$!"
         echo "$pid" >> "$swaynag_pid_file"
         KillNag --keep-last
@@ -75,9 +75,12 @@ function Restart() {
     local system_or_user="$1"
     local signal="$2"
 
+    local username
+    username="$([ "$system_or_user" = system ] && echo root || echo "$USER")"
+
     systemctl "--$system_or_user" --failed --output=json \
         | jq '.[].unit' \
-        | xargs -L1 systemctl "--$system_or_user" restart
+        | xargs -L1 pkexec --user "$username" systemctl "--$system_or_user" restart
 
     pkill --signal="$signal" waybar
 }
