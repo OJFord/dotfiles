@@ -59,7 +59,7 @@ function Nag() {
 
     if [ "$system_count" -ne 0 ] && [ "$user_count" -ne 0 ]; then
         { systemctl --system --failed; systemctl --user --failed; } \
-            | _nag "$system_count system & $user_count user units failed"
+            | _nag "$system_count system + $user_count user units failed"
     elif [ "$system_count" -ne 0 ]; then
         systemctl --system --failed \
             | _nag "$system_count system units failed"
