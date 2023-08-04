@@ -29,7 +29,8 @@
         "format-icons": ["", "", "", "", ""],
         "format-charging": "⚡ {capacity}%",
         "format-discharging": "{icon} {capacity}%",
-        "format-not charging": "⚡",
+        "format-not charging": "{icon} {capacity}%",
+        "format-full": "⚡",
     },
 
     "clock": {
