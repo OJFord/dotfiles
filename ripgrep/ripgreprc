@@ -1,1 +1,3 @@
 --glob=!*.lock
+--glob=!Cargo.lock
+--glob=!package-lock.json
