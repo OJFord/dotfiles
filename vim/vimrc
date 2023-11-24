@@ -171,3 +171,7 @@ autocmd BufEnter * normal! zz
 nnoremap <Leader>l :nohlsearch<Return>
 set hlsearch
 set incsearch
+
+" Reload changes on disk
+set autoread
+autocmd FocusGained * checktime
