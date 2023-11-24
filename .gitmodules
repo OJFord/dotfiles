@@ -73,9 +73,6 @@
 [submodule "vim-polyglot"]
 	path = vim/pack/all/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
-[submodule "language-client"]
-	path = vim/pack/all/start/language-client
-	url = https://github.com/autozimu/LanguageClient-neovim
 [submodule "vim-fugitive"]
 	path = vim/pack/all/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive
@@ -85,3 +82,6 @@
 [submodule "yagro.dotfiles"]
 	path = yagro.dotfiles
 	url = git@github.com:OJFord/yagro.dotfiles
+[submodule "vim/pack/all/start/nvim-lspconfig"]
+	path = vim/pack/neovim-only/opt/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig

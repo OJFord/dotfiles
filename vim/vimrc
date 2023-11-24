@@ -3,8 +3,12 @@ if &compatible
     set nocompatible
 endif
 
-" Use XDG dir for .vim
-exec 'set runtimepath='.$VIMDIR.','.$VIMRUNTIME.',/usr/share/vim/vimfiles'
+if !has('nvim')
+    " Use XDG dir for .vim
+    exec 'set runtimepath='.$VIMDIR.','.$VIMRUNTIME.',/usr/share/vim/vimfiles'
+else
+    set runtimepath^=$VIMDIR
+endif
 
 colorscheme mine
 
@@ -70,46 +74,6 @@ nnoremap <C-F> :Rg<CR>
 
 set wildmode=longest,list,full
 set wildmenu
-
-"LSP
-set signcolumn=number
-let g:LanguageClient_loggingLevel = 'DEBUG'
-let g:LanguageClient_loggingFile = '/tmp/vim-languageclient.log'
-let g:LanguageClient_serverStderr = '/tmp/vim-languageclient.stderr'
-let g:LanguageClient_rootMarkers = {
-\ 'go': ['go.mod', 'go.sum', 'main.go'],
-\ 'python': ['pyproject.toml', 'setup.cfg', 'setup.py', 'tox.ini'],
-\ 'rust': ['Cargo.toml'],
-\ 'svelte': ['svelte.config.js', 'package.json', 'yarn.lock'],
-\ 'terraform': ['.terraform'],
-\ 'vim': ['autoload', 'ftdetect', 'ftplugin'],
-\ 'vue': ['package.json'],
-\ }
-let g:LanguageClient_serverCommands = {
-\ 'go': ['gopls'],
-\ 'python': ['pylsp', '--log-file=/tmp/python-languageserver.log', '--verbose'],
-\ 'rust': ['rustup', 'run', 'stable', 'rls'],
-\ 'svelte': ['svelteserver', '--stdio'],
-\ 'terraform': ['terraform-ls', 'serve'],
-\ 'vim': ['vim-language-server','--stdio'],
-\ 'vue': ['vls', '--stdio'],
-\ }
-let g:LanguageClient_settingsPath = "$VIMDIR/lsp.json"
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
-function! MyLangClientSelectionUI(source, sink) abort
-  call fzf#run(fzf#wrap({
-    \ 'source': a:source,
-    \ 'sink': function(a:sink),
-    \ 'options': '--delimiter=: --preview-window="+{2}/2" --preview="bat --highlight-line={2} {1}"',
-  \ }))
-endfunction
-let g:LanguageClient_selectionUI = function('MyLangClientSelectionUI')
-function! AfterFormat(...) abort
-  noautocmd w
-endfunction
-autocmd BufWrite * call LanguageClient#textDocument_formatting({}, 'AfterFormat')
 
 " Completions
 set completeopt=longest,menuone
