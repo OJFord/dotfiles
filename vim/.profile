@@ -5,7 +5,6 @@ cat > "$VIMDIR/env.conf" <<-EOF
 	VIMDIR='$VIMDIR'
 	VIMINIT='$VIMINIT'
 EOF
-export EDITOR="vim"
 
 if ! rustup component list --installed | rg '^rls-' >/dev/null; then
     rustup component add rls
