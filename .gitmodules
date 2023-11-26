@@ -19,7 +19,7 @@
 [submodule "vim-commentary"]
 	path = vim/pack/all/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
-[submodule "supertab"]
+[submodule "vim/pack/all/start/supertab"]
 	path = vim/pack/all/start/supertab
 	url = https://github.com/ervandew/supertab
 [submodule "tabular"]
@@ -52,15 +52,6 @@
 [submodule "vim-quickfix-conflicts"]
 	path = vim/pack/all/start/vim-quickfix-conflicts
 	url = https://github.com/OJFord/vim-quickfix-conflicts
-[submodule "deoplete"]
-	path = vim/pack/all/start/deoplete
-	url = https://github.com/Shougo/deoplete.nvim
-[submodule "vim-hug-neovim-rpc"]
-	path = vim/pack/all/start/vim-hug-neovim-rpc
-	url = https://github.com/roxma/vim-hug-neovim-rpc
-[submodule "nvim-yarp"]
-	path = vim/pack/all/start/nvim-yarp
-	url = https://github.com/roxma/nvim-yarp
 [submodule "vim-signify"]
 	path = vim/pack/all/start/vim-signify
 	url = https://github.com/mhinz/vim-signify
@@ -85,3 +76,6 @@
 [submodule "vim/pack/all/start/nvim-lspconfig"]
 	path = vim/pack/neovim-only/opt/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
+[submodule "vim/pack/all/start/coq-nvim"]
+	path = vim/pack/neovim-only/opt/coq-nvim
+	url = https://github.com/ms-jpq/coq-nvim

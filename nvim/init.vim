@@ -6,4 +6,5 @@ for pkg in split(system('ls '.$VIMDIR.'/pack/neovim-only/opt'))
     exec 'packadd '.pkg
 endfor
 
+lua require('autocomplete')
 lua require('lsp')
