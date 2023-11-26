@@ -51,6 +51,8 @@ lspconfig.rls.setup(coq.lsp_ensure_capabilities({
 }))
 lspconfig.svelte.setup(coq.lsp_ensure_capabilities({
 }))
+lspconfig.sqlls.setup(coq.lsp_ensure_capabilities({
+}))
 lspconfig.terraformls.setup(coq.lsp_ensure_capabilities({
 }))
 lspconfig.tsserver.setup(coq.lsp_ensure_capabilities({
