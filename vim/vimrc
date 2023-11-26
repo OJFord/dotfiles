@@ -75,16 +75,6 @@ nnoremap <C-F> :Rg<CR>
 set wildmode=longest,list,full
 set wildmenu
 
-" Completions
-set completeopt=longest,menuone
-autocmd InsertEnter * call deoplete#enable()
-"" C-j/k completion navigation
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "j"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "k"
-"" Enter to accept
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-let g:SuperTabDefaultCompletionType = "<C-n>"
-
 " Backspace
 set backspace=indent,eol,start
 

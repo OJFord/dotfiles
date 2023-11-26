@@ -1,9 +1,10 @@
 local lspconfig = require('lspconfig')
+local coq = require('coq')
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-lspconfig.gopls.setup({
-})
-lspconfig.lua_ls.setup({
+lspconfig.gopls.setup(coq.lsp_ensure_capabilities({
+}))
+lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({
     settings = {
         Lua = {
             diagnostics = {
@@ -19,8 +20,8 @@ lspconfig.lua_ls.setup({
             },
         },
     },
-})
-lspconfig.pylsp.setup({
+}))
+lspconfig.pylsp.setup(coq.lsp_ensure_capabilities({
     settings = {
         pylsp = {
             plugins = {
@@ -40,24 +41,24 @@ lspconfig.pylsp.setup({
             },
         },
     },
-})
-lspconfig.rls.setup({
+}))
+lspconfig.rls.setup(coq.lsp_ensure_capabilities({
     settings = {
         rust = {
             clippy_preference = "on",
         },
     },
-})
-lspconfig.svelte.setup({
-})
-lspconfig.terraformls.setup({
-})
-lspconfig.tsserver.setup({
-})
-lspconfig.vimls.setup({
-})
-lspconfig.vuels.setup({
-})
+}))
+lspconfig.svelte.setup(coq.lsp_ensure_capabilities({
+}))
+lspconfig.terraformls.setup(coq.lsp_ensure_capabilities({
+}))
+lspconfig.tsserver.setup(coq.lsp_ensure_capabilities({
+}))
+lspconfig.vimls.setup(coq.lsp_ensure_capabilities({
+}))
+lspconfig.vuels.setup(coq.lsp_ensure_capabilities({
+}))
 
 vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async=false})]]
 
