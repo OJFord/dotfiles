@@ -79,3 +79,6 @@
 [submodule "vim/pack/all/start/coq-nvim"]
 	path = vim/pack/neovim-only/opt/coq-nvim
 	url = https://github.com/ms-jpq/coq-nvim
+[submodule "alacritty/themes"]
+	path = alacritty/themes
+	url = gh:alacritty/alacritty-theme

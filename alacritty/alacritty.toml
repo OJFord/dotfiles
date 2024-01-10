@@ -1,0 +1,199 @@
+import = [
+    "~/.config/alacritty/themes/themes/solarized_dark.toml",
+]
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[font]
+size = 13
+
+[font.bold]
+family = "monospace"
+style = "Semibold"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "monospace"
+style = "Light Italic"
+
+[font.normal]
+family = "monospace"
+style = "Light"
+
+[font.offset]
+x = 0
+y = 0
+
+[[hints.enabled]]
+command = "xdg-open"
+post_processing = true
+regex = "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\" {-}\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Super"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[hints.enabled]]
+regex = "/code/[a-z-]+"
+
+[hints.enabled.binding]
+key = "R"
+mods = "Super"
+
+[hints.enabled.command]
+args = ["-c", 'xdg-open "$(git --git-dir="$HOME$0/.git" remote get-url origin | sed -E "s|.+@([a-z0-9.-]+):(.+)|https://\1/\2|")"']
+program = "sh"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[hints.enabled]]
+regex = "aur/[a-zA-Z0-9_-]+"
+
+[hints.enabled.binding]
+key = "A"
+mods = "Shift|Super"
+
+[hints.enabled.command]
+args = ["-c", 'xdg-open "https://aur.archlinux.org/packages/$(echo "$0" | sed -E "s@.+/(.+)@\1@")"']
+program = "sh"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[hints.enabled]]
+regex = "(core|community|extra)/[a-zA-Z0-9_-]+"
+
+[hints.enabled.binding]
+key = "A"
+mods = "Super"
+
+[hints.enabled.command]
+args = ["-c", 'xdg-open "https://archlinux.org/packages?repo=$(echo "$0" | sed -E "s@(.+)/.+@\u\1@")&q=$(echo "$0" | sed -E "s@.+/(.+)@\1@")"']
+program = "sh"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[hints.enabled]]
+regex = "[a-zA-Z0-9_-]+/[a-zA-Z0-9._-]+#[1-9][0-9]*"
+
+[hints.enabled.binding]
+key = "G"
+mods = "Super"
+
+[hints.enabled.command]
+args = ["-c", "xdg-open \"https://github.com/$(echo \"$0\" | sed \"s@#@/issues/@\")\""]
+program = "sh"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[hints.enabled]]
+regex = "SC[0-9]{4}"
+
+[hints.enabled.command]
+args = ["-c", "xdg-open https://github.com/koalaman/shellcheck/wiki/$0"]
+program = "sh"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[hints.enabled]]
+regex = "(ygr|YGR)-[1-9][0-9]*"
+
+[hints.enabled.binding]
+key = "J"
+mods = "Super"
+
+[hints.enabled.command]
+args = ["-c", "xdg-open https://yagro.atlassian.net/browse/$0"]
+program = "sh"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[hints.enabled]]
+regex = "git(hu|la)b.com:[a-zA-Z0-9-_]+/[a-zA-Z0-9-_]+"
+
+[hints.enabled.command]
+args = ["-c", 'xdg-open "https://$(echo "$0" | sed -E "s@^git(hu|la)b.com:@git\1b.com/@")"']
+program = "sh"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[hints.enabled]]
+regex = "[a-zA-Z0-9-_]+/[a-zA-Z0-9-_]+![0-9]+"
+
+[hints.enabled.command]
+args = ["-c", "xdg-open \"https://gitlab.com/$(echo \"$0\" | sed \"s@!@/-/merge_requests/@\")\""]
+program = "sh"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[keyboard.bindings]]
+action = "None"
+key = "H"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "None"
+key = "W"
+mods = "Super"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Q"
+mods = "Super"
+
+[[keyboard.bindings]]
+key = "I"
+mods = "Control"
+
+[keyboard.bindings.command]
+args = ["--command=alacritty-invert-colours"]
+program = "fish"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "K"
+mode = "~Alt"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "J"
+mode = "~Alt"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "Paste"
+mods = "Super"
+
+[mouse]
+hide_when_typing = true
+
+[shell]
+program = "fish"
+
+[window]
+decorations = "none"
