@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+config="$XDG_CONFIG_HOME/alacritty/alacritty.toml"
+
+if grep 'themes/solarized_dark.toml' "$config" >/dev/null; then
+    sed -i 's@themes/solarized_dark.toml@themes/solarized_light.toml@' "$config"
+else
+    sed -i 's@themes/solarized_light.toml@themes/solarized_dark.toml@' "$config"
+fi
