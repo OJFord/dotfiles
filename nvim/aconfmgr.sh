@@ -1,6 +1,8 @@
 # shellcheck shell=bash
 AddPackage neovim
 
+AddPackage darkman
+
 # Language servers
 AddPackage gopls
 AddPackage lua-language-server
