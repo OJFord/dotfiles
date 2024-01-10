@@ -1,0 +1,48 @@
+/* https://github.com/lassekongo83/adw-colors/blob/main/HOWTO.md */
+@define-color window_bg_color @bg_0;
+@define-color window_fg_color @fg_0;
+
+@define-color view_bg_color @bg_1;
+@define-color view_fg_color @fg_1;
+
+@define-color accent_bg_color @bg_2;
+@define-color accent_fg_color @fg_2;
+@define-color accent_color @accent_bg_color;
+
+@define-color headerbar_bg_color @bg_0;
+@define-color headerbar_fg_color @fg_0;
+@define-color headerbar_backdrop_color @bg_1;
+@define-color headerbar_border_color @bg_2;
+@define-color headerbar_shade_color @bg_2;
+
+@define-color card_bg_color @bg_0;
+@define-color card_fg_color @fg_0;
+@define-color card_shade_clor @bg_2;
+
+@define-color popover_bg_color @bg_0;
+@define-color popover_fg_color @fg_0;
+
+@define-color dialog_bg_color @popover_bg_color;
+@define-color dialog_fg_color @popover_fg_color;
+
+@define-color sidebar_bg_color @bg_0;
+@define-color sidebar_fg_color @fg_0;
+@define-color sidebar_backdrop_color @bg_1;
+@define-color sidebar_shade_color @bg_2;
+
+@define-color warning_bg_color @bg_0;
+@define-color warning_fg_color @fg_0;
+@define-color warning_color @orange;
+@define-color error_bg_color @bg_0;
+@define-color error_fg_color @fg_0;
+@define-color error_color @br_red;
+@define-color success_bg_color @bg_0;
+@define-color success_fg_color @fg_0;
+@define-color success_color @green;
+@define-color destructive_bg_color @bg_0;
+@define-color destructive_fg_color @fg_0;
+@define-color destructive_color @br_magenta;
+
+@define-color panel_bg_color @popover_bg_color;
+@define-color panel_fg_color @popover_fg_color;
+@define-color incognito_bg_color @dim_0;
