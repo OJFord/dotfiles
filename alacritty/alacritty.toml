@@ -165,14 +165,6 @@ key = "Q"
 mods = "Super"
 
 [[keyboard.bindings]]
-key = "I"
-mods = "Control"
-
-[keyboard.bindings.command]
-args = ["--command=alacritty-invert-colours"]
-program = "fish"
-
-[[keyboard.bindings]]
 action = "ScrollPageUp"
 key = "K"
 mode = "~Alt"
