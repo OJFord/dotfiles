@@ -82,3 +82,6 @@
 [submodule "selenized"]
 	path = selenized
 	url = gh:jan-warchol/selenized
+[submodule "vim/pack/neovim-only/opt/darkman.nvim"]
+	path = vim/pack/neovim-only/opt/darkman.nvim
+	url = gh:4e554c4c/darkman.nvim
