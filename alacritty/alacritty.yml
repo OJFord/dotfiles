@@ -187,3 +187,19 @@ hints:
       binding:
         key: J
         mods: Super
+
+    - regex: "git(hu|la)b.com:[a-zA-Z0-9-_]+/[a-zA-Z0-9-_]+"
+      command:
+        program: sh
+        args: ["-c", 'xdg-open "https://$(echo "$0" | sed -E "s@^git(hu|la)b.com:@git\1b.com/@")"']
+      mouse:
+        enabled: true
+        mods: None
+
+    - regex: "[a-zA-Z0-9-_]+/[a-zA-Z0-9-_]+![0-9]+"
+      command:
+        program: sh
+        args: ["-c", 'xdg-open "https://gitlab.com/$(echo "$0" | sed "s@!@/-/merge_requests/@")"']
+      mouse:
+        enabled: true
+        mods: None
