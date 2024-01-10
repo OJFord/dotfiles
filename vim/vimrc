@@ -10,7 +10,7 @@ else
     set runtimepath^=$VIMDIR
 endif
 
-colorscheme mine
+colorscheme selenized
 
 " Packages
 exec 'set packpath='.&runtimepath

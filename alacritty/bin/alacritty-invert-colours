@@ -3,8 +3,8 @@ set -e
 
 config="$XDG_CONFIG_HOME/alacritty/alacritty.toml"
 
-if grep 'themes/solarized_dark.toml' "$config" >/dev/null; then
-    sed -i 's@themes/solarized_dark.toml@themes/solarized_light.toml@' "$config"
+if grep '/selenized-light.toml' "$config" ; then
+    sed -i 's@/selenized-dark.toml@/selenized-light.toml@' "$config"
 else
-    sed -i 's@themes/solarized_light.toml@themes/solarized_dark.toml@' "$config"
+    sed -i 's@/selenized-light.toml@/selenized-dark.toml@' "$config"
 fi
