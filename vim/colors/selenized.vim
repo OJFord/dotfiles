@@ -1,0 +1,1 @@
+../../selenized/editors/vim/colors/selenized.vim
