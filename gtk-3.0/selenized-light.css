@@ -1,0 +1,25 @@
+/* https://github.com/jan-warchol/selenized/blob/master/the-values.md */
+@define-color bg_0 #fbf3db;
+@define-color bg_1 #ece3cc;
+@define-color bg_2 #d5cdb6;
+@define-color dim_0 #909995;
+@define-color fg_0 #53676d;
+@define-color fg_1 #3a4d53;
+
+@define-color red #d2212d;
+@define-color green #489100;
+@define-color yellow #ad8900;
+@define-color blue #0072d4;
+@define-color magenta #ca4898;
+@define-color cyan #009c8f;
+@define-color orange #c25d1e;
+@define-color violet #8762c6;
+
+@define-color br_red #cc1729;
+@define-color br_green #428b00;
+@define-color br_yellow #a78300;
+@define-color br_blue #006dce;
+@define-color br_magenta #c44392;
+@define-color br_cyan #00978a;
+@define-color br_orange #bc5819;
+@define-color br_violet #825dc0;
