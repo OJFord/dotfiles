@@ -9,3 +9,4 @@ endfor
 lua require('autocomplete')
 lua require('colour')
 lua require('lsp')
+lua require('splits')
