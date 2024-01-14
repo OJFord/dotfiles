@@ -73,6 +73,13 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+vim.g.coq_settings = {
+    -- override conflicting defaults
+    keymap = {
+        bigger_preview = "<C-S-P>",
+        jump_to_mark = "<C-M>",
+    },
+}
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
