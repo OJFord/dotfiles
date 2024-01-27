@@ -51,7 +51,7 @@ function Nag() {
             --detailed-message \
             --message="$1" \
             "${maybe_system_button[@]}" "${maybe_user_button[@]}" \
-            ;
+            &
         local pid="$!"
         echo "$pid" >> "$swaynag_pid_file"
         KillNag --keep-last
