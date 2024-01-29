@@ -54,6 +54,7 @@ assign [app_id="discord"] 2
 assign [app_id="Slack"] 2
 assign [app_id="DBeaver"] 3
 for_window [app_id="DBeaver "] move container to workspace 3
+for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable
 assign [app_id="firefox"] 5
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="fzf-dmenu"] floating enable
