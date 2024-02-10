@@ -2,6 +2,7 @@
 AddPackage neovim
 
 AddPackage darkman
+AddPackage eslint_d
 
 # Language servers
 AddPackage gopls
