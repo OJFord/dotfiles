@@ -1,5 +1,30 @@
-local lspconfig = require('lspconfig')
 local coq = require('coq')
+local lspconfig = require('lspconfig')
+local null_ls = require('null-ls')
+
+local augroup_lspformat = vim.api.nvim_create_augroup("LspFormatting", {})
+local on_attach = function(client, bufnr)
+    -- https://github.com/nvimtools/none-ls.nvim/wiki/Formatting-on-save#sync-formatting
+    if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = augroup_lspformat, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup_lspformat,
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format({ async = false })
+            end,
+        })
+    end
+end
+
+null_ls.setup({
+    on_attach = on_attach,
+    sources = {
+        null_ls.builtins.code_actions.eslint_d.with({ extra_filetypes = { 'svelte' } }),
+        null_ls.builtins.diagnostics.eslint_d.with({ extra_filetypes = { 'svelte' } }),
+        null_ls.builtins.formatting.eslint_d.with({ extra_filetypes = { 'svelte' } }),
+    },
+})
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local servers = {
@@ -16,6 +41,7 @@ local servers = {
 }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup(coq.lsp_ensure_capabilities({
+        on_attach = on_attach,
         settings = {
             Lua = {
                 diagnostics = {
@@ -53,8 +79,6 @@ for _, lsp in ipairs(servers) do
         },
     }))
 end
-
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async=false})]]
 
 -- Below here is the 'suggested configuration':
 -- https://github.com/neovim/nvim-lspconfig/tree/master?tab=readme-ov-file#suggested-configuration
