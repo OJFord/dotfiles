@@ -17,12 +17,58 @@ local on_attach = function(client, bufnr)
     end
 end
 
+local function is_shell_script(filename)
+    -- filename ext
+    if filename:match("%.sh$") or filename:match("%.bash$") then return true end
+
+    local file = io.open(filename, "r")
+    if not file then return false end
+    local first_line = file:read("*l")
+    file:close()
+    if not first_line then return false end
+
+    -- shebang
+    if first_line:match("^#!.*[ /]sh") ~= nil then return true end
+
+    -- shellcheck directive
+    if first_line:match("^# shellcheck") ~= nil then return true end
+
+    return false
+end
+
+local shellcheck_source = {
+    name = "shellcheck",
+    method = { null_ls.methods.CODE_ACTIONS, null_ls.methods.DIAGNOSTICS },
+    filetypes = {}, -- all, so we can run on ext-less executables too
+    generator = {
+        fn = function(params)
+            if not is_shell_script(params.bufname) then
+                return nil
+            end
+
+            if params.method == null_ls.methods.CODE_ACTIONS then
+                return null_ls.builtins.code_actions.shellcheck._generator(params)
+            end
+            if params.method == null_ls.methods.DIAGNOSTICS then
+                return null_ls.builtins.diagnostics.shellcheck._generator(params)
+            end
+        end
+    }
+}
+
 null_ls.setup({
     on_attach = on_attach,
     sources = {
         null_ls.builtins.code_actions.eslint_d.with({ extra_filetypes = { 'svelte' } }),
         null_ls.builtins.diagnostics.eslint_d.with({ extra_filetypes = { 'svelte' } }),
         null_ls.builtins.formatting.eslint_d.with({ extra_filetypes = { 'svelte' } }),
+
+        null_ls.builtins.diagnostics.fish,
+        null_ls.builtins.formatting.fish_indent,
+
+        null_ls.builtins.formatting.just,
+
+        shellcheck_source,
     },
 })
 
@@ -30,11 +76,13 @@ null_ls.setup({
 local servers = {
     'gopls',
     'lua_ls',
+    'marksman',
     'pylsp',
     'rls',
     'svelte',
     'sqlls',
     'terraformls',
+    'texlab',
     'tsserver',
     'vimls',
     'vuels',
