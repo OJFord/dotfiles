@@ -2,65 +2,57 @@ local lspconfig = require('lspconfig')
 local coq = require('coq')
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-lspconfig.gopls.setup(coq.lsp_ensure_capabilities({
-}))
-lspconfig.lua_ls.setup(coq.lsp_ensure_capabilities({
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = {
-                    'vim',
+local servers = {
+    'gopls',
+    'lua_ls',
+    'pylsp',
+    'rls',
+    'svelte',
+    'sqlls',
+    'terraformls',
+    'tsserver',
+    'vimls',
+    'vuels',
+}
+for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup(coq.lsp_ensure_capabilities({
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = {
+                        'vim',
+                    },
+                },
+                workspace = {
+                    library = vim.api.nvim_get_runtime_file("", true),
+                },
+                telemetry = {
+                    enable = false,
                 },
             },
-            workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
+            pylsp = {
+                plugins = {
+                    pylint = {
+                        enabled = true,
+                    },
+                    pylsp_black = {
+                        enabled = true,
+                    },
+                    pylsp_mypy = {
+                        enabled = true,
+                        live_mode = true,
+                    },
+                    yapf = {
+                        enabled = false,
+                    },
+                },
             },
-            telemetry = {
-                enable = false,
+            rust = {
+                clippy_preference = "on",
             },
         },
-    },
-}))
-lspconfig.pylsp.setup(coq.lsp_ensure_capabilities({
-    settings = {
-        pylsp = {
-            plugins = {
-                pylint = {
-                    enabled = true,
-                },
-                pylsp_black = {
-                    enabled = true,
-                },
-                pylsp_mypy = {
-                    enabled = true,
-                    live_mode = true,
-                },
-                yapf = {
-                    enabled = false,
-                },
-            },
-        },
-    },
-}))
-lspconfig.rls.setup(coq.lsp_ensure_capabilities({
-    settings = {
-        rust = {
-            clippy_preference = "on",
-        },
-    },
-}))
-lspconfig.svelte.setup(coq.lsp_ensure_capabilities({
-}))
-lspconfig.sqlls.setup(coq.lsp_ensure_capabilities({
-}))
-lspconfig.terraformls.setup(coq.lsp_ensure_capabilities({
-}))
-lspconfig.tsserver.setup(coq.lsp_ensure_capabilities({
-}))
-lspconfig.vimls.setup(coq.lsp_ensure_capabilities({
-}))
-lspconfig.vuels.setup(coq.lsp_ensure_capabilities({
-}))
+    }))
+end
 
 vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format({async=false})]]
 
