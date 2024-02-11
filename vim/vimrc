@@ -107,16 +107,6 @@ let g:airline_symbols.readonly = ''
 syntax enable
 filetype plugin indent on
 
-" Code folding
-augroup autofoldcolumn
-  au!
-  au CursorHold,BufWinEnter,WinEnter * AutoOrigamiFoldColumn
-augroup END
-autocmd BufEnter * normal! zv
-set foldmethod=syntax
-set foldopen-=block
-nnoremap <expr> <space> foldclosed(".") == -1 ? 'zc' : 'zv'
-
 " Concealing
 autocmd InsertEnter *.* set conceallevel=0
 autocmd InsertLeave *.* set conceallevel=2
