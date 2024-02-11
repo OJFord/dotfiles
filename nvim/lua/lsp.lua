@@ -3,21 +3,23 @@ local lspconfig = require('lspconfig')
 local null_ls = require('null-ls')
 local trouble = require('trouble')
 
+local augroup = vim.api.nvim_create_augroup("lsp", { clear = true })
+
 trouble.setup({
     auto_open = true,
     auto_close = true,
 })
 
-local augroup_lspformat = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_attach = function(client, bufnr)
     -- https://github.com/nvimtools/none-ls.nvim/wiki/Formatting-on-save#sync-formatting
     if client.supports_method("textDocument/formatting") then
-        vim.api.nvim_clear_autocmds({ group = augroup_lspformat, buffer = bufnr })
         vim.api.nvim_create_autocmd("BufWritePre", {
-            group = augroup_lspformat,
+            group = augroup,
             buffer = bufnr,
             callback = function()
+                local view = vim.fn.winsaveview()
                 vim.lsp.buf.format({ async = false })
+                vim.fn.winrestview(view)
             end,
         })
     end
@@ -139,10 +141,8 @@ end
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 vim.g.coq_settings = {
     -- override conflicting defaults
     keymap = {
@@ -154,7 +154,7 @@ vim.g.coq_settings = {
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    group = augroup,
     callback = function(ev)
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
@@ -167,16 +167,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
         vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-        vim.keymap.set('n', '<space>wl', function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, opts)
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', 'tD', vim.lsp.buf.type_definition, opts)
+        vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, opts)
+        vim.keymap.set({ 'n', 'v' }, '<Leader>ca', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<space>f', function()
+        vim.keymap.set('n', '<Leader>f', function()
             vim.lsp.buf.format { async = true }
         end, opts)
     end,
