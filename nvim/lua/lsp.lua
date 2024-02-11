@@ -1,6 +1,12 @@
 local coq = require('coq')
 local lspconfig = require('lspconfig')
 local null_ls = require('null-ls')
+local trouble = require('trouble')
+
+trouble.setup({
+    auto_open = true,
+    auto_close = true,
+})
 
 local augroup_lspformat = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_attach = function(client, bufnr)
