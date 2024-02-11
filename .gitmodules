@@ -94,3 +94,6 @@
 [submodule "vim/pack/neovim-only/opt/telescope.nvim"]
 	path = vim/pack/neovim-only/opt/telescope.nvim
 	url = gh:nvim-telescope/telescope.nvim
+[submodule "vim/pack/neovim-only/opt/telescope-fzf-native.nvim"]
+	path = vim/pack/neovim-only/opt/telescope-fzf-native.nvim
+	url = gh:nvim-telescope/telescope-fzf-native.nvim
