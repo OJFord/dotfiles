@@ -41,34 +41,6 @@ vnoremap ; :
 " Plugin mappings
 nmap s <Plug>(easymotion-jumptoanywhere)
 nnoremap <Leader>u :UndotreeToggle<CR>
-nnoremap <C-P> :GFiles --cached --others --exclude-standard<CR>
-command! -bang -nargs=* BLines
-  \ call fzf#vim#buffer_lines(
-  \   {
-  \     'options': '--delimiter="	" --preview-window="+{1}/2" --preview="bat --highlight-line={1} ' . expand('%:p') . '"'
-  \   },
-  \   <bang>0
-  \ )
-nmap f :BLines<CR>
-nnoremap <C-C> :Commits<CR>
-command! -bang -nargs=* Buffers
-  \ call fzf#vim#buffers(
-  \   {
-  \     'options': '--delimiter="	" --preview="bat {-1}"'
-  \   },
-  \   <bang>0
-  \ )
-nnoremap <C-B> :Buffers<CR>
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>),
-  \   1,
-  \   {
-  \     'options': '--delimiter=: --nth=4.. --preview-window="+{2}/2" --preview="bat --highlight-line={2} {1}"'
-  \   },
-  \   <bang>0
-  \ )
-nnoremap <C-F> :Rg<CR>
 
 set wildmode=longest,list,full
 set wildmenu

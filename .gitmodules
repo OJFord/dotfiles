@@ -43,12 +43,6 @@
 [submodule "vim-auto-origami"]
 	path = vim/pack/all/start/vim-auto-origami
 	url = https://github.com/benknoble/vim-auto-origami
-[submodule "fzf.vim"]
-	path = vim/pack/all/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
-[submodule "fzf"]
-	path = vim/pack/all/start/fzf
-	url = https://github.com/junegunn/fzf
 [submodule "vim-quickfix-conflicts"]
 	path = vim/pack/all/start/vim-quickfix-conflicts
 	url = https://github.com/OJFord/vim-quickfix-conflicts
@@ -97,3 +91,6 @@
 [submodule "vim/pack/neovim-only/opt/nvim-web-devicons"]
 	path = vim/pack/neovim-only/opt/nvim-web-devicons
 	url = gh:nvim-tree/nvim-web-devicons
+[submodule "vim/pack/neovim-only/opt/telescope.nvim"]
+	path = vim/pack/neovim-only/opt/telescope.nvim
+	url = gh:nvim-telescope/telescope.nvim
