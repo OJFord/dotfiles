@@ -65,3 +65,13 @@ brace = "curly"
 
 [buildPlans.Myosevka.ligations]
 inherits = "clike"
+
+[buildPlans.Myosevka.weights.Regular]
+shape = 400
+menu = 400
+css = 400
+
+[buildPlans.Myosevka.widths.Normal]
+shape = 500
+menu = 5
+css = "normal"
