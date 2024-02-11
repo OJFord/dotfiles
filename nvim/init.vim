@@ -6,8 +6,8 @@ for pkg in split(system('ls '.$VIMDIR.'/pack/neovim-only/opt'))
     exec 'packadd '.pkg
 endfor
 
-lua require('autocomplete')
-lua require('colour')
-lua require('folds')
-lua require('lsp')
-lua require('splits')
+lua require('autocomplete').setup()
+lua require('colour').setup()
+lua require('folds').setup()
+lua require('lsp').setup()
+lua require('splits').setup()
