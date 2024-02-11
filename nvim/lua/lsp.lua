@@ -18,8 +18,22 @@ local on_attach = function(client, bufnr)
             buffer = bufnr,
             callback = function()
                 local view = vim.fn.winsaveview()
+                local open_folds = {}
+                for line = 1, vim.fn.line('$') do
+                    if vim.fn.foldlevel(line) > 0 and vim.fn.foldclosed(line) == -1 then
+                        table.insert(open_folds, line)
+                    end
+                end
+
                 vim.lsp.buf.format({ async = false })
+
                 vim.fn.winrestview(view)
+                for _, line in ipairs(open_folds) do
+                    -- check still closed because it might have opened with previous line
+                    if vim.fn.foldclosed(line) ~= -1 then
+                        vim.cmd(tostring(line) .. 'foldopen')
+                    end
+                end
             end,
         })
     end
