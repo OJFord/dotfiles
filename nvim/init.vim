@@ -8,6 +8,7 @@ endfor
 
 lua require('autocomplete').setup()
 lua require('colour').setup()
+lua require('finding').setup()
 lua require('folds').setup()
 lua require('lsp').setup()
 lua require('splits').setup()
