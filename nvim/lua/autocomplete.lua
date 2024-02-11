@@ -1,22 +1,32 @@
-local coq = require('coq')
+local M = {}
+M.augroup = vim.api.nvim_create_augroup(..., {})
 
-vim.opt.completeopt = {'longest', 'menuone'}
-vim.o.signcolumn = 'number' -- prevent resizing jitter
+local setup_autocmds = function()
+    vim.api.nvim_clear_autocmds({ group = M.augroup })
 
-local coq_settings = {
-    keymap = {};
-    xdg = true;
-}
+    vim.api.nvim_create_autocmd('InsertEnter', {
+        group = M.augroup,
+        command = 'COQnow',
+    })
+end
 
-vim.api.nvim_create_autocmd('InsertEnter', {
-    command = 'COQnow';
-})
+local setup_opts = function()
+    vim.opt.completeopt = { 'longest', 'menuone' }
+    vim.o.signcolumn = 'number' -- prevent resizing jitter
+end
 
--- C-j/k completion navigation
-coq_settings.keymap.bigger_preview = '<c-p>'
-vim.cmd('inoremap <expr> <C-j> pumvisible() ? "\\<C-n>" : "j"')
-vim.cmd('inoremap <expr> <C-k> pumvisible() ? "\\<C-p>" : "k"')
--- Enter to accept
-vim.cmd('inoremap <expr> <CR> pumvisible() ? "\\<C-y>" : "\\<C-g>u\\<CR>"')
+local setup_keymap = function()
+    -- C-j/k completion navigation
+    vim.cmd('inoremap <expr> <C-j> pumvisible() ? "\\<C-n>" : "j"')
+    vim.cmd('inoremap <expr> <C-k> pumvisible() ? "\\<C-p>" : "k"')
+    -- Enter to accept
+    vim.cmd('inoremap <expr> <CR> pumvisible() ? "\\<C-y>" : "\\<C-g>u\\<CR>"')
+end
 
-vim.g.coq_settings = coq_settings
+function M.setup()
+    setup_autocmds()
+    setup_keymap()
+    setup_opts()
+end
+
+return M
