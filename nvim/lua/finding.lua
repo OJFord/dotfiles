@@ -20,6 +20,10 @@ local setup_keymap = function()
 
     vim.keymap.set('n', M.leader .. 'p', builtin.find_files, {})
     vim.keymap.set('n', '<C-P>', builtin.find_files, {})
+
+    vim.keymap.set('n', M.leader .. 'r', builtin.lsp_references, {})
+
+    vim.keymap.set('n', M.leader .. 's', builtin.grep_string, {})
 end
 
 function M.setup()
@@ -42,7 +46,13 @@ function M.setup()
                 },
             },
         },
+        extensions = {
+            fzf = {
+            }
+        }
     }
+
+    require('telescope').load_extension('fzf')
 end
 
 return M
