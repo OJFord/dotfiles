@@ -1,3 +1,4 @@
-for ftdetector in split(system('find '.$VIMDIR.'/pack/*/opt/*/ftdetect -name *.vim'))
+let cmd = 'sh -c "find '.shellescape($VIMDIR).' -wholename */opt/*/ftdetect/*.vim"'
+for ftdetector in split(system(cmd), "\n")
     exec 'source '.ftdetector
 endfor
