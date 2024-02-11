@@ -91,3 +91,9 @@
 [submodule "vim/pack/neovim-only/opt/none-ls.nvim"]
 	path = vim/pack/neovim-only/opt/none-ls.nvim
 	url = gh:nvimtools/none-ls.nvim
+[submodule "vim/pack/neovim-only/opt/trouble.nvim"]
+	path = vim/pack/neovim-only/opt/trouble.nvim
+	url = gh:folke/trouble.nvim
+[submodule "vim/pack/neovim-only/opt/nvim-web-devicons"]
+	path = vim/pack/neovim-only/opt/nvim-web-devicons
+	url = gh:nvim-tree/nvim-web-devicons
