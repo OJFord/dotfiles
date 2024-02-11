@@ -1,12 +1,12 @@
-[buildPlans.myosevka]
+[buildPlans.Myosevka]
 family = "Iosevka Myosevka"
 spacing = "fontconfig-mono"
 serifs = "sans"
 
-[buildPlans.myosevka.iosevka-generate]
+[buildPlans.Myosevka.iosevka-generate]
 nerdfont = ["complete"]
 
-[buildPlans.myosevka.variants.design]
+[buildPlans.Myosevka.variants.design]
 # Numbers
 one = "no-base"
 three = "flat-top"
@@ -54,14 +54,14 @@ tilde = "low"
 underscore = "high"
 zero = "slashed"
 
-[buildPlans.myosevka.variants.upright]
+[buildPlans.Myosevka.variants.upright]
 i = "zshaped"
 l = "zshaped"
 
-[buildPlans.myosevka.variants.italic]
+[buildPlans.Myosevka.variants.italic]
 i = "hooky"
 l = "hooky"
 brace = "curly"
 
-[buildPlans.myosevka.ligations]
+[buildPlans.Myosevka.ligations]
 inherits = "clike"
