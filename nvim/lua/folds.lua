@@ -22,12 +22,7 @@ local setup_keymap = function()
 end
 
 local setup_opts = function()
-    if vim.o.fillchars ~= '' then
-        vim.o.fillchars = vim.o.fillchars .. ',fold: '
-    else
-        vim.o.fillchars = 'fold: '
-    end
-
+    vim.opt.fillchars:append { fold = ' ' }
     vim.o.foldmethod = 'syntax'
     vim.cmd [[set foldopen-=block]]
     vim.o.foldtext = 'v:lua.require("folds").foldtext()'
