@@ -15,6 +15,7 @@
     rp = fzsha rev-parse
     staged = diff --cached
     uncommit = reset HEAD~1
+    pushf = push --force-with-lease
 
 [commit]
     cleanup = strip
