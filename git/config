@@ -17,6 +17,9 @@
     uncommit = reset HEAD~1
     pushf = push --force-with-lease
 
+[branch]
+    sort = -committerdate
+
 [commit]
     cleanup = strip
     gpgsign = true
