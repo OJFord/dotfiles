@@ -1,3 +1,1 @@
-tap 'OJFord/formulae'
-
-brew 'loginitems'
+brew 'OJFord/formulae/loginitems'

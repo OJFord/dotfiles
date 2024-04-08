@@ -1,7 +1,9 @@
 tap 'OJFord/formulae'
 
 brew 'bat'
+brew 'curl', link: 'force'
 brew 'fd'
+brew 'git', link: 'force'
 brew 'jq'
 brew 'lsd'
 brew 'prettyping'
@@ -15,10 +17,10 @@ brew 'ranger'
 brew 'ripgrep'
 brew 'shellcheck'
 brew 'stern'
-brew 'wget'
+brew 'wget', link: 'force'
 brew 'yarn'
 
-cask 'dbeaver'
+cask 'dbeaver-community'
 cask 'keybase'
 cask 'slack'
 

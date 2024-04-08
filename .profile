@@ -1,3 +1,4 @@
+set -eEuo pipefail
 export LANG="en_GB.UTF-8"
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"

@@ -1,5 +1,6 @@
 #!/bin/bash
-set -eEux
+set -xeEuo pipefail
+
 this_dir="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)"
 
 ensure_aconfmgr() {
