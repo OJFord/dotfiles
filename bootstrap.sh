@@ -40,3 +40,8 @@ case "$(uname -a)" in
 esac
 
 ln -sf "$this_dir/.profile" "$HOME/.profile"
+source "$HOME/.profile"
+
+if [ "$this_dir" != "$(realpath "$XDG_CONFIG_HOME")" ]; then
+  ln -sf "$this_dir" "$XDG_CONFIG_HOME"
+fi
