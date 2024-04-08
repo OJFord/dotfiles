@@ -41,6 +41,7 @@ case "$(uname -a)" in
 esac
 
 ln -sf "$this_dir/.profile" "$HOME/.profile"
+pre-commit install --install-hooks # now before we error and start fixing things
 source "$HOME/.profile"
 
 if [ "$this_dir" != "$(realpath "$XDG_CONFIG_HOME")" ]; then
