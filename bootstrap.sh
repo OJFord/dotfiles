@@ -32,6 +32,7 @@ case "$(uname -a)" in
     *Darwin*)
         ensure_brew
         brew bundle --file="$this_dir/Brewfile"
+	"$this_dir/by-uname/Darwin/config.sh"
         ;;
     *)
         echo unknown uname
