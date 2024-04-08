@@ -1,7 +1,9 @@
-tap "OJFord/formulae"
-brew "OJFord/formulae/passbase"
+brew 'OJFord/formulae/passbase'
+brew 'fish'
 
 brew 'direnv'
-brew "fish"
-brew "lsd"
-brew "ripgrep"
+brew 'fd'
+brew 'fzf'
+brew 'lsd'
+brew 'prettyping'
+brew 'ripgrep'

@@ -1,2 +1,4 @@
-tap 'koekeishiya/formulae'
-brew 'skhd', args: ['HEAD'], restart_service: true
+system 'command -v skhd && skhd --uninstall-service || echo installing skhd for first time'
+brew 'koekeishiya/formulae/skhd'
+system 'skhd --install-service'
+system 'skhd --start-service'
