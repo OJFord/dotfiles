@@ -75,25 +75,25 @@
 	url = https://github.com/ms-jpq/coq-nvim
 [submodule "selenized"]
 	path = selenized
-	url = gh:jan-warchol/selenized
+	url = https://github.com/jan-warchol/selenized
 [submodule "vim/pack/neovim-only/opt/darkman.nvim"]
 	path = vim/pack/neovim-only/opt/darkman.nvim
-	url = gh:4e554c4c/darkman.nvim
+	url = https://github.com/4e554c4c/darkman.nvim
 [submodule "vim/pack/neovim-only/opt/plenary.nvim"]
 	path = vim/pack/neovim-only/opt/plenary.nvim
-	url = gh:nvim-lua/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
 [submodule "vim/pack/neovim-only/opt/none-ls.nvim"]
 	path = vim/pack/neovim-only/opt/none-ls.nvim
-	url = gh:nvimtools/none-ls.nvim
+	url = https://github.com/nvimtools/none-ls.nvim
 [submodule "vim/pack/neovim-only/opt/trouble.nvim"]
 	path = vim/pack/neovim-only/opt/trouble.nvim
-	url = gh:folke/trouble.nvim
+	url = https://github.com/folke/trouble.nvim
 [submodule "vim/pack/neovim-only/opt/nvim-web-devicons"]
 	path = vim/pack/neovim-only/opt/nvim-web-devicons
-	url = gh:nvim-tree/nvim-web-devicons
+	url = https://github.com/nvim-tree/nvim-web-devicons
 [submodule "vim/pack/neovim-only/opt/telescope.nvim"]
 	path = vim/pack/neovim-only/opt/telescope.nvim
-	url = gh:nvim-telescope/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
 [submodule "vim/pack/neovim-only/opt/telescope-fzf-native.nvim"]
 	path = vim/pack/neovim-only/opt/telescope-fzf-native.nvim
-	url = gh:nvim-telescope/telescope-fzf-native.nvim
+	url = https://github.com/nvim-telescope/telescope-fzf-native.nvim
