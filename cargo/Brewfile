@@ -1,2 +1,1 @@
 brew 'rustup'
-system 'rustup-init -y --no-modify-path --default-toolchain=stable --component clippy rls'
