@@ -42,6 +42,7 @@ esac
 
 ln -sf "$this_dir/.profile" "$HOME/.profile"
 pre-commit install --install-hooks # now before we error and start fixing things
+git --git-dir="$this_dir" remote set-url origin gh:OJFord/dotfiles
 source "$HOME/.profile"
 
 if [ "$this_dir" != "$(realpath "$XDG_CONFIG_HOME")" ]; then
