@@ -10,7 +10,6 @@ brew 'prettyping'
 brew 'kubectx'
 brew 'packer'
 brew 'parallel'
-brew 'passbase'
 brew 'pre-commit'
 brew 'pstree'
 brew 'ranger'
@@ -21,7 +20,6 @@ brew 'wget', link: 'force'
 brew 'yarn'
 
 cask 'dbeaver-community'
-cask 'keybase'
 cask 'slack'
 
 Dir.glob(File.join(File.dirname(__FILE__), '*', '**', 'Brewfile')) do |brewfile|
