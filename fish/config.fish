@@ -1,6 +1,8 @@
 bass source "$HOME/.profile"
 set --unexport fish_greeting
 
+fzf --fish | source
+
 for function_d in (find "$XDG_CONFIG_HOME/" -maxdepth 3 -name functions -type d)
     set fish_function_path "$function_d" $fish_function_path
 end
