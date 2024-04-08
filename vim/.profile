@@ -5,7 +5,3 @@ cat > "$VIMDIR/env.conf" <<-EOF
 	VIMDIR='$VIMDIR'
 	VIMINIT='$VIMINIT'
 EOF
-
-if ! rustup component list --installed | rg '^rls-' >/dev/null; then
-    rustup component add rls
-fi

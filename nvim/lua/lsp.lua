@@ -135,7 +135,7 @@ function M.setup()
         'lua_ls',
         'marksman',
         'pylsp',
-        'rls',
+        'rust_analyzer',
         'svelte',
         'sqlls',
         'terraformls',
