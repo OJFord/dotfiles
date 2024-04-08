@@ -18,11 +18,11 @@ y = 0
 
 [font.italic]
 family = "monospace"
-style = "Light Italic"
+style = "Italic"
 
 [font.normal]
 family = "monospace"
-style = "Light"
+style = "Regular"
 
 [font.offset]
 x = 0
