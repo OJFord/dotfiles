@@ -1,7 +1,7 @@
 # shellcheck source=gnu/.profile
 . "$XDG_CONFIG_HOME/by-uname/Darwin/gnu/.profile"
 
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="$(brew --prefix python)/libexec/bin:$PATH"
 
 mac_user_fonts="$HOME/Library/Fonts"
 if [ ! -L "$mac_user_fonts" ]; then
