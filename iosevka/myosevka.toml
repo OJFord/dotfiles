@@ -9,8 +9,8 @@ nerdfont = ["complete"]
 [buildPlans.Myosevka.variants.design]
 # Numbers
 one = "no-base"
-three = "flat-top"
-four = "semi-open"
+three = "flat-top-serifless"
+four = "semi-open-serifless"
 seven = "straight-serifless-crossbar"
 
 # Letters
