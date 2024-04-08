@@ -1,4 +1,3 @@
-brew 'OJFord/formulae/passbase'
 brew 'fish'
 
 brew 'direnv'
