@@ -1,0 +1,70 @@
+#!
+set -eEuo pipefail
+
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+alias sb="sketchybar"
+sb --hotload true
+
+defaults write "Apple Global Domain" "_HIHideMenuBar" -integer 1
+sb --bar \
+    position=top \
+    notch_width=218 \
+    height=39 \
+    color=0xff103c48 \
+    ;
+
+sb --default \
+    padding_right=4 \
+    padding_left=4 \
+    icon.highlight_color=0xff184956 \
+    label.highlight_color=0xff184956 \
+    icon.color=0xffadbcbc \
+    label.color=0xffadbcbc \
+    icon.font="monospace:Regular:14.0" \
+    label.font="monospace:Regular:14.0" \
+    icon.padding_left=2 \
+    icon.padding_right=2 \
+    label.padding_left=2 \
+    label.padding_right=2 \
+    ;
+
+
+# Left
+
+sb --add item power left
+sb --set power update_freq=120 script="$PLUGIN_DIR/power.sh"
+sb --subscribe power system_woke power_source_change
+
+sb --add item spacelist left
+sb --set spacelist drawing=off script="$PLUGIN_DIR/spacelist.sh"
+
+sb --add item chevron left
+sb --set chevron icon= label.drawing=off
+
+sb --add item front_app left
+sb --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh"
+sb --subscribe front_app front_app_switched
+
+
+# Notch
+
+sb --add item cal q
+sb --set cal update_freq=60 script="$PLUGIN_DIR/cal.sh" icon.drawing=off
+
+sb --add item clock e
+sb --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh" icon.drawing=off
+
+
+# Right
+
+sb --add item volume right
+sb --set volume script="$PLUGIN_DIR/volume.sh"
+sb --set volume click_script="osascript -e 'set volume output muted not (output muted of (get volume settings))'"
+sb --subscribe volume volume_change
+
+
+# fill to edges
+sb --set "$(sb --query bar | jq -r '.items[0]')" padding_left=0 icon.padding_left=0
+sb --set "$(sb --query bar | jq -r '.items|last')" padding_right=0 label.padding_right=0
+# init scripts
+sb --update
