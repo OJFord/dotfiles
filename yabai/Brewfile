@@ -1,4 +1,5 @@
 system 'command -v yabai && yabai --uninstall-service || echo installing yabai for first time'
 brew 'koekeishiya/formulae/yabai'
+system 'echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | cut -d " " -f 1) $(which yabai) --load-sa" | sudo tee /private/etc/sudoers.d/yabai'
 system 'sudo yabai --load-sa'
 system 'yabai --start-service'
