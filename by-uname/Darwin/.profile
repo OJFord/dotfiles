@@ -29,3 +29,8 @@ if [ ! -e "$mac_user_fonts/monospace-Regular.ttf" ]; then
     false
     mv monospace-*.ttf "$mac_user_fonts"
 fi
+
+if [ ! -L /usr/local/bin/xdg-open ]; then
+    >&2 echo 'Need password to create /usr/local/bin/xdg-open symlink'
+    sudo ln -s "$XDG_CONFIG_HOME/by-uname/Darwin/bin/xdg-open" /usr/local/bin/
+fi
