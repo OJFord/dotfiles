@@ -1,3 +1,4 @@
+[general]
 import = [
     "~/.config/selenized/terminals/alacritty/selenized-dark.toml",
 ]
@@ -184,7 +185,7 @@ mods = "Super"
 [mouse]
 hide_when_typing = true
 
-[shell]
+[terminal.shell]
 program = "fish"
 
 [window]
