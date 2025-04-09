@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -eEuo pipefail
+
+update-git-signing-key
+
+repo_hook="$(git rev-parse --git-dir)/hooks/pre-commit"
+if [ -f "$repo_hook" ]; then
+    exec "$repo_hook"
+fi
