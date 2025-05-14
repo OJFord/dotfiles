@@ -85,6 +85,9 @@
 [pull]
     rebase = true
 
+[push]
+    default = upstream
+
 [rebase]
     stat = false
     autoSquash = true
