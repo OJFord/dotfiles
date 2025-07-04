@@ -18,6 +18,7 @@
     pushf = push --force-with-lease
 
 [branch]
+    autoSetupMerge = false
     sort = -committerdate
 
 [commit]
