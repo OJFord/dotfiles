@@ -1,6 +1,5 @@
 brew 'neovim'
 
-system 'npm install --global eslint_d'
 brew 'fish'
 brew 'go'
 brew 'just'
@@ -20,5 +19,6 @@ brew 'terraform-ls'
 brew 'texlab'
 brew 'typescript-language-server'
 brew 'universal-ctags' # for coq
+brew 'vscode-langservers-extracted'
 system 'npm install --global typescript-svelte-plugin'
 system 'npm install --global vls' # should switch to @vue/language-server (on Linux too)

@@ -97,8 +97,14 @@ function M.setup()
     setup_opts()
 
     require('trouble').setup({
-        auto_open = true,
-        auto_close = true,
+        opts = {
+            modes = {
+                diagnostics = {
+                    auto_open = true,
+                    auto_close = true,
+                },
+            }
+        }
     })
 
     local on_attach = function(client, bufnr)
@@ -116,10 +122,6 @@ function M.setup()
     null_ls.setup({
         on_attach = on_attach,
         sources = {
-            null_ls.builtins.code_actions.eslint_d.with({ extra_filetypes = { 'svelte' } }),
-            null_ls.builtins.diagnostics.eslint_d.with({ extra_filetypes = { 'svelte' } }),
-            null_ls.builtins.formatting.eslint_d.with({ extra_filetypes = { 'svelte' } }),
-
             null_ls.builtins.diagnostics.fish,
             null_ls.builtins.formatting.fish_indent,
 
@@ -129,8 +131,9 @@ function M.setup()
         },
     })
 
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
     local servers = {
+        'eslint',
         'gopls',
         'lua_ls',
         'marksman',
@@ -140,7 +143,7 @@ function M.setup()
         'sqlls',
         'terraformls',
         'texlab',
-        'tsserver',
+        'ts_ls',
         'vimls',
         'vuels',
     }
