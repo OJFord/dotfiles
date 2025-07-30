@@ -1,0 +1,24 @@
+brew 'neovim'
+
+system 'npm install --global eslint_d'
+brew 'fish'
+brew 'go'
+brew 'just'
+brew 'shellcheck'
+
+# Language servers
+brew 'gopls'
+brew 'lua-language-server'
+brew 'marksman'
+system 'pip install python-lsp-server'
+system 'pip install python-lsp-black'
+system 'pip install python-lsp-isort'
+system 'pip install python-pylsp-mypy'
+system 'npm install --global svelte-language-server'
+brew 'sql-language-server'
+brew 'terraform-ls'
+brew 'texlab'
+brew 'typescript-language-server'
+brew 'universal-ctags' # for coq
+system 'npm install --global typescript-svelte-plugin'
+system 'npm install --global vls' # should switch to @vue/language-server (on Linux too)
