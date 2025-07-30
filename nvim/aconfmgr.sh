@@ -2,7 +2,6 @@
 AddPackage neovim
 
 AddPackage darkman
-AddPackage eslint_d
 AddPackage fish
 AddPackage just
 AddPackage shellcheck
@@ -22,3 +21,4 @@ AddPackage --foreign terraform-ls
 AddPackage texlab
 AddPackage typescript-language-server
 AddPackage typescript-svelte-plugin
+AddPackage vscode-langservers-extracted
