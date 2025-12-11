@@ -64,3 +64,9 @@ IgnorePath /usr/share/mime/*
 AddPackage tlp
 AddPackage tlp-rdw
 CopyFile /etc/tlp.d/10-usb-autosuspend.conf
+
+# Sleep
+CopyFile /etc/systemd/logind.conf.d/sleep.conf
+CopyFile /etc/systemd/sleep.conf.d/hibernate.conf
+CopyFile /etc/udev/rules.d/90-low-battery.rules
+CopyFile /usr/lib/systemd/system-sleep/log 755
