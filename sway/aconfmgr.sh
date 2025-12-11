@@ -1,6 +1,7 @@
 # shellcheck shell=bash
 AddPackage sway
 AddPackage --foreign sway-systemd
+SetFileProperty /etc/sway/config.d/95-system-keyboard-config.conf deleted y # clobbers `input:keyboard`
 AddPackage --foreign wev
 
 # Backlight
