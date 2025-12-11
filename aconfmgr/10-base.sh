@@ -16,13 +16,12 @@ IgnorePath '/etc/mkinitcpio.d/*.preset'
 IgnorePath '/usr/lib/modules/*'
 
 root_device="$(findmnt --noheadings --output=source --target=/)"
-root_device_name="$(echo "$root_device" | rev | cut -d/ -f1 | rev)"
-root_partition="$(lsblk --output=name,pkname --list --noheadings | sed -En "s@${root_device_name} +([^ ]+)@\1@p")"
-root_partition_uuid="$(lsblk --noheadings --output=partuuid "/dev/$root_partition" | tr -d '\n')"
 if [ "$(lsblk --noheadings --output=type "$root_device")" = crypt ]; then
-    crypt_options="cryptdevice=PARTUUID=${root_partition_uuid}:${root_device_name}"
+    root_device_name="$(lsblk --noheadings --output=name "$root_device")"
+    root_partition_uuid="$(lsblk --noheadings --output=uuid "$root_device")"
+    crypt_options="rd.luks.name=${root_partition_uuid}=${root_device_name}"
 else
-    crypt_options="disablehooks=encrypt"
+    crypt_options="disablehooks=sd-encrypt"
 fi
 ucode="$(yay -Qs --quiet \\-ucode)"
 if [ "$ucode" = 'intel-ucode' ]; then
@@ -35,42 +34,16 @@ for linux in "${linuces[@]}"; do
     AddPackage "$linux"
     AddPackage "${linux}-headers"
 
-    # Before and during first `apply`, the swap device does not exist so cannot be used until the second.
-    if swap_device="$(findmnt --noheadings --output=source --target=/swapfile)"; then
-        swap_offset="$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}')"
-        hibernation_resume_params="resume=${swap_device} resume_offset=${swap_offset}"
-        CopyFile /etc/systemd/logind.conf.d/sleep.conf
-        CopyFile /etc/systemd/sleep.conf.d/hibernate.conf
-        CopyFile /etc/udev/rules.d/90-low-battery.rules
-        CopyFile /usr/lib/systemd/system-sleep/log 755
-
-        # Add a fall back entry without resume
-        cat > "$(CreateFile "/boot/loader/entries/arch-${linux}-no-resume.conf")" <<-EOF
-			title Arch (${linux}) (no resume)
-			linux /vmlinuz-${linux}
-			initrd /${ucode}.img
-			initrd /initramfs-${linux}.img
-			options ${crypt_options} root=${root_device} rw ${cpu_options}
-		EOF
-        SetFileProperty "/boot/loader/entries/arch-${linux}-no-resume.conf" mode 755
-    else
-        >&2 echo 'Swap device not yet created, cannot enable hibernation. Apply again.'
-        hibernation_resume_params=
-    fi
-
-    cat > "$(CreateFile "/boot/loader/entries/arch-${linux}.conf")" <<-EOF
+    cat > "$(CreateFile "/boot/loader/entries/arch-${linux}.conf" 755)" <<-EOF
 		title Arch (${linux})
 		linux /vmlinuz-${linux}
 		initrd /${ucode}.img
 		initrd /initramfs-${linux}.img
-		options ${crypt_options} root=${root_device} rw ${cpu_options} ${hibernation_resume_params}
+		options ${crypt_options} root=${root_device} rw ${cpu_options}
 	EOF
-
-    SetFileProperty "/boot/loader/entries/arch-${linux}.conf" mode 755
 done
 
 AddPackage --foreign mkinitcpio-firmware
-
 AddPackage coreutils
 IgnorePath '/usr/share/info/dir'
 
