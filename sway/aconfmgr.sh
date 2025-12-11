@@ -12,8 +12,7 @@ AddPackage swaybg
 
 # Clipboard
 AddPackage --foreign cliphist
-# -git until released (likely >=v2.2): https://github.com/bugaevc/wl-clipboard/commit/86eacb7cd74e88a839296b3b83bad2d954bea840
-AddPackage wl-clipboard-git
+AddPackage wl-clipboard
 AddPackage wtype
 
 # Screenshotting
