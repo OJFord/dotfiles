@@ -151,7 +151,7 @@ function M.setup()
     local coq = require('coq')
     local lspconfig = require('lspconfig')
     for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup(coq.lsp_ensure_capabilities({
+        vim.lsp.config('lsp', coq.lsp_ensure_capabilities({
             on_attach = on_attach,
             settings = {
                 Lua = {
