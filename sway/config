@@ -42,6 +42,10 @@ bindsym {
     Alt+Print exec grimshot copy active
     --release Shift+Print exec grimshot save area
     --release Alt+Shift+Print exec grimshot copy area
+
+    XF86AudioPlay exec playerctl play-pause
+    XF86AudioNext exec playerctl next
+    XF86AudioPrev exec playerctl previous
 }
 
 include "$XDG_CONFIG_HOME"/*/swayconfig
