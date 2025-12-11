@@ -149,9 +149,8 @@ function M.setup()
     }
     vim.g.coq_settings = M.coq_settings
     local coq = require('coq')
-    local lspconfig = require('lspconfig')
     for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup(coq.lsp_ensure_capabilities({
+        vim.lsp.config(lsp, {
             on_attach = on_attach,
             settings = {
                 Lua = {
@@ -188,7 +187,9 @@ function M.setup()
                     clippy_preference = "on",
                 },
             },
-        }))
+        })
+        vim.lsp.config(lsp, coq.lsp_ensure_capabilities())
+        vim.lsp.enable(lsp)
     end
 end
 
