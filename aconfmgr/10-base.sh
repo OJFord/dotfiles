@@ -39,7 +39,7 @@ for linux in "${linuces[@]}"; do
 		linux /vmlinuz-${linux}
 		initrd /${ucode}.img
 		initrd /initramfs-${linux}.img
-		options ${crypt_options} root=${root_device} rw ${cpu_options}
+		options ${crypt_options} root=${root_device} rw ${cpu_options} systemd.hostname=$(uname -n)
 	EOF
 done
 
