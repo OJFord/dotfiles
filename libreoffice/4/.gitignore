@@ -1,0 +1,8 @@
+# ignore everything that has no business being in a config dir to begin with...
+/cache
+/user/*
+!/user/config/
+
+# potentially system-specific & auto-generated
+/user/config/autotbl.fmt
+/user/config/javasettings_Linux_X86_64.xml
