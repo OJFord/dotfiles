@@ -1,5 +1,9 @@
 [Match]
+Name=phone*
 Name=ww*
+
+[Link]
+Group=3
 
 [Network]
 DHCP=yes

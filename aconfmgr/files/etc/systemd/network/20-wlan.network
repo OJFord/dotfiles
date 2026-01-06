@@ -1,6 +1,9 @@
 [Match]
 Name=wl*
 
+[Link]
+Group=2
+
 [Network]
 DHCP=yes
 IPv6PrivacyExtensions=yes
