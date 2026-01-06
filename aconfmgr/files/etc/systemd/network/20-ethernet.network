@@ -2,6 +2,9 @@
 Name=en*
 Name=eth*
 
+[Link]
+Group=1
+
 [Network]
 DHCP=yes
 IPv6PrivacyExtensions=yes
