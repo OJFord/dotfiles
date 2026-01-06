@@ -60,11 +60,6 @@ IgnorePath /etc/udev/hwdb.bin
 
 IgnorePath /usr/share/mime/*
 
-# Power
-AddPackage tlp
-AddPackage tlp-rdw
-CopyFile /etc/tlp.d/10-usb-autosuspend.conf
-
 # Sleep
 CopyFile /etc/systemd/logind.conf.d/sleep.conf
 CopyFile /etc/systemd/sleep.conf.d/hibernate.conf

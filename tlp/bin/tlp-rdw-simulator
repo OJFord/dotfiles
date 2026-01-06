@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+set -eEuo pipefail
+
+enabl_or_disabl_due_to() {
+    local change="$1" # disconnect/connect
+
+    case "$change" in
+        connect) echo disabl ;;
+        disconnect) echo enabl ;;
+        *) >&2 echo "bad arg $change"; exit 1 ;;
+    esac
+}
+
+read_conf() {
+    local change="$1" # disconnect/connect
+    local group="$2"
+
+    local action
+    action="$(enabl_or_disabl_due_to "$change")"
+    result="$(/usr/share/tlp/tlp-readconfs \
+        | sed -n -E "s/.*DEVICES_TO_${action^^}E_ON_${group^^}_${change^^}=\"(.*)\"/\1/p" \
+    )"
+    if [ -z "$result" ]; then
+        >&2 echo "nothing configured to ${action}e on $group ${change}ion"
+        return 1
+    fi
+    echo "$result"
+}
+
+dispatch() {
+    local change="$1" # disconnect/connect
+    local changed_group="$2"
+    >&2 echo "$changed_group link ${change}ed"
+
+    if conf_rfkill_groups="$(read_conf "$change" "$changed_group")"; then
+        read -ra rfkill_groups<<<"$rfkill_groups"
+    else
+        return 0
+    fi
+
+    # we only want to un/block rfkill types that actually exist
+    declare -A rfkill_types
+    while read -r t; do rfkill_types["$t"]=1; done < <(rfkill --json | jq -r '.rfkilldevices|unique_by(.type)[].type')
+    local rfkill_groups
+    rfkill_groups=()
+    for t in "${conf_rfkill_groups[@]}"; do
+        [[ ${rfkill_types["$t"]} ]] && rfkill_groups+=("$t")
+    done
+
+    local action
+    action="$(enabl_or_disabl_due_to "$change")"
+    >&2 echo "${action}ing groups: $(printf '%s, ' "${rfkill_groups[@]}" | sed 's/, $//')"
+
+    case "$action" in
+        disabl) _block=block ;;
+        enabl) _block=unblock ;;
+        *) >&2 echo "bad action $action"; exit 1 ;;
+    esac
+    rfkill "$_block" "${rfkill_groups[@]}"
+}
+
+for ifgroup in ethernet wlan wwan; do
+    state_file="$RUNTIME_DIRECTORY/$ifgroup"
+    prev_state="$(<"$state_file")" || touch "$state_file"
+    curr_state="$(ip --json link show group "$ifgroup" | jq -r '.[].operstate' | tee "$state_file")"
+
+    if [ "$curr_state" = UP ] && [ "$prev_state" != UP ]; then
+        dispatch connect "${ifgroup/wlan/wifi}"
+    elif  [ "$curr_state" != UP ] && [ "$prev_state" = UP ]; then
+        dispatch disconnect "${ifgroup/wlan/wifi}"
+    fi
+done

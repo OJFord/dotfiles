@@ -7,18 +7,24 @@ if [ "$(uname -s)" != Linux ]; then
 fi
 
 mkdir -p "$XDG_CONFIG_HOME/systemd/user/sockets.target.wants"
-for f in "$XDG_CONFIG_HOME"/*/*[^@].@(service|socket|target); do
+for f in "$XDG_CONFIG_HOME"/*/*[^@].@(path|service|socket|target); do
+    enable=false
     for w in $(sed -En 's/WantedBy=(.+)/\1/p' "$f"); do
         mkdir -p "$XDG_CONFIG_HOME/systemd/user/$w.wants"
+        enable=true
     done
     for r in $(sed -En 's/RequiredBy=(.+)/\1/p' "$f"); do
         mkdir -p "$XDG_CONFIG_HOME/systemd/user/$r.requires"
+        enable=true
     done
 
-    systemctl --user enable "$(realpath "$f")"
+    # UpheldBy, Also, Alias, DefaultInstance not implemented
+    if [ "$enable" = true ]; then
+        systemctl --user enable "$(realpath "$f")"
+    fi
 done
 
 # Link but don't enable unit template
-for f in "$XDG_CONFIG_HOME"/*/*@.@(service|socket|target); do
+for f in "$XDG_CONFIG_HOME"/*/*@.@(path|service|socket|target); do
     ln -sf "$(realpath "$f")" "$XDG_CONFIG_HOME/systemd/user/"
 done
