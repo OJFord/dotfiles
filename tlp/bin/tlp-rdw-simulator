@@ -59,14 +59,19 @@ dispatch() {
     rfkill "$_block" "${rfkill_groups[@]}"
 }
 
+check_group_up() {
+    local state="$1"
+    grep --quiet --line-regexp "UP" <<<"$state"
+}
+
 for ifgroup in ethernet wlan wwan; do
     state_file="$RUNTIME_DIRECTORY/$ifgroup"
     prev_state="$(<"$state_file")" || touch "$state_file"
-    curr_state="$(ip --json link show group "$ifgroup" | jq -r '.[].operstate' | tee "$state_file")"
+    curr_state="$(ip --json link show group "$ifgroup" | jq -r 'unique_by(.operstate)[].operstate' | tee "$state_file")"
 
-    if [ "$curr_state" = UP ] && [ "$prev_state" != UP ]; then
+    if check_group_up "$curr_state" && ! check_group_up "$prev_state"; then
         dispatch connect "${ifgroup/wlan/wifi}"
-    elif  [ "$curr_state" != UP ] && [ "$prev_state" = UP ]; then
+    elif ! check_group_up "$curr_state" && check_group_up "$prev_state"; then
         dispatch disconnect "${ifgroup/wlan/wifi}"
     fi
 done
