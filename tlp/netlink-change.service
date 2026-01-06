@@ -1,9 +1,0 @@
-[Unit]
-Description=response to network link changes
-After=network-online.target
-
-[Service]
-Type=oneshot
-RuntimeDirectory=netlink-change
-RuntimeDirectoryPreserve=yes
-ExecStart=/bin/env tlp-rdw-simulator

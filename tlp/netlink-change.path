@@ -1,6 +1,0 @@
-[Path]
-PathChanged=/run/systemd/netif/state
-Unit=netlink-change.service
-
-[Install]
-WantedBy=default.target
