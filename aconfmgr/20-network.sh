@@ -5,6 +5,7 @@ CopyFile /etc/ssh/sshd_config
 CreateLink /etc/systemd/system/multi-user.target.wants/sshd.service /usr/lib/systemd/system/sshd.service
 IgnorePath /etc/ssh/ssh_host_*_key*
 
+CopyFile /etc/iproute2/group
 CopyFile /etc/systemd/network/20-ethernet.network
 CopyFile /etc/systemd/network/20-wlan.network
 CopyFile /etc/systemd/network/20-wwan.network
