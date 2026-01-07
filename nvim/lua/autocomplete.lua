@@ -3,11 +3,6 @@ M.augroup = vim.api.nvim_create_augroup(..., {})
 
 local setup_autocmds = function()
     vim.api.nvim_clear_autocmds({ group = M.augroup })
-
-    vim.api.nvim_create_autocmd('InsertEnter', {
-        group = M.augroup,
-        command = 'COQnow',
-    })
 end
 
 local setup_opts = function()

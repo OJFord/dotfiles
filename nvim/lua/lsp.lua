@@ -37,7 +37,7 @@ local setup_keymap = function()
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
-    M.coq_settings['keymap'] = {
+    M.coq_settings.keymap = {
         -- override conflicting defaults
         bigger_preview = "<C-S-P>",
         jump_to_mark = "<C-M>",
@@ -45,7 +45,8 @@ local setup_keymap = function()
 end
 
 local setup_opts = function()
-    M.coq_settings['xdg'] = true
+    M.coq_settings.auto_start = "shut-up"
+    M.coq_settings.xdg = true
 end
 
 local function is_shell_script(filename)
