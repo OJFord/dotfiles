@@ -1,5 +1,5 @@
 # shellcheck shell=bash
-AddPackage neovim
+AddPackage --foreign neovim-nightly-bin # until v0.12 stable for vim.pack
 
 AddPackage darkman
 AddPackage fish

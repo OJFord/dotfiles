@@ -67,33 +67,6 @@
 [submodule "yagro.dotfiles"]
 	path = yagro.dotfiles
 	url = git@github.com:OJFord/yagro.dotfiles
-[submodule "vim/pack/all/start/nvim-lspconfig"]
-	path = vim/pack/neovim-only/opt/nvim-lspconfig
-	url = https://github.com/neovim/nvim-lspconfig
-[submodule "vim/pack/all/start/coq-nvim"]
-	path = vim/pack/neovim-only/opt/coq-nvim
-	url = https://github.com/ms-jpq/coq-nvim
 [submodule "selenized"]
 	path = selenized
 	url = https://github.com/jan-warchol/selenized
-[submodule "vim/pack/neovim-only/opt/darkman.nvim"]
-	path = vim/pack/neovim-only/opt/darkman.nvim
-	url = https://github.com/4e554c4c/darkman.nvim
-[submodule "vim/pack/neovim-only/opt/plenary.nvim"]
-	path = vim/pack/neovim-only/opt/plenary.nvim
-	url = https://github.com/nvim-lua/plenary.nvim
-[submodule "vim/pack/neovim-only/opt/none-ls.nvim"]
-	path = vim/pack/neovim-only/opt/none-ls.nvim
-	url = https://github.com/nvimtools/none-ls.nvim
-[submodule "vim/pack/neovim-only/opt/trouble.nvim"]
-	path = vim/pack/neovim-only/opt/trouble.nvim
-	url = https://github.com/folke/trouble.nvim
-[submodule "vim/pack/neovim-only/opt/nvim-web-devicons"]
-	path = vim/pack/neovim-only/opt/nvim-web-devicons
-	url = https://github.com/nvim-tree/nvim-web-devicons
-[submodule "vim/pack/neovim-only/opt/telescope.nvim"]
-	path = vim/pack/neovim-only/opt/telescope.nvim
-	url = https://github.com/nvim-telescope/telescope.nvim
-[submodule "vim/pack/neovim-only/opt/telescope-fzf-native.nvim"]
-	path = vim/pack/neovim-only/opt/telescope-fzf-native.nvim
-	url = https://github.com/nvim-telescope/telescope-fzf-native.nvim
