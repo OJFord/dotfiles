@@ -30,10 +30,6 @@ IgnorePath /usr/lib/locale/locale-archive
 CopyFile /etc/locale.conf
 CopyFile /etc/vconsole.conf
 
-# Scanner
-AddPackage simple-scan
-AddPackage usbutils
-
 CreateLink /etc/localtime /usr/share/zoneinfo/GB
 CreateLink /etc/systemd/system/dbus-org.freedesktop.timesync1.service /usr/lib/systemd/system/systemd-timesyncd.service
 CreateLink /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service /usr/lib/systemd/system/systemd-timesyncd.service
