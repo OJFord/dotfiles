@@ -7,6 +7,7 @@ Type=oneshot
 RemainAfterExit=yes
 LoadCredentialEncrypted=bw-client-id
 LoadCredentialEncrypted=bw-client-secret
+ExecStart=-/usr/bin/notify-send 'Logging in to BitWarden with client secret'
 ExecStart=/usr/bin/bash -c 'env BW_CLIENTID="$(systemd-creds cat bw-client-id)" BW_CLIENTSECRET="$(systemd-creds cat bw-client-secret)" bw login --apikey'
 ExecStop=/usr/bin/bw logout
 
