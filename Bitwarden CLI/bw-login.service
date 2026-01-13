@@ -1,0 +1,13 @@
+[Unit]
+Description=Bitwarden CLI login
+After=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+LoadCredentialEncrypted=bw-apikey:%E/Bitwarden\ CLI/apikey
+ExecStart=/usr/bin/bash -o allexport -c 'source "%d/bw-apikey"; bw login --apikey'
+ExecStop=/usr/bin/bw logout
+
+[Install]
+WantedBy=default.target
