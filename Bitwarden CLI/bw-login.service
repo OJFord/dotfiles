@@ -5,8 +5,9 @@ After=network-online.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-LoadCredentialEncrypted=bw-apikey:%E/Bitwarden\ CLI/apikey
-ExecStart=/usr/bin/bash -o allexport -c 'source "%d/bw-apikey"; bw login --apikey'
+LoadCredentialEncrypted=bw-client-id
+LoadCredentialEncrypted=bw-client-secret
+ExecStart=/usr/bin/bash -c 'env BW_CLIENTID="$(systemd-creds cat bw-client-id)" BW_CLIENTSECRET="$(systemd-creds cat bw-client-secret)" bw login --apikey'
 ExecStop=/usr/bin/bw logout
 
 [Install]

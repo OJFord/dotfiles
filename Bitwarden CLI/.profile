@@ -1,13 +1,16 @@
-bw_dir="$XDG_CONFIG_HOME/Bitwarden CLI"
+credstore="$XDG_CONFIG_HOME/credstore.encrypted"
 
-if [ ! -f "$bw_dir/apikey" ]; then
-    cat <<-EOF | systemd-creds encrypt --user --name=bw-apikey - "$bw_dir/apikey"
-		BW_CLIENTID="$(systemd-ask-password 'Bitwarden client id?')"
-		BW_CLIENTSECRET="$(systemd-ask-password 'Bitwarden client secret?')"
-EOF
+if [ ! -f "$credstore/bw-client-id" ]; then
+    systemd-ask-password 'Bitwarden client id?' \
+        | systemd-creds encrypt --user --name=bw-client-id - "$credstore/bw-client-id"
 fi
 
-if [ ! -f "$bw_dir/password" ]; then
+if [ ! -f "$credstore/bw-client-secret" ]; then
+    systemd-ask-password 'Bitwarden client secret?' \
+        | systemd-creds encrypt --user --name=bw-client-secret - "$credstore/bw-client-secret"
+fi
+
+if [ ! -f "$credstore/bw-password" ]; then
     systemd-ask-password 'Bitwarden master password?' \
-        | systemd-creds encrypt --user --name=bw-password - "$bw_dir/password"
+        | systemd-creds encrypt --user --name=bw-password - "$credstore/bw-password"
 fi
