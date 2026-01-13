@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -eEuo pipefail
+
+no_overwrite=
+if [ "${1-}" = --no-overwrite ]; then
+    no_overwrite=1
+fi
+
+credstore="$XDG_CONFIG_HOME/credstore.encrypted"
+mkdir -p "$credstore"
+export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/Bitwarden CLI"
+
+check() {
+    cred="$1"
+    if [ -f "$credstore/$cred" ]; then
+        if [ -n "$no_overwrite" ]; then exit; fi
+        >&2 echo "WARN: $credstore/$cred already exists"
+    fi
+}
+
+encrypt() {
+    cred="$1"
+    systemd-creds encrypt --user --name="$cred" - "$credstore/$cred"
+}
+
+check bw-client-id
+systemd-ask-password 'Bitwarden client id?' | encrypt bw-client-id
+
+check bw-client-secret
+systemd-ask-password 'Bitwarden client secret?' | encrypt bw-client-secret
+
+check bw-password
+systemd-ask-password 'Bitwarden master password?' | encrypt bwpassword
