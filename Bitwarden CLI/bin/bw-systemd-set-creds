@@ -20,7 +20,8 @@ check() {
 
 encrypt() {
     cred="$1"
-    systemd-creds encrypt --user --name="$cred" - "$credstore/$cred"
+    from="${2--}"
+    systemd-creds encrypt --user --name="$cred" "$from" "$credstore/$cred"
 }
 
 check bw-client-id
@@ -30,4 +31,8 @@ check bw-client-secret
 systemd-ask-password 'Bitwarden client secret?' | encrypt bw-client-secret
 
 check bw-password
-systemd-ask-password 'Bitwarden master password?' | encrypt bwpassword
+tmp_pass=.bw-password.tmp
+systemd-ask-password 'Bitwarden master password?' \
+    | pass insert -mf "$tmp_pass" >/dev/null
+encrypt bw-password "$PASSWORD_STORE_DIR/$tmp_pass.gpg"
+pass rm -f "$tmp_pass"
