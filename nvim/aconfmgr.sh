@@ -7,6 +7,7 @@ AddPackage just
 AddPackage shellcheck
 
 # Language servers
+AddPackage eslint-language-server
 AddPackage gopls
 AddPackage lua-language-server
 AddPackage marksman
@@ -21,4 +22,3 @@ AddPackage --foreign terraform-ls
 AddPackage texlab
 AddPackage typescript-language-server
 AddPackage typescript-svelte-plugin
-AddPackage vscode-langservers-extracted
