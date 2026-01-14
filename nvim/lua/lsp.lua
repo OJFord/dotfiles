@@ -148,56 +148,14 @@ function M.setup()
         'vimls',
         'vuels',
     }
+
+    vim.lsp.config('*', {
+        on_attach = on_attach,
+    })
+
     vim.g.coq_settings = M.coq_settings
     local coq = require('coq')
     for _, lsp in ipairs(servers) do
-        vim.lsp.config(lsp, {
-            on_attach = on_attach,
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        globals = {
-                            'vim',
-                        },
-                    },
-                    workspace = {
-                        library = vim.env.VIMRUNTIME,
-                    },
-                    runtime = {
-                        version = 'LuaJIT',
-                        path = {
-                            'lua/?.lua',
-                            'lua/?/init.lua',
-                        },
-                    },
-                    telemetry = {
-                        enable = false,
-                    },
-                },
-                pylsp = {
-                    plugins = {
-                        pylint = {
-                            enabled = true,
-                        },
-                        pylsp_black = {
-                            enabled = true,
-                        },
-                        pylsp_mypy = {
-                            enabled = true,
-                            live_mode = true,
-                        },
-                        yapf = {
-                            enabled = false,
-                        },
-                    },
-                },
-                ['rust-analyzer'] = {
-                    check = {
-                        command = "on",
-                    },
-                },
-            },
-        })
         vim.lsp.config(lsp, coq.lsp_ensure_capabilities())
         vim.lsp.enable(lsp)
     end
