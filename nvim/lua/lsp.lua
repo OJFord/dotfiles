@@ -141,7 +141,7 @@ function M.setup()
         'pylsp',
         'rust_analyzer',
         'svelte',
-        'sqlls',
+        'sqls',
         'terraformls',
         'texlab',
         'ts_ls',

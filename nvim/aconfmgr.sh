@@ -16,7 +16,7 @@ AddPackage python-lsp-black
 AddPackage --foreign python-lsp-isort
 AddPackage --foreign python-pylsp-mypy
 AddPackage svelte-language-server
-AddPackage --foreign sql-language-server
+AddPackage --foreign sqls
 AddPackage --foreign terraform-ls
 AddPackage texlab
 AddPackage typescript-language-server
