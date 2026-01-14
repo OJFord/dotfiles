@@ -161,7 +161,14 @@ function M.setup()
                         },
                     },
                     workspace = {
-                        library = vim.api.nvim_get_runtime_file("", true),
+                        library = vim.env.VIMRUNTIME,
+                    },
+                    runtime = {
+                        version = 'LuaJIT',
+                        path = {
+                            'lua/?.lua',
+                            'lua/?/init.lua',
+                        },
                     },
                     telemetry = {
                         enable = false,
