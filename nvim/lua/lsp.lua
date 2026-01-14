@@ -191,8 +191,10 @@ function M.setup()
                         },
                     },
                 },
-                rust = {
-                    clippy_preference = "on",
+                ['rust-analyzer'] = {
+                    check = {
+                        command = "on",
+                    },
                 },
             },
         })
