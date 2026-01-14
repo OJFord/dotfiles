@@ -64,9 +64,6 @@
 [submodule "vim-fugitive-gitlab"]
 	path = vim/pack/all/start/fugitive-gitlab.vim
 	url = https://github.com/shumphrey/fugitive-gitlab.vim
-[submodule "yagro.dotfiles"]
-	path = yagro.dotfiles
-	url = git@github.com:OJFord/yagro.dotfiles
 [submodule "selenized"]
 	path = selenized
 	url = https://github.com/jan-warchol/selenized

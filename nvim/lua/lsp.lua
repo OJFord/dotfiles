@@ -146,7 +146,6 @@ function M.setup()
         'texlab',
         'ts_ls',
         'vimls',
-        'vuels',
     }
 
     vim.lsp.config('*', {
