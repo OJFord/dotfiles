@@ -110,7 +110,7 @@ function M.setup()
 
     local on_attach = function(client, bufnr)
         -- https://github.com/nvimtools/none-ls.nvim/wiki/Formatting-on-save#sync-formatting
-        if client.supports_method("textDocument/formatting") then
+        if client:supports_method("textDocument/formatting") then
             vim.api.nvim_create_autocmd("BufWritePre", {
                 group = M.augroup,
                 buffer = bufnr,
