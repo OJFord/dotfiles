@@ -9,21 +9,19 @@ end
 local setup_keymap = function()
     local builtin = require('telescope.builtin')
 
-    vim.keymap.set('n', M.leader .. 'c', builtin.git_bcommits, {})
+    local function find_in_files()
+        builtin.grep_string({
+            path_display = { 'smart' },
+            only_sort_text = true,
+            search = '', -- behave like `builtin.live_grep`, but enables fzf ext
+        })
+    end
 
-    vim.keymap.set('n', M.leader .. 'b', builtin.buffers, {})
-    vim.keymap.set('n', '<C-B>', builtin.buffers, {})
-
-    vim.keymap.set('n', M.leader .. 'f', builtin.live_grep, {})
-    vim.keymap.set('n', '<C-F>', builtin.live_grep, {})
-    vim.keymap.set('n', 'f', builtin.current_buffer_fuzzy_find, {})
-
-    vim.keymap.set('n', M.leader .. 'p', builtin.find_files, {})
-    vim.keymap.set('n', '<C-P>', builtin.find_files, {})
-
-    vim.keymap.set('n', M.leader .. 'r', builtin.lsp_references, {})
-
-    vim.keymap.set('n', M.leader .. 's', builtin.grep_string, {})
+    vim.keymap.set('n', M.leader .. 'c', builtin.git_bcommits, { nowait = true })
+    vim.keymap.set('n', M.leader .. 'b', builtin.buffers, { nowait = true })
+    vim.keymap.set('n', M.leader .. 'f', find_in_files, { nowait = true })
+    vim.keymap.set('n', M.leader .. 'p', builtin.find_files, { nowait = true })
+    vim.keymap.set('n', M.leader .. 'r', builtin.lsp_references, { nowait = true })
 end
 
 function M.setup()
@@ -31,7 +29,8 @@ function M.setup()
     setup_keymap()
 
     local actions = require('telescope.actions')
-    require('telescope').setup {
+    local telescope = require('telescope')
+    telescope.setup {
         defaults = {
             mappings = {
                 i = {
@@ -46,13 +45,9 @@ function M.setup()
                 },
             },
         },
-        extensions = {
-            fzf = {
-            }
-        }
     }
 
-    require('telescope').load_extension('fzf')
+    telescope.load_extension('fzf')
 end
 
 return M
