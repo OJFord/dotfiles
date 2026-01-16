@@ -32,8 +32,10 @@ function M.setup()
     local telescope = require('telescope')
     telescope.setup {
         defaults = {
+            initial_mode = 'insert',
             mappings = {
                 i = {
+                    ["<esc>"] = actions.close,
                     ["<C-j>"] = actions.move_selection_next,
                     ["<C-k>"] = actions.move_selection_previous,
                     ["<C-h>"] = actions.results_scrolling_left,
