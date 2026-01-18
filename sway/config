@@ -50,14 +50,18 @@ include "$XDG_CONFIG_HOME"/*/swayconfig
 default_border pixel 1
 
 # default application workspaces
-assign [app_id="discord"] 2
 assign [app_id="Slack"] 2
+assign [app_id="discord"] 2
 assign [app_id="DBeaver"] 3
 for_window [app_id="DBeaver "] move container to workspace 3
-for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable
 assign [app_id="firefox"] 5
-for_window [app_id="pavucontrol"] floating enable
+
+for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable
 for_window [app_id="fzf-dmenu"] floating enable
+for_window [app_id="hu.irl.cameractrls"] floating enable # main
+for_window [class="hu.irl.cameractrls"] floating enable # preview, https://github.com/soyersoyer/cameractrls/issues/83#issuecomment-3765712016
+for_window [app_id="pavucontrol"] floating enable
+
 for_window [app_id="bar-term"] {
     floating enable
     border pixel 1
