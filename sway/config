@@ -51,7 +51,6 @@ default_border pixel 1
 
 # default application workspaces
 assign [app_id="Slack"] 2
-assign [app_id="discord"] 2
 assign [app_id="DBeaver"] 3
 for_window [app_id="DBeaver "] move container to workspace 3
 assign [app_id="firefox"] 5
