@@ -80,6 +80,9 @@
 [help]
     autocorrect = 1
 
+[init]
+    defaultBranch = master
+
 [interactive]
     singleKey = true
     diffFilter = git delta --features=interactive
@@ -117,13 +120,13 @@
     forceSignAnnotated = true
 
 [url "git@github.com:"]
-        insteadOf = gh:
+    insteadOf = gh:
 
 [url "git@gitlab.com:"]
-        insteadOf = gl:
+    insteadOf = gl:
 
 [url "aur@aur.archlinux.org:"]
-        insteadOf = aur:
+    insteadOf = aur:
 
 [user]
     name = Oliver Ford
@@ -132,6 +135,3 @@
 
 [include]
     path = active-gpg-key.config
-
-[init]
-    defaultBranch = master
