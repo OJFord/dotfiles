@@ -5,6 +5,7 @@
     amend = commit --amend
     changes = log HEAD...@{upstream} --left-right --graph
     conflicts = "!f(){ git diff --check | cut --delimiter=':' --field=1 | uniq; }; f"
+    delta = "!f(){ sed -e $'s/\\t/␉───/g ; s/\\r$/␍/g' | delta $@; }; f"
     files = diff-tree --no-commit-id --name-only -r
     fixup = "!f(){ target=\"$(test -n \"$1\" && git rev-parse \"$1\" || git fzsha rev-parse)\"; git commit --fixup=\"$target\" ${@:2} && EDITOR=true git rebase -i --autostash --autosquash \"$target^\"; }; f"
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
@@ -29,29 +30,34 @@
 [core]
     editor = vim
     hooksPath = ~/.config/git/bin/hooks
-    pager = delta
+    pager = git delta --features=full
+	sparseCheckout = true
 
 [delta]
-    features = full
-    navigate = true
-
-[include]
-    path = delta-light-or-dark.config
+    hyperlinks = true
+    syntax-theme = base16-256
 
 [delta "full"]
+    navigate = true
 
 [delta "interactive"]
+    color-only = true
     keep-plus-minus-markers = false
 
 [diff]
     algorithm = histogram
-    colorMoved = default
+    colorMoved = dimmed-zebra
+    colorMovedWs = allow-indentation-change
     compactionHeuristic = true
     context = 3
     indentHeuristic = true
     interHunkContext = 1
     noprefix = false
     wordRegex = [^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+
+
+[diff "json"]
+    textconv = jq
+    binary = true
 
 [filter "hawser"]
     required = true
@@ -76,10 +82,10 @@
 
 [interactive]
     singleKey = true
-    diffFilter = delta --color-only --features=interactive
+    diffFilter = git delta --features=interactive
 
 [merge]
-    conflictStyle = diff3
+    conflictStyle = zdiff3
 
 [protocol "keybase"]
     allow = always
