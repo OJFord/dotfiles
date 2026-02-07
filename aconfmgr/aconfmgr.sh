@@ -1,4 +1,6 @@
 # shellcheck shell=bash
-AddPackage wget # Used in bootstrapping aconfmgr
 AddPackage --foreign aconfmgr-git
+AddPackage base-devel
+AddPackage sudo
+AddPackage wget
 AddPackage --foreign yay

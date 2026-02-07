@@ -1,12 +1,11 @@
 # shellcheck shell=bash
 
 # shellcheck disable=SC2154
-this_dir="$config_dir" # defined in aconfmgr
+this_dir="$(realpath "$config_dir")" # defined in aconfmgr
 
 if ! [ -L "${XDG_CONFIG_HOME-}" ]; then
     if [ -z "${XDG_CONFIG_HOME-}" ]; then
         export XDG_CONFIG_HOME="$HOME/.config"
-        echo set xdgch
     fi
 
     rm -r "$HOME/.config" # only this dir may have been created automatically, leave other XDG_CONFIG_HOMEs
