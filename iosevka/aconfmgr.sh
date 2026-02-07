@@ -1,5 +1,5 @@
 # shellcheck shell=bash
 AddPackage --foreign iosevka-generate
-AddPackage fontforge
+AddPackage --foreign font-patcher
 
 AddPackage gucharmap
