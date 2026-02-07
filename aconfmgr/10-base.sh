@@ -52,7 +52,7 @@ AddPackage lvm2
 AddPackage systemd-sysvcompat
 
 AddPackage base
-AddPackageGroup base-devel
+AddPackage base-devel
 AddPackage man-pages
 AddPackage man-db
 
