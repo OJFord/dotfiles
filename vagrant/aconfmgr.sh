@@ -1,3 +1,3 @@
 # shellcheck shell=bash
-AddPackage vagrant
+AddPackage --foreign vagrant
 AddPackage virtualbox

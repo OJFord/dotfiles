@@ -1,2 +1,2 @@
 # shellcheck shell=bash
-AddPackage pcmanfm-gtk3
+AddPackage pcmanfm

@@ -1,3 +1,3 @@
 # shellcheck shell=bash
 AddPackage darkman
-AddPackage xdg-desktop-portal-impl
+AddPackage xdg-desktop-portal-wlr

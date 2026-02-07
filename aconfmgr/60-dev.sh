@@ -13,9 +13,9 @@ AddPackage fzf
 AddPackage ghc-libs
 IgnorePath /usr/lib/ghc-*/package.conf.d/*
 
-AddPackage gnu-netcat
+AddPackage --foreign gnu-netcat
 AddPackage helm
-AddPackage --foreign jq-git
+AddPackage jq
 AddPackage kubectl
 AddPackage kubectx
 AddPackage python-pre-commit
