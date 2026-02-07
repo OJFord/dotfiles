@@ -4,6 +4,7 @@ Name=ww*
 
 [Link]
 Group=3
+RequiredForOnline=routable
 
 [Network]
 DHCP=yes
