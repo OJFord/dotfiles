@@ -3,10 +3,12 @@ Name=wl*
 
 [Link]
 Group=2
+RequiredForOnline=routable
 
 [Network]
 DHCP=yes
 IPv6PrivacyExtensions=yes
+MulticastDNS=yes
 
 [DHCPv4]
 RouteMetric=600

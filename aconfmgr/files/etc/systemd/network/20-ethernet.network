@@ -4,10 +4,12 @@ Name=eth*
 
 [Link]
 Group=1
+RequiredForOnline=routable
 
 [Network]
 DHCP=yes
 IPv6PrivacyExtensions=yes
+MulticastDNS=yes
 
 [DHCPv4]
 RouteMetric=100
