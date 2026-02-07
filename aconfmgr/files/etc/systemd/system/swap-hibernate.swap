@@ -1,0 +1,10 @@
+[Unit]
+Description=for hibernation
+Before=swap.target
+
+[Swap]
+What=/swap/hibernate
+Priority=10
+
+[Install]
+WantedBy=swap.target

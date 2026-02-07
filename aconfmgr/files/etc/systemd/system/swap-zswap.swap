@@ -1,10 +1,10 @@
 [Unit]
-Description=providing a swapfile
+Description=for zswap
 Before=swap.target
 
 [Swap]
-What=/swapfile
-Priority=20
+What=/swap/zswap
+Priority=32767
 
 [Install]
 WantedBy=swap.target

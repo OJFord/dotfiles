@@ -1,0 +1,13 @@
+[Unit]
+Description=creating a swap file for hibernation
+ConditionPathExists=!/swap/hibernate
+Requires=swap.mount
+After=swap.mount
+Before=swap-hibernate.swap
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'btrfs filesystem mkswapfile --size="$(expr "$(free --giga | sed -En "s/Mem: +([0-9]+) +.+/\1/p")" "*" 3 / 5)G" /swap/hibernate'
+
+[Install]
+RequiredBy=swap-hibernate.swap

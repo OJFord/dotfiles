@@ -1,0 +1,13 @@
+[Unit]
+Description=creating a swap file for zswap
+ConditionPathExists=!/swap/zswap
+Requires=swap.mount
+After=swap.mount
+Before=swap-zswap.swap
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'btrfs filesystem mkswapfile --size=8G /swap/zswap'
+
+[Install]
+RequiredBy=swap-zswap.swap
