@@ -6,13 +6,14 @@ this_dir="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)"
 ensure_aconfmgr() {
     if ! command -v aconfmgr; then
         pushd "$(mktemp -d)"
-        sudo pacman -S wget
-        wget 'https://aur.archlinux.org/cgit/aur.git/snapshot/aconfmgr-git.tar.gz'
+        sudo pacman -S base-devel wget
+        wget 'https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz'
         tar -xf ./*.tar.gz
         rm ./*.tar.gz
         cd ./*
         makepkg -si
         popd
+        yay -Sy aconfmgr-git
     fi
 }
 
@@ -23,6 +24,11 @@ ensure_brew() {
     eval "$(brew shellenv)"
     brew analytics off
 }
+
+export XDG_CONFIG_HOME="$HOME/.config"
+if [ "$this_dir" != "$(realpath "$XDG_CONFIG_HOME")" ]; then
+  ln -sf "$this_dir" "$XDG_CONFIG_HOME"
+fi
 
 case "$(uname -a)" in
     *Linux*arch*)
@@ -44,7 +50,3 @@ ln -sf "$this_dir/.profile" "$HOME/.profile"
 pre-commit install --install-hooks # now before we error and start fixing things
 git --git-dir="$this_dir" remote set-url origin gh:OJFord/dotfiles
 source "$HOME/.profile"
-
-if [ "$this_dir" != "$(realpath "$XDG_CONFIG_HOME")" ]; then
-  ln -sf "$this_dir" "$XDG_CONFIG_HOME"
-fi
