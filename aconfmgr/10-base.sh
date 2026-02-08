@@ -4,6 +4,7 @@ IgnorePath '/etc/ca-certificates/extracted/*'
 IgnorePath '/etc/ssl/certs/*'
 IgnorePath '/var/*'
 
+AddPackage efibootmgr
 CopyFile /boot/loader/loader.conf 755
 IgnorePath '/boot/*/*.EFI'
 IgnorePath '/boot/*/*.efi'
@@ -16,34 +17,28 @@ IgnorePath '/etc/mkinitcpio.d/*.preset'
 IgnorePath '/usr/lib/modules/*'
 
 root_device="$(findmnt --noheadings --output=source --target=/)"
+cat > "$(CreateFile /etc/cmdline.d/root.conf 755)" <<-EOF
+	root=$root_device rw
+EOF
+
 if [ "$(lsblk --noheadings --output=type "$root_device")" = crypt ]; then
     root_device_name="$(lsblk --noheadings --output=name "$root_device")"
     root_partition_uuid="$(lsblk --noheadings --output=uuid "$root_device")"
-    crypt_options="rd.luks.name=${root_partition_uuid}=${root_device_name}"
-else
-    crypt_options="disablehooks=sd-encrypt"
-fi
-ucode="$(yay -Qs --quiet \\-ucode)"
-if [ "$ucode" = 'intel-ucode' ]; then
-    cpu_options="intel_pstate=no_hwp"
-else
-    cpu_options=
-fi
-linuces=('linux' 'linux-lts')
-for linux in "${linuces[@]}"; do
-    AddPackage "$linux"
-    AddPackage "${linux}-headers"
 
-    cat > "$(CreateFile "/boot/loader/entries/arch-${linux}.conf" 755)" <<-EOF
-		title Arch (${linux})
-		linux /vmlinuz-${linux}
-		initrd /${ucode}.img
-		initrd /initramfs-${linux}.img
-		options ${crypt_options} root=${root_device} rw ${cpu_options} systemd.hostname=$(uname -n)
-	EOF
-done
+    cat > "$(CreateFile /etc/cmdline.d/crypt.conf 755)" <<-EOF
+		rd.luks.name=${root_partition_uuid}=${root_device_name}
+EOF
+else
+    cat > "$(CreateFile /etc/cmdline.d/crypt.conf 755)" <<-EOF
+		disablehooks=sd-encrypt
+EOF
+fi
 
+AddPackage linux
+AddPackage linux-lts
+AddPackage linux-firmware
 AddPackage --foreign mkinitcpio-firmware
+
 AddPackage coreutils
 IgnorePath '/usr/share/info/dir'
 
