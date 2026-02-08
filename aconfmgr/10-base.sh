@@ -16,14 +16,21 @@ CopyFile /etc/mkinitcpio.conf
 IgnorePath '/etc/mkinitcpio.d/*.preset'
 IgnorePath '/usr/lib/modules/*'
 
-root_device="$(findmnt --noheadings --output=source --target=/)"
+root_device="$(findmnt --noheadings --output=source --target=/ | sed 's|\[/@[a-z]*\]$||')"
 cat > "$(CreateFile /etc/cmdline.d/root.conf 755)" <<-EOF
 	root=$root_device rw
 EOF
 
+if [ "$(findmnt --noheadings --output=fstype --target=/)" = btrfs ]; then
+    AddPackage btrfs-progs
+    cat > "$(CreateFile /etc/cmdline.d/btrfs.conf 755)" <<-EOF
+		rootfstype=btrfs rootflags=subvol=$(findmnt --noheadings --output=fs-options --target=/ | sed -E 's/.*subvol=\/(@[^,]*)(,.+|$)/\1/')
+EOF
+fi
+
 if [ "$(lsblk --noheadings --output=type "$root_device")" = crypt ]; then
     root_device_name="$(lsblk --noheadings --output=name "$root_device")"
-    root_partition_uuid="$(lsblk --noheadings --output=uuid "$root_device")"
+    root_partition_uuid="$(sudo cryptsetup luksUUID "$(sudo cryptsetup status "$root_device_name" | grep device: | cut -d: -f2 | tr -d ' ')")"
 
     cat > "$(CreateFile /etc/cmdline.d/crypt.conf 755)" <<-EOF
 		rd.luks.name=${root_partition_uuid}=${root_device_name}
