@@ -1,2 +1,2 @@
 # shellcheck shell=bash
-AddPackage xf86-video-ati
+AddPackage intel-ucode
