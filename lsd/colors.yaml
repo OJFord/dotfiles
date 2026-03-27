@@ -1,0 +1,45 @@
+user: reset
+group: reset
+
+permission:
+  read: dark_green
+  write: dark_yellow
+  exec: dark_red
+  exec-sticky: dark_red
+  no-access: red
+  octal: cyan
+  acl: cyan
+  context: cyan
+
+date:
+  older: grey
+  day-old: dark_green
+  hour-old: green
+
+size:
+  none: reset
+  small: grey
+  medium: dark_yellow
+  large: yellow
+
+inode:
+  valid: green
+  invalid: red
+
+links:
+  valid: green
+  invalid: red
+
+tree-edge: reset
+
+git-status:
+  default: reset
+  unmodified: reset
+  ignored: reset
+  new-in-index: dark_green
+  new-in-workdir: dark_green
+  typechange: dark_yellow
+  deleted: dark_red
+  renamed: dark_green
+  modified: dark_yellow
+  conflicted: dark_red
