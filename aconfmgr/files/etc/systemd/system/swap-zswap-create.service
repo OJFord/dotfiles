@@ -1,6 +1,7 @@
 [Unit]
 Description=creating a swap file for zswap
 ConditionPathExists=!/swap/zswap
+DefaultDependencies=no
 Requires=swap.mount
 After=swap.mount
 Before=swap-zswap.swap
