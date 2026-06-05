@@ -1,6 +1,6 @@
 [general]
 import = [
-    "~/.config/selenized/terminals/alacritty/selenized-dark.toml",
+    "selenized.toml",
 ]
 
 [colors]
