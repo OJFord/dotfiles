@@ -27,10 +27,10 @@
 
     "battery": {
         "format-icons": ["", "", "", "", ""],
-        "format-charging": "⚡ {capacity}%",
+        "format-charging": " {capacity}%",
         "format-discharging": "{icon} {capacity}%",
         "format-not charging": "{icon} {capacity}%",
-        "format-full": "⚡",
+        "format-full": "",
     },
 
     "clock": {
@@ -140,5 +140,6 @@
     },
 
     "tray": {
+        "icon-size": 19,
     },
 }

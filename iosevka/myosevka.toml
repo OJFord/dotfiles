@@ -3,9 +3,6 @@ family = "Iosevka Myosevka"
 spacing = "fontconfig-mono"
 serifs = "sans"
 
-[buildPlans.Myosevka.iosevka-generate]
-nerdfont = ["complete"]
-
 [buildPlans.Myosevka.variants.design]
 # Numbers
 one = "no-base"
