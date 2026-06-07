@@ -26,6 +26,14 @@ if [ "$(findmnt --noheadings --output=fstype --target=/)" = btrfs ]; then
     cat > "$(CreateFile /etc/cmdline.d/btrfs.conf 755)" <<-EOF
 		rootfstype=btrfs rootflags=subvol=$(findmnt --noheadings --output=fs-options --target=/ | sed -E 's/.*subvol=\/(@[^,]*)(,.+|$)/\1/')
 EOF
+
+    AddPackage snapper
+    IgnorePath '/.snapshots/*'
+    CopyFile /etc/conf.d/snapper
+    CopyFile /etc/snapper/configs/home
+    CopyFile /etc/snapper/configs/root
+    CreateLink /etc/systemd/system/timers.target.wants/snapper-cleanup.timer /usr/lib/systemd/system/snapper-cleanup.timer
+    CreateLink /etc/systemd/system/timers.target.wants/snapper-timeline.timer /usr/lib/systemd/system/snapper-timeline.timer
 fi
 
 if [ "$(lsblk --noheadings --output=type "$root_device")" = crypt ]; then
