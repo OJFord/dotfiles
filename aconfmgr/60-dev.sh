@@ -13,7 +13,7 @@ AddPackage fzf
 AddPackage ghc-libs
 IgnorePath /usr/lib/ghc-*/package.conf.d/*
 
-AddPackage --foreign gnu-netcat
+AddPackage openbsd-netcat
 AddPackage helm
 AddPackage jq
 AddPackage kubectl
