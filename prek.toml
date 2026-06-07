@@ -1,0 +1,34 @@
+#:schema https://www.schemastore.org/prek.json
+[auto_update]
+cooldown_days = 31
+
+[[repos]]
+repo = "builtin"
+hooks = [
+    { id = "check-executables-have-shebangs" },
+    { id = "check-json" },
+    { id = "check-merge-conflict" },
+    { id = "check-symlinks" },
+    { id = "check-toml" },
+    { id = "check-vcs-permalinks" },
+    { id = "check-xml" },
+    { id = "check-yaml" },
+    { id = "detect-private-key" },
+    { id = "end-of-file-fixer" },
+    { id = "pretty-format-json", args = ["--autofix"] },
+    { id = "trailing-whitespace" },
+]
+
+[[repos]]
+repo = "https://github.com/pre-commit/pre-commit-hooks"
+rev = "v6.0.0"
+hooks = [
+    { id = "sort-simple-yaml" },
+]
+
+[[repos]]
+repo = "https://github.com/koalaman/shellcheck-precommit"
+rev = "v0.11.0"
+hooks = [
+    { id = "shellcheck", args = ["--external-sources"] },
+]
