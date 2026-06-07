@@ -1,6 +1,7 @@
 #%PAM-1.0
 
 auth    sufficient pam_u2f.so
+auth    sufficient pam_fprintd.so timeout=3 max-tries=2
 auth    include    system-auth
 account include    system-auth
 session include    system-auth
